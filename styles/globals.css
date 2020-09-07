@@ -1,11 +1,17 @@
+@import url('https://fonts.googleapis.com/css2?family=Fredoka+One&family=Permanent+Marker&display=swap');
+
 html,
 body {
   padding: 0;
   margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Oxygen, Ubuntu,
-    Cantarell, Fira Sans, Droid Sans, Helvetica Neue, sans-serif;
+  font-family: 'Fredoka One', 'sans-serif';
   line-height: 1.6;
   font-size: 18px;
+	color: #EDEDED;
+  background: #021F38;
+  background: -webkit-radial-gradient(top left, #3D50C1, #021F38);
+  background: -moz-radial-gradient(top left, #3D50C1, #021F38);
+  background: radial-gradient(farthest-corner, #3D50C1, #021F38);
 }
 
 * {

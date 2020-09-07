@@ -1,18 +1,22 @@
 import Head from 'next/head'
-import Layout, { siteTitle } from '../components/layout'
+import Layout from '../components/layout/layout'
+import { siteTitle } from '../components/defaultHead'
+import Logo from '../components/logo/logo'
 import utilStyles from '../styles/utils.module.css'
-import { getSortedPostsData } from '../lib/posts'
+import { getAllActivitiesData } from '../lib/posts'
 
 export async function getStaticProps() {
-  const allPostsData = getSortedPostsData()
+  const allActivitiesData = getAllActivitiesData()
+  console.log('allActivitiesData', allActivitiesData)
   return {
     props: {
-      allPostsData
+      allActivitiesData
     }
   }
 }
 
-export default function Home({ allPostsData }) {
+export default function Home({ allActivitiesData }) {
+  console.log('allActivitiesData', allActivitiesData)
   return (
     <Layout home>
       <Head>

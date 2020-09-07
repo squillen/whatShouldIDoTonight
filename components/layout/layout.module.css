@@ -1,9 +1,10 @@
 .container {
   max-width: 36rem;
   height: 100%;
-  min-height: 100vh;
+  min-height: 300vh;
   padding: 0 1rem;
-  margin: 3rem auto 6rem;
+  margin: 3rem auto 6rem; 
+  /* ^^ consider removing ^^ */
 }
 
 .header {

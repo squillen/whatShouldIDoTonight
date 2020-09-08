@@ -1,28 +1,40 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import Head from 'next/head'
-import Activity from '../components/activity'
+import Link from 'next/link'
+import Activity from '../components/activity/activity'
 import Layout from '../components/layout/layout'
 import Button from '../components/button/button'
 import { siteTitle } from '../components/defaultHead'
 import utilStyles from '../styles/utils.module.css'
 import { getAllActivitiesData } from '../lib/posts'
 
+// HELPERS
+import getRandomActivity from '../helpers/getRandomActivity'
+
 export async function getStaticProps() {
-  const allActivitiesData = getAllActivitiesData()
-  console.log('allActivitiesData', allActivitiesData)
+  const activities = getAllActivitiesData()
   return {
     props: {
-      allActivitiesData
+      activities
     }
   }
 }
 
-export default function Home({ allActivitiesData }) {
+export default function Home({ activities }) {
   const [userAlone, setUserAlone] = useState(true)
   const [spendMoney, setSpendMoney] = useState(false)
   const [showThingToDo, setShowThingToDo] = useState(false)
+  const [thingToDo, setThingToDo] = useState({})
+  const [remainingActivities, setRemainingActivities] = useState(activities)
 
-  // click handlers
+  // EFFECTS
+  useEffect(() => {
+    const { newThingToDo, events } = getRandomActivity({ activities, userAlone, spendMoney })
+    setRemainingActivities(events)
+    setThingToDo(newThingToDo)
+  }, [userAlone, spendMoney])
+
+  // CLICK HANDLERS
   const resetOptions = () => {
     setUserAlone(true)
     setSpendMoney(false)
@@ -36,7 +48,28 @@ export default function Home({ allActivitiesData }) {
     if (name === 'userAlone') setUserAlone(boolean)
     else setSpendMoney(boolean)
   }
-  console.log('allActivitiesData', allActivitiesData)
+
+  // HTML 
+  const buttonLabel = Object.keys(thingToDo).length ? 'tell me another' : 'tell me'
+  console.log('thingToDo', thingToDo)
+  const buttons = (
+    <div className={utilStyles.buttonContainer}>
+      {
+        Object.keys(thingToDo).length
+          ? (
+            <Button
+              styleName={utilStyles.resetButton}
+              onClick={resetOptions}
+              label="reset"
+            />
+          )
+          : null
+      }
+      <Button 
+        label={<Link href={`/posts${thingToDo.category}/${thingToDo.id}`}><a>{buttonLabel}</a></Link>}
+      />
+    </div>
+  )
 
   return (
     <Layout home>
@@ -44,15 +77,7 @@ export default function Home({ allActivitiesData }) {
         <title>{siteTitle}</title>
       </Head>
       <section className={utilStyles.headingMd}>
-        {
-          showThingToDo
-            ? (
-              <Activity
-
-              />
-            )
-            : (
-              <div className={utilStyles.questions}>
+        <div className={utilStyles.questions}>
           <div className={utilStyles.question}>
             <span>
               I am
@@ -78,29 +103,11 @@ export default function Home({ allActivitiesData }) {
           </div>
           <div className={utilStyles.buttonContainer}>
             <Button 
-              label="tell me"
-              onClick={() => setShowThingToDo(true)}
+              label={<Link href={`/posts${thingToDo.category}/${thingToDo.id}`}><a>tell me</a></Link>}
             />
           </div>
         </div>
-            )
-        }
-      
       </section>
-      {/* <section className={`${utilStyles.headingMd} ${utilStyles.padding1px}`}>
-        <h2 className={utilStyles.headingLg}>Blog</h2>
-        <ul className={utilStyles.list}>
-          {allActivitiesData.map(({ id, date, title }) => (
-            <li className={utilStyles.listItem} key={id}>
-              {title}
-              <br />
-              {id}
-              <br />
-              {date}
-            </li>
-          ))}
-        </ul>
-      </section> */}
     </Layout>
   )
 }

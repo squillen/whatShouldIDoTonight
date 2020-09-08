@@ -6,7 +6,6 @@ import utilStyles from '../../../../styles/utils.module.css'
 
 export async function getStaticPaths() {
   const paths = getAllActivityIds()
-  console.log('paths in getStaticPaths :::', paths)
   return {
     paths,
     fallback: false
@@ -15,7 +14,6 @@ export async function getStaticPaths() {
 
 export async function getStaticProps({ params }) {
   // category, costType, id
-  console.log('params in getStaticProps :::', params)
   const activity = await getSpecificActivityData(params)
   return {
     props: {
@@ -25,7 +23,6 @@ export async function getStaticProps({ params }) {
 }
 
 export default function Post({ activity }) {
-  console.log('activity in Post :::', activity)
   return (
     <Layout>
       <Head>

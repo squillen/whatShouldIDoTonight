@@ -1,75 +1,58 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect } from 'react'
 import Head from 'next/head'
 import Link from 'next/link'
-import Activity from '../components/activity/activity'
+
+// REDUX
+import { connect, useSelector } from 'react-redux'
+import { bindActionCreators } from 'redux'
+import wrapper from '../src/store/store'
+import { getNewUserActivity, setUserActivities } from '../src/store/activities/action'
+
+// COMPONENTS
 import Layout from '../components/layout/layout'
 import Button from '../components/button/button'
 import { siteTitle } from '../components/defaultHead'
-import utilStyles from '../styles/utils.module.css'
-import { getAllActivitiesData } from '../lib/posts'
 
 // HELPERS
-import getRandomActivity from '../helpers/getRandomActivity'
+import utilStyles from '../styles/utils.module.css'
+import { getAllActivitiesData } from '../lib/posts'
+import { getUserActivities } from '../lib/helpers/dataHelpers'
 
-export async function getStaticProps() {
+export const getStaticProps = wrapper.getStaticProps(({ store }) => {
   const activities = getAllActivitiesData()
+  store.dispatch({ type: 'SET_ALL_ACTIVITIES', payload: activities })
   return {
     props: {
       activities
     }
   }
-}
+})
 
-export default function Home({ activities }) {
+function Home (props) {
+  const { activities } = props
   const [userAlone, setUserAlone] = useState(true)
   const [spendMoney, setSpendMoney] = useState(false)
-  const [showThingToDo, setShowThingToDo] = useState(false)
-  const [thingToDo, setThingToDo] = useState({})
-  const [remainingActivities, setRemainingActivities] = useState(activities)
-
+  const [currentActivity, setCurrentActivity] = useState({})
+  const state = useSelector(state => state)
   // EFFECTS
   useEffect(() => {
-    const { newThingToDo, events } = getRandomActivity({ activities, userAlone, spendMoney })
-    setRemainingActivities(events)
-    setThingToDo(newThingToDo)
+    const userActivities = getUserActivities({ activities, userAlone, spendMoney })
+    props.setUserActivities(userActivities)
+    props.getNewUserActivity()
   }, [userAlone, spendMoney])
 
-  // CLICK HANDLERS
-  const resetOptions = () => {
-    setUserAlone(true)
-    setSpendMoney(false)
-    setShowThingToDo(false)
-  }
+  useEffect(() => {
+    setCurrentActivity(state.activity.currentActivity)
+  }, [state.activity.currentActivity])
 
+  // CLICK HANDLERS
   const handleSelect = (e) => {
     const name = e.target.name
     const value = e.target.value
-    const boolean = value === 'false' ? false : true
+    const boolean = value !== 'false'
     if (name === 'userAlone') setUserAlone(boolean)
     else setSpendMoney(boolean)
   }
-
-  // HTML 
-  const buttonLabel = Object.keys(thingToDo).length ? 'tell me another' : 'tell me'
-  console.log('thingToDo', thingToDo)
-  const buttons = (
-    <div className={utilStyles.buttonContainer}>
-      {
-        Object.keys(thingToDo).length
-          ? (
-            <Button
-              styleName={utilStyles.resetButton}
-              onClick={resetOptions}
-              label="reset"
-            />
-          )
-          : null
-      }
-      <Button 
-        label={<Link href={`/posts${thingToDo.category}/${thingToDo.id}`}><a>{buttonLabel}</a></Link>}
-      />
-    </div>
-  )
 
   return (
     <Layout home>
@@ -83,7 +66,7 @@ export default function Home({ activities }) {
               I am
             </span>
             <span>
-            <select className={utilStyles.select} name="userAlone" id="userAlone" onBlur={handleSelect}>
+              <select className={utilStyles.select} name="userAlone" id="userAlone" onBlur={handleSelect}>
                 <option className={utilStyles.option} name="userAlone" value="true">alone</option>
                 <option className={utilStyles.option} name="userAlone" value="false">not alone</option>
               </select>
@@ -96,14 +79,14 @@ export default function Home({ activities }) {
             <span>
               <select className={utilStyles.select} name="spendMoney" id="spendMoney" onBlur={handleSelect}>
                 <option className={utilStyles.option} name="spendMoney" value="false">not OK</option>
-                <option className={utilStyles.option}  name="spendMoney" value="true">OK</option>
+                <option className={utilStyles.option} name="spendMoney" value="true">OK</option>
               </select>
             </span>
             <span> with spending money</span>
           </div>
           <div className={utilStyles.buttonContainer}>
-            <Button 
-              label={<Link href={`/posts${thingToDo.category}/${thingToDo.id}`}><a>tell me</a></Link>}
+            <Button
+              label={<Link href={`/posts${currentActivity.category}/${currentActivity.id}`}><a>tell me</a></Link>}
             />
           </div>
         </div>
@@ -111,3 +94,11 @@ export default function Home({ activities }) {
     </Layout>
   )
 }
+
+const mapDispatchToProps = (dispatch) => {
+  return {
+    getNewUserActivity: bindActionCreators(getNewUserActivity, dispatch),
+    setUserActivities: bindActionCreators(setUserActivities, dispatch)
+  }
+}
+export default connect(null, mapDispatchToProps)(Home)

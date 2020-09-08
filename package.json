@@ -10,9 +10,24 @@
   "dependencies": {
     "gray-matter": "^4.0.2",
     "next": "9.5.3",
+    "next-redux-wrapper": "^6.0.2",
     "react": "16.13.1",
     "react-dom": "16.13.1",
+    "react-redux": "^7.2.1",
+    "redux": "^4.0.5",
+    "redux-devtools-extension": "^2.13.8",
+    "redux-logger": "^3.0.6",
+    "redux-thunk": "^2.3.0",
     "remark": "^12.0.1",
     "remark-html": "^12.0.0"
+  },
+  "devDependencies": {
+    "eslint": "^7.8.1",
+    "eslint-config-standard": "^14.1.1",
+    "eslint-plugin-import": "^2.22.0",
+    "eslint-plugin-node": "^11.1.0",
+    "eslint-plugin-promise": "^4.2.1",
+    "eslint-plugin-react": "^7.20.6",
+    "eslint-plugin-standard": "^4.0.1"
   }
 }

@@ -1,0 +1,39 @@
+.button,
+.resetButton {
+  min-width: 9rem;
+  max-width: 12rem;
+  padding: 0.25em;
+  height: 2.5rem;
+  min-height: 40px;
+  cursor: pointer;
+  font-size: 1rem;
+  border: 1px solid black;
+  border-radius: 1rem;
+  background: white;
+  color: black;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 0.25em 0;
+}
+
+.resetButton {
+  border: 1px solid red;
+}
+
+.admonishOKButton {
+  min-width: 6rem;
+  max-width: 9rem;
+  height: 3rem;
+  cursor: pointer;
+  font-size: 1rem;
+  border: 1px solid black;
+  border-radius: 1rem;
+  background: white;
+  color: black;
+  padding: 0.25em;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 0.5em 0;
+}

@@ -7,7 +7,9 @@ import { composeWithDevTools } from 'redux-devtools-extension'
 // IMPORT REDUCERS
 import activity from './activities/reducer'
 
-const initialState = {}
+const initialState = {
+  state: { server: {} }
+}
 
 const combinedReducer = combineReducers({
   activity
@@ -16,15 +18,13 @@ const combinedReducer = combineReducers({
 const reducer = (state = initialState, action) => {
   const actionType = action.type
   if (actionType === HYDRATE) {
-    const nextState = {
+    return {
       ...state,
-      ...action.payload
+      server: {
+        ...state.server,
+        ...action.payload.server
+      }
     }
-    if (state.allActivities) nextState.allActivities = state.allActivities
-    if (state.originalUserActivities) nextState.originalUserActivities = state.originalUserActivities
-    if (state.userActivities) nextState.userActivities = state.userActivities
-    if (state.currentActivity) nextState.currentActivity = state.currentActivity
-    return nextState
   } else {
     return combinedReducer(state, action)
   }

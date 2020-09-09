@@ -1,14 +1,18 @@
 export const activityActionTypes = {
+  RESET_ALL: 'RESET_ALL',
   SET_ALL_ACTIVITIES: 'SET_ALL_ACTIVITIES',
   SET_USER_ACTIVITIES: 'SET_USER_ACTIVITIES',
   GET_NEW_USER_ACTIVITY: 'GET_NEW_USER_ACTIVITY',
   RESET_USER_ACTIVITIES: 'RESET_USER_ACTIVITIES',
   RESTORE_USER_ACTIVITIES: 'RESTORE_USER_ACTIVITIES',
-  RESET_ALL_ACTIVITIES: 'RESET_ALL_ACTIVITIES'
 }
 
-export const setAllActivities = () => (dispatch) => {
-  return dispatch({ type: activityActionTypes.SET_ALL_ACTIVITIES })
+export const resetAll = () => (dispatch) => {
+  return dispatch({ type: activityActionTypes.RESET_ALL })
+}
+
+export const setAllActivities = (activities) => (dispatch) => {
+  return dispatch({ type: activityActionTypes.SET_ALL_ACTIVITIES, payload: activities })
 }
 
 export const setUserActivities = (payload) => (dispatch) => {
@@ -25,8 +29,4 @@ export const resetUserActivities = () => (dispatch) => {
 
 export const restoreUserActivities = () => (dispatch) => {
   return dispatch({ type: activityActionTypes.RESTORE_USER_ACTIVITIES })
-}
-
-export const resetAllActivities = () => (dispatch) => {
-  return dispatch({ type: activityActionTypes.RESET_ALL_ACTIVITIES })
 }

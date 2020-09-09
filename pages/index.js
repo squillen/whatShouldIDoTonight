@@ -34,8 +34,10 @@ function Home (props) {
   const [spendMoney, setSpendMoney] = useState(false)
   const [currentActivity, setCurrentActivity] = useState({})
   const state = useSelector(state => state)
+
   // EFFECTS
   useEffect(() => {
+    console.log('setting user activities')
     const userActivities = getUserActivities({ activities, userAlone, spendMoney })
     props.setUserActivities(userActivities)
     props.getNewUserActivity()

@@ -1,6 +1,7 @@
 import { activityActionTypes } from './action'
 
 const activityInitialState = {
+  activities: [],
   allActivities: [],
   userActivities: [],
   currentActivity: {}
@@ -11,7 +12,7 @@ export default function reducer (state = activityInitialState, action) {
     case activityActionTypes.SET_ALL_ACTIVITIES:
       return {
         ...state,
-        ...action.payload
+        activities: action.payload
       }
     case activityActionTypes.SET_USER_ACTIVITIES:
       return {
@@ -33,10 +34,10 @@ export default function reducer (state = activityInitialState, action) {
         userActivities: userActivitiesCopy
       }
     }
-    case activityActionTypes.RESET_ALL_ACTIVITIES:
+    case activityActionTypes.RESET_ALL:
       return {
         ...state,
-        allActivities: activityInitialState.allActivities
+        ...activityInitialState
       }
     case activityActionTypes.RESET_USER_ACTIVITIES:
       return {

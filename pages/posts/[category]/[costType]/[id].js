@@ -1,11 +1,12 @@
 import React, { useState, useEffect } from 'react'
 import Head from 'next/head'
 import Link from 'next/link'
+import { useRouter } from 'next/router'
 
 // REDUX
 import { connect, useSelector } from 'react-redux'
 import { bindActionCreators } from 'redux'
-import { getNewUserActivity, restoreUserActivities } from '../../../../src/store/activities/action'
+import { getNewUserActivity, resetAll, restoreUserActivities } from '../../../../src/store/activities/action'
 
 // HELPERS
 import { getAllActivityIds, getSpecificActivityData } from '../../../../lib/posts'
@@ -32,13 +33,9 @@ export const getStaticProps = async ({ params }) => {
   }
 }
 
-function resetOptions () {
-  // reset redux state
-  // router.push to home
-}
-
 function Post (props) {
   const { pageActivity } = props
+  const router = useRouter()
   const state = useSelector(state => state)
   const [nextActivity, setNextActivity] = useState({})
 
@@ -60,6 +57,13 @@ function Post (props) {
       props.getNewUserActivity()
     }
   }, [state.activity.userActivities])
+
+  // FUNCTIONS
+  function resetOptions () {
+    // reset redux state
+    // props.resetAll()
+    router.push('/')
+  }
 
   // HTML
   const buttonLabel = Object.keys(pageActivity).length ? 'tell me another' : 'tell me'
@@ -99,7 +103,8 @@ function Post (props) {
 const mapDispatchToProps = (dispatch) => {
   return {
     getNewUserActivity: bindActionCreators(getNewUserActivity, dispatch),
-    restoreUserActivities: bindActionCreators(restoreUserActivities, dispatch)
+    restoreUserActivities: bindActionCreators(restoreUserActivities, dispatch),
+    resetAll: bindActionCreators(resetAll, dispatch)
   }
 }
 export default connect(null, mapDispatchToProps)(Post)

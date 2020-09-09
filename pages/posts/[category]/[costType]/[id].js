@@ -28,6 +28,7 @@ export const getStaticProps = async ({ params }) => {
   const pageActivity = await getSpecificActivityData(params)
   return {
     props: {
+      fromWeb: true,
       pageActivity: pageActivity || {}
     }
   }
@@ -38,6 +39,7 @@ function Post (props) {
   const router = useRouter()
   const state = useSelector(state => state)
   const [nextActivity, setNextActivity] = useState({})
+  const [fromWeb, setFromWeb] = useState(props.fromWeb)
 
   // EFFECTS
   useEffect(() => {
@@ -48,11 +50,12 @@ function Post (props) {
     if (!state.activity.currentActivity.title) {
       return
     }
+    setFromWeb(false)
     setNextActivity(state.activity.currentActivity)
   }, [state.activity.currentActivity])
 
   useEffect(() => {
-    if (!state.activity.userActivities.length) {
+    if (!fromWeb && !state.activity.userActivities.length) {
       props.restoreUserActivities()
       props.getNewUserActivity()
     }
@@ -80,9 +83,15 @@ function Post (props) {
           )
           : null
       }
-      <Button
-        label={<Link href={`/posts${nextActivity.category}/${nextActivity.id}`}><a>{buttonLabel}</a></Link>}
-      />
+      {
+        fromWeb
+          ? null
+          : (
+            <Button
+              label={<Link href={`/posts${nextActivity.category}/${nextActivity.id}`}><a>{buttonLabel}</a></Link>}
+            />
+          )
+      }
     </div>
   )
 

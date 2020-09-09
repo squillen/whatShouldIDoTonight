@@ -69,26 +69,24 @@ function Post (props) {
   }
 
   // HTML
-  const buttonLabel = Object.keys(pageActivity).length ? 'tell me another' : 'tell me'
   const buttons = (
     <div className={utilStyles.buttonContainer}>
-      {
-        Object.keys(pageActivity).length
-          ? (
-            <Button
-              styleName={utilStyles.resetButton}
-              onClick={resetOptions}
-              label="reset"
-            />
-          )
-          : null
-      }
+      <Button
+
+        inlineStyle={{ border: '1px solid red' }}
+        onClick={resetOptions}
+        label="reset"
+
+      />
       {
         fromWeb
           ? null
           : (
             <Button
-              label={<Link href={`/posts${nextActivity.category}/${nextActivity.id}`}><a>{buttonLabel}</a></Link>}
+              inlineStyle={{ fontSize: '1.2rem', border: '2px solid black' }}
+              label="tell me another"
+              href="/posts/[category]/[costType]/[id]"
+              as={`/posts${nextActivity.category}/${nextActivity.id}`}
             />
           )
       }

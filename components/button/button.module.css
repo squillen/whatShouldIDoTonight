@@ -1,7 +1,10 @@
+.link {
+  width: 12rem;
+}
+
 .button,
 .resetButton {
-  min-width: 9rem;
-  max-width: 12rem;
+  width: 12rem;
   padding: 0.25em;
   height: 2.5rem;
   min-height: 40px;

@@ -1,6 +1,5 @@
 import React, { useState, useEffect } from 'react'
 import Head from 'next/head'
-import Link from 'next/link'
 
 // REDUX
 import { connect, useSelector } from 'react-redux'
@@ -88,7 +87,10 @@ function Home (props) {
           </div>
           <div className={utilStyles.buttonContainer}>
             <Button
-              label={<Link href={`/posts${currentActivity.category}/${currentActivity.id}`}><a>tell me</a></Link>}
+              inlineStyle={{ border: '3px solid #fff', fontSize: '1.5rem' }}
+              href="/posts/[category]/[costType]/[id]"
+              as={`/posts${currentActivity.category}/${currentActivity.id}`}
+              label="tell me"
             />
           </div>
         </div>

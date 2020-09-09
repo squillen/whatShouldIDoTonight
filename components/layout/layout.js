@@ -6,9 +6,7 @@ export default function Layout ({ children }) {
   return (
     <div className={styles.container}>
       <DefaultHead />
-      <header className={styles.header}>
-        <Logo />
-      </header>
+      <Logo />
       <main>{children}</main>
     </div>
   )

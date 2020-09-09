@@ -20,11 +20,10 @@ body {
 
 a {
   color: #EDEDED;
-  text-decoration: none;
+  text-decoration: underline;
 }
 
 a:hover {
-  text-decoration: underline;
 }
 
 img {

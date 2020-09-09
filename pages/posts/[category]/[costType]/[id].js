@@ -1,6 +1,5 @@
 import React, { useState, useEffect } from 'react'
 import Head from 'next/head'
-import Link from 'next/link'
 import { useRouter } from 'next/router'
 
 // REDUX
@@ -15,6 +14,7 @@ import { getAllActivityIds, getSpecificActivityData } from '../../../../lib/post
 import Layout from '../../../../components/layout/layout'
 import Button from '../../../../components/button/button'
 import utilStyles from '../../../../styles/utils.module.css'
+import { siteTitle } from '../../../../components/defaultHead'
 
 export async function getStaticPaths () {
   const paths = getAllActivityIds()
@@ -96,12 +96,15 @@ function Post (props) {
   return (
     <Layout>
       <Head>
-        <title>{pageActivity.title}</title>
+        <title>{pageActivity.title} - {siteTitle}</title>
       </Head>
       {buttons}
       <article>
-        <h1 className={utilStyles.headingXl}>{pageActivity.title}</h1>
-        <div dangerouslySetInnerHTML={{ __html: pageActivity.contentHtml }} />
+        <div className={utilStyles.headerContainer}>
+          <div className={utilStyles.headingXl}>{pageActivity.title}</div>
+          <div className={utilStyles.underline} />
+        </div>
+        <div className={utilStyles.content} dangerouslySetInnerHTML={{ __html: pageActivity.contentHtml }} />
       </article>
     </Layout>
   )

@@ -87,7 +87,7 @@ function Home (props) {
           </div>
           <div className={utilStyles.buttonContainer}>
             <Button
-              inlineStyle={{ border: '3px solid #fff', fontSize: '1.5rem' }}
+              inlineStyle={{ border: '3px solid #0F2956', fontSize: '1.5rem' }}
               href="/posts/[category]/[costType]/[id]"
               as={`/posts${currentActivity.category}/${currentActivity.id}`}
               label="tell me"

@@ -71,19 +71,22 @@ function Post (props) {
   // HTML
   const buttons = (
     <div className={utilStyles.buttonContainer}>
-      <Button
-
-        inlineStyle={{ border: '1px solid red' }}
+      {/* <Button
+        inlineStyle={{ border: '1px solid red', width: '10rem', height: '2rem' }}
         onClick={resetOptions}
         label="reset"
-
-      />
+      /> */}
       {
         fromWeb
           ? null
           : (
             <Button
-              inlineStyle={{ fontSize: '1.2rem', border: '2px solid black' }}
+              inlineStyle={{
+                fontSize: '1.2rem',
+                border: '2px solid #262626',
+                width: '14rem',
+                height: '3.3rem'
+              }}
               label="tell me another"
               href="/posts/[category]/[costType]/[id]"
               as={`/posts${nextActivity.category}/${nextActivity.id}`}
@@ -98,14 +101,23 @@ function Post (props) {
       <Head>
         <title>{pageActivity.title} - {siteTitle}</title>
       </Head>
-      {buttons}
-      <article>
-        <div className={utilStyles.headerContainer}>
-          <div className={utilStyles.headingXl}>{pageActivity.title}</div>
-          <div className={utilStyles.underline} />
+      <div className={utilStyles.postContainer}>
+        <div className={utilStyles.articleContainer}>
+          <article>
+            <div className={utilStyles.headerContainer}>
+              <div className={utilStyles.headingXl}>{pageActivity.title}</div>
+              <div className={utilStyles.underline} />
+            </div>
+            <div className={utilStyles.content} dangerouslySetInnerHTML={{ __html: pageActivity.contentHtml }} />
+          </article>
+          {buttons}
         </div>
-        <div className={utilStyles.content} dangerouslySetInnerHTML={{ __html: pageActivity.contentHtml }} />
-      </article>
+        <Button
+          inlineStyle={{ border: '1px solid red', width: '10rem', height: '2rem' }}
+          onClick={resetOptions}
+          label="reset"
+        />
+      </div>
     </Layout>
   )
 }

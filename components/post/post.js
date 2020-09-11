@@ -1,61 +1,41 @@
 import React, { useState, useEffect } from 'react'
+import PropTypes from 'prop-types'
 import Head from 'next/head'
 import { useRouter } from 'next/router'
 
 // REDUX
 import { connect, useSelector } from 'react-redux'
 import { bindActionCreators } from 'redux'
-import { getNewUserActivity, resetAll, restoreUserActivities } from '../../../../src/store/activities/action'
-
-// HELPERS
-import { getAllActivityIds, getSpecificActivityData } from '../../../../lib/posts'
+import { getNewUserActivity, resetAll, restoreUserActivities } from '../../src/store/activities/action'
 
 // COMPONENTS
-import Layout from '../../../../components/layout/layout'
-import Button from '../../../../components/button/button'
-import utilStyles from '../../../../styles/utils.module.css'
-import { siteTitle } from '../../../../components/defaultHead'
-
-export async function getStaticPaths () {
-  const paths = getAllActivityIds()
-  return {
-    paths,
-    fallback: false
-  }
-}
-
-export const getStaticProps = async ({ params }) => {
-  const pageActivity = await getSpecificActivityData(params)
-  return {
-    props: {
-      fromWeb: true,
-      pageActivity: pageActivity || {}
-    }
-  }
-}
+import { siteTitle } from '../../components/defaultHead'
+import Layout from '../../components/layout/layout'
+import Button from '../../components/button/button'
+import utilStyles from '../../styles/utils.module.css'
 
 function Post (props) {
-  const { pageActivity } = props
+  const { title: pageTitle, content, timeToComplete, noOfPeople = 'one person' } = props
   const router = useRouter()
   const state = useSelector(state => state)
   const [nextActivity, setNextActivity] = useState({})
-  const [fromWeb, setFromWeb] = useState(props.fromWeb)
+  const [landedFromWeb, setLandedFromWeb] = useState(false)
 
   // EFFECTS
+  // get next activity on load
   useEffect(() => {
     props.getNewUserActivity()
-  }, [pageActivity.id])
+  }, [state.activity.currentActivity.id])
 
+  // set next activity
   useEffect(() => {
-    if (!state.activity.currentActivity.title) {
-      return
-    }
-    setFromWeb(false)
     setNextActivity(state.activity.currentActivity)
   }, [state.activity.currentActivity])
 
+  // no more activities, so we need to reset
   useEffect(() => {
-    if (!fromWeb && !state.activity.userActivities.length) {
+    if (!state.activity.originalUserActivities.length) return setLandedFromWeb(true)
+    if (!state.activity.userActivities.length) {
       props.restoreUserActivities()
       props.getNewUserActivity()
     }
@@ -69,15 +49,10 @@ function Post (props) {
   }
 
   // HTML
-  const buttons = (
+  const tellMeAnotherButton = (
     <div className={utilStyles.buttonContainer}>
-      {/* <Button
-        inlineStyle={{ border: '1px solid red', width: '10rem', height: '2rem' }}
-        onClick={resetOptions}
-        label="reset"
-      /> */}
       {
-        fromWeb
+        landedFromWeb
           ? null
           : (
             <Button
@@ -88,8 +63,7 @@ function Post (props) {
                 height: '3.3rem'
               }}
               label="tell me another"
-              href="/posts/[category]/[costType]/[id]"
-              as={`/posts${nextActivity.category}/${nextActivity.id}`}
+              href={`/activities${nextActivity.category}/${nextActivity.id}`}
             />
           )
       }
@@ -99,18 +73,26 @@ function Post (props) {
   return (
     <Layout>
       <Head>
-        <title>{pageActivity.title} - {siteTitle}</title>
+        <title>{pageTitle} - {siteTitle}</title>
       </Head>
       <div className={utilStyles.postContainer}>
         <div className={utilStyles.articleContainer}>
           <article>
-            <div className={utilStyles.headerContainer}>
-              <div className={utilStyles.headingXl}>{pageActivity.title}</div>
-              <div className={utilStyles.underline} />
-            </div>
-            <div className={utilStyles.content} dangerouslySetInnerHTML={{ __html: pageActivity.contentHtml }} />
+            <header>
+              <div className={utilStyles.headerContainer}>
+                <div className={utilStyles.headingXl}>{pageTitle}</div>
+                <div className={utilStyles.underline} />
+                <div className={utilStyles.timeToComplete}>
+                    30 minutes
+                </div>
+                <div className={utilStyles.noOfPeople}>
+                    alone
+                </div>
+              </div>
+            </header>
+            {content}
           </article>
-          {buttons}
+          {tellMeAnotherButton}
         </div>
         <Button
           inlineStyle={{ border: '1px solid red', width: '10rem', height: '2rem' }}
@@ -129,4 +111,15 @@ const mapDispatchToProps = (dispatch) => {
     resetAll: bindActionCreators(resetAll, dispatch)
   }
 }
-export default connect(null, mapDispatchToProps)(Post)
+
+Post.propTypes = {
+  getNewUserActivity: PropTypes.func,
+  restoreUserActivities: PropTypes.func,
+  resetAll: PropTypes.func,
+  title: PropTypes.string,
+  content: PropTypes.object,
+  timeToComplete: PropTypes.string,
+  noOfPeople: PropTypes.string
+}
+
+export default connect((state) => state, mapDispatchToProps)(Post)

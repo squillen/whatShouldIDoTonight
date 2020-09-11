@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from 'react'
+import PropTypes from 'prop-types'
 import Head from 'next/head'
 
 // REDUX
@@ -19,7 +20,7 @@ import { getUserActivities } from '../lib/helpers/dataHelpers'
 
 export const getStaticProps = wrapper.getStaticProps(({ store }) => {
   const activities = getAllActivitiesData()
-  store.dispatch({ type: 'SET_ALL_ACTIVITIES', payload: activities })
+  // store.dispatch({ type: 'SET_ALL_ACTIVITIES', payload: activities })
   return {
     props: {
       activities
@@ -36,7 +37,6 @@ function Home (props) {
 
   // EFFECTS
   useEffect(() => {
-    console.log('setting user activities')
     const userActivities = getUserActivities({ activities, userAlone, spendMoney })
     props.setUserActivities(userActivities)
     props.getNewUserActivity()
@@ -88,8 +88,7 @@ function Home (props) {
           <div className={utilStyles.buttonContainer}>
             <Button
               inlineStyle={{ border: '3px solid #0F2956', fontSize: '1.5rem' }}
-              href="/posts/[category]/[costType]/[id]"
-              as={`/posts${currentActivity.category}/${currentActivity.id}`}
+              href={`/activities${currentActivity.category}/${currentActivity.id}`}
               label="tell me"
             />
           </div>
@@ -105,4 +104,11 @@ const mapDispatchToProps = (dispatch) => {
     setUserActivities: bindActionCreators(setUserActivities, dispatch)
   }
 }
-export default connect(null, mapDispatchToProps)(Home)
+
+Home.propTypes = {
+  setUserActivities: PropTypes.func,
+  getNewUserActivity: PropTypes.func,
+  activities: PropTypes.object
+}
+
+export default connect((state) => state, mapDispatchToProps)(Home)

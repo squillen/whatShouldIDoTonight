@@ -1,9 +1,8 @@
 import { activityActionTypes } from './action'
 
 const activityInitialState = {
-  activities: [],
-  allActivities: [],
   userActivities: [],
+  originalUserActivities: [],
   currentActivity: {}
 }
 
@@ -26,7 +25,7 @@ export default function reducer (state = activityInitialState, action) {
       const userActivitiesCopy = [...userActivities]
 
       // mutate userActivitiesCopy copy with one less activity
-      const randomIndex = Math.floor(Math.random() * userActivitiesCopy.length - 1)
+      const randomIndex = Math.floor(Math.random() * userActivitiesCopy.length)
       const currentActivity = userActivitiesCopy.splice(randomIndex, 1)[0] || {}
       return {
         ...state,

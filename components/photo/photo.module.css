@@ -1,0 +1,12 @@
+.photo, .enlargedPhoto {
+  transition: all 1s ease-in;
+  cursor: pointer;
+}
+
+.photo {
+  max-width: 60%;
+}
+
+.enlargedPhoto {
+  max-width: 100%;
+}

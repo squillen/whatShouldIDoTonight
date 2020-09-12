@@ -1,0 +1,26 @@
+.italic,
+.italicAndBold {
+  font-style: italic;
+}
+
+.bold,
+.italicAndBold {
+  font-weight: 600;
+}
+
+.quotation {
+  text-indent: 5%;
+  font-style: italic;
+  font-size: 0.9rem;
+  padding: 1rem 0;
+}
+
+.strikeThrough {
+  text-decoration: line-through;
+}
+
+.centered {
+  display: flex;
+  align-items: center;
+  width: 100%;
+}

@@ -1,9 +1,9 @@
 import Head from 'next/head'
 export const siteTitle = 'What Should I Do Tonight?'
-const description = "What Should I Do Tonight helps you find things to do, tonight! Do free things or do things that cost money. Do things alone or do things with others. Just find fun, easy, and attainable things to do right now! Have fun tonight!";
-const image = "/logos/logo.png";
+const description = 'What Should I Do Tonight helps you find things to do, tonight! Do free things or do things that cost money. Do things alone or do things with others. Just find fun, easy, and attainable things to do right now! Have fun tonight!'
+const image = '/logos/logo.png'
 
-export default function DefaultHead() {
+export default function DefaultHead () {
   return (
     <Head>
       <link rel="icon" href="/favicon.ico" />
@@ -26,6 +26,7 @@ export default function DefaultHead() {
       <meta property="twitter:image" content={image}></meta>
       <title>{siteTitle}</title>
       <meta name="description" content={description} />
+      <script src="https://kit.fontawesome.com/986019369d.js" crossOrigin="anonymous"></script>
     </Head>
   )
 }

@@ -12,6 +12,7 @@
   line-height: 1.3;
   font-weight: 800;
   letter-spacing: 0.08rem;
+  margin-bottom: 1.3rem;
 }
 
 .headingLg {
@@ -22,6 +23,11 @@
 
 .headingMd {
   font-size: 1.2rem;
+  line-height: 1.5;
+}
+
+.headingSm {
+  font-size: 0.8rem;
   line-height: 1.5;
 }
 
@@ -39,6 +45,15 @@
   padding-bottom: 2rem;
 }
 
+.headerInfoSection {
+  font-size: 0.9rem;
+  margin: 1rem 0;
+}
+
+.infoIcon {
+  margin-right: 8px;
+}
+
 .articleContainer {
   margin-top: 2rem;
   margin-bottom: 4rem;
@@ -49,6 +64,10 @@
   color: #262626;
   height: 100%;
   overflow-y: scroll;
+}
+
+.article {
+  padding-bottom: 3rem;
 }
 
 .content {
@@ -169,12 +188,6 @@
   background: transparent;
 }
 
-@media only screen and (max-width: 1000px) {
-  .select {
-    width: 20%;
-  }
-}
-
 @media only screen and (max-width: 500px) {
   .bodyContainer {
     margin: 3rem 0;
@@ -182,9 +195,5 @@
 
   .buttonContainer {
     justify-content: flex-end;
-  }
-
-  .select {
-    width: 40%;
   }
 }

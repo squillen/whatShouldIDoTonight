@@ -2,6 +2,8 @@ import React, { useState, useEffect } from 'react'
 import PropTypes from 'prop-types'
 import Head from 'next/head'
 import { useRouter } from 'next/router'
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+import { faClock, faUsers } from '@fortawesome/free-solid-svg-icons'
 
 // REDUX
 import { connect, useSelector } from 'react-redux'
@@ -15,7 +17,7 @@ import Button from '../../components/button/button'
 import utilStyles from '../../styles/utils.module.css'
 
 function Post (props) {
-  const { title: pageTitle, content, timeToComplete, noOfPeople = 'one person' } = props
+  const { title: pageTitle, content, timeToComplete, noOfPeople = '1+' } = props
   const router = useRouter()
   const state = useSelector(state => state)
   const [nextActivity, setNextActivity] = useState({})
@@ -25,7 +27,7 @@ function Post (props) {
   // get next activity on load
   useEffect(() => {
     props.getNewUserActivity()
-  }, [state.activity.currentActivity.id])
+  }, [pageTitle])
 
   // set next activity
   useEffect(() => {
@@ -82,15 +84,24 @@ function Post (props) {
               <div className={utilStyles.headerContainer}>
                 <div className={utilStyles.headingXl}>{pageTitle}</div>
                 <div className={utilStyles.underline} />
-                <div className={utilStyles.timeToComplete}>
-                    30 minutes
+                <div className={utilStyles.headerInfoSection}>
+                  <div className={utilStyles.timeToComplete}>
+                    <span>
+                      <span className={utilStyles.infoIcon}><FontAwesomeIcon icon={faClock} size="s" /></span>
+                      {timeToComplete}
+                    </span>
+                  </div>
+                  <div className={utilStyles.noOfPeople}>
+                    <span className={utilStyles.infoIcon}><FontAwesomeIcon icon={faUsers} size="s" /></span>
+                    {noOfPeople}
+                  </div>
                 </div>
-                <div className={utilStyles.noOfPeople}>
-                    alone
-                </div>
+                <div className={utilStyles.underline} />
               </div>
             </header>
-            {content}
+            <div className={utilStyles.content}>
+              {content}
+            </div>
           </article>
           {tellMeAnotherButton}
         </div>
@@ -118,7 +129,7 @@ Post.propTypes = {
   resetAll: PropTypes.func,
   title: PropTypes.string,
   content: PropTypes.object,
-  timeToComplete: PropTypes.string,
+  timeToComplete: PropTypes.string.isRequired,
   noOfPeople: PropTypes.string
 }
 

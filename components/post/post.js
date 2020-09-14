@@ -17,7 +17,7 @@ import Button from '../../components/button/button'
 import utilStyles from '../../styles/utils.module.css'
 
 function Post (props) {
-  const { title: pageTitle, content, timeToComplete, noOfPeople = '1+' } = props
+  const { title: pageTitle, content, timeToComplete, noOfPeople = '1+', currentID } = props
   const router = useRouter()
   const state = useSelector(state => state)
   const [nextActivity, setNextActivity] = useState({})
@@ -26,10 +26,14 @@ function Post (props) {
   // EFFECTS
   // get next activity on load
   useEffect(() => {
-    props.getNewUserActivity()
+    // const shownActivities = state.activity.shownActivities || []
+    // const shownBefore = shownActivities.find(a => a.id === currentID)
+    if (!nextActivity.id) {
+      props.getNewUserActivity()
+    }
   }, [pageTitle])
 
-  // set next activity
+  // got a new activity, set it as nextActivity
   useEffect(() => {
     setNextActivity(state.activity.currentActivity)
   }, [state.activity.currentActivity])
@@ -46,9 +50,11 @@ function Post (props) {
   // FUNCTIONS
   function resetOptions () {
     // reset redux state
-    // props.resetAll()
+    props.resetAll()
     router.push('/')
   }
+
+  console.log('nextActivity :>> ', nextActivity);
 
   // HTML
   const tellMeAnotherButton = (
@@ -60,8 +66,9 @@ function Post (props) {
             <Button
               inlineStyle={{
                 fontSize: '1.2rem',
-                border: '2px solid #262626',
-                width: '14rem',
+                border: '2px solid #3D50C1',
+                width: 'auto',
+                borderRadius: '20px',
                 height: '3.3rem'
               }}
               label="tell me another"
@@ -78,32 +85,38 @@ function Post (props) {
         <title>{pageTitle} - {siteTitle}</title>
       </Head>
       <div className={utilStyles.postContainer}>
+        {/* <header> */}
+        <div className={utilStyles.headerContainer}>
+          <div className={utilStyles.headingXl}>{pageTitle}</div>
+          <div className={utilStyles.underline} />
+          <div className={utilStyles.headerInfoSection}>
+            {/* LEFT SECTION */}
+            <div className={utilStyles.leftSection}>
+              <div className={utilStyles.timeToComplete}>
+                <span>
+                  <span className={utilStyles.infoIcon}><FontAwesomeIcon icon={faClock} size="sm" /></span>
+                  {timeToComplete}
+                </span>
+              </div>
+              <div className={utilStyles.noOfPeople}>
+                <span className={utilStyles.infoIcon}><FontAwesomeIcon icon={faUsers} size="sm" /></span>
+                {noOfPeople}
+              </div>
+            </div>
+            <div className={utilStyles.rightSection}>
+              {tellMeAnotherButton}
+            </div>
+          </div>
+          {/* <div className={utilStyles.underline} /> */}
+        </div>
+        {/* </header> */}
         <div className={utilStyles.articleContainer}>
           <article>
-            <header>
-              <div className={utilStyles.headerContainer}>
-                <div className={utilStyles.headingXl}>{pageTitle}</div>
-                <div className={utilStyles.underline} />
-                <div className={utilStyles.headerInfoSection}>
-                  <div className={utilStyles.timeToComplete}>
-                    <span>
-                      <span className={utilStyles.infoIcon}><FontAwesomeIcon icon={faClock} size="s" /></span>
-                      {timeToComplete}
-                    </span>
-                  </div>
-                  <div className={utilStyles.noOfPeople}>
-                    <span className={utilStyles.infoIcon}><FontAwesomeIcon icon={faUsers} size="s" /></span>
-                    {noOfPeople}
-                  </div>
-                </div>
-                <div className={utilStyles.underline} />
-              </div>
-            </header>
+
             <div className={utilStyles.content}>
               {content}
             </div>
           </article>
-          {tellMeAnotherButton}
         </div>
         <Button
           inlineStyle={{ border: '1px solid red', width: '10rem', height: '2rem' }}
@@ -129,8 +142,9 @@ Post.propTypes = {
   resetAll: PropTypes.func,
   title: PropTypes.string,
   content: PropTypes.object,
+  noOfPeople: PropTypes.string,
   timeToComplete: PropTypes.string.isRequired,
-  noOfPeople: PropTypes.string
+  currentID: PropTypes.string.isRequired
 }
 
 export default connect((state) => state, mapDispatchToProps)(Post)

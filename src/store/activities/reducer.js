@@ -3,7 +3,8 @@ import { activityActionTypes } from './action'
 const activityInitialState = {
   userActivities: [],
   originalUserActivities: [],
-  currentActivity: {}
+  currentActivity: {},
+  showActivities: []
 }
 
 export default function reducer (state = activityInitialState, action) {
@@ -17,6 +18,7 @@ export default function reducer (state = activityInitialState, action) {
       return {
         ...state,
         originalUserActivities: action.payload,
+        showActivities: [],
         userActivities: action.payload
       }
     case activityActionTypes.GET_NEW_USER_ACTIVITY: {
@@ -24,12 +26,17 @@ export default function reducer (state = activityInitialState, action) {
       const userActivities = state.userActivities || []
       const userActivitiesCopy = [...userActivities]
 
+      // copy shownActivities
+      const shownActivities = state.shownActivities || []
+      const shownActivitiesCopy = [...shownActivities]
+
       // mutate userActivitiesCopy copy with one less activity
       const randomIndex = Math.floor(Math.random() * userActivitiesCopy.length)
       const currentActivity = userActivitiesCopy.splice(randomIndex, 1)[0] || {}
       return {
         ...state,
         currentActivity,
+        showActivities: [...shownActivitiesCopy, currentActivity],
         userActivities: userActivitiesCopy
       }
     }

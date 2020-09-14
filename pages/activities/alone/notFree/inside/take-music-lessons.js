@@ -1,0 +1,55 @@
+import { connect } from 'react-redux'
+import Post from '../../../../../components/post/post'
+import Photo from '../../../../../components/photo/photo'
+import LinkTo from '../../../../../components/linkTo/linkTo'
+import styles from '../../../../../styles/activity.module.css'
+
+const getContent = () => (
+  <div className={styles.activityContainer}>
+    <p>
+      Is there anything we can&apos;t do from our houses these days?
+    </p>
+    <Photo
+      src="https://media.giphy.com/media/HSLbIjLk2GsBa/giphy.gif"
+      alt="wall-e showing us our future of stagnation"
+    />
+    <p>
+      And, yes, that ☝☝ might be our future, but for now just enjoy the perks of tech...
+    </p>
+    <p>
+      <span>
+        And now you can add music lessons to that list courtesy of sites like
+        {' '}
+        <LinkTo
+          href="https://takelessons.com/"
+          label="takelessons.com"
+        />
+        {' and '}
+        <LinkTo
+          href="https://www.wyzant.com/"
+          label="wyzant.com"
+        />
+        . Well, actually, you can learn
+        {' '}
+        <LinkTo
+          href="/activities/alone/notFree/inside/take-language-lessons"
+          label="more than just music"
+        />
+        .
+      </span>
+    </p>
+  </div>
+)
+
+const Content = () => {
+  const userContent = getContent()
+  return (
+    <Post
+      title="Take some music lessons"
+      content={userContent}
+      timeToComplete="30+ minutes"
+    />
+  )
+}
+
+export default connect()(Content)

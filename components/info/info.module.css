@@ -1,0 +1,19 @@
+.infoContainer {
+  display: flex;
+  align-items: center;
+  width: 100%;
+  min-height: 4rem;
+  height: 100%;
+  background: lightgray;
+  border-radius: 0.5rem;
+  padding: 0.8rem;
+  font-size: 1rem;
+}
+
+.iconContainer {
+  color: red;
+}
+
+.textContainer {
+  margin-left: 0.7rem;
+}

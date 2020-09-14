@@ -13,7 +13,7 @@
   cursor: pointer;
   font-size: 1rem;
   border: 1px solid #262626;
-  border-radius: 6rem;
+  border-radius: 1rem;
   background: white;
   color: #262626;
   display: flex;
@@ -33,7 +33,7 @@
   cursor: pointer;
   font-size: 1rem;
   border: 1px solid #262626;
-  border-radius: 6rem;
+  border-radius: 1rem;
   background: rgb(117, 116, 116);
   color: #262626;
   padding: 0.25em;

@@ -48,7 +48,7 @@ const Content = () => {
   const userContent = getContent()
   return (
     <Post
-      title="Do a diet"
+      title="Start a diet"
       content={userContent}
       timeToComplete="45+ minutes"
     />

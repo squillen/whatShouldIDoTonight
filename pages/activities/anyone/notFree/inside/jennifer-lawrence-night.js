@@ -18,7 +18,7 @@ const getContent = () => (
           label="Watch her"
         />
         {' '}
-        be bad ass, found a company, and so, so much more.
+        be bad ass, start a company, and so, so much more.
       </span>
     </p>
     <p>And do JLaw proud and get some pizza tonight, too, will ya??</p>

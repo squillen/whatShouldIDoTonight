@@ -8,7 +8,7 @@ const getContent = () => (
     <p>
       Those things you always listen to? You can create one! Do you all have a unique angle on the world and want the world to hear it?
     </p>
-    <iframe width="560" height="315" src="https://www.youtube-nocookie.com/embed/ilWQ6syB5pE" frameBorder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowFullScreen></iframe>
+    <iframe className={styles.iframe} src="https://www.youtube-nocookie.com/embed/ilWQ6syB5pE" frameBorder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowFullScreen></iframe>
     <p>
       <span>
         You&apos;re damn right you do!

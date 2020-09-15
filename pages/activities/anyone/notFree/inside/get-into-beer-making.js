@@ -9,7 +9,7 @@ const getContent = () => (
       Beer tastes great. Homemade beer tastes even better. Maybe it&apos;s all the blood and sweat.
       Well worth all the band-aids and sauna sessions.
     </p>
-    <iframe width="560" height="315" src="https://www.youtube-nocookie.com/embed/AVV3UJCFnA4" frameBorder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowFullScreen></iframe>
+    <iframe className={styles.iframe} src="https://www.youtube-nocookie.com/embed/AVV3UJCFnA4" frameBorder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowFullScreen></iframe>
     <p>
       <span>
         Check ☝☝ that out and then get

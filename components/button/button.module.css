@@ -5,6 +5,7 @@
 }
 
 .button,
+.large,
 .resetButton {
   width: 12rem;
   padding: 0.25em;
@@ -20,6 +21,14 @@
   justify-content: center;
   align-items: center;
   margin: 0.25em 0;
+}
+
+.large {
+  font-size: 1.2rem;
+  border: 2px solid #3D50C1;
+  width: auto;
+  border-radius: 20px;
+  height: 3.3rem;
 }
 
 .resetButton {
@@ -41,4 +50,10 @@
   justify-content: center;
   align-items: center;
   margin: 0.5em 0;
+}
+
+@media only screen and (max-width: 500px) {
+  .large {
+    height: 1.5rem;
+  }
 }

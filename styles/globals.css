@@ -32,3 +32,11 @@ img {
   display: block;
   border-radius: 10px;
 }
+
+@media only screen and (max-width: 500px) {
+  html,
+  body {
+    font-size: 14px;
+  }
+
+}

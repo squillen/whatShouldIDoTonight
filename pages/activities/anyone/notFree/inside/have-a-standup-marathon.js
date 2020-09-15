@@ -7,7 +7,7 @@ const getContent = () => (
   <div className={styles.activityContainer}>
     {/* TODO ADD MORE */}
     <p>When is standup not good? Well, lots of the time, actually (I&apos;m looking at you, Netflix), but damn if there aren&apos;t some hilarious people out there, like this fellow:</p>
-    <iframe width="560" height="315" src="https://www.youtube-nocookie.com/embed/89E_zW1qIM8" frameBorder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowFullScreen></iframe>
+    <iframe className={styles.iframe} src="https://www.youtube-nocookie.com/embed/89E_zW1qIM8" frameBorder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowFullScreen></iframe>
     <p>
       Now check out some notable stand-ups and get ready for a funny night. I mean,
       the night itself won&apos;t be funny, cause it&apos;s, you know, a time of day, but there will be lots of funny things said during the night.

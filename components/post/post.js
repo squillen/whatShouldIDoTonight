@@ -64,13 +64,7 @@ function Post (props) {
           ? null
           : (
             <Button
-              inlineStyle={{
-                fontSize: '1.2rem',
-                border: '2px solid #3D50C1',
-                width: 'auto',
-                borderRadius: '20px',
-                height: '3.3rem'
-              }}
+              size="large"
               label="tell me another"
               href={`/activities${nextActivity.category}/${nextActivity.id}`}
             />

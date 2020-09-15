@@ -124,7 +124,8 @@
 }
 
 
-.questions {
+.questions,
+.mobileQuestions {
   min-height: 400px;
   height: 100%;
   width: 100%;
@@ -132,6 +133,10 @@
   flex-direction: column;
   justify-content: space-evenly;
   margin-bottom: 2rem;
+}
+
+.mobileQuestions {
+  display: none;
 }
 
 .question {
@@ -205,11 +210,38 @@
 }
 
 @media only screen and (max-width: 500px) {
+  .questions {
+    display: none;
+  }
+
+  .mobileQuestions {
+    display: flex;
+    min-height: 500px;
+    justify-content: space-around;
+  }
+
+  .headerContainer {
+    padding: 0.6rem;
+  }
+
   .bodyContainer {
     margin: 3rem 0;
   }
 
   .buttonContainer {
     justify-content: flex-end;
+  }
+
+  .question {
+    font-size: 1.5rem;
+  }
+
+  .headingXl {
+    font-size: 1.5rem;
+    margin-bottom: 0.2rem;
+  }
+
+  .content {
+    padding-bottom: 0.5rem;;
   }
 }

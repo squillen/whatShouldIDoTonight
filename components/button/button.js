@@ -8,10 +8,11 @@ export default function Button (props) {
     href,
     inlineStyle,
     label = 'click',
-    onClick = () => {}
+    onClick = () => {},
+    size
   } = props
   const button = (
-    <div className={customStyle || styles.button} style={inlineStyle} onClick={onClick}>
+    <div className={customStyle || styles[size] || styles.button} style={inlineStyle} onClick={onClick}>
       {label}
     </div>
   )

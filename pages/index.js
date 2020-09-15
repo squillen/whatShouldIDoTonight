@@ -109,6 +109,52 @@ function Home (props) {
             />
           </div>
         </div>
+        <div className={utilStyles.mobileQuestions}>
+          {/* ARE YOU ALONE SECTION */}
+          <div className={utilStyles.question}>
+            <div>
+              I am alone:
+            </div>
+            <div>
+              <select className={utilStyles.select} name="userAlone" id="userAlone" onChange={handleSelect}>
+                <option className={utilStyles.option} name="userAlone" value="true">Yes</option>
+                <option className={utilStyles.option} name="userAlone" value="false">No</option>
+              </select>
+            </div>
+          </div>
+          {/* SPEND MONEY SECTION */}
+          <div className={utilStyles.question}>
+            <div>
+              I am OK spending money:
+            </div>
+            <div>
+              <select className={utilStyles.select} name="spendMoney" id="spendMoney" onChange={handleSelect}>
+                <option className={utilStyles.option} name="spendMoney" value="true">Yes</option>
+                <option className={utilStyles.option} name="spendMoney" value="false">No</option>
+              </select>
+            </div>
+          </div>
+          {/* INSIDE OR OUTSIDE SECTION */}
+          <div className={utilStyles.question}>
+            <div>
+              I want to go outside:
+            </div>
+            <div>
+              <select className={utilStyles.select} name="goOutside" id="goOutside" onChange={handleSelect}>
+                <option className={utilStyles.option} name="goOutside" value={3}>I don&apos;t care</option>
+                <option className={utilStyles.option} name="goOutside" value={1}>Yes</option>
+                <option className={utilStyles.option} name="goOutside" value={2}>No</option>
+              </select>
+            </div>
+          </div>
+          <div className={utilStyles.buttonContainer}>
+            <Button
+              inlineStyle={{ border: '3px solid #0F2956', fontSize: '1.5rem' }}
+              href={`/activities${currentActivity.category}/${currentActivity.id}`}
+              label="tell me"
+            />
+          </div>
+        </div>
       </section>
     </Layout>
   )

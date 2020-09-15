@@ -45,7 +45,7 @@ const Content = () => {
   const userContent = getContent()
   return (
     <Post
-      title="Learn yoga...with Adriene!"
+      title="Make some ice cream"
       content={userContent}
       timeToComplete="10+ minutes"
       noOfPeople="2+"

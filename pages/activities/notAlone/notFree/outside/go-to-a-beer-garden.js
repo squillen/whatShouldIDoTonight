@@ -32,7 +32,7 @@ const Content = () => {
     <Post
       title="Go to a beer garden"
       content={userContent}
-      timeToComplete="45+ minutes"
+      timeToComplete="1+ hour"
       noOfPeople="2+"
     />
   )

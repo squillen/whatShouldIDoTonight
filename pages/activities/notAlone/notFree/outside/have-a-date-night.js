@@ -10,7 +10,7 @@ const getContent = () => (
       src="https://media.giphy.com/media/lOOnwtpPLQ8nD8t6qB/giphy.gif"
       alt="Bad back massage on Love Island"
     />
-    <p>Bring that romance back into your life, but maybe a little better than that ☝☝. 😅</p>
+    <p>Bring that romance back into your life, but maybe a little better than that ☝☝😅</p>
     <p>Consider going:</p>
     <ul>
       <li>to a nice(r) restaurant</li>

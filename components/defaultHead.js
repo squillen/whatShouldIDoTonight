@@ -6,6 +6,7 @@ const image = '/logos/logo.png'
 export default function DefaultHead () {
   return (
     <Head>
+      <script data-ad-client="ca-pub-9045195637006996" async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
       <link rel="icon" href="/favicon.ico" />
       <script data-ad-client="ca-pub-9045195637006996" async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
       {/* PRIMARY META TAGS */}

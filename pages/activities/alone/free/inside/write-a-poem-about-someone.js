@@ -1,11 +1,16 @@
 import { connect } from 'react-redux'
 import Post from '../../../../../components/post/post'
+import Photo from '../../../../../components/photo/photo'
 import LinkTo from '../../../../../components/linkTo/linkTo'
 import styles from '../../../../../styles/activity.module.css'
 
 const getContent = () => (
   <div className={styles.activityContainer}>
-    <p>Make it about your mom/dad/sibling/ grandma/friend/neighbor/ whoever.</p>
+    <Photo
+      src="https://media.giphy.com/media/1hMk62K9QRYvyXbzFw/giphy.gif"
+      alt="Jimmy Fallon as beatnik"
+    />
+    <p>Make it about your mom / dad / sibling / grandma / friend / neighbor / whoever.</p>
     <p>
       <span>
         Don&apos;t know the first thing about poetry? Check

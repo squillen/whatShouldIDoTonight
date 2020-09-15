@@ -1,10 +1,15 @@
 import { connect } from 'react-redux'
 import Post from '../../../../../components/post/post'
+import Photo from '../../../../../components/photo/photo'
 import LinkTo from '../../../../../components/linkTo/linkTo'
 import styles from '../../../../../styles/activity.module.css'
 
 const getContent = () => (
   <div className={styles.activityContainer}>
+    <Photo
+      src="https://media.giphy.com/media/VfyC5j7sR4cso/giphy.gif"
+      alt="Milhouse throwing a frisbee to himself"
+    />
     <p>
       <span>
       Alone but not by choice? Check out
@@ -13,8 +18,13 @@ const getContent = () => (
           href="https://hinge.co/"
           label="hinge"
         />
+        {' or '}
+        <LinkTo
+          href="https://www.dpbolvw.net/click-100215369-13615689"
+          label="eharmony"
+        />
         {' '}
-      and start a conversation.
+        and start a conversation!
       </span>
     </p>
     <p>Don&apos;t forget to invite us to the wedding &#128521;</p>
@@ -27,7 +37,7 @@ const Content = () => {
     <Post
       title="Find someone to love"
       content={userContent}
-      timeToComplete="30 minutes"
+      timeToComplete="40+ minutes"
     />
   )
 }

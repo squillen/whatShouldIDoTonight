@@ -6,109 +6,120 @@ import Photo from '../../../../../components/photo/photo'
 
 const getContent = () => (
   <div className={styles.activityContainer}>
-    TODO CHANGE ME
     <p>This suggestion is essentially saying, &quot;What Should I Do Tonight? Not sleep.&quot;</p>
     <p>Good luck, and, uhhh, maybe don&apos;t look behind you right now...</p>
     <Photo
       src="https://media.giphy.com/media/jquDWJfPUMCiI/giphy.gif"
       alt="Jim Carrey in Liar Liar looking scared"
     />
-    <p>Thriller:</p>
+    <p className={styles.header}>Thriller:</p>
     <ol>
       <li>
         <LinkTo
-          href=""
+          href="https://amzn.to/2FyjESb"
           label="28 Days Later"
         />
       </li>
       <li>
         <LinkTo
-          href=""
+          href="https://amzn.to/35BxXAA"
           label="The Shining"
         />
       </li>
       <li>
         <LinkTo
-          href=""
-          label="A Quiet Place"
+          href="https://amzn.to/3meSmRP"
+          label="A Quiet Place (free on Prime and Hulu)"
         />
       </li>
     </ol>
 
-    <p>Slasher:</p>
+    <p className={styles.header}>Slasher:</p>
     <ol>
       <li>
         <LinkTo
-          href=""
+          href="https://amzn.to/3bVzimK"
           label="Halloween"
         />
       </li>
       <li>
         <LinkTo
-          href=""
+          href="https://amzn.to/33v1kBA"
           label="A Nightmare on Elm Street"
         />
       </li>
       <li>
         <LinkTo
-          href=""
-          label="Deep Red"
+          href="https://amzn.to/2RpezhF"
+          label="Scream (free on Tubi)"
         />
       </li>
     </ol>
 
-    <p>Creepy/Paranormal:</p>
+    <p className={styles.header}>Creepy/Paranormal:</p>
     <ol>
       <li>
         <LinkTo
-          href=""
+          href="https://amzn.to/3bUoG7M"
           label="Paranormal Activity"
         />
       </li>
       <li>
         <LinkTo
-          href=""
+          href="https://amzn.to/3huxwKz"
           label="The Ring"
         />
       </li>
       <li>
         <LinkTo
-          href=""
-          label="The Haunting of Hill House"
+          href="https://amzn.to/2FvRkjN"
+          label="The Haunting of Hill House (on Netflix)"
         />
       </li>
       <li>
         <LinkTo
-          href=""
+          href="https://amzn.to/3hrRS71"
           label="The Conjuring"
+        />
+      </li>
+      <li>
+        <LinkTo
+          href="https://amzn.to/3mmBMPJ"
+          label="The Orphanage"
         />
       </li>
     </ol>
 
-    <p>Light-hearted:</p>
+    <p className={styles.header}>Light-hearted:</p>
     <ol>
       <li>
         <LinkTo
-          href=""
-          label="The Dead Don't Die"
+          href="https://amzn.to/33tEw5y"
+          label="Shaun of the Dead (free on Cinemax)"
         />
       </li>
       <li>
         <LinkTo
-          href=""
-          label="Ready or Not"
+          href="https://amzn.to/3mjdM00"
+          label="Ready or Not (free on HBO)"
         />
       </li>
       <li>
         <LinkTo
-          href=""
+          href="https://amzn.to/2ZBowgJ"
           label="Warm Bodies"
         />
       </li>
       <li>
         <LinkTo
-          href=""
-          label="Housebound"
+          href="https://amzn.to/3hvX1v4"
+          label="Housebound (free on Tubi)"
+        />
+      </li>
+      <li>
+        <LinkTo
+          href="https://amzn.to/3mjNomB"
+          label="The Dead Don't Die"
         />
       </li>
     </ol>

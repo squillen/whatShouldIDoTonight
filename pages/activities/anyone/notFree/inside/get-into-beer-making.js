@@ -5,7 +5,6 @@ import styles from '../../../../../styles/activity.module.css'
 
 const getContent = () => (
   <div className={styles.activityContainer}>
-    TODO CHANGE ME
     <p>
       Beer tastes great. Homemade beer tastes even better. Maybe it&apos;s all the blood and sweat.
       Well worth all the band-aids and sauna sessions.

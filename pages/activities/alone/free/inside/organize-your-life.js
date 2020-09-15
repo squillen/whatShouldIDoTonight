@@ -1,10 +1,16 @@
 import { connect } from 'react-redux'
 import Post from '../../../../../components/post/post'
+import Photo from '../../../../../components/photo/photo'
 import LinkTo from '../../../../../components/linkTo/linkTo'
 import styles from '../../../../../styles/activity.module.css'
 
 const getContent = () => (
   <div className={styles.activityContainer}>
+    <Photo
+      src="https://media.giphy.com/media/119LVmecQWrzlm/giphy.gif"
+      alt="Mr.Clean getting down and dirty cleaning"
+    />
+    <p>☝ Mr. Clean making me feel all dirty 😳</p>
     <p>
       <span>
       Go through your fridge/pantry/closet/ nightstand/whatever and be ruthless (think:
@@ -13,11 +19,11 @@ const getContent = () => (
           href="https://amzn.to/3iad7LU"
           label="Marie Kondo"
         />
-        {'.'}
+        {').'}
       </span>
     </p>
     <p>
-      Get rid of useless stuff, de-clutter, and get some organization going on, maggot! Whoa, sorry, I got too excited.
+      Get rid of useless stuff, de-clutter, and get some organization going on!
     </p>
     <p>
       <span>

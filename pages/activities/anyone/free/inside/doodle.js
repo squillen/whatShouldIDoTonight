@@ -3,10 +3,11 @@ import Post from '../../../../../components/post/post'
 import Info from '../../../../../components/info/info'
 import LinkTo from '../../../../../components/linkTo/linkTo'
 import styles from '../../../../../styles/activity.module.css'
+import Photo from '../../../../../components/photo/photo'
 
 const getContent = () => (
   <div className={styles.activityContainer}>
-    <p>Before you can start drawing those naked French ladies, you have to start with the basics</p>
+    <p>Before you can start drawing those naked French ladies, you have to start with the basics.</p>
     <p>
       <span>
         Watch
@@ -33,11 +34,16 @@ const getContent = () => (
           label="this Udemy"
         />
         {' '}
-        course for a really great intro.
+        course for a really great intro, but wait for it to go on sale because they always go on sale.
       </span>
     </p>
-    <Info
+    {/* <Info
       label="Wait for it to go on sale. Those videos always go on sale."
+    /> */}
+    <p>And now here&apos;s something to get you started:</p>
+    <Photo
+      src="https://media.giphy.com/media/efgSHVycEBc0Et79xt/giphy.gif"
+      alt="how to draw baby shark"
     />
   </div>
 )

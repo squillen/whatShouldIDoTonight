@@ -5,7 +5,6 @@ import styles from '../../../../../styles/activity.module.css'
 
 const getContent = () => (
   <div className={styles.activityContainer}>
-    TODO CHANGE ME
     <p>
       Don&apos;t just sign up for one willy-nilly, only do it if you&apos;re in a position to and it actually benefits you.
     </p>
@@ -14,7 +13,7 @@ const getContent = () => (
     </p>
     <p>
       <span>
-        Nerdwallet got it&apos;s start telling you about all the good credit cards out there,
+        Nerdwallet got its start telling you about all the good credit cards out there,
         {' '}
         so it&apos;s not surprising that
         {' '}
@@ -22,6 +21,7 @@ const getContent = () => (
           href="https://www.nerdwallet.com/credit-cards?trk=nw_gn_4.0"
           label="they&apos;re still killing it"
         />
+        .
       </span>
     </p>
     <p>

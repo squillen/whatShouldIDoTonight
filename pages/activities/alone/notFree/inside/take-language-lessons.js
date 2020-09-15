@@ -1,17 +1,22 @@
 import { connect } from 'react-redux'
 import Post from '../../../../../components/post/post'
+import Photo from '../../../../../components/photo/photo'
 import LinkTo from '../../../../../components/linkTo/linkTo'
 import styles from '../../../../../styles/activity.module.css'
 
 const getContent = () => (
   <div className={styles.activityContainer}>
-    TODO CHANGE ME
+    <p>Don&apos;t let this be you:</p>
+    <Photo
+      src="https://media.giphy.com/media/SYOUNgT5BXGnK/giphy.gif"
+      alt="Ron Burgundy telling his dog 'You know I don't speak Spanish'"
+    />
     <p>
       <span>
         When
         {' '}
         <LinkTo
-          href="/activities/alone/inside/brush-up-on-a-language"
+          href="/activities/alone/free/inside/brush-up-on-a-language"
           label="self-learning programs"
         />
         {' '}
@@ -26,6 +31,11 @@ const getContent = () => (
         <LinkTo
           href="https://www.wyzant.com/"
           label="wyzant"
+        />
+        {' or '}
+        <LinkTo
+          href="https://www.takelessons.com"
+          label="takelessons"
         />
       </span>
       {' '}

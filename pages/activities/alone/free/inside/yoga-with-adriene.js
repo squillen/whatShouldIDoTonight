@@ -1,5 +1,6 @@
 import { connect } from 'react-redux'
 import LinkTo from '../../../../../components/linkTo/linkTo'
+import Photo from '../../../../../components/photo/photo'
 import Post from '../../../../../components/post/post'
 import styles from '../../../../../styles/activity.module.css'
 
@@ -19,6 +20,10 @@ const getContent = () => (
       </span>
     </p>
     <p>Namaste, mother fucker.</p>
+    <Photo
+      src="https://media.giphy.com/media/9Xiv14oD5OKGY/giphy.gif"
+      alt="Dog licking owner while she's doing yoga"
+    />
   </div>
 )
 

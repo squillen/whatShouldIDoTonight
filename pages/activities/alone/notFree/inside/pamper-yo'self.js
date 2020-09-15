@@ -1,13 +1,19 @@
 import { connect } from 'react-redux'
 import Post from '../../../../../components/post/post'
+import Photo from '../../../../../components/photo/photo'
 import LinkTo from '../../../../../components/linkTo/linkTo'
 import styles from '../../../../../styles/activity.module.css'
 
 const getContent = () => (
   <div className={styles.activityContainer}>
+    <p>Sometimes you need to be reminded to treat yourself. This is that reminder.</p>
     <p>
       Do you have a facial mask? How about white strips? Nasal strips? Tea? A good movie?
     </p>
+    <Photo
+      src="https://media.giphy.com/media/2hgAt92zs4qbp9Ld4W/giphy.gif"
+      alt="dog at spa"
+    />
     <p>Ok, now do any/all of those things tonight.</p>
     <p>
       <span>

@@ -2,23 +2,21 @@ import { connect } from 'react-redux'
 import Post from '../../../../../components/post/post'
 import LinkTo from '../../../../../components/linkTo/linkTo'
 import styles from '../../../../../styles/activity.module.css'
+import Photo from '../../../../../components/photo/photo'
 
 const getContent = () => (
   <div className={styles.activityContainer}>
-    TODO CHANGE ME
-    <div className={styles.centered}>
-      <img
-        src="https://i.ibb.co/Q6KJJvH/Stereotype-Star-Gothika-Halle-Berry.jpg"
-        alt="Halle Berry in Gothika"
-        className={styles.photo}
-      />
-    </div>
+    <Photo
+      src="https://media.giphy.com/media/xT1XGXoaqfJXP3KCfC/giphy.gif"
+      alt="Will Smith punching an alien in the face in Independence Day"
+    />
+    <p>If Will Smith can save the world from aliens, you&apos;re damn right he can save you&apos;re night from boredom.</p>
     <p>
       <span>
-      The man, the myth, the (I Am) legend.
+      He&apos;s man, the myth, the (I Am) legend.
         {' '}
         <LinkTo
-          href="https://amzn.to/335k7Ud"
+          href="https://amzn.to/2E6SDVG"
           label="Watch him"
         />
         {' '}

@@ -7,20 +7,18 @@ import Photo from '../../../../../components/photo/photo'
 const getContent = () => (
   <div className={styles.activityContainer}>
     <Photo
-      src="https://media.giphy.com/media/WttDfBDPj21gs/giphy.gif"
-      alt="Halle Berry winking"
+      src="https://media.giphy.com/media/SwDKGk3xjXghZ2g9Ty/giphy.gif"
+      alt="comedian on stage"
     />
-    <p>There&apos;s not much this woman can&apos;t do. Maybe not anything.</p>
+    <p>The title says it all.</p>
     <p>
       <span>
-        Find her
-        {' '}
         <LinkTo
-          href="https://amzn.to/2RsSHSP"
-          label="here"
+          href="https://www.google.com/search?newwindow=1&safe=off&sxsrf=ALeKk03My1jYXoz7I-D-4N9qaobW_HbrHA%3A1600116603233&source=hp&ei=e9dfX4qTC9DStAW4r7fABA&q=comedy+show+near+me&oq=comedy+show&gs_lcp=CgZwc3ktYWIQAxgAMgUIABCRAjIFCAAQkQIyBQgAELEDMgIIADICCAAyAggAMgQIABBDMgIIADICCAAyAggAOgQIIxAnOgoIABCxAxCDARBDOgcIABCxAxBDUJMHWP0gYKcqaAFwAHgAgAGtAogB6RWSAQcwLjMuOC4xmAEAoAEBqgEHZ3dzLXdpeg&sclient=psy-ab"
+          label="See what&apos;s going on near you"
         />
         {' '}
-        and prepare to spend your night in awe of her beauty and talent.
+       and have fun.
       </span>
     </p>
   </div>
@@ -30,7 +28,7 @@ const Content = () => {
   const userContent = getContent()
   return (
     <Post
-      title="Have a Halle Berry night"
+      title="Go to a comedy show"
       content={userContent}
       timeToComplete="1.5+ hours"
     />

@@ -144,7 +144,7 @@ Post.propTypes = {
   content: PropTypes.object,
   noOfPeople: PropTypes.string,
   timeToComplete: PropTypes.string.isRequired,
-  currentID: PropTypes.string.isRequired
+  currentID: PropTypes.string
 }
 
 export default connect((state) => state, mapDispatchToProps)(Post)

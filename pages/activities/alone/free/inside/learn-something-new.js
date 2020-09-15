@@ -2,9 +2,14 @@ import { connect } from 'react-redux'
 import Post from '../../../../../components/post/post'
 import LinkTo from '../../../../../components/linkTo/linkTo'
 import styles from '../../../../../styles/activity.module.css'
+import Photo from '../../../../../components/photo/photo'
 
 const getContent = () => (
   <div className={styles.activityContainer}>
+    <Photo
+      src="https://media.giphy.com/media/ZoAa7lsmym6UE/giphy.gif"
+      alt="Kevin Hart saying 'You gone learn today"
+    />
     <p>Learn how to budget, code, make movies, take photos, whatever!</p>
     <p>
       <span>

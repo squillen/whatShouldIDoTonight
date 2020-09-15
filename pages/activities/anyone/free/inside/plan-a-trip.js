@@ -2,10 +2,15 @@ import { connect } from 'react-redux'
 import Post from '../../../../../components/post/post'
 import LinkTo from '../../../../../components/linkTo/linkTo'
 import styles from '../../../../../styles/activity.module.css'
+import Photo from '../../../../../components/photo/photo'
 
 const getContent = () => (
   <div className={styles.activityContainer}>
     <p>Planning the trip is half the fun, right?</p>
+    <Photo
+      src="https://media.giphy.com/media/hYJymOkDJYYBa/giphy.gif"
+      alt="person spinning globe, stopping it on Africa"
+    />
     <p>
       <span>
         Get out a globe or just check out
@@ -31,6 +36,7 @@ const getContent = () => (
           href="https://practicalwanderlust.com/how-to-plan-a-trip-travel-planning-tips/"
           label="Practical Wanderlust"
         />
+        .
       </span>
     </p>
     <p>
@@ -46,8 +52,7 @@ const getContent = () => (
           href="http://www.tripzard.com/"
           label="Tripzard"
         />
-        {', '}
-        which will basically plan it for you &#128558;
+        , which will basically plan it for you &#128558;
       </span>
     </p>
   </div>

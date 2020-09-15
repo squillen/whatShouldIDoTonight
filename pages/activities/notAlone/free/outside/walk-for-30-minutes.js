@@ -1,10 +1,15 @@
 import { connect } from 'react-redux'
 import Post from '../../../../../components/post/post'
+import Photo from '../../../../../components/photo/photo'
 import styles from '../../../../../styles/activity.module.css'
 
 const getContent = () => (
   <div className={styles.activityContainer}>
     <p>Walk to the store. Walk around the block. Just make sure you all walk for at least 30 minutes straight.</p>
+    <Photo
+      src="https://media.giphy.com/media/sGQOTQ6AvCi4/giphy.gif"
+      alt="power walkers"
+    />
     <p>
       Talk to each other. If you want some prompts, ask each other:
       <ol>

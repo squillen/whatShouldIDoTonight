@@ -2,6 +2,7 @@ import { connect } from 'react-redux'
 import Post from '../../../../../components/post/post'
 import LinkTo from '../../../../../components/linkTo/linkTo'
 import styles from '../../../../../styles/activity.module.css'
+import Photo from '../../../../../components/photo/photo'
 
 const getContent = () => (
   <div className={styles.activityContainer}>
@@ -21,8 +22,14 @@ const getContent = () => (
       Add something useful to the comments section. Just kidding, don&apos;t look at the comments. Ever.
     </p>
     <p>
-      Learn about elections and candidates, local policies, the stock market, money management, that new invasive species that&apos;s taking over. Just learn and be informed!
+      Learn about elections and candidates, local policies, the stock market,
+      money management, that new invasive species that&apos;s taking over.
+      Just learn and be informed, Einstein!
     </p>
+    <Photo
+      src="https://media.giphy.com/media/3ohs88j0jPszpGCbYY/giphy.gif"
+      alt="Einstein infinite loop"
+    />
     <p>
       <span>
         To start, check out

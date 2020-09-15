@@ -1,10 +1,15 @@
 import { connect } from 'react-redux'
 import Post from '../../../../../components/post/post'
+import Photo from '../../../../../components/photo/photo'
 import LinkTo from '../../../../../components/linkTo/linkTo'
 import styles from '../../../../../styles/activity.module.css'
 
 const getContent = () => (
   <div className={styles.activityContainer}>
+    <Photo
+      src="https://media.giphy.com/media/ACLA5ilKg8odW/giphy.gif"
+      alt="Pikachu doing the shuffle with the caption 'Everyday I'm shufflin'"
+    />
     <p>
       Cards, that is. Or the dance. Whatever, you&apos;re bored, right?
     </p>

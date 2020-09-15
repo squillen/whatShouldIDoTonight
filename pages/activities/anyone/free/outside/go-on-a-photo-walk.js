@@ -2,22 +2,26 @@ import { connect } from 'react-redux'
 import Post from '../../../../../components/post/post'
 import LinkTo from '../../../../../components/linkTo/linkTo'
 import styles from '../../../../../styles/activity.module.css'
+import Photo from '../../../../../components/photo/photo'
 
 const getContent = () => (
   <div className={styles.activityContainer}>
-    TODO CHANGE
     <p>
       <span>
         First,
         {' '}
         <LinkTo
-          href=""
+          href="/activities/anyone/free/outside/get-into-photography"
           label="hop over here"
         />
         {' '}
         if you&apos;re new to photography.
       </span>
     </p>
+    <Photo
+      src="https://media.giphy.com/media/xhX1qFxqmDNHG/giphy.gif"
+      alt="cycling through various sceneries through the camera's viewfinder"
+    />
     <p>
       Now, get out your phone or camera (make sure they&apos;re charged!) and just go outside.
       Maybe you&apos;ve got a park near you, or a hiking trail, or a downtown, a junk yard, whatever, just go somewhere!

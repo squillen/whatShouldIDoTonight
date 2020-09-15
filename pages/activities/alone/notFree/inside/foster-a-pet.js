@@ -2,10 +2,16 @@ import { connect } from 'react-redux'
 import Post from '../../../../../components/post/post'
 import LinkTo from '../../../../../components/linkTo/linkTo'
 import styles from '../../../../../styles/activity.module.css'
+import Photo from '../../../../../components/photo/photo'
 
 const getContent = () => (
   <div className={styles.activityContainer}>
     <p>Or at least consider it.</p>
+    <Photo
+      src="https://media.giphy.com/media/l0IykwxxedIsEXpF6/giphy.gif"
+      alt="Happy dog wagging tail in shelter"
+    />
+    <p>I mean, look at that good boy.</p>
     <p>
       <span>
         Check out your

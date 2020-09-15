@@ -5,10 +5,17 @@ import styles from '../../../../../styles/activity.module.css'
 
 const getContent = () => (
   <div className={styles.activityContainer}>
-    TODO CHANGE ME
-    <p>Why were mozzarella and feta holding hands?</p>
-    <p className={styles.italic}>They looked gouda together.</p>
-    <p>Don&apos;t worry, I hate me, too. I guess that&apos;s why I&apos;ll probably die provolone. Yea, fuck you, I doubled down.</p>
+    <div className={styles.quotation}>
+      <div>Why were mozzarella and feta holding hands?</div>
+      <div className={styles.italic}>They looked gouda together.</div>
+    </div>
+    <p>
+      <span>
+        Don&apos;t worry, I hate me, too. I guess that&apos;s why I&apos;ll probably
+        {' '}
+        die <span className={styles.italicAndBold}>provolone</span>. Yea, that&apos;s right, fuck you, I changed my mind and doubled down.
+      </span>
+    </p>
     <iframe width="560" height="315" src="https://www.youtube-nocookie.com/embed/j1dWN5wlYuU" frameBorder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowFullScreen></iframe>
     <p>
       <span>
@@ -22,6 +29,7 @@ const getContent = () => (
         for an even easier entry into the world of cheese making.
       </span>
     </p>
+    <p>Now go out there and have a gouda night. Yea, same pun. Deal with it.</p>
   </div>
 )
 

@@ -1,5 +1,6 @@
 import { connect } from 'react-redux'
 import LinkTo from '../../../../../components/linkTo/linkTo'
+import Photo from '../../../../../components/photo/photo'
 import Post from '../../../../../components/post/post'
 import styles from '../../../../../styles/activity.module.css'
 
@@ -8,6 +9,10 @@ const getContent = () => (
     <p>
       What ingredients do you have in the kitchen right now? Cook with those. Make it more fun by doing it Chopped-style.
     </p>
+    <Photo
+      src="https://media.giphy.com/media/3o85xLKELPolFREtTa/giphy.gif"
+      alt="cook sloppily pushing all ingredients into a bowl of liquid"
+    />
     <p>
       <span>
         <LinkTo

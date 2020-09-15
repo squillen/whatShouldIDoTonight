@@ -1,5 +1,6 @@
 import { connect } from 'react-redux'
 import Post from '../../../../../components/post/post'
+import Photo from '../../../../../components/photo/photo'
 import LinkTo from '../../../../../components/linkTo/linkTo'
 import styles from '../../../../../styles/activity.module.css'
 
@@ -9,15 +10,18 @@ const getContent = () => (
     <p>
       <span>
         If you don&apos;t get that, check out
+        {' '}
         <LinkTo
           href="https://amzn.to/2FgRMlC"
           label="Amazon"
         />
-        {', '}
-        where you can, of course, buy any freaking game out there.
+        , where you can, of course, buy any freaking game out there. (Or just google &quot;popular gaming phrases&quot; like I did &#128517;)
       </span>
     </p>
-    <p>(Or just google &quot;popular gaming phrases&quot; like I did &#128517;)</p>
+    <Photo
+      src="https://media.giphy.com/media/xkvttzvWDPMEEXAJB1/giphy.gif"
+      alt="Adam Driver as old man character on SNL with the caption, 'Okay, what do I do now?"
+    />
     <p>
       <span>
       Or, if you don&apos;t want to commit to a game just yet, you can rent one (or many!) from
@@ -44,14 +48,13 @@ const getContent = () => (
     </p>
     <p>
       <span>
-      Orrrr if none of those do it for you and you&apos;re feeling a little more voyeuristic, watch people play on
+        Orrrr if none of those do it for you and you&apos;re feeling a little more voyeuristic, watch people play on
         {' '}
         <LinkTo
           href="https://twitch.tv/"
           label="twitch"
         />
-        {', '}
-      you kinky devil you.
+        , you kinky devil you.
       </span>
     </p>
     <p>
@@ -65,6 +68,10 @@ const getContent = () => (
     </p>
     <p>That was weird since I don&apos;t have any kids...and I&apos;m a man.</p>
     <p>Now go Leeroy Jenkins that shit.</p>
+    <Photo
+      src="https://media.giphy.com/media/JPry9tfvgTYic/giphy.gif"
+      alt="Big ant (or something like that) jumping from twig onto a big ol' spider and getting immediately eaten with the caption 'Leeroy Jenkins' scrolling in"
+    />
   </div>
 )
 

@@ -1,10 +1,15 @@
 import { connect } from 'react-redux'
 import Post from '../../../../../components/post/post'
 import LinkTo from '../../../../../components/linkTo/linkTo'
+import Photo from '../../../../../components/photo/photo'
 import styles from '../../../../../styles/activity.module.css'
 
 const getContent = () => (
   <div className={styles.activityContainer}>
+    <Photo
+      src="https://media.giphy.com/media/ZoAa7lsmym6UE/giphy.gif"
+      alt="Kevin Hart saying 'You gone learn today"
+    />
     <p>Learn about a different culture, how to appreciate wine, how to code, or whatever else your heart desires!</p>
     <p>
       <span>
@@ -26,6 +31,7 @@ const getContent = () => (
     <p>
       <span>
         And here&apos;s something to get you started: the wood frog
+        {' '}
         <LinkTo
           href="https://melmagazine.com/en-us/story/the-frog-that-can-hold-its-pee-for-eight-months"
           label="holds its pee for up to eight months"

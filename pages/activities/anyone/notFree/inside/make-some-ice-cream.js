@@ -2,9 +2,15 @@ import { connect } from 'react-redux'
 import Post from '../../../../../components/post/post'
 import LinkTo from '../../../../../components/linkTo/linkTo'
 import styles from '../../../../../styles/activity.module.css'
+import Photo from '../../../../../components/photo/photo'
 
 const getContent = () => (
   <div className={styles.activityContainer}>
+    <Photo
+      src="https://media.giphy.com/media/i2Pf1AghDlg0o/giphy.gif"
+      alt="guys eating ice cream with massive spoon"
+    />
+    <p>This genius found the loop hole.</p>
     <p>It&apos;s surprisingly easy...and unsurprisingly unhealthy. I mean, it&apos;s almost literally just &quot;iced&quot; cream. But whatever, you can do the frozen yogurt (or water ice) options instead if you&apos;re concerned. </p>
     <p>
       <span>
@@ -20,7 +26,14 @@ const getContent = () => (
           label="This"
         />
         {' '}
-        is a nice, affordable option.
+        is a nice, affordable option. And you&apos;re also probably gonna need
+        {' '}
+        <LinkTo
+          href="https://amzn.to/2E1NnCy"
+          label="some containers"
+        />
+        {' '}
+        to put it in after.
       </span>
     </p>
     <p>

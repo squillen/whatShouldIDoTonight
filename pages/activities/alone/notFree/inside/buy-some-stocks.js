@@ -2,6 +2,7 @@ import { connect } from 'react-redux'
 import Post from '../../../../../components/post/post'
 import LinkTo from '../../../../../components/linkTo/linkTo'
 import styles from '../../../../../styles/activity.module.css'
+import Photo from '../../../../../components/photo/photo'
 
 const getContent = () => (
   <div className={styles.activityContainer}>
@@ -30,6 +31,10 @@ const getContent = () => (
       </span>
     </p>
     <p><span>Invest responsibly, y&apos;all, and <span className={styles.bold}>make that money!</span></span></p>
+    <Photo
+      src="https://media.giphy.com/media/l2Sq9qGTQnL5NyI6Y/giphy.gif"
+      alt="Dog makin' that money"
+    />
   </div>
 )
 

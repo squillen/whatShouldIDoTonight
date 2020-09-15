@@ -1,15 +1,21 @@
 import { connect } from 'react-redux'
 import LinkTo from '../../../../../components/linkTo/linkTo'
 import Post from '../../../../../components/post/post'
+import Photo from '../../../../../components/photo/photo'
 import styles from '../../../../../styles/activity.module.css'
 
 const getContent = () => (
   <div className={styles.activityContainer}>
-    TODO CHANGE ME
     <p>
       My mom loved doing these when I was a kid to show us that
-      non-name brand items were just as good as name brand items.
+      non-name-brand items were just as good as name-brand items.
+      Little did she know I was just doing it to get more food.
     </p>
+    <Photo
+      src="https://media.giphy.com/media/ij8AeeqXKFZm0/giphy.gif"
+      alt="creepy girl smirking into camera"
+    />
+    <p>But back to you.</p>
     <p>
       Do you have multiple types/brands of the same type of food/liquid?
       Like, do you have a couple of different kinds of
@@ -29,19 +35,7 @@ const getContent = () => (
       to almond butter, cashew butter, etc.
     </p>
     <p>
-      <span>
-        If you don&apos;t, maybe consider
-        {' '}
-        <LinkTo
-          href="/activities/anyone/notFree/inside/have-a-taste-test"
-          label="buying something"
-        />
-        {' '}
-        for this.
-      </span>
-    </p>
-    <p>
-      If you&apos;d really rather not, maybe you have some sort of
+      If you don&apos;t and don&apos;t want to spend any money getting any, maybe you have some sort of
       water filter--try filtered vs. unfiltered water, or maybe try the tap water
       from different faucets throughout your place.
       Just get creative and have some fun with it.

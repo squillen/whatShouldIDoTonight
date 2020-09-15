@@ -1,18 +1,16 @@
 import { connect } from 'react-redux'
 import Post from '../../../../../components/post/post'
+import Photo from '../../../../../components/photo/photo'
 import LinkTo from '../../../../../components/linkTo/linkTo'
 import styles from '../../../../../styles/activity.module.css'
 
 const getContent = () => (
   <div className={styles.activityContainer}>
-    TODO CHANGE ME
-    <div className={styles.centered}>
-      <img
-        src="https://i.ibb.co/Q6KJJvH/Stereotype-Star-Gothika-Halle-Berry.jpg"
-        alt="Halle Berry in Gothika"
-        className={styles.photo}
-      />
-    </div>
+    <Photo
+      src="https://media.giphy.com/media/l0HU3GIUuoOX2U4H6/giphy.gif"
+      alt="Tommy Wiseau in 'The Room' asking 'Why? Why is this happening to me? Why?"
+    />
+    <p>You might be having the same feelings about your night right now, but don&apos;t worry, Tommy is here to help.</p>
     <p>
       <span>
         <LinkTo
@@ -26,12 +24,12 @@ const getContent = () => (
     <p>
       <span>
         <LinkTo
-          href="hhttps://amzn.to/2FNRpyW"
+          href="https://amzn.to/2RwbwnT"
           label="Check out"
         />
       </span>
       {' '}
-      isome of his movies and prepare to be gobsmacked, Mark.
+      some of his movies and prepare to be gobsmacked, Mark.
     </p>
   </div>
 )

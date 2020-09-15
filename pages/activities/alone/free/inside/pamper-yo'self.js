@@ -2,12 +2,15 @@ import { connect } from 'react-redux'
 import Post from '../../../../../components/post/post'
 import LinkTo from '../../../../../components/linkTo/linkTo'
 import styles from '../../../../../styles/activity.module.css'
+import Photo from '../../../../../components/photo/photo'
 
 const getContent = () => (
   <div className={styles.activityContainer}>
-    <p>
-    Sometimes you need to be reminded to treat yourself. This is your reminder.
-    </p>
+    <p>Sometimes you need to be reminded to treat yourself. This is that reminder.</p>
+    <Photo
+      src="https://media.giphy.com/media/2hgAt92zs4qbp9Ld4W/giphy.gif"
+      alt="dog at spa"
+    />
     <p>
       If you&apos;ve got face masks, whitening strips, nasal pore strips, that kinda gross foot stone thing, and the like, go ahead and use any/all of those.
     </p>

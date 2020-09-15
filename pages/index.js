@@ -31,7 +31,7 @@ export const getStaticProps = wrapper.getStaticProps(({ store }) => {
 function Home (props) {
   const { activities } = props
   const [userAlone, setUserAlone] = useState(true)
-  const [spendMoney, setSpendMoney] = useState(false)
+  const [spendMoney, setSpendMoney] = useState(true)
   const [goOutside, setGoOutside] = useState(3)
   const [currentActivity, setCurrentActivity] = useState({})
   const state = useSelector(state => state)
@@ -67,42 +67,39 @@ function Home (props) {
           {/* ARE YOU ALONE SECTION */}
           <div className={utilStyles.question}>
             <span>
-              I am
+              I am alone:
             </span>
             <span>
               <select className={utilStyles.select} name="userAlone" id="userAlone" onChange={handleSelect}>
-                <option className={utilStyles.option} name="userAlone" value="true">alone</option>
-                <option className={utilStyles.option} name="userAlone" value="false">not alone</option>
+                <option className={utilStyles.option} name="userAlone" value="true">Yes</option>
+                <option className={utilStyles.option} name="userAlone" value="false">No</option>
               </select>
             </span>
-            .
           </div>
           {/* SPEND MONEY SECTION */}
           <div className={utilStyles.question}>
             <span>
-              I am
+              I am OK spending money:
             </span>
             <span>
               <select className={utilStyles.select} name="spendMoney" id="spendMoney" onChange={handleSelect}>
-                <option className={utilStyles.option} name="spendMoney" value="false">not OK</option>
-                <option className={utilStyles.option} name="spendMoney" value="true">OK</option>
+                <option className={utilStyles.option} name="spendMoney" value="true">Yes</option>
+                <option className={utilStyles.option} name="spendMoney" value="false">No</option>
               </select>
             </span>
-            <span> with spending money.</span>
           </div>
           {/* INSIDE OR OUTSIDE SECTION */}
           <div className={utilStyles.question}>
             <span>
-              I
+              I want to go outside:
             </span>
             <span>
               <select className={utilStyles.select} name="goOutside" id="goOutside" onChange={handleSelect}>
-                <option className={utilStyles.option} name="goOutside" value={3}>don&apos;t care if I</option>
-                <option className={utilStyles.option} name="goOutside" value={1}>want to</option>
-                <option className={utilStyles.option} name="goOutside" value={2}>don&apos;t want to</option>
+                <option className={utilStyles.option} name="goOutside" value={3}>I don&apos;t care</option>
+                <option className={utilStyles.option} name="goOutside" value={1}>Yes</option>
+                <option className={utilStyles.option} name="goOutside" value={2}>No</option>
               </select>
             </span>
-            <span> go outside.</span>
           </div>
           <div className={utilStyles.buttonContainer}>
             <Button

@@ -2,9 +2,14 @@ import { connect } from 'react-redux'
 import Post from '../../../../../components/post/post'
 import LinkTo from '../../../../../components/linkTo/linkTo'
 import styles from '../../../../../styles/activity.module.css'
+import Photo from '../../../../../components/photo/photo'
 
 const getContent = () => (
   <div className={styles.activityContainer}>
+    <Photo
+      src="https://media.giphy.com/media/3o6nUYpHIdVntjCtgc/giphy.gif"
+      alt="Portlandia - Nerdy tourists looking at map try to figure out where they are"
+    />
     <p>You live where you live for a reason, right?</p>
     <p>Go explore it.</p>
     <p>

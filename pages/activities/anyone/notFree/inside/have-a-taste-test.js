@@ -1,25 +1,59 @@
 import { connect } from 'react-redux'
 import Post from '../../../../../components/post/post'
 import LinkTo from '../../../../../components/linkTo/linkTo'
+import Photo from '../../../../../components/photo/photo'
 import styles from '../../../../../styles/activity.module.css'
 
 const getContent = () => (
   <div className={styles.activityContainer}>
-    TODO CHANGE
     <p>
-      There&apos;s are a good chance they&apos;re already booked out for tonight, but maybe not! And if they are, book it for another night!
+      My mom loved doing these when I was a kid to show us that
+      non-name-brand items were just as good as name-brand items.
+      Little did she know I was just doing it to get more food.
+    </p>
+    <Photo
+      src="https://media.giphy.com/media/ij8AeeqXKFZm0/giphy.gif"
+      alt="creepy girl smirking into camera"
+    />
+    <p>But back to you.</p>
+    <p>
+      Go to the store and get multiple brands/price-ranges of one or some (or all!) of the following:
+    </p>
+    <ul>
+      <li>Beers</li>
+      <li>Coffee</li>
+      <li>Olive oil</li>
+      <li>Cheese</li>
+      <li>Chocolate</li>
+      <li>Nut butters (e.g. peanut, almond, etc.)</li>
+      <li>Wine</li>
+      <li>Alcohols</li>
+      <li>Whatever else you can think of</li>
+    </ul>
+    <p>
+      Also remember that you can compare against brands as well as varieties,
+      like comparing olive oil to grape seed oil, avocado oil, etc. or peanut butter
+      to almond butter, cashew butter, etc.
     </p>
     <p>
       <span>
-        Check
+        If you&apos;re interested,
         {' '}
         <LinkTo
-          href="https://www.google.com/search?newwindow=1&safe=off&sxsrf=ALeKk02qdZ4_6D3jL2Gy0Z0tbPefuCTieQ%3A1600050472090&source=hp&ei=KNVeX_bOAYnusQWenrCADg&q=cooking+classes+near+me&oq=cooking+classes+near+me&gs_lcp=CgZwc3ktYWIQAzICCAAyBQgAEJIDMgIIADICCAAyAggAMgIIADICCAAyAggAMgIIADICCAA6BwgjEOoCECc6BAgjECc6BQgAEJECOggIABCxAxCDAToFCAAQsQNQ3g5YxClg3itoAXAAeAGAAZYDiAHbG5IBCjExLjQuNy4wLjGYAQCgAQGqAQdnd3Mtd2l6sAEK&sclient=psy-ab&ved=0ahUKEwj2gojAzOfrAhUJd6wKHR4PDOAQ4dUDCAk&uact=5"
-          label="it out"
+          href="https://theunconventionalroute.com/blind-taste-tests/"
+          label="here&apos;s a great article"
         />
         {' '}
-        and get ready to say bon appetit!
+        to get you started.
       </span>
+    </p>
+    <p>
+      If you&apos;re with someone who&apos;s a real snob about whatever you&apos;re tasting,
+      consider placing some bets on whether or not they actually know what
+      they hell they&apos;re talking about.
+    </p>
+    <p>
+      Be prepared for some surprises.
     </p>
   </div>
 )

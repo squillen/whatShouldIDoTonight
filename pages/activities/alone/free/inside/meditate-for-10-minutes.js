@@ -2,10 +2,15 @@ import { connect } from 'react-redux'
 import Post from '../../../../../components/post/post'
 import LinkTo from '../../../../../components/linkTo/linkTo'
 import styles from '../../../../../styles/activity.module.css'
+import Photo from '../../../../../components/photo/photo'
 
 const getContent = () => (
   <div className={styles.activityContainer}>
-    <p>Quit your grumbling.</p>
+    <Photo
+      src="https://media.giphy.com/media/qK2KaYr3Uhnq0/giphy.gif"
+      alt="trippy dog hovering and meditating"
+    />
+    <p>Quit your grumbling. I mean, don&apos;t do whatever the fuck ☝ that ☝ is, but give it a chance otherwise.</p>
     <p>
     Meditation doesn&apos;t have to be boring. In fact, it can actually be *gasp* enjoyable?!
     </p>

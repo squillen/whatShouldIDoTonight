@@ -11,6 +11,11 @@ const getContent = () => (
         Check out
         {' '}
         <LinkTo
+          href="https://amzn.to/2ZGBhq3"
+          label="audible.com"
+        />
+        {' or '}
+        <LinkTo
           href="https://www.audiobooks.com/"
           label="audiobooks.com"
         />

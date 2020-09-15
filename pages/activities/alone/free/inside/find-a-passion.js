@@ -2,13 +2,18 @@ import { connect } from 'react-redux'
 import Post from '../../../../../components/post/post'
 import LinkTo from '../../../../../components/linkTo/linkTo'
 import styles from '../../../../../styles/activity.module.css'
+import Photo from '../../../../../components/photo/photo'
 
 const getContent = () => (
   <div className={styles.activityContainer}>
     <p>Did you find it yet? Sweet. Next.</p>
     <p>Alright, fine, maybe it&apos;s not that easy.</p>
     <p>Spend at least an hour tonight thinking about things to do in life.</p>
-    <p>Not like, &quot;I need to change the world&quot; kind of thoughts, just &quot;life can be pretty awesome and I want to take advantage of that&quot; kind of thoughts.</p>
+    <Photo
+      src="https://media.giphy.com/media/E2d2tsgz7iHo4/giphy.gif"
+      alt="Joey from Friends staring longingly out fake window with rain"
+    />
+    <p>No, not like that ☝, not &quot;I need to change the world&quot; kind of thoughts, just &quot;life can be pretty awesome and I want to take advantage of that&quot; kind of thoughts.</p>
     <p>
       <span>
         Here are a

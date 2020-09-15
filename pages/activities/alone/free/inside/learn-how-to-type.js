@@ -2,10 +2,15 @@ import { connect } from 'react-redux'
 import Post from '../../../../../components/post/post'
 import LinkTo from '../../../../../components/linkTo/linkTo'
 import styles from '../../../../../styles/activity.module.css'
+import Photo from '../../../../../components/photo/photo'
 
 const getContent = () => (
   <div className={styles.activityContainer}>
-    <p>Computers are pretty much extensions of who we are at this point yet not everyone knows how to properly type. Don&apos;t be oe of those people.</p>
+    <Photo
+      src="https://media.giphy.com/media/o0vwzuFwCGAFO/giphy.gif"
+      alt="cat typing maniacally"
+    />
+    <p>Computers are pretty much extensions of who we are at this point yet not everyone knows how to properly type. Don&apos;t be one of those people.</p>
     <p>
       <span>
         You can test yourself and practice

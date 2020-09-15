@@ -2,6 +2,7 @@ import { connect } from 'react-redux'
 import Post from '../../../../../components/post/post'
 import LinkTo from '../../../../../components/linkTo/linkTo'
 import styles from '../../../../../styles/activity.module.css'
+import Photo from '../../../../../components/photo/photo'
 
 const getContent = () => (
   <div className={styles.activityContainer}>
@@ -60,16 +61,12 @@ const getContent = () => (
       </span>
     </p>
     <p>
-      <span>
-      And now, for reading this whole post,
-        {' '}
-        <LinkTo
-          href="https://i.ibb.co/mTFDB5G/photo-1582068955580-dcc6c0812b21-ixlib-rb-1-2.jpg"
-          label="here's a picture of some puppies in a wagon"
-        />
-        {'.'}
-      </span>
+      And now, for reading this whole post, here&apos;s a basket of puppies:
     </p>
+    <Photo
+      src="https://media.giphy.com/media/gcXcSRYZ9cGWY/giphy.gif"
+      alt="basket of puppies being gently dumped into grass"
+    />
   </div>
 )
 

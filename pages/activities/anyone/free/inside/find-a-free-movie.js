@@ -1,5 +1,6 @@
 import { connect } from 'react-redux'
 import LinkTo from '../../../../../components/linkTo/linkTo'
+import Photo from '../../../../../components/photo/photo'
 import Post from '../../../../../components/post/post'
 import styles from '../../../../../styles/activity.module.css'
 
@@ -36,7 +37,11 @@ const getContent = () => (
     </p>
     <p>
       <span>
-        If still not, how about checking out these <span className={styles.italic}>actually free</span>
+        If still not, how about checking out these
+        {' '}
+        <span className={styles.italic}>actually free</span>
+        {' '}
+        (and <span className={styles.italic}>actually old</span>)
         {' '}
         <LinkTo
           href="https://www.youtube.com/playlist?list=PLyMSG-Q0Oh8cr6AG1jbptCGW5P6n-_Szz"
@@ -57,6 +62,10 @@ const getContent = () => (
       {' '}
       while you&apos;re at it.
     </p>
+    <Photo
+      src="https://media.giphy.com/media/11vsrRFqhjOcKI/giphy.gif"
+      alt="George Castanza eating popcorn and watching TV"
+    />
   </div>
 )
 
@@ -66,7 +75,7 @@ const Content = () => {
     <Post
       title="Find a free movie"
       content={userContent}
-      timeToComplete="1+ hour"
+      timeToComplete="1.5+ hour"
     />
   )
 }

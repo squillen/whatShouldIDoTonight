@@ -5,8 +5,6 @@ import styles from '../../../../../styles/activity.module.css'
 
 const getContent = () => (
   <div className={styles.activityContainer}>
-    TODO CHANGE ME
-
     <Photo
       src="https://media.giphy.com/media/l4FGm4EoWOc5MZ16g/giphy.gif"
       alt="Three Stooges clip"

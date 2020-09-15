@@ -8,7 +8,7 @@ export default function Info ({ label }) {
     <div className={styles.infoContainer}>
       <span>
         <span className={styles.iconContainer}>
-          <FontAwesomeIcon size="m" icon={faExclamation} />
+          <FontAwesomeIcon size="1x" icon={faExclamation} />
         </span>
         <span className={styles.textContainer}>{label}</span>
       </span>

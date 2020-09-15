@@ -2,9 +2,14 @@ import { connect } from 'react-redux'
 import Post from '../../../../../components/post/post'
 import LinkTo from '../../../../../components/linkTo/linkTo'
 import styles from '../../../../../styles/activity.module.css'
+import Photo from '../../../../../components/photo/photo'
 
 const getContent = () => (
   <div className={styles.activityContainer}>
+    <Photo
+      src="https://media.giphy.com/media/l2JhL1AzTxORUTDlC/giphy.gif"
+      alt="Monica from Friends dancing awkwardly"
+    />
     <p>
       You don&apos;t have to be with someone to learn how to dance. In fact, it might be even better to be alone...cause you, uh, you know, might not be very good at it...yet!
     </p>

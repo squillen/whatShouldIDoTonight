@@ -1,19 +1,27 @@
 import { connect } from 'react-redux'
 import Post from '../../../../../components/post/post'
+import Photo from '../../../../../components/photo/photo'
 import LinkTo from '../../../../../components/linkTo/linkTo'
 import styles from '../../../../../styles/activity.module.css'
 
 const getContent = () => (
   <div className={styles.activityContainer}>
-    TODO CHANGE ME
-    <div className={styles.centered}>
-      <img
-        src="https://i.ibb.co/Q6KJJvH/Stereotype-Star-Gothika-Halle-Berry.jpg"
-        alt="Halle Berry in Gothika"
-        className={styles.photo}
-      />
-    </div>
-
+    <Photo
+      src="https://media.giphy.com/media/3o6gE8ckqfTuPL3i5a/giphy.gif"
+      alt={'Eddie Murphy screaming "Why?"'}
+    />
+    <p>You might be thinking similarly about your lack of plans tonight.</p>
+    <p>
+      <span>
+        But worry no more,
+        {' '}
+        <LinkTo
+          href="https://amzn.to/3klrVrP"
+          label=" Eddie&apos;s got you"
+        />
+        .
+      </span>
+    </p>
   </div>
 )
 

@@ -6,8 +6,6 @@ import styles from '../../../../../styles/activity.module.css'
 
 const getContent = () => (
   <div className={styles.activityContainer}>
-    TODO CHANGE ME
-
     <Photo
       src="https://media.giphy.com/media/L4HAlELytPiEKVaxBu/giphy.gif"
       alt="Stop Making Sense"

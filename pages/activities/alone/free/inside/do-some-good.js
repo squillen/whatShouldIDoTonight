@@ -2,14 +2,19 @@ import { connect } from 'react-redux'
 import Post from '../../../../../components/post/post'
 import LinkTo from '../../../../../components/linkTo/linkTo'
 import styles from '../../../../../styles/activity.module.css'
+import Photo from '../../../../../components/photo/photo'
 
 const getContent = () => (
   <div className={styles.activityContainer}>
     <p>
-    What do you normally do at home? Watch too much TV? Eat terrible food? Masturbate endlessly?
+      What do you normally do at home? Watch too much TV? Eat terrible food? Masturbate endlessly?
     </p>
+    <Photo
+      src="https://media.giphy.com/media/26uffjHH20cayahK8/giphy.gif"
+      alt="Rodney Dangerfield endlessly licking through TV"
+    />
     <p>
-    [*Cue Morpheus voice*] What if I told you that there was actually something honorable you could do in your house?!
+      [*Cue Morpheus voice*] What if I told you that there was actually something honorable you could do in your house?
     </p>
     <p>Volunteer. Virtually!</p>
     <p>
@@ -51,8 +56,7 @@ const getContent = () => (
           label="operation warm"
         />
       </span>
-      {', '}
-      you <span className={styles.italicAndBold}>former</span> house heathen you!
+      , you <span className={styles.italicAndBold}>former</span> house heathen you!
     </p>
   </div>
 )

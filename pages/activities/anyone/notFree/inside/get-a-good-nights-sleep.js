@@ -5,7 +5,6 @@ import styles from '../../../../../styles/activity.module.css'
 
 const getContent = () => (
   <div className={styles.activityContainer}>
-    TODO CHANGE ME
     <p>
       Don&apos;t sleep on having a good night&apos;s sleep. Wait, I mean, do, but...don&apos;t? Just get a good night&apos;s sleep, OK??
     </p>
@@ -35,7 +34,7 @@ const getContent = () => (
           label="blue light blocking glasses"
         />
         {' '}
-        that won&apos;t kill your partner&apos;s sexual drive for you.
+        that won&apos;t kill your partner&apos;s sex drive for you.
       </span>
     </p>
   </div>

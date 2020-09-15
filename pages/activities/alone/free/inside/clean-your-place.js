@@ -2,10 +2,15 @@ import { connect } from 'react-redux'
 import Post from '../../../../../components/post/post'
 import LinkTo from '../../../../../components/linkTo/linkTo'
 import styles from '../../../../../styles/activity.module.css'
+import Photo from '../../../../../components/photo/photo'
 
 const getContent = () => (
   <div className={styles.activityContainer}>
     <p>That&apos;s right, you filthy animal.</p>
+    <Photo
+      src="https://media.giphy.com/media/30O6emI7tFRew/giphy.gif"
+      alt="hoarder with filthy kitchen"
+    />
     <p>Clean for at least 20 minutes.</p>
     <p>
       <span>

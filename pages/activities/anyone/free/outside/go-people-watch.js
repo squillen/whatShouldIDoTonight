@@ -2,9 +2,14 @@ import { connect } from 'react-redux'
 import Post from '../../../../../components/post/post'
 import LinkTo from '../../../../../components/linkTo/linkTo'
 import styles from '../../../../../styles/activity.module.css'
+import Photo from '../../../../../components/photo/photo'
 
 const getContent = () => (
   <div className={styles.activityContainer}>
+    <Photo
+      src="https://media.giphy.com/media/26BRuo6sLetdllPAQ/giphy.gif"
+      alt="Guy from Silicon Valley looking out sliding glass door through blinds"
+    />
     <p>This is great since you can go almost anywhere for this and get some cheap entertainment or even some fashion ideas.</p>
     <p>Go anywhere there are people:</p>
     <ul>

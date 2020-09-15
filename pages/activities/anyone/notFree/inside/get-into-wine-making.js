@@ -5,8 +5,7 @@ import styles from '../../../../../styles/activity.module.css'
 
 const getContent = () => (
   <div className={styles.activityContainer}>
-    TODO CHANGE ME
-    <p>Take part in one of the oldest, most sacred, revered traditions out there. And then get purple teeth-shitfaced.</p>
+    <p>Take part in one of the oldest, most sacred, and revered traditions out there. And then get purple-teeth-shitfaced.</p>
     <iframe width="560" height="315" src="https://www.youtube-nocookie.com/embed/4Z-8l1caH0I" frameBorder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowFullScreen></iframe>
     <p>
       <span>
@@ -21,6 +20,7 @@ const getContent = () => (
           href="https://amzn.to/35E4nKz"
           label="recipe kits"
         />
+        {' '}
         to get everything you need to get started and to now always have a gift ready to give someone.
       </span>
     </p>

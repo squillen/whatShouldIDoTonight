@@ -2,9 +2,14 @@ import { connect } from 'react-redux'
 import Post from '../../../../../components/post/post'
 import LinkTo from '../../../../../components/linkTo/linkTo'
 import styles from '../../../../../styles/activity.module.css'
+import Photo from '../../../../../components/photo/photo'
 
 const getContent = () => (
   <div className={styles.activityContainer}>
+    <Photo
+      src="https://media.giphy.com/media/JA8X1yjBnTaZW/giphy.gif"
+      alt="sun rising over lake"
+    />
     <p>
       <span>
         Find
@@ -14,9 +19,10 @@ const getContent = () => (
           label="some places"
         />
         {' '}
-        near you to watch one. Consider hiking to the spot, too. Once you&apos;ve found one, get ready. Bring some coffee/tea and something light to eat. It might be a little chilly, too, so also consider a jacket or something.
+        near you to watch one. Consider hiking to the spot, too.
       </span>
     </p>
+    <p>Once you&apos;ve found one, get ready. Bring some coffee/tea and something light to eat. It might be a little chilly, too, so also consider a jacket or something.</p>
   </div>
 )
 

@@ -3,7 +3,7 @@ import Link from 'next/link'
 
 export default function Button (props) {
   const {
-    as,
+    as = '',
     customStyle,
     href,
     inlineStyle,

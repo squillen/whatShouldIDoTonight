@@ -111,9 +111,10 @@ function Home (props) {
             />
           </motion.div>
         </motion.div>
-        <div className={utilStyles.mobileQuestions}>
+        {/* MOBILE SECTION */}
+        <motion.div variants={stagger} className={utilStyles.mobileQuestions}>
           {/* ARE YOU ALONE SECTION */}
-          <div className={utilStyles.question}>
+          <motion.div variants={fadeInUp} className={utilStyles.question}>
             <div>
               I am alone:
             </div>
@@ -123,9 +124,9 @@ function Home (props) {
                 <option className={utilStyles.option} name="userAlone" value="false">No</option>
               </select>
             </div>
-          </div>
+          </motion.div>
           {/* SPEND MONEY SECTION */}
-          <div className={utilStyles.question}>
+          <motion.div variants={fadeInUp} className={utilStyles.question}>
             <div>
               I am OK spending money:
             </div>
@@ -135,9 +136,9 @@ function Home (props) {
                 <option className={utilStyles.option} name="spendMoney" value="false">No</option>
               </select>
             </div>
-          </div>
+          </motion.div>
           {/* INSIDE OR OUTSIDE SECTION */}
-          <div className={utilStyles.question}>
+          <motion.div variants={fadeInUp} className={utilStyles.question}>
             <div>
               I want to go outside:
             </div>
@@ -148,15 +149,15 @@ function Home (props) {
                 <option className={utilStyles.option} name="goOutside" value={2}>No</option>
               </select>
             </div>
-          </div>
-          <div className={utilStyles.buttonContainer}>
+          </motion.div>
+          <motion.div variants={fadeInUp} className={utilStyles.buttonContainer}>
             <Button
               inlineStyle={{ border: '3px solid #0F2956', fontSize: '1.5rem' }}
               href={`/activities${currentActivity.category}/${currentActivity.id}`}
               label="tell me"
             />
-          </div>
-        </div>
+          </motion.div>
+        </motion.div>
       </section>
     </Layout>
   )

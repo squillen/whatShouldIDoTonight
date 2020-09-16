@@ -1,5 +1,8 @@
 import Head from 'next/head'
 export const siteTitle = 'What Should I Do Tonight?'
+const mailChimpScript = `
+  !function(c,h,i,m,p){m=c.createElement(h),p=c.getElementsByTagName(h)[0],m.async=1,m.src=i,p.parentNode.insertBefore(m,p)}(document,"script","https://chimpstatic.com/mcjs-connected/js/users/42fd643d25e61b586e6992d41/c722f51a5614f406bcfbd1aa9.js")
+`
 const description = 'What Should I Do Tonight helps you find things to do, tonight! Do free things or do things that cost money. Do things alone or do things with others. Just find fun, easy, and attainable things to do right now! Have fun tonight!'
 const image = '/logos/logo.png'
 
@@ -27,6 +30,7 @@ export default function DefaultHead () {
       <title>{siteTitle}</title>
       <meta name="description" content={description} />
       <script src="https://kit.fontawesome.com/986019369d.js" crossOrigin="anonymous"></script>
+      <script id="mcjs" dangerouslySetInnerHTML={{ __html: mailChimpScript }}/>
     </Head>
   )
 }

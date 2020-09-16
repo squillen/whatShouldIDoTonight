@@ -26,14 +26,14 @@ export default function Layout ({ children }) {
   return (
     <div className={styles.container}>
       <DefaultHead />
-      <div className={styles.desktop}>
+      {/* <div className={styles.desktop}>
         <EmailSignup handleClick={handleEmailClick} />
-      </div>
+      </div> */}
       <Logo />
       <main>{children}</main>
-      <div className={styles.mobile}>
+      {/* <div className={styles.mobile}>
         <EmailSignup handleClick={handleEmailClick} />
-      </div>
+      </div> */}
       <Modal
         modalContent={modalContent}
         onModalClose={() => setModalToOpen(false)}

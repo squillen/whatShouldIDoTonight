@@ -42,3 +42,10 @@
   cursor: pointer;
   padding: 0.5rem;
 }
+
+@media only screen and (max-width: 700px) {
+  .modalContainer {
+    width: 25rem;
+    height: 40rem;
+  }
+}

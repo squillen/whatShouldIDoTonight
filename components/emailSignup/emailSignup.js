@@ -3,8 +3,16 @@ import Button from '../button/button'
 import styles from './emailSignup.module.css'
 
 export default function EmailSignup ({ handleClick }) {
+  const signupText = 'Get ideas in your inbox'
   return (
     <div className={styles.emailSignupContainer}>
+      <div className={styles.mobileSignup}>
+        <Button
+          label={signupText}
+          customStyle={styles.signupButton}
+          onClick={() => handleClick('showEmailSignup')}
+        />
+      </div>
       <a
         className={styles.button}
         onClick={() => handleClick('showEmailSignup')}
@@ -24,7 +32,7 @@ export default function EmailSignup ({ handleClick }) {
             </defs>
           </svg>
         </span>
-        <span className={styles.signupText}>Get ideas in your inbox</span>
+        <span className={styles.signupText}>{signupText}</span>
       </a>
     </div>
   )

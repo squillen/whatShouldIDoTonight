@@ -1,6 +1,6 @@
 .link, .link:hover {
 	text-decoration: none;
-	width: 70%;
+	width: 60%;
 	-webkit-backface-visibility: hidden;
 	color: #EDEDED;
 }
@@ -11,12 +11,12 @@
 	display: flex;
 	flex-direction: column;
 	padding-bottom: 3rem;
-	padding-top: 3rem;
+	padding-top: 1rem;
 }
 
 .lineContainer,
 .com {
-	width: 70%;
+	width: 60%;
 }
 
 .flicker, .flickerFast, .flickerSlow {

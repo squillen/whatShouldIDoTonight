@@ -1,5 +1,6 @@
-import styles from './button.module.css'
+import PropTypes from 'prop-types'
 import Link from 'next/link'
+import styles from './button.module.css'
 
 export default function Button (props) {
   const {
@@ -12,7 +13,11 @@ export default function Button (props) {
     size
   } = props
   const button = (
-    <div className={customStyle || styles[size] || styles.button} style={inlineStyle} onClick={onClick}>
+    <div
+      className={customStyle || styles[size] || styles.button}
+      style={inlineStyle}
+      onClick={onClick}
+    >
       {label}
     </div>
   )
@@ -27,4 +32,14 @@ export default function Button (props) {
       )
       : button
   )
+}
+
+Button.propTypes = {
+  as: PropTypes.string,
+  customStyle: PropTypes.object,
+  href: PropTypes.string,
+  inlineStyle: PropTypes.object,
+  label: PropTypes.string,
+  onClick: PropTypes.func,
+  size: PropTypes.string
 }

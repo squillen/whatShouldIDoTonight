@@ -33,6 +33,7 @@ function Home (props) {
   const [userAlone, setUserAlone] = useState(true)
   const [spendMoney, setSpendMoney] = useState(true)
   const [goOutside, setGoOutside] = useState(3)
+  const [openModal, setOpenModal] = useState(false)
   const [currentActivity, setCurrentActivity] = useState({})
   const state = useSelector(state => state)
 
@@ -58,7 +59,7 @@ function Home (props) {
   }
 
   return (
-    <Layout home>
+    <Layout>
       <Head>
         <title>{siteTitle}</title>
       </Head>

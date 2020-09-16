@@ -3,4 +3,17 @@
   height: 100%;
   min-height: 100vh;
   padding: 0 1rem;
+  margin: 0 auto;
+}
+
+.navContainer {
+  display: flex;
+  width: 100%;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.emailContainer {
+  color: #021F38;
+  font-family: 'Fjalla One', sans-serif;
 }

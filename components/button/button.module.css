@@ -1,7 +1,6 @@
 .link {
   width: 12rem;
   text-decoration: none;
-
 }
 
 .button,
@@ -15,7 +14,7 @@
   font-size: 1rem;
   border: 1px solid #262626;
   border-radius: 1rem;
-  background: white;
+  background: #EDEDED;
   color: #262626;
   display: flex;
   justify-content: center;

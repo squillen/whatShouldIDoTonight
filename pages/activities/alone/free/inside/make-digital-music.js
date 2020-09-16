@@ -11,7 +11,9 @@ const getContent = () => (
       alt="cat mean mugging and dj'ing"
     />
     <p>
-      Don&apos;t let this mean-mugging cat show you up cause the great thing about the age of computers is that anyone can make music. Oh wait, maybe that&apos;s the bad thing about it?
+      Don&apos;t let this cat mean-mug you into submission. If s/he can make music so can you!
+      In fact, that&apos;s the great thing about the age of computers--anyone can make music.
+      Oh wait, maybe that&apos;s the bad thing about it?
     </p>
     <p>Well, either way, you, too, can make some (questionably good) digital music right now (for free!) with:</p>
     <ul>

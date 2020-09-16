@@ -5,7 +5,7 @@ import Head from 'next/head'
 import { useRouter } from 'next/router'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faClock, faUsers } from '@fortawesome/free-solid-svg-icons'
-import { fadeInUp, stagger } from '../../animations/default'
+import { fadeInUp, stagger, fadeInFromLeft, fadeIn } from '../../animations/default'
 // REDUX
 import { connect, useSelector } from 'react-redux'
 import { bindActionCreators } from 'redux'
@@ -80,23 +80,23 @@ function Post (props) {
       <motion.div className={utilStyles.postContainer} exit={{ opacity: 0 }} variants={stagger}>
         {/* <header> */}
         <motion.div variants={stagger} className={utilStyles.headerContainer}>
-          <motion.div variants={fadeInUp} className={utilStyles.headingXl}>{pageTitle}</motion.div>
-          <motion.div variants={fadeInUp} className={utilStyles.underline} />
+          <motion.div variants={fadeInFromLeft} className={utilStyles.headingXl}>{pageTitle}</motion.div>
+          <motion.div variants={fadeInFromLeft} className={utilStyles.underline} />
           <motion.div variants={stagger} className={utilStyles.headerInfoSection}>
             {/* LEFT SECTION */}
             <motion.div variants={stagger} className={utilStyles.leftSection}>
-              <motion.div variants={fadeInUp} className={utilStyles.timeToComplete}>
+              <motion.div variants={fadeInFromLeft} className={utilStyles.timeToComplete}>
                 <span>
                   <span className={utilStyles.infoIcon}><FontAwesomeIcon icon={faClock} size="sm" /></span>
                   {timeToComplete}
                 </span>
               </motion.div>
-              <motion.div variants={fadeInUp} className={utilStyles.noOfPeople}>
+              <motion.div variants={fadeInFromLeft} className={utilStyles.noOfPeople}>
                 <span className={utilStyles.infoIcon}><FontAwesomeIcon icon={faUsers} size="sm" /></span>
                 {noOfPeople}
               </motion.div>
             </motion.div>
-            <motion.div variants={fadeInUp} className={utilStyles.rightSection}>
+            <motion.div variants={fadeIn} className={utilStyles.rightSection}>
               {tellMeAnotherButton}
             </motion.div>
           </motion.div>

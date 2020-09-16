@@ -1,6 +1,8 @@
+import { motion } from 'framer-motion'
 import PropTypes from 'prop-types'
 import Link from 'next/link'
 import styles from './button.module.css'
+import { fadeInUp } from '../../animations/default'
 
 export default function Button (props) {
   const {
@@ -13,13 +15,15 @@ export default function Button (props) {
     size
   } = props
   const button = (
-    <div
+    <motion.div
+      whileHover={{ scale: 1.05 }}
+      whileTap={{ scale: 0.9 }}
       className={customStyle || styles[size] || styles.button}
       style={inlineStyle}
       onClick={onClick}
     >
       {label}
-    </div>
+    </motion.div>
   )
   return (
     href

@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from 'react'
+import { motion } from 'framer-motion'
 import PropTypes from 'prop-types'
 import DefaultHead from '../defaultHead'
 import Logo from '../logo/logo'
@@ -16,29 +17,29 @@ function showEmailSignup () {
   )
 }
 
-export default function Layout ({ children }) {
+export default function Layout ({ children, home }) {
   const [modalToOpen, setModalToOpen] = useState(false)
   const modalFunction = {
     showEmailSignup
   }[modalToOpen] || null
   const modalContent = modalFunction ? modalFunction() : null
   const handleEmailClick = (str) => setModalToOpen(str === modalToOpen ? false : str)
+  const exit = { opacity: 0 }
   return (
-    <div className={styles.container}>
+    <motion.div
+      className={styles.container}
+      exit={exit}
+      initial="initial"
+      animate="animate"
+    >
       <DefaultHead />
-      {/* <div className={styles.desktop}>
-        <EmailSignup handleClick={handleEmailClick} />
-      </div> */}
-      <Logo />
+      <Logo home={home} />
       <main>{children}</main>
-      {/* <div className={styles.mobile}>
-        <EmailSignup handleClick={handleEmailClick} />
-      </div> */}
       <Modal
         modalContent={modalContent}
         onModalClose={() => setModalToOpen(false)}
       />
-    </div>
+    </motion.div>
   )
 }
 

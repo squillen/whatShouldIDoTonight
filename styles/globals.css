@@ -19,7 +19,7 @@ body {
 }
 
 a {
-  color: #020;
+  color: #262626;
   text-decoration: underline;
 }
 
@@ -27,7 +27,7 @@ a:hover {
 }
 
 img {
-  max-width: 70%;
+  /* max-width: 70%; */
   display: block;
   border-radius: 10px;
 }

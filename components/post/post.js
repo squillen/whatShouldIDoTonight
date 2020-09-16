@@ -1,10 +1,11 @@
 import React, { useState, useEffect } from 'react'
+import { motion } from 'framer-motion'
 import PropTypes from 'prop-types'
 import Head from 'next/head'
 import { useRouter } from 'next/router'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faClock, faUsers } from '@fortawesome/free-solid-svg-icons'
-
+import { fadeInUp, stagger } from '../../animations/default'
 // REDUX
 import { connect, useSelector } from 'react-redux'
 import { bindActionCreators } from 'redux'
@@ -76,46 +77,45 @@ function Post (props) {
       <Head>
         <title>{pageTitle} - {siteTitle}</title>
       </Head>
-      <div className={utilStyles.postContainer}>
+      <motion.div className={utilStyles.postContainer} exit={{ opacity: 0 }} variants={stagger}>
         {/* <header> */}
-        <div className={utilStyles.headerContainer}>
-          <div className={utilStyles.headingXl}>{pageTitle}</div>
-          <div className={utilStyles.underline} />
-          <div className={utilStyles.headerInfoSection}>
+        <motion.div variants={stagger} className={utilStyles.headerContainer}>
+          <motion.div variants={fadeInUp} className={utilStyles.headingXl}>{pageTitle}</motion.div>
+          <motion.div variants={fadeInUp} className={utilStyles.underline} />
+          <motion.div variants={stagger} className={utilStyles.headerInfoSection}>
             {/* LEFT SECTION */}
-            <div className={utilStyles.leftSection}>
-              <div className={utilStyles.timeToComplete}>
+            <motion.div variants={stagger} className={utilStyles.leftSection}>
+              <motion.div variants={fadeInUp} className={utilStyles.timeToComplete}>
                 <span>
                   <span className={utilStyles.infoIcon}><FontAwesomeIcon icon={faClock} size="sm" /></span>
                   {timeToComplete}
                 </span>
-              </div>
-              <div className={utilStyles.noOfPeople}>
+              </motion.div>
+              <motion.div variants={fadeInUp} className={utilStyles.noOfPeople}>
                 <span className={utilStyles.infoIcon}><FontAwesomeIcon icon={faUsers} size="sm" /></span>
                 {noOfPeople}
-              </div>
-            </div>
-            <div className={utilStyles.rightSection}>
+              </motion.div>
+            </motion.div>
+            <motion.div variants={fadeInUp} className={utilStyles.rightSection}>
               {tellMeAnotherButton}
-            </div>
-          </div>
+            </motion.div>
+          </motion.div>
           {/* <div className={utilStyles.underline} /> */}
-        </div>
+        </motion.div>
         {/* </header> */}
         <div className={utilStyles.articleContainer}>
           <article>
-
-            <div className={utilStyles.content}>
+            <motion.div variants={fadeInUp} className={utilStyles.content}>
               {content}
-            </div>
+            </motion.div>
           </article>
         </div>
         <Button
-          inlineStyle={{ border: '1px solid red', width: '10rem', height: '2rem' }}
+          size="resetButton"
           onClick={resetOptions}
           label="reset"
         />
-      </div>
+      </motion.div>
     </Layout>
   )
 }

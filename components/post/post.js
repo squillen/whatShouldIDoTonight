@@ -54,8 +54,6 @@ function Post (props) {
     router.push('/')
   }
 
-  console.log('nextActivity :>> ', nextActivity);
-
   // HTML
   const tellMeAnotherButton = (
     <div className={utilStyles.buttonContainer}>

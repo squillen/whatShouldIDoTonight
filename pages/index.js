@@ -20,7 +20,6 @@ import { getUserActivities } from '../lib/helpers/dataHelpers'
 
 export const getStaticProps = wrapper.getStaticProps(({ store }) => {
   const activities = getAllActivitiesData()
-  console.log('activities :>> ', activities)
   return {
     props: {
       activities

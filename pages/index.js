@@ -74,7 +74,7 @@ function Home (props) {
               I am alone:
             </span>
             <span>
-              <select className={utilStyles.select} name="userAlone" id="userAlone" onChange={handleSelect}>
+              <select className={utilStyles.select} name="userAlone" id="userAloneSelect" onChange={handleSelect}>
                 <option className={utilStyles.option} name="userAlone" value="true" id="userIsAloneTrue">Yes</option>
                 <option className={utilStyles.option} name="userAlone" value="false" id="userIsAloneFalse">No</option>
               </select>
@@ -86,7 +86,7 @@ function Home (props) {
               I am OK spending money:
             </span>
             <span>
-              <select className={utilStyles.select} name="spendMoney" id="spendMoney" onChange={handleSelect}>
+              <select className={utilStyles.select} name="spendMoney" id="spendMoneySelect" onChange={handleSelect}>
                 <option className={utilStyles.option} name="spendMoney" value="true" id="userWantsToSpendMoneyTrue">Yes</option>
                 <option className={utilStyles.option} name="spendMoney" value="false" id="userWantsToSpendMoneyFalse">No</option>
               </select>
@@ -98,7 +98,7 @@ function Home (props) {
               I want to go outside:
             </span>
             <span>
-              <select className={utilStyles.select} name="goOutside" id="goOutside" onChange={handleSelect}>
+              <select className={utilStyles.select} name="goOutside" id="goOutsideSelect" onChange={handleSelect}>
                 <option className={utilStyles.option} name="goOutside" value={3} id="userWantsToGoOutsideIndifferent">I don&apos;t care</option>
                 <option className={utilStyles.option} name="goOutside" value={1} id="userWantsToGoOutsideTrue">Yes</option>
                 <option className={utilStyles.option} name="goOutside" value={2} id="userWantsToGoOutsideFalse">No</option>

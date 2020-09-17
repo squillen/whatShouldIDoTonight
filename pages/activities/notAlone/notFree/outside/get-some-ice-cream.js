@@ -10,8 +10,13 @@ const getContent = () => (
 
 const Content = () => {
   const userContent = getContent()
+  const pageInfo = {
+    tags: 'ice cream/parlor/go get ice cream/find ice cream',
+    pageDescription: 'Find where to get ice cream near you with these helpful hints'
+  }
   return (
     <Post
+      pageInfo={pageInfo}
       title="Go get ice cream!"
       content={userContent}
       timeToComplete="20+ minutes"

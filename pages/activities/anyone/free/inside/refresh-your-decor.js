@@ -32,8 +32,13 @@ const getContent = () => (
 
 const Content = () => {
   const userContent = getContent()
+  const pageInfo = {
+    tags: 'new decor/design/emily henderson/studio mcgee/furniture/style',
+    pageDescription: 'Spruce up your decor with these helpful tips'
+  }
   return (
     <Post
+      pageInfo={pageInfo}
       title="Refresh your decor"
       content={userContent}
       timeToComplete="30+ minutes"

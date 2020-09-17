@@ -25,8 +25,13 @@ const getContent = () => (
 
 const Content = () => {
   const userContent = getContent()
+  const pageInfo = {
+    tags: 'poem/learn/how to/write a poem',
+    pageDescription: 'Find out how to write a poem with these helpful hints'
+  }
   return (
     <Post
+      pageInfo={pageInfo}
       title="Write a poem about the person you're with"
       content={userContent}
       timeToComplete="30 minutes"

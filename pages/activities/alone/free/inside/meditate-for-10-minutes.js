@@ -31,8 +31,13 @@ const getContent = () => (
 
 const Content = () => {
   const userContent = getContent()
+  const pageInfo = {
+    tags: 'meditate/peace/zen/learn/practice/calm',
+    pageDescription: 'Meditate and become a more zen, peaceful person by starting a routine now'
+  }
   return (
     <Post
+      pageInfo={pageInfo}
       title="Meditate for 10 minutes"
       content={userContent}
       timeToComplete="10 minutes"

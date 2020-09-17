@@ -77,8 +77,13 @@ const getContent = () => (
 
 const Content = () => {
   const userContent = getContent()
+  const pageInfo = {
+    tags: 'video games/fun/play/twitch/twitch.tv/steam/gamefly/amazon',
+    pageDescription: 'Play fun video games tonight with these helpful tips'
+  }
   return (
     <Post
+      pageInfo={pageInfo}
       title="Play some video games"
       content={userContent}
       timeToComplete="30 minutes"

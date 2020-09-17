@@ -16,7 +16,7 @@ const getContent = () => (
           label="this out"
         />
         {' '}
-        and move along then.
+        and then get your well-adjusted ass out of here.
       </span>
     </p>
   </div>
@@ -24,8 +24,13 @@ const getContent = () => (
 
 const Content = () => {
   const userContent = getContent()
+  const pageInfo = {
+    tags: 'putt putt/mini golf/activities/fun/wholesome/',
+    pageDescription: 'Figure out where to play mini golf near you with these helpful hints'
+  }
   return (
     <Post
+      pageInfo={pageInfo}
       title="Go play putt putt"
       content={userContent}
       timeToComplete="45+ minutes"

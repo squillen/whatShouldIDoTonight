@@ -66,8 +66,13 @@ const getContent = () => (
 
 const Content = () => {
   const userContent = getContent()
+  const pageInfo = {
+    tags: 'podcast/new/find/joe rogan/bill burr/listen',
+    pageDescription: 'There are so many amazing podcasts out there. Find some new ones'
+  }
   return (
     <Post
+      pageInfo={pageInfo}
       title="Find a new podcast"
       content={userContent}
       timeToComplete="20 minutes"

@@ -94,8 +94,13 @@ const getContent = () => (
 
 const Content = () => {
   const userContent = getContent()
+  const pageInfo = {
+    tags: 'comedy/comedies/movies/movie marathon/raising arizona/big/monty python/the holy grail/harold and maude/airplane/borat/this is spinal tap/best in show',
+    pageDescription: 'Watch the best comedic movies with these helpful suggestions'
+  }
   return (
     <Post
+      pageInfo={pageInfo}
       title="Have a comedy movie marathon"
       content={userContent}
       timeToComplete="3+ hours"

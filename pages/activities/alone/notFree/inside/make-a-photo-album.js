@@ -27,8 +27,13 @@ const getContent = () => (
 
 const Content = () => {
   const userContent = getContent()
+  const pageInfo = {
+    tags: 'mixbook/photo album/scrapbook/photos',
+    pageDescription: 'Create a photo album with these helpful tips'
+  }
   return (
     <Post
+      pageInfo={pageInfo}
       title="Make a photo album"
       content={userContent}
       timeToComplete="30+ minutes"

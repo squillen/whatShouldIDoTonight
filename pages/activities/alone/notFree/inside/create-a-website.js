@@ -30,7 +30,7 @@ const getContent = () => (
           href="https://www.anrdoezrs.net/click-100215369-13266669"
           label="namecheap"
         />
-        , my personal favorite, but
+        , our personal favorite, but
         {' '}
         <LinkTo
           href="https://www.godaddy.com"
@@ -45,8 +45,13 @@ const getContent = () => (
 
 const Content = () => {
   const userContent = getContent()
+  const pageInfo = {
+    tags: 'namecheap/website/create/wix/godaddy/go daddy/name cheap/url/domain/passion/fun',
+    pageDescription: 'Create a website tonight with these helpful tips'
+  }
   return (
     <Post
+      pageInfo={pageInfo}
       title="Create a website"
       content={userContent}
       timeToComplete="1.5+ hour"

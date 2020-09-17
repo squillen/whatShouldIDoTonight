@@ -45,8 +45,13 @@ const getContent = () => (
 
 const Content = () => {
   const userContent = getContent()
+  const pageInfo = {
+    tags: 'learn/jokes/funny/dirty/clean/quick/one-liners/one liners',
+    pageDescription: 'Learn some jokes with these helpful tips'
+  }
   return (
     <Post
+      pageInfo={pageInfo}
       title="Learn some jokes"
       content={userContent}
       timeToComplete="15+ minutes"

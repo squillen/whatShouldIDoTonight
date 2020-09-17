@@ -1,24 +1,34 @@
 import React, { useState, useEffect } from 'react'
-import { motion } from 'framer-motion'
+import { useRouter } from 'next/router'
+import { ArticleJsonLd } from 'next-seo'
 import PropTypes from 'prop-types'
 import Head from 'next/head'
-import { useRouter } from 'next/router'
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-import { faClock, faUsers } from '@fortawesome/free-solid-svg-icons'
+
+// HELPERS
+import { motion } from 'framer-motion'
 import { fadeInUp, stagger, fadeInFromLeft, fadeIn } from '../../animations/default'
+
 // REDUX
 import { connect, useSelector } from 'react-redux'
 import { bindActionCreators } from 'redux'
 import { getNewUserActivity, resetAll, restoreUserActivities } from '../../src/store/activities/action'
 
 // COMPONENTS
-import { siteTitle } from '../../components/defaultHead'
+import { siteTitle, description } from '../../components/defaultHead'
 import Layout from '../../components/layout/layout'
 import Button from '../../components/button/button'
 import utilStyles from '../../styles/utils.module.css'
 
 function Post (props) {
-  const { title: pageTitle, content, timeToComplete, noOfPeople = '1+', currentID } = props
+  const {
+    title: pageTitle,
+    content,
+    timeToComplete,
+    noOfPeople = '1+',
+    pageInfo = {}
+  } = props
+  const { tags = '', pageDescription = pageTitle, publishedTime = new Date() } = pageInfo
+  const pageTags = [...tags.split('/'), 'what', 'should', 'i', 'do', 'tonight', 'fun', 'activities', 'to']
   const router = useRouter()
   const state = useSelector(state => state)
   const [nextActivity, setNextActivity] = useState({})
@@ -27,8 +37,6 @@ function Post (props) {
   // EFFECTS
   // get next activity on load
   useEffect(() => {
-    // const shownActivities = state.activity.shownActivities || []
-    // const shownBefore = shownActivities.find(a => a.id === currentID)
     if (!nextActivity.id) {
       props.getNewUserActivity()
     }
@@ -72,11 +80,36 @@ function Post (props) {
     </div>
   )
 
+  const url = 'https://www.whatshouldidotonight.com/'
+
   return (
     <Layout>
       <Head>
         <title>{pageTitle} - {siteTitle}</title>
       </Head>
+      <ArticleJsonLd
+        title={siteTitle}
+        description={description}
+        canonical={url}
+        openGraph={{
+          title: pageTitle,
+          description: pageDescription,
+          url: `${url}${router.pathname}`,
+          type: 'article',
+          article: {
+            publishedTime,
+            tags: [...pageTags]
+          },
+          images: [
+            {
+              url: `${url}/images/seo/logo`,
+              width: 850,
+              height: 650,
+              alt: 'Photo of text'
+            }
+          ]
+        }}
+      />
       <motion.div className={utilStyles.postContainer} exit={{ opacity: 0 }} variants={stagger}>
         {/* <header> */}
         <motion.div variants={stagger} className={utilStyles.headerContainer}>
@@ -133,6 +166,10 @@ Post.propTypes = {
   restoreUserActivities: PropTypes.func,
   resetAll: PropTypes.func,
   title: PropTypes.string,
+  pageInfo: PropTypes.object,
+  tags: PropTypes.string,
+  path: PropTypes.string,
+  pageDescription: PropTypes.string,
   content: PropTypes.object,
   noOfPeople: PropTypes.string,
   timeToComplete: PropTypes.string.isRequired,

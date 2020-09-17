@@ -27,8 +27,13 @@ const getContent = () => (
 
 const Content = () => {
   const userContent = getContent()
+  const pageInfo = {
+    tags: 'beer/make/at home/kits/northern brewer',
+    pageDescription: 'Learn to make beer at home with these helpful hints'
+  }
   return (
     <Post
+      pageInfo={pageInfo}
       title="Get into beer making"
       content={userContent}
       timeToComplete="45+ minutes"

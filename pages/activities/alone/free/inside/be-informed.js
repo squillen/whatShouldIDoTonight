@@ -65,8 +65,13 @@ const getContent = () => (
 
 const Content = () => {
   const userContent = getContent()
+  const pageInfo = {
+    tags: 'learn/read/educate/The Wall Street Journal/The Morning Brew/The Skimm/sound smart at parties',
+    pageDescription: 'Educate yourself on a variety of topics and make yourself a better, more informed person with these tips'
+  }
   return (
     <Post
+      pageInfo={pageInfo}
       title="Be informed"
       content={userContent}
       timeToComplete="1 hour"

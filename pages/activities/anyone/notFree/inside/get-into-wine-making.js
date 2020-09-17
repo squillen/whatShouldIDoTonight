@@ -29,8 +29,13 @@ const getContent = () => (
 
 const Content = () => {
   const userContent = getContent()
+  const pageInfo = {
+    tags: 'wine/make/at home/vintner/homemade wine/northern brewer',
+    pageDescription: 'Learn how to make wine with these helpful hints'
+  }
   return (
     <Post
+      pageInfo={pageInfo}
       title="Get into wine making"
       content={userContent}
       timeToComplete="45+ minutes"

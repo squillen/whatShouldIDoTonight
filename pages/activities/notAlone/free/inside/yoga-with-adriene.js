@@ -30,8 +30,13 @@ const getContent = () => (
 
 const Content = () => {
   const userContent = getContent()
+  const pageInfo = {
+    tags: 'yoga/yoga with adriene/flexible/flexibility/stretch/exercise',
+    pageDescription: 'Learn how to practice yoga tonight with help from these hints'
+  }
   return (
     <Post
+      pageInfo={pageInfo}
       title="Learn Yoga...with Adriene!"
       content={userContent}
       timeToComplete="30 minutes"

@@ -23,8 +23,13 @@ const getContent = () => (
 
 const Content = () => {
   const userContent = getContent()
+  const pageInfo = {
+    tags: 'get gifts/friends/family/prepare',
+    pageDescription: "Get gifts for people now before it's too late"
+  }
   return (
     <Post
+      pageInfo={pageInfo}
       title="Get your gifts done with"
       content={userContent}
       timeToComplete="30+ minutes"

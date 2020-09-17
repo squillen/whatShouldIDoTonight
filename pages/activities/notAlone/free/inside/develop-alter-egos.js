@@ -50,8 +50,13 @@ const getContent = () => (
 
 const Content = () => {
   const userContent = getContent()
+  const pageInfo = {
+    tags: 'alter ego/superman/identity/confidence/improve',
+    pageDescription: "Develop an alter ego and be the person you've always wanted to be."
+  }
   return (
     <Post
+      pageInfo={pageInfo}
       title="Develop alter egos"
       content={userContent}
       timeToComplete="40+ minutes"

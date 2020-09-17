@@ -59,8 +59,13 @@ const getContent = () => (
 
 const Content = () => {
   const userContent = getContent()
+  const pageInfo = {
+    tags: 'learn to dance/rhythm/improve/get better/dance/confidence',
+    pageDescription: 'Dance better. Now.'
+  }
   return (
     <Post
+      pageInfo={pageInfo}
       title="Learn to dance"
       content={userContent}
       timeToComplete="30+ minutes"

@@ -35,8 +35,13 @@ const getContent = () => (
 
 const Content = () => {
   const userContent = getContent()
+  const pageInfo = {
+    tags: 'cheese/make cheese/at home/fun/hobby',
+    pageDescription: 'Learn how to make cheese at home with these helpful hints'
+  }
   return (
     <Post
+      pageInfo={pageInfo}
       title="Get into cheese making"
       content={userContent}
       timeToComplete="1+ hour"

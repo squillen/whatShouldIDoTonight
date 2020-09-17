@@ -29,8 +29,13 @@ const getContent = () => (
 
 const Content = () => {
   const userContent = getContent()
+  const pageInfo = {
+    tags: 'foster/pet/help/goodest boy/dogs/cats/puppies/animal shelter',
+    pageDescription: 'Foster a pet and help out the shelters near you. And probably gain a best friend'
+  }
   return (
     <Post
+      pageInfo={pageInfo}
       title="Foster a pet"
       content={userContent}
       timeToComplete="20+ minutes"

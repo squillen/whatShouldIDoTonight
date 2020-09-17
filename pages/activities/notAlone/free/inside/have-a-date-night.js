@@ -40,8 +40,13 @@ const getContent = () => (
 
 const Content = () => {
   const userContent = getContent()
+  const pageInfo = {
+    tags: 'date night/do something with your partner/what to do with your partner/photo walk/picnic/love/romance',
+    pageDescription: 'Figure out what to do with your partner tonight with these helpful hints'
+  }
   return (
     <Post
+      pageInfo={pageInfo}
       title="Have a date night"
       content={userContent}
       timeToComplete="1+ hour"

@@ -27,8 +27,13 @@ const getContent = () => (
 
 const Content = () => {
   const userContent = getContent()
+  const pageInfo = {
+    tags: 'happy hour/near you/drink/alcohol/cheap/food/drinks',
+    pageDescription: 'Find happy hours near you with these helpful hints'
+  }
   return (
     <Post
+      pageInfo={pageInfo}
       title="Go to a happy hour?"
       content={userContent}
       timeToComplete="1+ hour"

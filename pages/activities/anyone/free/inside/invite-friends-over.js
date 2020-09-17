@@ -5,6 +5,7 @@ import styles from '../../../../../styles/activity.module.css'
 
 const getContent = () => (
   <div className={styles.activityContainer}>
+    {/* TODO GIVE IDEA OF WHAT THEY CAN DO */}
     <p>Boom, easy.</p>
     <p>
       <span>
@@ -22,8 +23,13 @@ const getContent = () => (
 
 const Content = () => {
   const userContent = getContent()
+  const pageInfo = {
+    tags: 'invite friends/fun/party/do stuff',
+    pageDescription: 'Invite friends over or find some'
+  }
   return (
     <Post
+      pageInfo={pageInfo}
       title="Invite some friends over"
       content={userContent}
       timeToComplete="10+ minutes"

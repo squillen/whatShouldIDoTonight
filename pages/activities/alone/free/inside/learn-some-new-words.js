@@ -57,8 +57,13 @@ const getContent = () => (
 
 const Content = () => {
   const userContent = getContent()
+  const pageInfo = {
+    tags: 'vocabulary/improve/dictionary/smarter',
+    pageDescription: 'Improve your vocabulary and sound smarter. Because you are smarter.'
+  }
   return (
     <Post
+      pageInfo={pageInfo}
       title="Learn some new words"
       content={userContent}
       timeToComplete="30+ minutes"

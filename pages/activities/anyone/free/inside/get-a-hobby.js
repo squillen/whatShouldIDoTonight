@@ -46,8 +46,13 @@ const getContent = () => (
 
 const Content = () => {
   const userContent = getContent()
+  const pageInfo = {
+    tags: 'hobby/fun/activities/passion/ny times/nytimes/new york times/hobbies/find something to do',
+    pageDescription: 'Find a new hobby with these helpful tips'
+  }
   return (
     <Post
+      pageInfo={pageInfo}
       title="Get a hobby"
       content={userContent}
       timeToComplete="30+ minutes"

@@ -32,8 +32,13 @@ const getContent = () => (
 
 const Content = () => {
   const userContent = getContent()
+  const pageInfo = {
+    tags: 'friends/find/lonely/bumble/meetup/meet/alone',
+    pageDescription: 'Find new friends now and start a new life!'
+  }
   return (
     <Post
+      pageInfo={pageInfo}
       title="Find someone to hang out with"
       content={userContent}
       timeToComplete="20 minutes"

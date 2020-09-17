@@ -27,8 +27,13 @@ const getContent = () => (
 
 const Content = () => {
   const userContent = getContent()
+  const pageInfo = {
+    tags: 'board games/board game cafe/fun/activities',
+    pageDescription: 'Find board games cafes near you with these helpful hints'
+  }
   return (
     <Post
+      pageInfo={pageInfo}
       title="Go to a board game cafe"
       content={userContent}
       timeToComplete="1+ hour"

@@ -28,8 +28,13 @@ const getContent = () => (
 
 const Content = () => {
   const userContent = getContent()
+  const pageInfo = {
+    tags: 'sun rise/plan/nature/outside/fun',
+    pageDescription: 'Plan for a sunrise with these helpful tips'
+  }
   return (
     <Post
+      pageInfo={pageInfo}
       title="Prepare for a sunrise"
       content={userContent}
       timeToComplete="20+ minutes"

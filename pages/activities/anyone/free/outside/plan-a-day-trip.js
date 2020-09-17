@@ -24,8 +24,13 @@ const getContent = () => (
 
 const Content = () => {
   const userContent = getContent()
+  const pageInfo = {
+    tags: 'day trip/plan/explore/city/',
+    pageDescription: 'Plan a day trip with these helpful hints'
+  }
   return (
     <Post
+      pageInfo={pageInfo}
       title="Plan a day trip"
       content={userContent}
       timeToComplete="45+ minutes"

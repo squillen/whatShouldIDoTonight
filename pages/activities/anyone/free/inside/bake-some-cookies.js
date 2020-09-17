@@ -27,8 +27,13 @@ const getContent = () => (
 
 const Content = () => {
   const userContent = getContent()
+  const pageInfo = {
+    tags: 'bake/cookies/recipes/allrecipes',
+    pageDescription: 'Bake some cookies and make your night tasty and delicious.'
+  }
   return (
     <Post
+      pageInfo={pageInfo}
       title="Bake some cookies!"
       content={userContent}
       timeToComplete="30+ minutes"

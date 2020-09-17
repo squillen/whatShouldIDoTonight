@@ -46,8 +46,13 @@ const getContent = () => (
 
 const Content = () => {
   const userContent = getContent()
+  const pageInfo = {
+    tags: 'walk/exercise/think/podcasts/radio lab/radiolab/intelligence squared/invisibilia',
+    pageDescription: 'Walk for 30 minutes and improve your health and mind'
+  }
   return (
     <Post
+      pageInfo={pageInfo}
       title="Walk for 30 minutes"
       content={userContent}
       timeToComplete="30 minutes"

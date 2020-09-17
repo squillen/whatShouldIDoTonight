@@ -30,14 +30,19 @@ const getContent = () => (
         article.
       </span>
     </p>
-    <p>Have fun, perv.</p>
+    <p>Have fun, ya sick perv.</p>
   </div>
 )
 
 const Content = () => {
   const userContent = getContent()
+  const pageInfo = {
+    tags: 'people watch/fun/get outside/observe/think',
+    pageDescription: 'Get outside and take note of the people around you and people watch'
+  }
   return (
     <Post
+      pageInfo={pageInfo}
       title="Go people watch"
       content={userContent}
       timeToComplete="45+ minutes"

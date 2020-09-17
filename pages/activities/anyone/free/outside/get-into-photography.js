@@ -49,8 +49,13 @@ const getContent = () => (
 
 const Content = () => {
   const userContent = getContent()
+  const pageInfo = {
+    tags: 'photography/new/learn/canon/nikon/iphone/hubspot/creativelive',
+    pageDescription: 'Get into photography with these helpful tips'
+  }
   return (
     <Post
+      pageInfo={pageInfo}
       title="Get into photography"
       content={userContent}
       timeToComplete="1+ hour"

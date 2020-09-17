@@ -24,8 +24,13 @@ const getContent = () => (
 
 const Content = () => {
   const userContent = getContent()
+  const pageInfo = {
+    tags: 'short story/write/creative/share/express/edgar allen poe/classicshorts.com',
+    pageDescription: 'Get in touch with a side of yourself you never knew, or that you forgot about. Write a short story.'
+  }
   return (
     <Post
+      pageInfo={pageInfo}
       title="Write a short story"
       content={userContent}
       timeToComplete="30+ minutes"

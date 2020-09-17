@@ -49,8 +49,13 @@ const getContent = () => (
 
 const Content = () => {
   const userContent = getContent()
+  const pageInfo = {
+    tags: 'cook/learn/cookinglight/cooking light/bon appetit/cook better/knife skills',
+    pageDescription: 'Learn how to cook better with these helpful tips'
+  }
   return (
     <Post
+      pageInfo={pageInfo}
       title="Learn how to cook"
       content={userContent}
       timeToComplete="45+ minutes"

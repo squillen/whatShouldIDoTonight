@@ -22,8 +22,13 @@ const getContent = () => (
 
 const Content = () => {
   const userContent = getContent()
+  const pageInfo = {
+    tags: 'outside/stargaze/stars/nature/night/sky',
+    pageDescription: 'Get outside and stargaze with these helpful hints'
+  }
   return (
     <Post
+      pageInfo={pageInfo}
       title="Go stargazing"
       content={userContent}
       timeToComplete="1+ hour"

@@ -45,8 +45,13 @@ const getContent = () => (
 
 const Content = () => {
   const userContent = getContent()
+  const pageInfo = {
+    tags: 'learn/something/free/edx/khan academy/coding/language',
+    pageDescription: 'Learn something new and get smarter.'
+  }
   return (
     <Post
+      pageInfo={pageInfo}
       title="Learn something new...fo' free!"
       content={userContent}
       timeToComplete="45+ minutes"

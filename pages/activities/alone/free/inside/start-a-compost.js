@@ -51,8 +51,13 @@ const getContent = () => (
 
 const Content = () => {
   const userContent = getContent()
+  const pageInfo = {
+    tags: 'compost/green/environmental/improve/dirt/reduce waste/reduce',
+    pageDescription: 'Get rid of old foods and reduce your environmental footprint'
+  }
   return (
     <Post
+      pageInfo={pageInfo}
       title="Start a compost"
       content={userContent}
       timeToComplete="30+ minutes"

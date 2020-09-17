@@ -27,8 +27,13 @@ const getContent = () => (
 
 const Content = () => {
   const userContent = getContent()
+  const pageInfo = {
+    tags: 'learn/type/how to/type faster/improve',
+    pageDescription: 'Improve your typing speed and accuracy'
+  }
   return (
     <Post
+      pageInfo={pageInfo}
       title="Learn how to type"
       content={userContent}
       timeToComplete="30+ minutes"

@@ -62,8 +62,13 @@ const getContent = () => (
 
 const Content = () => {
   const userContent = getContent()
+  const pageInfo = {
+    tags: 'beer/brandy/bread/wine/tea/coffee/learn/fun/connoisseur/beer advocate/wine mage/serious eats/the spruce eats/the kitchn',
+    pageDescription: 'Get really into a food over beverage'
+  }
   return (
     <Post
+      pageInfo={pageInfo}
       title="Become a connoisseur of something"
       content={userContent}
       timeToComplete="1+ hour"

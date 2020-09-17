@@ -53,8 +53,13 @@ const getContent = () => (
 
 const Content = () => {
   const userContent = getContent()
+  const pageInfo = {
+    tags: 'ice cream/homemade/ice cream maker/diy/do it yourself/fun/activities/project/water ice/frozen yogurt/cuisinart',
+    pageDescription: 'Make some ice cream at your place with these helpful hints'
+  }
   return (
     <Post
+      pageInfo={pageInfo}
       title="Make some ice cream"
       content={userContent}
       timeToComplete="30+ minutes"

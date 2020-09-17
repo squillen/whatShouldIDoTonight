@@ -1,5 +1,4 @@
 import { connect } from 'react-redux'
-import LinkTo from '../../../../../components/linkTo/linkTo'
 import Post from '../../../../../components/post/post'
 import styles from '../../../../../styles/activity.module.css'
 
@@ -13,8 +12,13 @@ const getContent = () => (
 
 const Content = () => {
   const userContent = getContent()
+  const pageInfo = {
+    tags: 'music/favorite songs/listen',
+    pageDescription: "Listen to you and your partner's favorite songs and albums"
+  }
   return (
     <Post
+      pageInfo={pageInfo}
       title="Each pick a song/album you love"
       content={userContent}
       timeToComplete="45+ minutes"

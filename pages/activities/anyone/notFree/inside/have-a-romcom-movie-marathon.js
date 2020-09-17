@@ -67,8 +67,13 @@ const getContent = () => (
 
 const Content = () => {
   const userContent = getContent()
+  const pageInfo = {
+    tags: "as good as it gets/when harry met sally/10 things I hate about you/clueless/mean girls/the big sick/the princess bride/there's something about mary/comedy/funny/romantic/romcom/rom-com/movie marathon",
+    pageDescription: 'Watch some of the best rom-coms out there with these helpful hints'
+  }
   return (
     <Post
+      pageInfo={pageInfo}
       title="Have a rom-com movie marathon"
       content={userContent}
       timeToComplete="3+ hours"

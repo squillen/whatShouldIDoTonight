@@ -128,8 +128,17 @@ const getContent = () => (
 
 const Content = () => {
   const userContent = getContent()
+  const pageInfo = {
+    tags: `
+      28 days later/the shining/a quiet place/halloween/a nightmare on elm street/scream/the ring 
+      /paranormal activity/the haunting of hill house/the conjuring/the orphanage/shaun of the dead/ready or not/warm bodies/housebound/the dead don't die
+      /horror/scary/movies/marathon/light-hearted horror/creepy/slasher/thriller
+    `,
+    pageDescription: 'Watch some seriously scary movies tonight with these helpful hints'
+  }
   return (
     <Post
+      pageInfo={pageInfo}
       title="Have a horror movie marathon"
       content={userContent}
       timeToComplete="3+ hours"

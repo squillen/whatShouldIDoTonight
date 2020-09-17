@@ -60,8 +60,13 @@ const getContent = () => (
 
 const Content = () => {
   const userContent = getContent()
+  const pageInfo = {
+    tags: 'plan/trip/nomadic matt/practical wanderlust/inspirock/tripzard/go somewhere/fun',
+    pageDescription: 'Plan a trip with these helpful tips'
+  }
   return (
     <Post
+      pageInfo={pageInfo}
       title="Plan your next travel destination"
       content={userContent}
       timeToComplete="1+ hour"

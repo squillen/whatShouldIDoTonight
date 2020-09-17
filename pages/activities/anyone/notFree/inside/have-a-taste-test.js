@@ -60,8 +60,13 @@ const getContent = () => (
 
 const Content = () => {
   const userContent = getContent()
+  const pageInfo = {
+    tags: 'taste test/fun/chocolate/beer/wine/coffee/cheese/competition',
+    pageDescription: 'Have a taste test tonight and see if you can tell the differences'
+  }
   return (
     <Post
+      pageInfo={pageInfo}
       title="Have a taste test"
       content={userContent}
       timeToComplete="45+ minutes"

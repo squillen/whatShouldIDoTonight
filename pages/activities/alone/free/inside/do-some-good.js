@@ -63,8 +63,13 @@ const getContent = () => (
 
 const Content = () => {
   const userContent = getContent()
+  const pageInfo = {
+    tags: 'volunteer/virtually/TED/Ted Talks/Amnesty International/operation warm/catchafire/be good/do good/help',
+    pageDescription: 'Do something good from your house and help others'
+  }
   return (
     <Post
+      pageInfo={pageInfo}
       title="Do some good"
       content={userContent}
       timeToComplete="1+ hour"

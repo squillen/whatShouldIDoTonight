@@ -39,6 +39,10 @@ const getContent = () => (
 
 const Content = () => {
   const userContent = getContent()
+  const pageInfo = {
+    tags: 'classpass/exercise/new/try/fun/healthy',
+    pageDescription: 'Get healthy with these helpful tips'
+  }
   return (
     <Post
       title="Try some new exercises"

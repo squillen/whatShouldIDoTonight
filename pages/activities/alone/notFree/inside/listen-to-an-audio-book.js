@@ -34,8 +34,13 @@ const getContent = () => (
 
 const Content = () => {
   const userContent = getContent()
+  const pageInfo = {
+    tags: 'audible/audible.com/audiobooks.com/audio books/learn/read/interesting',
+    pageDescription: 'Listen to audio books and learn something new'
+  }
   return (
     <Post
+      pageInfo={pageInfo}
       title="Listen to an audio book"
       content={userContent}
       timeToComplete="30+ minutes"

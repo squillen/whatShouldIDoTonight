@@ -50,8 +50,13 @@ const getContent = () => (
 
 const Content = () => {
   const userContent = getContent()
+  const pageInfo = {
+    tags: 'learn/language/babbel/duolingo/memrise/rocket language',
+    pageDescription: 'Learn a new language with these helpful tips'
+  }
   return (
     <Post
+      pageInfo={pageInfo}
       title="Brush up on a language"
       content={userContent}
       timeToComplete="30 minutes"

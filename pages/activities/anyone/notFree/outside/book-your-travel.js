@@ -84,8 +84,15 @@ const getContent = () => (
 
 const Content = () => {
   const userContent = getContent()
+  const pageInfo = {
+    tags: `
+      plan/travel/book/priceline/agoda/kayak/hotels/hotels.com/vrbo/planes/airplanes/ebags/luggage/travelpro
+    `,
+    pageDescription: 'Book your next travel destination with these helpful hints'
+  }
   return (
     <Post
+      pageInfo={pageInfo}
       title="Book your next travel destination"
       content={userContent}
       timeToComplete="1+ hour"

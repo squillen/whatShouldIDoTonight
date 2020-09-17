@@ -29,7 +29,7 @@ const getContent = () => (
         {' '}
         <LinkTo
           href="/activities/notAlone/notFree/outside/go-to-a-games-cafe"
-          label="hope over here"
+          label="hop over here"
         />
         {' '}
         and also consider
@@ -75,8 +75,13 @@ const getContent = () => (
 
 const Content = () => {
   const userContent = getContent()
+  const pageInfo = {
+    tags: 'board games/fun/cards/card games/catan/uno/jenga/sequence',
+    pageDescription: 'Find out which board games to play with these helpful hints'
+  }
   return (
     <Post
+      pageInfo={pageInfo}
       title="Play board games"
       content={userContent}
       timeToComplete="30+ minutes"

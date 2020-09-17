@@ -1,6 +1,5 @@
 import { connect } from 'react-redux'
 import Post from '../../../../../components/post/post'
-import Info from '../../../../../components/info/info'
 import LinkTo from '../../../../../components/linkTo/linkTo'
 import styles from '../../../../../styles/activity.module.css'
 import Photo from '../../../../../components/photo/photo'
@@ -50,8 +49,13 @@ const getContent = () => (
 
 const Content = () => {
   const userContent = getContent()
+  const pageInfo = {
+    tags: 'udemy/draw/doodle/learn to draw/learn',
+    pageDescription: 'Learn to draw with these helpful tips'
+  }
   return (
     <Post
+      pageInfo={pageInfo}
       title="Doodle"
       content={userContent}
       timeToComplete="30+ minutes"

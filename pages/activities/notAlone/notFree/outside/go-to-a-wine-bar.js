@@ -31,8 +31,13 @@ const getContent = () => (
 
 const Content = () => {
   const userContent = getContent()
+  const pageInfo = {
+    tags: 'wine/bar/alcohol/drink/fun',
+    pageDescription: 'Find wine bars near you with these helpful hints'
+  }
   return (
     <Post
+      pageInfo={pageInfo}
       title="Go to a wine bar"
       content={userContent}
       timeToComplete="1+ hour"

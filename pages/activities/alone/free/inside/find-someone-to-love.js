@@ -33,8 +33,13 @@ const getContent = () => (
 
 const Content = () => {
   const userContent = getContent()
+  const pageInfo = {
+    tags: 'find someone/love/alone/lonely/eharmony/hinge',
+    pageDescription: "Don't be alone any longer. Find someone to love now."
+  }
   return (
     <Post
+      pageInfo={pageInfo}
       title="Find someone to love"
       content={userContent}
       timeToComplete="40+ minutes"

@@ -41,8 +41,13 @@ const getContent = () => (
 
 const Content = () => {
   const userContent = getContent()
+  const pageInfo = {
+    tags: 'clean/your place/dirty/marie kondo',
+    pageDescription: "Call your mom. She'll love it. So will you. Probably"
+  }
   return (
     <Post
+      pageInfo={pageInfo}
       title="Clean your place"
       content={userContent}
       timeToComplete="20 minutes"

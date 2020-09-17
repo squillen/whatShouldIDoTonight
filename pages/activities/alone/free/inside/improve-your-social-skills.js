@@ -55,8 +55,13 @@ const getContent = () => (
 
 const Content = () => {
   const userContent = getContent()
+  const pageInfo = {
+    tags: 'social skills/improve/confidence/toastmasters',
+    pageDescription: 'Improve your social skills and start being the person you want to be'
+  }
   return (
     <Post
+      pageInfo={pageInfo}
       title="Improve your social skills"
       content={userContent}
       timeToComplete="45+ minutes"

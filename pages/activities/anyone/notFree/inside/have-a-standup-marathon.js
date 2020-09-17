@@ -50,8 +50,13 @@ const getContent = () => (
 
 const Content = () => {
   const userContent = getContent()
+  const pageInfo = {
+    tags: 'dave chappelle/mike birbiglia/bill burr/george carlin/james acaster/comedy/standup/movie marathon/netflix/hbo',
+    pageDescription: 'Get ideas on which stand up specials to watch with these helpful hints'
+  }
   return (
     <Post
+      pageInfo={pageInfo}
       title="Have a standup marathon"
       content={userContent}
       timeToComplete="3+ hours"

@@ -39,7 +39,7 @@ const getContent = () => (
         />
       </span>
       {' '}
-      (where you can get a tutor for
+      (where you can actually get a tutor for
       {' '}
       <LinkTo
         href="/activities/alone/notFree/inside/take-music-lessons"
@@ -52,9 +52,14 @@ const getContent = () => (
 
 const Content = () => {
   const userContent = getContent()
+  const pageInfo = {
+    tags: 'languages/learn/practice/tutor/takelessons/wyzant/virtual/lessons/language/spanish/english/chinese',
+    pageDescription: 'Get a language tutor and learn a new language with more accountability'
+  }
   return (
     <Post
-      title="Take some language lessons"
+      pageInfo={pageInfo}
+      title="Take some language lessons with a person"
       content={userContent}
       timeToComplete="30+ minutes"
     />

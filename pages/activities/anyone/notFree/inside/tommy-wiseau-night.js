@@ -36,8 +36,13 @@ const getContent = () => (
 
 const Content = () => {
   const userContent = getContent()
+  const pageInfo = {
+    tags: 'tommy wiseau/the room/terrible movies/oh hi mark/movie night/movie marathon',
+    pageDescription: 'Watch Tommy Wiseau movies with these helpful hints'
+  }
   return (
     <Post
+      pageInfo={pageInfo}
       title="Have a Tommy Wiseau night"
       content={userContent}
       timeToComplete="1.5+ hours"

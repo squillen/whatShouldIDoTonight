@@ -27,8 +27,13 @@ const getContent = () => (
 
 const Content = () => {
   const userContent = getContent()
+  const pageInfo = {
+    tags: 'movies/go to the movies/movie theater/new movies',
+    pageDescription: 'See which movies are out now and go to the movies with these helpful hints'
+  }
   return (
     <Post
+      pageInfo={pageInfo}
       title="Go to the movies"
       content={userContent}
       timeToComplete="1.5+ hours"

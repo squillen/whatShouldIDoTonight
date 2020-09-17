@@ -27,8 +27,13 @@ const getContent = () => (
 
 const Content = () => {
   const userContent = getContent()
+  const pageInfo = {
+    tags: 'eddie murphy/movie night/movie marathon/nutty professor/dolemite is my name/beverly hills cop',
+    pageDescription: 'Have an Eddie Murphy movie marathon with these helpful hints'
+  }
   return (
     <Post
+      pageInfo={pageInfo}
       title="Have an Eddie Murphy night"
       content={userContent}
       timeToComplete="1.5+ hours"

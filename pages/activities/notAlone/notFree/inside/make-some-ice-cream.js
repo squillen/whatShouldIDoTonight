@@ -6,7 +6,9 @@ import styles from '../../../../../styles/activity.module.css'
 const getContent = () => (
   <div className={styles.activityContainer}>
     <p>
-      It&apos;s surprisingly easy...and unsurprisingly  unhealthy. I mean, it&apos;s almost literally just "iced" cream. But whatever, you can do the frozen yogurt (or water ice) options instead if you&apos;re concerned.
+      It&apos;s surprisingly easy...and unsurprisingly  unhealthy. I mean, it&apos;s almost literally
+      just &quot;iced&quot; cream. But whatever, you can do the frozen yogurt (or sorbet/water ice)
+      options instead if you&apos;re concerned.
     </p>
     <p>
       <span>
@@ -43,8 +45,13 @@ const getContent = () => (
 
 const Content = () => {
   const userContent = getContent()
+  const pageInfo = {
+    tags: 'ice cream/homemade ice cream/martha stewart/ice cream maker/ice cream recipes',
+    pageDescription: 'Learn how to make ice cream from home with these helpful hints'
+  }
   return (
     <Post
+      pageInfo={pageInfo}
       title="Make some ice cream"
       content={userContent}
       timeToComplete="10+ minutes"

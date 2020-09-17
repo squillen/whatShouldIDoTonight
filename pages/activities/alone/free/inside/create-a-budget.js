@@ -72,8 +72,13 @@ const getContent = () => (
 
 const Content = () => {
   const userContent = getContent()
+  const pageInfo = {
+    tags: 'budget/mint/mint finances/intuit/you need a budget/ynab/money/lifestyle/improve',
+    pageDescription: "Creating a budget may seem boring but it can actually be quite fun and liberating to know exactly what you can and can't spend"
+  }
   return (
     <Post
+      pageInfo={pageInfo}
       title="Have an ice cream sundae"
       content={userContent}
       timeToComplete="1+ hour"

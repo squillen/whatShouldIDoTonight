@@ -17,8 +17,13 @@ const getContent = () => (
 
 const Content = () => {
   const userContent = getContent()
+  const pageInfo = {
+    tags: 'call your mom/mom/improve relationship/family',
+    pageDescription: "Call your mom. She'll love it"
+  }
   return (
     <Post
+      pageInfo={pageInfo}
       title="Call your mom"
       content={userContent}
       timeToComplete="20 minutes"

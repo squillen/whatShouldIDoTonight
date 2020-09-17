@@ -32,8 +32,13 @@ const getContent = () => (
 
 const Content = () => {
   const userContent = getContent()
+  const pageInfo = {
+    tags: 'jim carrey/cable guy/dumb and dumber/eternal sunshine of a spotless mind/truman show/movie night/movie marathon',
+    pageDescription: 'Figure out which Jim Carrey movies to watch tonight with these helpful hints'
+  }
   return (
     <Post
+      pageInfo={pageInfo}
       title="Have a Jim Carrey night"
       content={userContent}
       timeToComplete="1.5+ hours"

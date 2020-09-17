@@ -6,6 +6,7 @@ import Photo from '../../../../../components/photo/photo'
 
 const getContent = () => (
   <div className={styles.activityContainer}>
+    {/* TODO RECOMMEND DISHES/RECIPES */}
     <p>Go all out. Go to the store and try something new. Or go with a classic, whatever, it&apos;s your night!</p>
     <Photo
       src="https://media.giphy.com/media/UW7uOP9uqWJ7V9w4GR/giphy.gif"
@@ -29,8 +30,13 @@ const getContent = () => (
 
 const Content = () => {
   const userContent = getContent()
+  const pageInfo = {
+    tags: 'cook/blue apron/practice/kitchen/recipes',
+    pageDescription: 'Cook something tonight with these helpful tips'
+  }
   return (
     <Post
+      pageInfo={pageInfo}
       title="Cook a meal"
       content={userContent}
       timeToComplete="45+ minutes"

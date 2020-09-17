@@ -40,8 +40,13 @@ const getContent = () => (
 
 const Content = () => {
   const userContent = getContent()
+  const pageInfo = {
+    tags: 'invest/stocks/buy/trade/money/the street/nerdwallet/nerd wallet',
+    pageDescription: 'Learn about stocks and start investing today with these helpful tips'
+  }
   return (
     <Post
+      pageInfo={pageInfo}
       title="Buy some stocks"
       content={userContent}
       timeToComplete="30+ minutes"

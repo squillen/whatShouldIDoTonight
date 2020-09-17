@@ -50,8 +50,13 @@ const getContent = () => (
 
 const Content = () => {
   const userContent = getContent()
+  const pageInfo = {
+    tags: 'photo walk/photo/photography/outside/fun/explore',
+    pageDescription: 'Get outside and start photographing the world around you'
+  }
   return (
     <Post
+      pageInfo={pageInfo}
       title="Go on a photo walk"
       content={userContent}
       timeToComplete="1+ hour"

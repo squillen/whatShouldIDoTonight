@@ -45,8 +45,13 @@ const getContent = () => (
 
 const Content = () => {
   const userContent = getContent()
+  const pageInfo = {
+    tags: 'learn/something/new/pluralsight/the great courses plus/courses/online/history/code/javascript/python',
+    pageDescription: 'Learn how to code, about different cultures, or whatever else with these helpful tips'
+  }
   return (
     <Post
+      pageInfo={pageInfo}
       title="Learn something new"
       content={userContent}
       timeToComplete="20+ minutes"

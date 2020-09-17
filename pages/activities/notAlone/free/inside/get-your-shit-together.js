@@ -25,8 +25,13 @@ const getContent = () => (
 
 const Content = () => {
   const userContent = getContent()
+  const pageInfo = {
+    tags: 'donate/clean/organize/declutter/de-clutter/thredup/recycle/clothes',
+    pageDescription: 'Clean up your closet and donate with these helpful hints'
+  }
   return (
     <Post
+      pageInfo={pageInfo}
       title="Get your shit together...together"
       content={userContent}
       timeToComplete="45+ minutes"

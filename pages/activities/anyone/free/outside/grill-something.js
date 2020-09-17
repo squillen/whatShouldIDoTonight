@@ -38,8 +38,13 @@ const getContent = () => (
 
 const Content = () => {
   const userContent = getContent()
+  const pageInfo = {
+    tags: 'grill/grillax/burgers/steak/hot dogs/fun/outdoors',
+    pageDescription: 'Grill something with these helpful hints'
+  }
   return (
     <Post
+      pageInfo={pageInfo}
       title="Crack a beer and grillax"
       content={userContent}
       timeToComplete="45+ minutes"

@@ -62,8 +62,13 @@ const getContent = () => (
 
 const Content = () => {
   const userContent = getContent()
+  const pageInfo = {
+    tags: 'digital music/edm/music software/free/learn',
+    pageDescription: 'Make digital music now for free with these helpful tips'
+  }
   return (
     <Post
+      pageInfo={pageInfo}
       title="Make digital music...fo' free!"
       content={userContent}
       timeToComplete="30+ minutes"

@@ -57,8 +57,13 @@ const getContent = () => (
 
 const Content = () => {
   const userContent = getContent()
+  const pageInfo = {
+    tags: 'tennis/wilson/head/play/outside/learn',
+    pageDescription: 'Go out and play tennis or learn which rackets might be good for you with helpful hints'
+  }
   return (
     <Post
+      pageInfo={pageInfo}
       title="Go play tennis"
       content={userContent}
       timeToComplete="45+ minutes"

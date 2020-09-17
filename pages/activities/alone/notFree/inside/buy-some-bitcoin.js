@@ -57,8 +57,13 @@ const getContent = () => (
 
 const Content = () => {
   const userContent = getContent()
+  const pageInfo = {
+    tags: 'bitcoin/money/make/earn/spend/invest/coinbase/etoro',
+    pageDescription: 'Trade bitcoin and (hopefully) make some coin'
+  }
   return (
     <Post
+      pageInfo={pageInfo}
       title="Buy some bitcoin"
       content={userContent}
       timeToComplete="30+ minutes"

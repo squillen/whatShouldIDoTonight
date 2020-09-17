@@ -25,8 +25,13 @@ const getContent = () => (
 
 const Content = () => {
   const userContent = getContent()
+  const pageInfo = {
+    tags: 'silly movies/fun movies/funny/comedy/this is Spinal Tap/The Naked Gun',
+    pageDescription: 'Find Fun, Silly movies to help with these helpful hints'
+  }
   return (
     <Post
+      pageInfo={pageInfo}
       title="Watch silly movies"
       content={userContent}
       timeToComplete="1.5+ hours"

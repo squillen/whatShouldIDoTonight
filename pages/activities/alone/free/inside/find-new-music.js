@@ -41,8 +41,13 @@ const getContent = () => (
 
 const Content = () => {
   const userContent = getContent()
+  const pageInfo = {
+    tags: 'new music/music/bands/spotify/find/new',
+    pageDescription: 'Find new music and start to enjoy it again'
+  }
   return (
     <Post
+      pageInfo={pageInfo}
       title="Find new music"
       content={userContent}
       timeToComplete="40+ minutes"

@@ -42,8 +42,13 @@ const getContent = () => (
 
 const Content = () => {
   const userContent = getContent()
+  const pageInfo = {
+    tags: 'rest/sleep/good night sleep/tips/blue blocking glasses',
+    pageDescription: 'Get a better night sleep tonight with these helpful tips'
+  }
   return (
     <Post
+      pageInfo={pageInfo}
       title="Get a good night's sleep"
       content={userContent}
       timeToComplete="1+ hour"

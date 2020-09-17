@@ -27,8 +27,13 @@ const getContent = () => (
 
 const Content = () => {
   const userContent = getContent()
+  const pageInfo = {
+    tags: 'jennifer lawrence/movie night/sparrow/joy/silver lining playbook/hunger games/jlaw/movie marathon',
+    pageDescription: 'Watch Jennifer Lawrence movies with these helpful hints'
+  }
   return (
     <Post
+      pageInfo={pageInfo}
       title="Have a Jennifer Lawrence night"
       content={userContent}
       timeToComplete="1.5+ hours"

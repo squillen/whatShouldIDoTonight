@@ -59,8 +59,13 @@ const getContent = () => (
 
 const Content = () => {
   const userContent = getContent()
+  const pageInfo = {
+    tags: 'digital music/learn/music software/edm/music/house music/fl studio/pro tools',
+    pageDescription: 'Learn how to make digital music tonight with these helpful tips'
+  }
   return (
     <Post
+      pageInfo={pageInfo}
       title="Make digital music"
       content={userContent}
       timeToComplete="30+ minutes"

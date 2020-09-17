@@ -37,8 +37,13 @@ const getContent = () => (
 
 const Content = () => {
   const userContent = getContent()
+  const pageInfo = {
+    tags: 'rent/movie/new/fun/tom cruise/adam driver/jamie foxx/amazon prime',
+    pageDescription: 'Watch the newest rentable movies tonight. You have our blessing.'
+  }
   return (
     <Post
+      pageInfo={pageInfo}
       title="Rent a new movie"
       content={userContent}
       timeToComplete="1+ hours"

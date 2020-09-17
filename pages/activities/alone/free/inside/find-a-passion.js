@@ -41,8 +41,13 @@ const getContent = () => (
 
 const Content = () => {
   const userContent = getContent()
+  const pageInfo = {
+    tags: 'find a passion/passion/hobbies/life/bored/do something',
+    pageDescription: 'Life can be amazing. Enjoy it!'
+  }
   return (
     <Post
+      pageInfo={pageInfo}
       title="Find a passion"
       content={userContent}
       timeToComplete="1+ hour"

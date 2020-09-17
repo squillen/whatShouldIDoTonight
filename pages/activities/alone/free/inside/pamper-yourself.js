@@ -37,8 +37,13 @@ const getContent = () => (
 
 const Content = () => {
   const userContent = getContent()
+  const pageInfo = {
+    tags: 'pamper/relax/fun/indulge/spa/free/spa day',
+    pageDescription: 'Pamper yourself on the cheap with these helpful tips'
+  }
   return (
     <Post
+      pageInfo={pageInfo}
       title="A happy camper is a camper who pampers...fo' free!"
       content={userContent}
       timeToComplete="1.5+ hours"

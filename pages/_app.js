@@ -1,6 +1,8 @@
 
 import App from 'next/app'
 import Router from 'next/router'
+import { DefaultSeo } from 'next-seo'
+import SEO from '../next-seo.config'
 import { AnimatePresence } from 'framer-motion'
 import { initGA, logPageView } from '../utils/analytics'
 import wrapper from '../src/store/store'
@@ -16,7 +18,8 @@ class MyApp extends App {
   render () {
     const { Component, pageProps, router } = this.props
     return (
-      <AnimatePresence exitBeforeEnter>
+      <AnimatePresence>
+        <DefaultSeo {...SEO} />
         <Component {...pageProps} key={router.route}/>
       </AnimatePresence>
     )

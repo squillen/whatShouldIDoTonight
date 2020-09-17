@@ -91,8 +91,13 @@ const getContent = () => (
 
 const Content = () => {
   const userContent = getContent()
+  const pageInfo = {
+    tags: 'godfather/francis ford coppola/marlon brando/al pacino/james caan/mafia/italian',
+    pageDescription: 'Have a Godfather movie marathon and accompanying food ideas with these helpful hints'
+  }
   return (
     <Post
+      pageInfo={pageInfo}
       title="Have a Godfather movie marathon"
       content={userContent}
       timeToComplete="9+ hours"

@@ -29,8 +29,13 @@ const getContent = () => (
 
 const Content = () => {
   const userContent = getContent()
+  const pageInfo = {
+    tags: 'speed read/learn/educate/read faster',
+    pageDescription: 'Learn to read faster with these helpful tips'
+  }
   return (
     <Post
+      pageInfo={pageInfo}
       title="Learn how to speed read"
       content={userContent}
       timeToComplete="1+ hour"

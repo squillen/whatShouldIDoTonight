@@ -33,8 +33,13 @@ const getContent = () => (
 
 const Content = () => {
   const userContent = getContent()
+  const pageInfo = {
+    tags: 'halle berry/movies/black women/gothika/swordfish/catwoman',
+    pageDescription: 'Watch Halle Berry be gorgeous and awesome with these helpful hints'
+  }
   return (
     <Post
+      pageInfo={pageInfo}
       title="Have a Halle Berry night"
       content={userContent}
       timeToComplete="1.5+ hours"

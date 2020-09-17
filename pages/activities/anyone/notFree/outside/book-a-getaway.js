@@ -30,8 +30,13 @@ const getContent = () => (
 
 const Content = () => {
   const userContent = getContent()
+  const pageInfo = {
+    tags: 'get away/getaway/cabin/in the woods/nature/explore/get outside',
+    pageDescription: 'Find a cabin to stay in and get away from it all with these helpful hints'
+  }
   return (
     <Post
+      pageInfo={pageInfo}
       title="Book a getaway"
       content={userContent}
       timeToComplete="40+ minutes"

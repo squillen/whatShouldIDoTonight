@@ -16,8 +16,13 @@ const getContent = () => (
 
 const Content = () => {
   const userContent = getContent()
+  const pageInfo = {
+    tags: 'car wash/wash your car/car care',
+    pageDescription: 'Go wash your car!'
+  }
   return (
     <Post
+      pageInfo={pageInfo}
       title="Wash your car"
       content={userContent}
       timeToComplete="30+ minutes"

@@ -42,8 +42,13 @@ const getContent = () => (
 
 const Content = () => {
   const userContent = getContent()
+  const pageInfo = {
+    tags: 'credit card/sign up/points/bonus/miles/benefits/perks/cash back/the points guy/nerdwallet/nerd wallet',
+    pageDescription: 'Take advantage of credit card deals with these helpful tips'
+  }
   return (
     <Post
+      pageInfo={pageInfo}
       title="Sign up for a new credit card"
       content={userContent}
       timeToComplete="30+ minutes"

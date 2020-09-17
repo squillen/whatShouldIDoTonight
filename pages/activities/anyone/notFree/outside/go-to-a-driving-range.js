@@ -27,8 +27,13 @@ const getContent = () => (
 
 const Content = () => {
   const userContent = getContent()
+  const pageInfo = {
+    tags: 'driving range/golf/fun/hit golf balls/golf balls',
+    pageDescription: 'Find a driving range to go to with these helpful hints'
+  }
   return (
     <Post
+      pageInfo={pageInfo}
       title="Go to a driving range"
       content={userContent}
       timeToComplete="1+ hour"

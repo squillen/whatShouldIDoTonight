@@ -35,8 +35,13 @@ const getContent = () => (
 
 const Content = () => {
   const userContent = getContent()
+  const pageInfo = {
+    tags: 'turo/rent/car/nice car/stick shift/manual/rent a car',
+    pageDescription: 'Rent a car with these helpful hints'
+  }
   return (
     <Post
+      pageInfo={pageInfo}
       title="Rent a nice car for the night"
       content={userContent}
       timeToComplete="2.5+ hours"

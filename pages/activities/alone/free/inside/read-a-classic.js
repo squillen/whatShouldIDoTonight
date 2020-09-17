@@ -29,8 +29,13 @@ const getContent = () => (
 
 const Content = () => {
   const userContent = getContent()
+  const pageInfo = {
+    tags: 'read/improve/classics/books/shakespeare/edgar allen poe/learn',
+    pageDescription: 'Read some classic books tonight for free and become smarter for it.'
+  }
   return (
     <Post
+      pageInfo={pageInfo}
       title="Read a classic"
       content={userContent}
       timeToComplete="30+ minutes"

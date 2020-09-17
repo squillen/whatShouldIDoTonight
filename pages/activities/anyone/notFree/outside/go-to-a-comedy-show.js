@@ -26,8 +26,13 @@ const getContent = () => (
 
 const Content = () => {
   const userContent = getContent()
+  const pageInfo = {
+    tags: 'comedy/on stage/comedians/comedian/comedy shows',
+    pageDescription: 'Figure out comedy shows to go to with these helpful hints'
+  }
   return (
     <Post
+      pageInfo={pageInfo}
       title="Go to a comedy show"
       content={userContent}
       timeToComplete="1.5+ hours"

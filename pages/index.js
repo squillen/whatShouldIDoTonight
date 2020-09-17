@@ -11,6 +11,7 @@ import { getNewUserActivity, setUserActivities } from '../src/store/activities/a
 
 // COMPONENTS
 import Layout from '../components/layout/layout'
+import NextSEO from '../components/nextSEO'
 import Button from '../components/button/button'
 import { siteTitle } from '../components/defaultHead'
 
@@ -64,6 +65,7 @@ function Home (props) {
       <Head>
         <title>{siteTitle}</title>
       </Head>
+      <NextSEO />
       <section className={utilStyles.headingMd}>
         <motion.div variants={stagger} className={utilStyles.questions}>
           {/* ARE YOU ALONE SECTION */}

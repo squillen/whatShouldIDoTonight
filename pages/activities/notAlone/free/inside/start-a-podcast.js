@@ -27,8 +27,13 @@ const getContent = () => (
 
 const Content = () => {
   const userContent = getContent()
+  const pageInfo = {
+    tags: 'podcast/start/share/inform/podbean',
+    pageDescription: 'Start a podcast with these helpful hints'
+  }
   return (
     <Post
+      pageInfo={pageInfo}
       title="Start a podcast"
       content={userContent}
       timeToComplete="1+ hour"

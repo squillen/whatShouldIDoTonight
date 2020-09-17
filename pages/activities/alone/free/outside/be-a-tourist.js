@@ -28,8 +28,13 @@ const getContent = () => (
 
 const Content = () => {
   const userContent = getContent()
+  const pageInfo = {
+    tags: 'tourist/things to do near me/fun',
+    pageDescription: 'Be a tourist in your own city'
+  }
   return (
     <Post
+      pageInfo={pageInfo}
       title="Be a tourist"
       content={userContent}
       timeToComplete="15 minutes"

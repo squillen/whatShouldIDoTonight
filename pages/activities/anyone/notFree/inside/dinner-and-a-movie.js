@@ -67,8 +67,13 @@ const getContent = () => (
 
 const Content = () => {
   const userContent = getContent()
+  const pageInfo = {
+    tags: 'dinner/movie/fun/battle royale/your name./spirited away/the godfather/oldboy/bibimbap',
+    pageDescription: 'Have a unique twist on dinner and a movie tonight with these helpful hints'
+  }
   return (
     <Post
+      pageInfo={pageInfo}
       title="Dinner and a movie"
       content={userContent}
       timeToComplete="2+ hours"

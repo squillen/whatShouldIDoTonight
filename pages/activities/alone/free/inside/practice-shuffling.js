@@ -38,8 +38,13 @@ const getContent = () => (
 
 const Content = () => {
   const userContent = getContent()
+  const pageInfo = {
+    tags: 'shuffle/cards/shuffling/dance/card tricks/fun/practice',
+    pageDescription: 'Practice shuffling. The dance or with cards.'
+  }
   return (
     <Post
+      pageInfo={pageInfo}
       title="Learn how to shuffle"
       content={userContent}
       timeToComplete="20 minutes"

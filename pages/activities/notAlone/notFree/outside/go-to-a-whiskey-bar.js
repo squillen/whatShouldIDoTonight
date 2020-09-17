@@ -1,6 +1,6 @@
 import { connect } from 'react-redux'
 import LinkTo from '../../../../../components/linkTo/linkTo'
-import Photo from '../../../../../components/linkTo/linkTo'
+import Photo from '../../../../../components/photo/photo'
 import Post from '../../../../../components/post/post'
 import styles from '../../../../../styles/activity.module.css'
 
@@ -28,8 +28,13 @@ const getContent = () => (
 
 const Content = () => {
   const userContent = getContent()
+  const pageInfo = {
+    tags: 'whiskey/bars/drink/alcohol',
+    pageDescription: 'Find whiskey bars near you with these helpful hints'
+  }
   return (
     <Post
+      pageInfo={pageInfo}
       title="Go to a whiskey bar"
       content={userContent}
       timeToComplete="1+ hour"

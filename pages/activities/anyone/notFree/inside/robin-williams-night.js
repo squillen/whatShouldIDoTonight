@@ -29,8 +29,13 @@ const getContent = () => (
 
 const Content = () => {
   const userContent = getContent()
+  const pageInfo = {
+    tags: 'robin williams/movie night/movie marathon/patch adams/hook/good will hunting/mrs. doubtfire',
+    pageDescription: 'Have a Robin Williams movie night with these helpful hints'
+  }
   return (
     <Post
+      pageInfo={pageInfo}
       title="Have a Robin Williams night"
       content={userContent}
       timeToComplete="1.5+ hours"

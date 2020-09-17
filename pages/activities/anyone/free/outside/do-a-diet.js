@@ -46,8 +46,13 @@ const getContent = () => (
 
 const Content = () => {
   const userContent = getContent()
+  const pageInfo = {
+    tags: 'start a diet/gluten-free/paleo/keto/us news/usnews/parade.com/',
+    pageDescription: 'Consider trying a new diet with these helpful hints'
+  }
   return (
     <Post
+      pageInfo={pageInfo}
       title="Start a diet"
       content={userContent}
       timeToComplete="45+ minutes"

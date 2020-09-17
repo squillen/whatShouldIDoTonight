@@ -22,8 +22,13 @@ const getContent = () => (
 
 const Content = () => {
   const userContent = getContent()
+  const pageInfo = {
+    tags: 'new restaurant/cuisine/food/eat',
+    pageDescription: 'Find a new restaurant to go to with these helpful tips'
+  }
   return (
     <Post
+      pageInfo={pageInfo}
       title="Go to a new restaurant"
       content={userContent}
       timeToComplete="1+ hour"

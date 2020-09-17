@@ -59,8 +59,13 @@ const getContent = () => (
 
 const Content = () => {
   const userContent = getContent()
+  const pageInfo = {
+    tags: 'wardrobe/new/fashion/new clothes/Thread/StitchFix/Stich Fix/get hip',
+    pageDescription: 'Update your fashion with these helpful tips'
+  }
   return (
     <Post
+      pageInfo={pageInfo}
       title="Rethink your wardrobe"
       content={userContent}
       timeToComplete="30+ minutes"

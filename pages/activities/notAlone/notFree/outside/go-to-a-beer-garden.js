@@ -28,8 +28,13 @@ const getContent = () => (
 
 const Content = () => {
   const userContent = getContent()
+  const pageInfo = {
+    tags: 'beer/beer garden/beers/fun/drink/drinking/near you',
+    pageDescription: 'find beer gardens near you with these helpful hints'
+  }
   return (
     <Post
+      pageInfo={pageInfo}
       title="Go to a beer garden"
       content={userContent}
       timeToComplete="1+ hour"

@@ -40,8 +40,13 @@ const getContent = () => (
 
 const Content = () => {
   const userContent = getContent()
+  const pageInfo = {
+    tags: 'instrument/learn/play/new/guitar/banjo/piano/violin/trumpet/guitar center/guitarcenter/musiciansfriend/musicians friend',
+    pageDescription: 'Learn a new song or a new instrument'
+  }
   return (
     <Post
+      pageInfo={pageInfo}
       title="Learn/play an instrument"
       content={userContent}
       timeToComplete="45+ minutes"

@@ -14,7 +14,7 @@ const getContent = () => (
       alt="wall-e showing us our future of stagnation"
     />
     <p>
-      And, yes, that ☝☝ might be our future, but for now just enjoy the perks of tech...
+      And, yes, that ☝☝ might very well be our future, but for now let&apos;s just enjoy the perks of tech...
     </p>
     <p>
       <span>
@@ -43,9 +43,13 @@ const getContent = () => (
 
 const Content = () => {
   const userContent = getContent()
+  const pageInfo = {
+    tags: 'learn/music/tutor/person/wyzant/takelessons/wall-e',
+    pageDescription: 'Take music lessons from a person with these helpful tips'
+  }
   return (
     <Post
-      title="Take some music lessons"
+      title="Take some music lessons from a person"
       content={userContent}
       timeToComplete="30+ minutes"
     />

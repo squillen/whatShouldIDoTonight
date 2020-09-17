@@ -71,8 +71,13 @@ const getContent = () => (
 
 const Content = () => {
   const userContent = getContent()
+  const pageInfo = {
+    tags: 'netflix/hulu/prime/amazon/disney+/disney plus/free/movies/shows/tv/ratings/what to watch/find',
+    pageDescription: 'Find what to watch with these helpful tips'
+  }
   return (
     <Post
+      pageInfo={pageInfo}
       title="Find a free movie"
       content={userContent}
       timeToComplete="1.5+ hour"

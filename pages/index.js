@@ -75,8 +75,8 @@ function Home (props) {
             </span>
             <span>
               <select className={utilStyles.select} name="userAlone" id="userAlone" onChange={handleSelect}>
-                <option className={utilStyles.option} name="userAlone" value="true">Yes</option>
-                <option className={utilStyles.option} name="userAlone" value="false">No</option>
+                <option className={utilStyles.option} name="userAlone" value="true" id="userIsAloneTrue">Yes</option>
+                <option className={utilStyles.option} name="userAlone" value="false" id="userIsAloneFalse">No</option>
               </select>
             </span>
           </motion.div>
@@ -87,8 +87,8 @@ function Home (props) {
             </span>
             <span>
               <select className={utilStyles.select} name="spendMoney" id="spendMoney" onChange={handleSelect}>
-                <option className={utilStyles.option} name="spendMoney" value="true">Yes</option>
-                <option className={utilStyles.option} name="spendMoney" value="false">No</option>
+                <option className={utilStyles.option} name="spendMoney" value="true" id="userWantsToSpendMoneyTrue">Yes</option>
+                <option className={utilStyles.option} name="spendMoney" value="false" id="userWantsToSpendMoneyFalse">No</option>
               </select>
             </span>
           </motion.div>
@@ -99,9 +99,9 @@ function Home (props) {
             </span>
             <span>
               <select className={utilStyles.select} name="goOutside" id="goOutside" onChange={handleSelect}>
-                <option className={utilStyles.option} name="goOutside" value={3}>I don&apos;t care</option>
-                <option className={utilStyles.option} name="goOutside" value={1}>Yes</option>
-                <option className={utilStyles.option} name="goOutside" value={2}>No</option>
+                <option className={utilStyles.option} name="goOutside" value={3} id="userWantsToGoOutsideIndifferent">I don&apos;t care</option>
+                <option className={utilStyles.option} name="goOutside" value={1} id="userWantsToGoOutsideTrue">Yes</option>
+                <option className={utilStyles.option} name="goOutside" value={2} id="userWantsToGoOutsideFalse">No</option>
               </select>
             </span>
           </motion.div>

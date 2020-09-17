@@ -10,8 +10,8 @@ const getContent = () => (
       src="https://media.giphy.com/media/3o6nUYpHIdVntjCtgc/giphy.gif"
       alt="Portlandia - Nerdy tourists looking at map try to figure out where they are"
     />
-    <p>You live where you live for a reason, right?</p>
-    <p>Go explore it.</p>
+    <p>You live where you do for a reason, right?</p>
+    <p>So put on some knee-high socks and a painfully confused face and go explore!</p>
     <p>
       <span>
         <LinkTo

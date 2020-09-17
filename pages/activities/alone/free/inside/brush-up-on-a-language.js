@@ -36,14 +36,14 @@ const getContent = () => (
         />
         ):
       </span>
-      <ol>
-        <li>My name is [your name/alter ego] and I am from [country that you&apos;re from]</li>
-        <li>What is your name?</li>
-        <li>I don&apos;t know much [language you&apos;re currently translating to]</li>
-        <li>What is your favorite restaurant around here?</li>
-        <li>Where is the bathroom?</li>
-      </ol>
     </p>
+    <ol>
+      <li>My name is [your name/alter ego] and I am from [country that you&apos;re from]</li>
+      <li>What is your name?</li>
+      <li>I don&apos;t know much [language you&apos;re currently translating to]</li>
+      <li>What is your favorite restaurant around here?</li>
+      <li>Where is the bathroom?</li>
+    </ol>
     <p>Buena suerte, mon amie.</p>
   </div>
 )

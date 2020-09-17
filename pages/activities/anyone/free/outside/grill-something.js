@@ -19,15 +19,16 @@ const getContent = () => (
     </p>
     <p>
       <span>
-        Once you&apos;ve got that, crack a beer and
+        Once you&apos;ve got that,
         {' '}
         <LinkTo
           href="https://www.delish.com/entertaining/g1634/unusual-grilling-recipes/"
-          label="grillax"
+          label="figure out what to grill"
         />
         .
       </span>
     </p>
+    <p>Then just kick back and enjoy.</p>
     <Photo
       src="https://media.giphy.com/media/cl9YkCypcrkxMQqwoM/giphy.gif"
       alt="Man grilling and grooving"
@@ -39,7 +40,7 @@ const Content = () => {
   const userContent = getContent()
   return (
     <Post
-      title="Grillax"
+      title="Crack a beer and grillax"
       content={userContent}
       timeToComplete="45+ minutes"
     />

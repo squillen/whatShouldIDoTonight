@@ -11,6 +11,11 @@ const getContent = () => (
       alt="Halle Berry winking"
     />
     <p>There&apos;s not much this woman can&apos;t do. Maybe not anything.</p>
+    <p>So let&apos; all just take a moment and say Hallelujah for Halle Berry:</p>
+    <Photo
+      src="https://media.giphy.com/media/iiS84hOJXh1Pq/giphy.gif"
+      alt="Garth and Wayne bowing and saying 'We&apos;re not worthy!'"
+    />
     <p>
       <span>
         Find her

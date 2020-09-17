@@ -10,7 +10,6 @@ export default function DefaultHead () {
   return (
     <Head>
       <link rel="icon" href="/favicon.ico" />
-      <script data-ad-client="ca-pub-9045195637006996" async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
       {/* PRIMARY META TAGS */}
       <title>{siteTitle}</title>
       <meta name="title" content={siteTitle} />
@@ -29,8 +28,7 @@ export default function DefaultHead () {
       <meta property="twitter:image" content={image}></meta>
       <title>{siteTitle}</title>
       <meta name="description" content={description} />
-      <script src="https://kit.fontawesome.com/986019369d.js" crossOrigin="anonymous"></script>
-      <script id="mcjs" dangerouslySetInnerHTML={{ __html: mailChimpScript }}/>
+      <script id="mcjs" dangerouslySetInnerHTML={{ __html: mailChimpScript }} />
     </Head>
   )
 }

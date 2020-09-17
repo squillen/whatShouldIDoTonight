@@ -1,29 +1,28 @@
 
-import App from 'next/app'
-import Router from 'next/router'
+import { useEffect } from 'react'
 import { DefaultSeo } from 'next-seo'
 import SEO from '../next-seo.config'
 import { AnimatePresence } from 'framer-motion'
-import { initGA, logPageView } from '../utils/analytics'
+import * as gtag from '../lib/gtag'
 import wrapper from '../src/store/store'
 import '../styles/globals.css'
 
-class MyApp extends App {
-  componentDidMount () {
-    initGA()
-    logPageView()
-    Router.events.on('routeChangeComplete', logPageView)
-  }
-
-  render () {
-    const { Component, pageProps, router } = this.props
-    return (
-      <AnimatePresence>
-        <DefaultSeo {...SEO} />
-        <Component {...pageProps} key={router.route}/>
-      </AnimatePresence>
-    )
-  }
+const App = ({ Component, pageProps, router }) => {
+  useEffect(() => {
+    const handleRouteChange = (url) => {
+      gtag.pageview(url)
+    }
+    router.events.on('routeChangeComplete', handleRouteChange)
+    return () => {
+      router.events.off('routeChangeComplete', handleRouteChange)
+    }
+  }, [router.events])
+  return (
+    <AnimatePresence>
+      <DefaultSeo {...SEO} />
+      <Component {...pageProps} key={router.route}/>
+    </AnimatePresence>
+  )
 }
 
-export default wrapper.withRedux(MyApp)
+export default wrapper.withRedux(App)

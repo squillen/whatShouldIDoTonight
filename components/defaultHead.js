@@ -28,7 +28,7 @@ export default function DefaultHead () {
       <meta property="twitter:image" content={image}></meta>
       <title>{siteTitle}</title>
       <meta name="description" content={description} />
-      <script id="mcjs" dangerouslySetInnerHTML={{ __html: mailChimpScript }} />
+      {/* <script id="mcjs" dangerouslySetInnerHTML={{ __html: mailChimpScript }} /> */}
       <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.14.0/css/all.css" integrity="sha384-HzLeBuhoNPvSl5KYnjx0BT+WB0QEEqLprO+NBkkk5gbc67FTaL7XIGa2w1L0Xbgc" crossOrigin="anonymous" />
     </Head>
   )

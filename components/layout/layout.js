@@ -44,6 +44,6 @@ export default function Layout ({ children, home }) {
 }
 
 Layout.propTypes = {
-  children: PropTypes.object,
+  children: PropTypes.array,
   home: PropTypes.bool
 }

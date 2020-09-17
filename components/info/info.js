@@ -1,6 +1,4 @@
 import PropTypes from 'prop-types'
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-import { faExclamation } from '@fortawesome/free-solid-svg-icons'
 import styles from './info.module.css'
 
 export default function Info ({ label }) {
@@ -8,7 +6,7 @@ export default function Info ({ label }) {
     <div className={styles.infoContainer}>
       <span>
         <span className={styles.iconContainer}>
-          <FontAwesomeIcon size="1x" icon={faExclamation} />
+          <i className="fas fa-exclamation"></i>
         </span>
         <span className={styles.textContainer}>{label}</span>
       </span>

@@ -8,13 +8,10 @@
     "start": "next start"
   },
   "dependencies": {
-    "@fortawesome/fontawesome-svg-core": "^1.2.30",
-    "@fortawesome/free-solid-svg-icons": "^5.14.0",
-    "@fortawesome/react-fontawesome": "^0.1.11",
     "framer-motion": "^2.6.13",
-    "gray-matter": "^4.0.2",
     "next": "9.5.3",
     "next-redux-wrapper": "^6.0.2",
+    "next-seo": "^4.7.3",
     "react": "16.13.1",
     "react-dom": "16.13.1",
     "react-ga": "^3.1.2",
@@ -22,10 +19,7 @@
     "redux": "^4.0.5",
     "redux-devtools-extension": "^2.13.8",
     "redux-logger": "^3.0.6",
-    "redux-thunk": "^2.3.0",
-    "remark": "^12.0.1",
-    "remark-external-links": "^7.0.0",
-    "remark-html": "^12.0.0"
+    "redux-thunk": "^2.3.0"
   },
   "devDependencies": {
     "eslint": "^7.8.1",

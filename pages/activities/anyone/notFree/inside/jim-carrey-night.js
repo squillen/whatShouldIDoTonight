@@ -1,6 +1,4 @@
 import { connect } from 'react-redux'
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-import { faCheck } from '@fortawesome/free-solid-svg-icons'
 import Post from '../../../../../components/post/post'
 import LinkTo from '../../../../../components/linkTo/linkTo'
 import styles from '../../../../../styles/activity.module.css'
@@ -28,7 +26,7 @@ const getContent = () => (
         and go and totally redeem yourself!
       </span>
     </p>
-    <p> Three Jim Carrey references: <FontAwesomeIcon size="1x" icon={faCheck} /></p>
+    <p><span><span className={styles.greenCheck}><i className="fas fa-check"></i></span> - Three forced Jim Carrey references</span></p>
   </div>
 )
 

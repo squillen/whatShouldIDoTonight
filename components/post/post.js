@@ -85,15 +85,15 @@ function Post (props) {
           <motion.div variants={stagger} className={utilStyles.headerInfoSection}>
             {/* LEFT SECTION */}
             <motion.div variants={stagger} className={utilStyles.leftSection}>
+              <motion.div variants={fadeInFromLeft} className={utilStyles.noOfPeople}>
+                <span className={utilStyles.infoIcon}><i className="fas fa-users"></i></span>
+                {noOfPeople}
+              </motion.div>
               <motion.div variants={fadeInFromLeft} className={utilStyles.timeToComplete}>
                 <span>
-                  <span className={utilStyles.infoIcon}><FontAwesomeIcon icon={faClock} size="sm" /></span>
+                  <span className={utilStyles.infoIcon}><i className="fas fa-clock"></i></span>
                   {timeToComplete}
                 </span>
-              </motion.div>
-              <motion.div variants={fadeInFromLeft} className={utilStyles.noOfPeople}>
-                <span className={utilStyles.infoIcon}><FontAwesomeIcon icon={faUsers} size="sm" /></span>
-                {noOfPeople}
               </motion.div>
             </motion.div>
             <motion.div variants={fadeIn} className={utilStyles.rightSection}>

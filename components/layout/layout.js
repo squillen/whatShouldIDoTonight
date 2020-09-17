@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react'
+import React, { useState } from 'react'
 import { motion } from 'framer-motion'
 import PropTypes from 'prop-types'
 import DefaultHead from '../defaultHead'
@@ -44,5 +44,6 @@ export default function Layout ({ children, home }) {
 }
 
 Layout.propTypes = {
-  children: PropTypes.object
+  children: PropTypes.object,
+  home: PropTypes.bool
 }

@@ -70,90 +70,73 @@ function Home (props) {
         <motion.div variants={stagger} className={utilStyles.questions}>
           {/* ARE YOU ALONE SECTION */}
           <motion.div variants={fadeInUp} className={utilStyles.question}>
-            <span>
-              I am alone:
-            </span>
-            <span>
-              <select className={utilStyles.select} name="userAlone" id="userAloneSelect" onChange={handleSelect}>
-                <option className={utilStyles.option} name="userAlone" value="true" id="userIsAloneTrue">Yes</option>
-                <option className={utilStyles.option} name="userAlone" value="false" id="userIsAloneFalse">No</option>
-              </select>
-            </span>
-          </motion.div>
-          {/* SPEND MONEY SECTION */}
-          <motion.div variants={fadeInUp} className={utilStyles.question}>
-            <span>
-              I am OK spending money:
-            </span>
-            <span>
-              <select className={utilStyles.select} name="spendMoney" id="spendMoneySelect" onChange={handleSelect}>
-                <option className={utilStyles.option} name="spendMoney" value="true" id="userWantsToSpendMoneyTrue">Yes</option>
-                <option className={utilStyles.option} name="spendMoney" value="false" id="userWantsToSpendMoneyFalse">No</option>
-              </select>
-            </span>
-          </motion.div>
-          {/* INSIDE OR OUTSIDE SECTION */}
-          <motion.div variants={fadeInUp} className={utilStyles.question}>
-            <span>
-              I want to go outside:
-            </span>
-            <span>
-              <select className={utilStyles.select} name="goOutside" id="goOutsideSelect" onChange={handleSelect}>
-                <option className={utilStyles.option} name="goOutside" value={3} id="userWantsToGoOutsideIndifferent">I don&apos;t care</option>
-                <option className={utilStyles.option} name="goOutside" value={1} id="userWantsToGoOutsideTrue">Yes</option>
-                <option className={utilStyles.option} name="goOutside" value={2} id="userWantsToGoOutsideFalse">No</option>
-              </select>
-            </span>
-          </motion.div>
-          <motion.div variants={fadeInUp} className={utilStyles.buttonContainer}>
-            <Button
-              inlineStyle={{ border: '3px solid #0F2956', fontSize: '1.5rem' }}
-              href={`/activities${currentActivity.category}/${currentActivity.id}`}
-              label="tell me"
-            />
-          </motion.div>
-        </motion.div>
-        {/* MOBILE SECTION */}
-        <motion.div variants={stagger} className={utilStyles.mobileQuestions}>
-          {/* ARE YOU ALONE SECTION */}
-          <motion.div variants={fadeInUp} className={utilStyles.question}>
-            <div>
+            <div className={utilStyles.questionHeader}>
               I am alone:
             </div>
-            <div>
-              <select className={utilStyles.select} name="userAlone" id="userAlone" onChange={handleSelect}>
-                <option className={utilStyles.option} name="userAlone" value="true">Yes</option>
-                <option className={utilStyles.option} name="userAlone" value="false">No</option>
-              </select>
+            <div className={utilStyles.twoOptions}>
+              <div
+                onClick={() => setUserAlone(true)}
+                className={utilStyles[userAlone === true ? 'selectedOption' : 'option']}
+              >
+                Yes
+              </div>
+              <div
+                onClick={() => setUserAlone(false)}
+                className={utilStyles[userAlone === true ? 'option' : 'selectedOption']}
+              >
+                No
+              </div>
             </div>
           </motion.div>
           {/* SPEND MONEY SECTION */}
           <motion.div variants={fadeInUp} className={utilStyles.question}>
-            <div>
+            <div className={utilStyles.questionHeader}>
               I am OK spending money:
             </div>
-            <div>
-              <select className={utilStyles.select} name="spendMoney" id="spendMoney" onChange={handleSelect}>
-                <option className={utilStyles.option} name="spendMoney" value="true">Yes</option>
-                <option className={utilStyles.option} name="spendMoney" value="false">No</option>
-              </select>
+            <div className={utilStyles.twoOptions}>
+              <div
+                onClick={() => setSpendMoney(true)}
+                className={utilStyles[spendMoney === true ? 'selectedOption' : 'option']}
+              >
+                Yes
+              </div>
+              <div
+                onClick={() => setSpendMoney(false)}
+                className={utilStyles[spendMoney === true ? 'option' : 'selectedOption']}
+              >
+                No
+              </div>
             </div>
           </motion.div>
           {/* INSIDE OR OUTSIDE SECTION */}
           <motion.div variants={fadeInUp} className={utilStyles.question}>
-            <div>
+            <div className={utilStyles.questionHeader}>
               I want to go outside:
             </div>
-            <div>
-              <select className={utilStyles.select} name="goOutside" id="goOutside" onChange={handleSelect}>
-                <option className={utilStyles.option} name="goOutside" value={3}>I don&apos;t care</option>
-                <option className={utilStyles.option} name="goOutside" value={1}>Yes</option>
-                <option className={utilStyles.option} name="goOutside" value={2}>No</option>
-              </select>
+            <div className={utilStyles.threeOptions}>
+              <div
+                onClick={() => setGoOutside(3)}
+                className={utilStyles[goOutside === 3 ? 'selectedOfThree' : 'oneOfThreeOptions']}
+              >
+                Either
+              </div>
+              <div
+                onClick={() => setGoOutside(1)}
+                className={utilStyles[goOutside === 1 ? 'selectedOfThree' : 'oneOfThreeOptions']}
+              >
+                Yes
+              </div>
+              <div
+                onClick={() => setGoOutside(2)}
+                className={utilStyles[goOutside === 2 ? 'selectedOfThree' : 'oneOfThreeOptions']}
+              >
+                No
+              </div>
             </div>
           </motion.div>
           <motion.div variants={fadeInUp} className={utilStyles.buttonContainer}>
             <Button
+              customStyle={utilStyles.tellMeButton}
               inlineStyle={{ border: '3px solid #0F2956', fontSize: '1.5rem' }}
               href={`/activities${currentActivity.category}/${currentActivity.id}`}
               label="tell me"

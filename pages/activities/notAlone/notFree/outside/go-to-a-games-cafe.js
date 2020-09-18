@@ -10,7 +10,7 @@ const getContent = () => (
       src="https://media.giphy.com/media/xKQJBdOPCnFJK/giphy.gif"
       alt="medieval characters playing Monopoly"
     />
-    <p>Take part in the world&apos;s oldest past times.</p>
+    <p>Take part in the world&apos;s oldest pastimes.</p>
     <p>
       <span>
         See where you can play
@@ -19,6 +19,7 @@ const getContent = () => (
           href="https://www.google.com/search?newwindow=1&safe=off&sxsrf=ALeKk027NLH3yWq7SwcsNH66D9DaokmVQg%3A1600117386261&ei=itpfX7y_D83wsAWZjpe4Ag&q=board+game+cafes+near+me&oq=board+game+cafes+near+me&gs_lcp=CgZwc3ktYWIQAzICCAAyBggAEBYQHjIGCAAQFhAeMgYIABAWEB4yBggAEBYQHjIGCAAQFhAeMgYIABAWEB4yBggAEBYQHjIGCAAQFhAeOgQIABBHOgQIIxAnOgQIABBDOgUIABCxAzoHCAAQsQMQQzoFCAAQkQI6BwgAEBQQhwI6BAgAEA1QmtsLWKj-C2COgAxoAnAHeACAAWKIAbUOkgECMjaYAQCgAQGqAQdnd3Mtd2l6yAEIwAEB&sclient=psy-ab&ved=0ahUKEwi8rKDjxenrAhVNOKwKHRnHBScQ4dUDCA0&uact=5"
           label="near you"
         />
+        {' '}
         and then cause a scene by screaming and getting overly competitive about some board games.
       </span>
     </p>

@@ -37,7 +37,7 @@ const getContent = () => (
     </p>
     <p>
       <span>
-        If still not, how about checking out these
+        If not, how about checking out these
         {' '}
         <span className={styles.italic}>actually free</span>
         {' '}

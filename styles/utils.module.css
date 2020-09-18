@@ -138,7 +138,7 @@
 
 .question {
   height: 30%;
-  letter-spacing: 0.1em;
+  letter-spacing: 0.05em;
   font-size: 2rem;
   padding-bottom: 1.5rem;
 }
@@ -154,8 +154,8 @@
   justify-content: space-between;
   cursor: pointer;
   font-size: 1.3rem;
+  letter-spacing: 0.01em;
   height: 2.4rem;
-
 }
 
 .option, 
@@ -163,7 +163,7 @@
 .selectedOption,
 .selectedOfThree {
   display: flex;
-  width: 50%;
+  width: 45%;
   justify-content: center;
   align-items: center;
 }
@@ -174,7 +174,7 @@
 
 .oneOfThreeOptions,
 .selectedOfThree {
-  width: 33%;
+  width: 30%;
 }
 
 .selectedOption,

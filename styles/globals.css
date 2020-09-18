@@ -23,7 +23,8 @@ a {
   text-decoration: underline;
 }
 
-a:hover {
+a:visited {
+  color: #8a8787
 }
 
 img {

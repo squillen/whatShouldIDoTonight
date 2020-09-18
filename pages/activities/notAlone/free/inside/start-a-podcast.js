@@ -20,7 +20,6 @@ const getContent = () => (
         {' '}
         that revolution, internet people! And remember that we always believed in you when you all inevitably take over the world!
       </span>
-      <p>Here&apos;s what you&apos;re gonna do:</p>
     </p>
   </div>
 )

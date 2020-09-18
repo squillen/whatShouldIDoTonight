@@ -2,6 +2,7 @@ import { connect } from 'react-redux'
 import Post from '../../../../../components/post/post'
 import LinkTo from '../../../../../components/linkTo/linkTo'
 import styles from '../../../../../styles/activity.module.css'
+import Photo from '../../../../../components/photo/photo'
 
 const getContent = () => (
   <div className={styles.activityContainer}>
@@ -17,6 +18,10 @@ const getContent = () => (
         and pick one without even looking at the reviews (if they even have any yet!).
       </span>
     </p>
+    <Photo
+      src="https://media.giphy.com/media/TGcD6N8uzJ9FXuDV3a/giphy.gif"
+      alt="Joey from Friends ordering a ton of food, per usual"
+    />
   </div>
 )
 

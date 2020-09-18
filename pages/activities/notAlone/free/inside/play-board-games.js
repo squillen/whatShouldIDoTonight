@@ -25,7 +25,7 @@ const getContent = () => (
     </p>
     <p>
       <span>
-        If you don&apos;t have any cards or board games but that sounds fun to you, go buy some locally, used or new, or
+        If you don&apos;t have any cards or board games but think that sounds fun, go buy some locally, used or new, or
         {' '}
         <LinkTo
           href="/activities/notAlone/notFree/outside/go-to-a-games-cafe"

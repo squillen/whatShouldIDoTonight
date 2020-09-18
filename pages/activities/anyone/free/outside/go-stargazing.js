@@ -15,6 +15,15 @@ const getContent = () => (
         places near you and get out your blanket and hot chocolate (and a camera if you have one!)
         {' '}
         and get ready for a nice, relaxing night under the world&apos;s oldest show.
+        {' '}
+        And let
+        {' '}
+        <LinkTo
+          href="https://www.terminaleleven.com/skyview/iphone/"
+          label="SkyView"
+        />
+        {' '}
+        help you figure out what you&apos;re looking at.
       </span>
     </p>
   </div>

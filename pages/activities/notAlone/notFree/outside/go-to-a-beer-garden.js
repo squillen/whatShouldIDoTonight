@@ -6,7 +6,7 @@ import styles from '../../../../../styles/activity.module.css'
 
 const getContent = () => (
   <div className={styles.activityContainer}>
-    <p>Alcohol makes everything better. Until it doesn&apos;t</p>
+    <p>Alcohol makes everything better. Until it doesn&apos;t.</p>
     <Photo
       src="https://media.giphy.com/media/j0BKyov6oX9j0AH9Tm/giphy.gif"
       alt="Man about to puke"

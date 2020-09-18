@@ -22,6 +22,7 @@ const getContent = () => (
           href="https://www.google.com/search?newwindow=1&safe=off&sxsrf=ALeKk01vbtc-a9n_UyYd9A6k_oPNXy850Q%3A1600115829005&ei=dNRfX535PImWtQXLzYz4CQ&q=wine+bar+near+me&oq=wine+bar+near+me&gs_lcp=CgZwc3ktYWIQAzICCAAyAggAMgIIADIGCAAQBxAeMgIIADICCAAyAggAMgYIABAHEB4yBggAEAcQHjIGCAAQBxAeOgQIABBHULafEVicoRFgrqMRaABwAngAgAFeiAGqApIBATSYAQCgAQGqAQdnd3Mtd2l6yAEIwAEB&sclient=psy-ab&ved=0ahUKEwidg9n8v-nrAhUJS60KHcsmA58Q4dUDCA0&uact=5"
           label="places near you"
         />
+        {' '}
         and go have a reasonably responsible amount of fun.
       </span>
     </p>

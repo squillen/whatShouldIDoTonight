@@ -41,7 +41,7 @@ const getContent = () => (
         is a good article to get you started.
       </span>
     </p>
-    <p>After you&apos;ve read through and developed your new selves, try them out with each other the rest of the night.</p>
+    <p>After you&apos;ve read through and developed your new selves, try them out with each other for the rest of the night.</p>
     <p>
       I&apos;d wish you luck, but y&apos;alls alter egos don&apos;t need any damn luck.
     </p>

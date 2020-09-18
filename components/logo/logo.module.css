@@ -1,4 +1,4 @@
-.link, .link:hover {
+.link, .link:hover, .link:visited {
 	text-decoration: none;
 	width: 60%;
 	-webkit-backface-visibility: hidden;

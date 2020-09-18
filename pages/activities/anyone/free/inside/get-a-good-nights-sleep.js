@@ -2,11 +2,16 @@ import { connect } from 'react-redux'
 import Post from '../../../../../components/post/post'
 import LinkTo from '../../../../../components/linkTo/linkTo'
 import styles from '../../../../../styles/activity.module.css'
+import Photo from '../../../../../components/photo/photo'
 
 const getContent = () => (
   <div className={styles.activityContainer}>
+    <Photo
+      src="https://media.giphy.com/media/ZLxRWG0vhzpiE/giphy.gif"
+      alt="Toddler girl going from laughing to sleeping in about 2 seconds"
+    />
     <p>
-      Don&apos;t sleep on having a good night&apos;s sleep. Wait, I mean, do, but...don&apos;t? Just get a good night&apos;s sleep, OK??
+      Don&apos;t sleep on the importance of having a good night&apos;s sleep. Wait, I mean, do, but...don&apos;t? Just get a good night&apos;s sleep, OK??
     </p>
     <p>
       <span>
@@ -27,7 +32,7 @@ const getContent = () => (
     </p>
     <p>
       <span>
-        And if you want to buy anything related to getting better sleep,
+        And if you want to get anything related to getting better sleep,
         {' '}
         <LinkTo
           href="/activities/anyone/notFree/inside/get-a-good-nights-sleep"

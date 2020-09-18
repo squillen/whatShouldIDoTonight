@@ -5,6 +5,7 @@ import styles from '../../../../../styles/activity.module.css'
 
 const getContent = () => (
   <div className={styles.activityContainer}>
+    <p>Here&apos;s a cheesy joke for you:</p>
     <div className={styles.quotation}>
       <div>Why were mozzarella and feta holding hands?</div>
       <div className={styles.italic}>They looked gouda together.</div>

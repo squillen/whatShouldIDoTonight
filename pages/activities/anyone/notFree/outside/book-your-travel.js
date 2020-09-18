@@ -44,7 +44,7 @@ const getContent = () => (
         for flights/hotels/rental cars and sites like
         {' '}
         <LinkTo
-          href="https://wwww.hotels.com/"
+          href="https://www.hotels.com/"
           label="hotels.com"
         />
         {', '}

@@ -21,7 +21,7 @@ const getContent = () => (
     </p>
     <p>
       <span>
-      There are a couple of free sites like
+      There are several free sites like
         {' '}
         <LinkTo
           href="https://www.mint.com/"
@@ -29,8 +29,13 @@ const getContent = () => (
         />
         {' and '}
         <LinkTo
-          href="https://www.nerdwallet.com/blog/finance/how-to-build-a-budget/) and [money under 30](https://www.moneyunder30.com/no-more-budgets"
+          href="https://www.nerdwallet.com/blog/finance/how-to-build-a-budget/"
           label="nerdwallet"
+        />
+        {' and '}
+        <LinkTo
+          href="https://www.moneyunder30.com/no-more-budgets"
+          label="money under 30"
         />
         {' '}
         to help you out.

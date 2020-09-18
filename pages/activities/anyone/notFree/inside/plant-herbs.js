@@ -22,9 +22,9 @@ const getContent = () => (
       and then pick out some herbs.
     </p>
     <p>
-      Basil and cilantro are some obvious good
-      choices, but depending on where you go, they might also have some more exotic
-      options.
+      Basil, parsley, and cilantro are some obvious good
+      choices but, depending on where you go, they might also have some more exotic
+      options you can choose from, like tumeric or skullcap.
       {' '}
       <span>
         But if not, you can always
@@ -49,7 +49,7 @@ const getContent = () => (
         . Those things are great, though, so you honestly might want to consider getting one either way.
       </span>
     </p>
-    <p>And with that, welcome to your new life of better tasting food. You&apos;re basically a farmer now, too.</p>
+    <p>And with that, welcome to your new life of better tasting food. You&apos;re basically a farmer now, too. Woohoo!</p>
     <Photo
       src="https://media.giphy.com/media/cI5mG5SemFlUz2GevG/giphy.gif"
       alt="American Gothic painting where the man subtly rolls his eyes"

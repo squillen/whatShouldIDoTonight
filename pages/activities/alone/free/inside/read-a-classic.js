@@ -7,22 +7,56 @@ import Photo from '../../../../../components/photo/photo'
 const getContent = () => (
   <div className={styles.activityContainer}>
 
-    <p>That&apos;s right, Shakespeare. Get in touch with your inner laureate.</p>
+    <p>That&apos;s right, Shakespeare. Get in touch with your inner scholar.</p>
     <Photo
       src="https://media.giphy.com/media/oveqQA2LxpwYg/giphy.gif"
       alt="Winking Shakespeare"
     />
     <p>
       <span>
-        Here are some
+        Check out
         {' '}
         <LinkTo
-          href="https://americanliterature.com/books"
-          label="free classics"
+          href="https://www.gutenberg.org/"
+          label="Project Gutenberg"
         />
-        {'.'}
+        {' '}
+        for tons of free options.
       </span>
     </p>
+    <p>We personally recommend:</p>
+    <ul>
+      <li>
+        <LinkTo
+          href="https://www.gutenberg.org/ebooks/1661"
+          label="The Adventures of Sherlock Holmes"
+        />
+      </li>
+      <li>
+        <LinkTo
+          href="https://www.gutenberg.org/ebooks/5200"
+          label="Metamorphosis"
+        />
+      </li>
+      <li>
+        <LinkTo
+          href="https://www.gutenberg.org/ebooks/2500"
+          label="Siddhartha"
+        />
+      </li>
+      <li>
+        <LinkTo
+          href="https://www.gutenberg.org/ebooks/140"
+          label="The Jungle"
+        />
+      </li>
+      <li>
+        <LinkTo
+          href="https://www.gutenberg.org/ebooks/100"
+          label="The Complete Works of Shakespeare"
+        />
+      </li>
+    </ul>
     <p>Read at least 20 pages.</p>
   </div>
 )

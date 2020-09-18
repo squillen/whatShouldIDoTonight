@@ -14,7 +14,7 @@ const getContent = () => (
     <p>So did Dwayne. Don&apos;t be a 1980&apos;s Dwayne. Do be an any-other-decade Dwayne, though.</p>
     <p>
       Our wardrobe says a lot about who we are and we (and styles) are always changing, so shouldn&apos;t our clothes change with that?
-      Not to mention the sense of confidence that comes with some new threads (anyone remember the first day of school??)
+      Not to mention the sense of confidence that comes with some new threads (anyone remember the first day of school??).
     </p>
     <p>
       <span>
@@ -29,13 +29,14 @@ const getContent = () => (
     </p>
     <p>
       <span>
-        Or, you can also check out
+        Or, if you don&apos;t like that, check out
         {' '}
         <LinkTo
           href="https://www.thread.com/SaUuUflamNHZE4w259IgQm9yMTuaCqfXU"
           label="Thread"
         />
-        , where you&apos;ll actually get a $30 credit, and see if that appeals to you more.
+        {' '}
+        instead, where you&apos;ll actually get a $30 credit when you use that link.
       </span>
     </p>
     <p>

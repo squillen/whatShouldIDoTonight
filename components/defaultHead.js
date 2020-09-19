@@ -1,6 +1,14 @@
 import Head from 'next/head'
 export const siteTitle = 'What Should I Do Tonight?'
-export const description = 'What Should I Do Tonight helps you find things to do, tonight! Do free things or do things that cost money. Do things alone or do things with others. Just find fun, easy, and attainable things to do right now! Have fun tonight!'
+export const description = `
+Don't waste any more time trying to figure out what to do tonight.
+Check out our site to get over 200 ideas (and counting!) of what you can do tonight!
+Regardless of whether you're alone, with friends, your partner / boyfriend / girlfriend /
+husband / wife / whoever, What Should I Do Tonight has you covered with ideas you 
+can do right now that range from free or paid and inside or outside. So stop wasting time 
+and start doing actually fun stuff tonight!
+`
+
 const mailChimpScript = `
   !function(c,h,i,m,p){m=c.createElement(h),p=c.getElementsByTagName(h)[0],m.async=1,m.src=i,p.parentNode.insertBefore(m,p)}(document,"script","https://chimpstatic.com/mcjs-connected/js/users/42fd643d25e61b586e6992d41/c722f51a5614f406bcfbd1aa9.js")
 `

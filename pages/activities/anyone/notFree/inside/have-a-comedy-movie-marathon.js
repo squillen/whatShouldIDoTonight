@@ -11,7 +11,7 @@ const getContent = () => (
       src="https://media.giphy.com/media/l4FAXX1Hb7cIZo73q/giphy.gif"
       alt="Airplane movie pilot asking kid if he's ever seen a grown man naked"
     />
-    <p>There&apos;s plenty more where that came from:</p>
+    <p>And don&apos;t worry, there&apos;s plenty more where that came from:</p>
     <p className={styles.header}>Silly:</p>
     <ol>
       <li>

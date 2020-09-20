@@ -26,14 +26,14 @@ const getContent = () => (
     </p>
     <p>
       <span>
-        And if you find yourself really enjoying it, or you just want something more serious, check out
+        And, if you find yourself really enjoying it or you just want something more serious, check out
         {' '}
         <LinkTo
           href="https://www.udemy.com/course/the-ultimate-drawing-course-beginner-to-advanced/"
           label="this Udemy"
         />
         {' '}
-        course for a really great intro, but wait for it to go on sale because they always go on sale.
+        course for a really great intro, but wait for it to go on sale because those videos always go on sale.
       </span>
     </p>
     {/* <Info

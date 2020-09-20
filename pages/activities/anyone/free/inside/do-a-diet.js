@@ -15,9 +15,9 @@ const getContent = () => (
       alt="Ladies backing away from other lady who's gluten free...and allergic to the sun"
     />
     <p>
-      Just start with a night and see how you like it. As one of those assholes,
+      Just start with a night and see how you like it. As one of those assholes, though,
       I&apos;d say that it&apos;s obviously going to take more than a night to feel anything,
-      but it&apos;d be fun to try!
+      but it&apos;d still be fun to try!
     </p>
     <p>
       <span>
@@ -37,7 +37,7 @@ const getContent = () => (
           label="another"
         />
         {' '}
-        for good luck.
+        just in case.
       </span>
     </p>
     <p>But with that, welcome to the team, you smarmy dickwad.</p>

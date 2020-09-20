@@ -7,7 +7,17 @@ import styles from '../../../../../styles/activity.module.css'
 const getContent = () => (
   <div className={styles.activityContainer}>
     <p>
-      What ingredients do you have in the kitchen right now? Cook with those. Make it more fun by doing it Chopped-style.
+      <span>
+        What ingredients do you have in the kitchen right now? Cook with those.
+        {' '}
+        Make it even more fun by doing it
+        {' '}
+        <LinkTo
+          href="https://frugalminimalistkitchen.com/chopped-home-challenge-ingredient-ideas/"
+          label="Chopped-style"
+        />
+        .
+      </span>
     </p>
     <Photo
       src="https://media.giphy.com/media/3o85xLKELPolFREtTa/giphy.gif"
@@ -36,7 +46,7 @@ const Content = () => {
   return (
     <Post
       pageInfo={pageInfo}
-      title="Cook a meal"
+      title="Cook a nice dinner"
       content={userContent}
       timeToComplete="30+ minutes"
     />

@@ -14,9 +14,10 @@ const getContent = () => (
       <span>
         Don&apos;t worry, I hate me, too. I guess that&apos;s why I&apos;ll probably
         {' '}
-        die <span className={styles.italicAndBold}>provolone</span>. Yea, that&apos;s right, fuck you, I changed my mind and doubled down.
+        die <span className={styles.italicAndBold}>provolone</span>.
       </span>
     </p>
+    <p>Yea, that&apos;s right, fuck you, I changed my mind and doubled down.</p>
     <iframe title="How to make mozzarella cheese at home" className={styles.iframe} src="https://www.youtube-nocookie.com/embed/j1dWN5wlYuU" frameBorder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowFullScreen></iframe>
     <p>
       <span>

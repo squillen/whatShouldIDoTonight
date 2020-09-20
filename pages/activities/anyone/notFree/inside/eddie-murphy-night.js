@@ -10,7 +10,7 @@ const getContent = () => (
       src="https://media.giphy.com/media/3o6gE8ckqfTuPL3i5a/giphy.gif"
       alt={'Eddie Murphy screaming "Why?"'}
     />
-    <p>You might be thinking similarly about your lack of plans tonight.</p>
+    <p>You might be thinking similarly ☝☝ about your lack of plans tonight.</p>
     <p>
       <span>
         But worry no more,

@@ -19,6 +19,7 @@ const getContent = () => (
           href="https://www.google.com/search?newwindow=1&safe=off&sxsrf=ALeKk01SryWI8myEvWFtGJycdn5Uc_WUvg%3A1600115133178&source=hp&ei=vdFfX6GCCMWgtQWU1IDQBA&q=beer+garden+near+me&oq=beer+garden+&gs_lcp=CgZwc3ktYWIQARgBMgIIADICCAAyBQgAEJIDMgIIADICCAAyAggAMgIIADICCAAyAggAMgIIADoHCCMQ6gIQJzoECCMQJzoFCAAQkQI6BQgAELEDOggIABCxAxCDAVDEDljmImDvMGgBcAB4AYABywKIAd8PkgEHNC4zLjQuMZgBAKABAaoBB2d3cy13aXqwAQo&sclient=psy-ab"
           label="places near you"
         />
+        {' '}
         and go have a reasonably responsible amount of fun.
       </span>
     </p>

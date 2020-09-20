@@ -19,24 +19,6 @@ export default function NextSEO () {
             width: 500,
             height: 500,
             alt: 'What Should I Do Tonight Default Logo'
-          },
-          {
-            url: 'https://what-should-i-do-tonight.s3.us-east-2.amazonaws.com/seo/large_logo.png',
-            width: 1000,
-            height: 1000,
-            alt: 'What Should I Do Tonight Default Large Logo'
-          },
-          {
-            url: 'https://what-should-i-do-tonight.s3.us-east-2.amazonaws.com/seo/logo_750px.png',
-            width: 750,
-            height: 750,
-            alt: 'What Should I Do Tonight Default Medium Logo'
-          },
-          {
-            url: 'https://what-should-i-do-tonight.s3.us-east-2.amazonaws.com/seo/transparent_logo.png',
-            width: 500,
-            height: 500,
-            alt: 'What Should I Do Tonight Transparent Logo'
           }
         ]
       }}

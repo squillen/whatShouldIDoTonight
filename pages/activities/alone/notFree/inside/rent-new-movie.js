@@ -2,6 +2,7 @@ import { connect } from 'react-redux'
 import Post from '../../../../../components/post/post'
 import LinkTo from '../../../../../components/linkTo/linkTo'
 import styles from '../../../../../styles/activity.module.css'
+import Photo from '../../../../../components/photo/photo'
 
 const getContent = () => (
   <div className={styles.activityContainer}>
@@ -21,7 +22,7 @@ const getContent = () => (
         <li>Rent one</li>
         <li>
           <span>
-            Make some
+            Find some
             {' '}
             <LinkTo
               href="https://www.foodnetwork.com/recipes/articles/50-flavored-popcorn-recipes"
@@ -29,9 +30,13 @@ const getContent = () => (
             />
           </span>
         </li>
-        <li>Enjoy</li>
+        <li>Get that shit poppin&apos;</li>
       </ol>
     </p>
+    <Photo
+      src="https://media.giphy.com/media/xT8qBnzRIMESUXqEgw/giphy.gif"
+      alt="Woman ferociously eating popcorn in Scary Movie"
+    />
   </div>
 )
 

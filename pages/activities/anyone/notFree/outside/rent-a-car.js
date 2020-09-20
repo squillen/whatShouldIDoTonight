@@ -14,7 +14,7 @@ const getContent = () => (
       Play the part and act like an uber rich person for the night. Bonus if you can drive stick.
     </p>
     <p>
-    If you&apos;ve got a date, impress them for all the wrong reasons and set up a future of lies and distrust.
+      Or if you&apos;ve got a date, impress them for all the wrong reasons and set up a future of lies and distrust.
     </p>
     <p>
       <span>

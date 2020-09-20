@@ -7,12 +7,51 @@ import Photo from '../../../../../components/photo/photo'
 const getContent = () => (
   <div className={styles.activityContainer}>
     {/* TODO RECOMMEND DISHES/RECIPES */}
-    <p>Go all out. Go to the store and try something new. Or go with a classic, whatever, it&apos;s your night!</p>
+    <p>
+      <span>
+        Go all out. Go to the store and
+        {' '}
+        <LinkTo
+          href="https://www.tasteofhome.com/collection/new-spring-recipes/"
+          label="try something new"
+        />
+        , like
+        {' '}
+        <LinkTo
+          href="https://www.tasteofhome.com/recipes/nikki-s-perfect-pastitsio/"
+          label="Pastitsio"
+        />
+        {' or '}
+        <LinkTo
+          href="https://www.tasteofhome.com/recipes/lehmejun-armenian-pizza/"
+          label="Lehmejun (Armenian Pizza)"
+        />
+        . Or go
+        {' '}
+        <LinkTo
+          href="https://www.cookingchanneltv.com/recipes/packages/comfort-food-recipes/easy-comfort-food/photos/classic-recipes-from-home"
+          label="with a classic"
+        />
+        , whatever, it&apos;s your night!
+
+      </span>
+    </p>
     <Photo
       src="https://media.giphy.com/media/UW7uOP9uqWJ7V9w4GR/giphy.gif"
       alt="people being served lobster dinner"
     />
-    <p>Or, if you want a challenge, do it chopped-style and only use three or so ingredients.</p>
+    <p>
+      <span>
+        Or, if you want a challenge, do it
+        {' '}
+        <LinkTo
+          href="https://frugalminimalistkitchen.com/chopped-home-challenge-ingredient-ideas/"
+          label="Chopped-style"
+        />
+        {' '}
+        and only use three or so ingredients.
+      </span>
+    </p>
     <p>
       <span>
         Now use those skills your mama taught you...or not and just get some
@@ -22,7 +61,7 @@ const getContent = () => (
           label="Blue Apron"
         />
         {' '}
-        (where you actually get $20 off the first three months now, so uhhhh, maybe just do that anyway?)
+        (where you actually get $20 off the first three months now, so uhhhh, maybe just do that either way?)
       </span>
     </p>
   </div>
@@ -37,7 +76,7 @@ const Content = () => {
   return (
     <Post
       pageInfo={pageInfo}
-      title="Cook a meal"
+      title="Cook an extra nice meal"
       content={userContent}
       timeToComplete="45+ minutes"
     />

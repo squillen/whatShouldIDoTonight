@@ -13,7 +13,7 @@ const getContent = () => (
     <p>☝ Mr. Clean making me feel all dirty 😳</p>
     <p>
       <span>
-      Go through your fridge/pantry/closet/ nightstand/whatever and be ruthless (think:
+      Go through your fridge / pantry / closet / nightstand / whatever and be ruthless (think:
         {' '}
         <LinkTo
           href="https://amzn.to/3iad7LU"
@@ -34,6 +34,13 @@ const getContent = () => (
           label="go clean co"
         />
         {' '}
+        and
+        {' '}
+        <LinkTo
+          href="https://orgjunkie.com/"
+          label="the organization junkie"
+        />
+        {' '}
         for ideas/inspiration.
       </span>
     </p>
@@ -46,9 +53,20 @@ const getContent = () => (
           label="thredup"
         />
         {' '}
-      are good for clothes, or just donate everything locally!
+      are good for clothes or just go with the time-tested
+        {' '}
+        <LinkTo
+          href="https://rover.ebay.com/rover/1/711-53200-19255-0/1?mpre=https%3A%2F%2Fwww.ebay.com&campid=5338737256&toolid=10001&customid=whatShouldIDoTonight"
+          label="eBay"
+        />
+        {' '}
+        and sell anything and everything.
       </span>
     </p>
+    <Photo
+      src="https://media.giphy.com/media/qi8Yhj4pKcIec/giphy.gif"
+      alt="Eastbound and Down character saying 'Dollar, dollar bills, y'all'"
+    />
   </div>
 )
 
@@ -61,7 +79,7 @@ const Content = () => {
   return (
     <Post
       pageInfo={pageInfo}
-      title="Organize your life"
+      title="Organize your house"
       content={userContent}
       timeToComplete="10 minutes"
     />

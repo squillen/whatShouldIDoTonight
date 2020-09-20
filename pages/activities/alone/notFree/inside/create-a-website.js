@@ -34,12 +34,27 @@ const getContent = () => (
         {' '}
         <LinkTo
           href="https://www.godaddy.com"
-          label="godaddy"
+          label="GoDaddy"
         />
         {' '}
         is good, too.
       </span>
     </p>
+    <p>
+      <span>
+        And then, get your logos and whatever else designed with the help of those creative people over
+        {' '}
+        <LinkTo
+          href="https://track.fiverr.com/visit/?bta=145219&brand=fiverrcpa"
+          label="at fiverr"
+        />
+        .
+      </span>
+    </p>
+    <Photo
+      src="https://media.giphy.com/media/nXxOjZrbnbRxS/giphy.gif"
+      alt="Kit from Napoleon Dynamite pumping arm and saying 'yes!'"
+    />
   </div>
 )
 

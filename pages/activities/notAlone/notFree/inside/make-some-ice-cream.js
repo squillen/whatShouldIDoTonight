@@ -1,5 +1,6 @@
 import { connect } from 'react-redux'
 import LinkTo from '../../../../../components/linkTo/linkTo'
+import Photo from '../../../../../components/photo/photo'
 import Post from '../../../../../components/post/post'
 import styles from '../../../../../styles/activity.module.css'
 
@@ -24,7 +25,14 @@ const getContent = () => (
           label="This"
         />
         {' '}
-        is a nice and affordable one.
+        is a nice and affordable one. And you&apos;re also probably gonna need
+        {' '}
+        <LinkTo
+          href="https://amzn.to/2E1NnCy"
+          label="some containers"
+        />
+        {' '}
+        to put it in after.
       </span>
     </p>
     <p>
@@ -37,9 +45,13 @@ const getContent = () => (
         />
         {' '}
         and get ready for your newfound love.
-
       </span>
     </p>
+    <p>Ice cream for daysss.</p>
+    <Photo
+      src="https://media.giphy.com/media/26BkN3VJmiuWL9ZK0/giphy.gif"
+      alt="man scooping endless ice cream"
+    />
   </div>
 )
 

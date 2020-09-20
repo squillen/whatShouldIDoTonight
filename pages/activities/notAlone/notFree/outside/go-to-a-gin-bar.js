@@ -19,6 +19,7 @@ const getContent = () => (
           href="https://www.google.com/search?newwindow=1&safe=off&sxsrf=ALeKk02xGldN3BdY7NyuSwySPqr3AzwdXw%3A1600115140052&ei=xNFfX9HBAoyWsAXJ6oa4DA&q=gin+bar+near+me&oq=gin+bar+&gs_lcp=CgZwc3ktYWIQAxgAMgQIABBDMgIIADIECAAQQzICCAAyAggAMgIIADICCAAyAggAMgIIADICCAA6BAgAEEc6BAgjECc6CAgAELEDEIMBOgUIABCxAzoFCAAQkQI6BwgAELEDEEM6BwgAEBQQhwJQ3bcaWODAGmDbzBpoAHAHeACAAV-IAd4EkgEBOJgBAKABAaoBB2d3cy13aXrIAQjAAQE&sclient=psy-ab"
           label="places near you"
         />
+        {' '}
         and go have a reasonably responsible amount of fun.
       </span>
     </p>

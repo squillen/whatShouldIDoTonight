@@ -5,12 +5,12 @@ import styles from '../../../../../styles/activity.module.css'
 
 const getContent = () => (
   <div className={styles.activityContainer}>
+    <p>Our cars take so much abuse from us.</p>
     <Photo
       src="https://media.giphy.com/media/fx2uQQZG8AuZ0MikCE/giphy.gif"
       alt="woman trying to be sexy and wash car but slips and falls on her face"
     />
-    <p>The title says it all.</p>
-    <p>Your car does so much for you, can&apos;t you do this little bit for her? Or him. Or they.</p>
+    <p>Can&apos;t you do this little bit for her? Or him. Or they.</p>
   </div>
 )
 

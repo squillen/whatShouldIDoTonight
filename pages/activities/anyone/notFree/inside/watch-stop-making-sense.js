@@ -27,9 +27,9 @@ const getContent = () => (
           label="Jonathan Demme&apos;s"
         />
         {' '}
-        simple, expert cinematography. It&apos; beautifully shot in a way that really makes you feel like
+        simple, expert cinematography. It&apos;s beautifully shot in a way that really makes you feel like
         {' '}
-        you&apos;re a part of the band. At times like you&apos;re actually up on stage with them.
+        you&apos;re a part of the band, like you&apos;re actually up on stage with them.
         {' '}
         And what you feel is the love and joy the band members have for each other and the music they make. It&apos;s great.
       </span>

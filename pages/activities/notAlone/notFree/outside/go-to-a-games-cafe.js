@@ -10,7 +10,7 @@ const getContent = () => (
       src="https://media.giphy.com/media/xKQJBdOPCnFJK/giphy.gif"
       alt="medieval characters playing Monopoly"
     />
-    <p>Take part in the world&apos;s oldest pastimes.</p>
+    <p>Take part in one of the world&apos;s oldest pastimes.</p>
     <p>
       <span>
         See where you can play
@@ -20,7 +20,7 @@ const getContent = () => (
           label="near you"
         />
         {' '}
-        and then cause a scene by screaming and getting overly competitive about some board games.
+        and then cause a scene by screaming and getting overly competitive.
       </span>
     </p>
   </div>

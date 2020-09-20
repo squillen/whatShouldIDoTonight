@@ -5,13 +5,14 @@ Don't waste any more time trying to figure out what to do tonight.
 Check out our site to get over 200 ideas (and counting!) of what you can do tonight!
 Regardless of whether you're alone, with friends, your partner / boyfriend / girlfriend /
 husband / wife / whoever, What Should I Do Tonight has you covered with ideas you 
-can do right now that range from free or paid and inside or outside. So stop wasting time 
+can do right now that range from free or paid and at home or outside. So stop wasting time 
 and start doing actually fun stuff tonight!
 `
 
 const mailChimpScript = `
   !function(c,h,i,m,p){m=c.createElement(h),p=c.getElementsByTagName(h)[0],m.async=1,m.src=i,p.parentNode.insertBefore(m,p)}(document,"script","https://chimpstatic.com/mcjs-connected/js/users/42fd643d25e61b586e6992d41/c722f51a5614f406bcfbd1aa9.js")
 `
+
 const image = '/logos/logo.png'
 
 export default function DefaultHead () {

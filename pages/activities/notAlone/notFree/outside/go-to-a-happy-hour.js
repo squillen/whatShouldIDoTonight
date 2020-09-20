@@ -20,6 +20,7 @@ const getContent = () => (
           label="near you"
         />
       </span>
+      {' '}
       and then go get classy drunk for cheap.
     </p>
   </div>

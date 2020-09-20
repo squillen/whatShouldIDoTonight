@@ -1,5 +1,6 @@
 import { connect } from 'react-redux'
 import LinkTo from '../../../../../components/linkTo/linkTo'
+import Photo from '../../../../../components/photo/photo'
 import Post from '../../../../../components/post/post'
 import styles from '../../../../../styles/activity.module.css'
 
@@ -19,6 +20,10 @@ const getContent = () => (
         and then get your well-adjusted ass out of here.
       </span>
     </p>
+    <Photo
+      src="https://media.giphy.com/media/Y3eHgsashevvyZfqjG/giphy.gif"
+      alt="mini golf hole in one"
+    />
   </div>
 )
 

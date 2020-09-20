@@ -8,7 +8,7 @@ const getContent = () => (
   <div className={styles.activityContainer}>
     <p>
       If your Netflix/Hulu/Prime watch list was a TV
-      show in itself, it would be Hoarders.
+      show in itself, it would definitely be Hoarders.
     </p>
     <Photo
       src="https://media.giphy.com/media/30O6emI7tFRew/giphy.gif"

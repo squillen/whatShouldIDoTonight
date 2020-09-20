@@ -30,6 +30,7 @@ const getContent = () => (
       src="https://media.giphy.com/media/3ohs88j0jPszpGCbYY/giphy.gif"
       alt="Einstein infinite loop"
     />
+    <p>That ☝☝ is like staring at the sun: don&apos;t stare at it too long or you&apos;ll go blind/crazy.</p>
     <p>
       <span>
         To start, check out

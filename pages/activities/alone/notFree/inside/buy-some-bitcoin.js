@@ -2,6 +2,7 @@ import { connect } from 'react-redux'
 import Post from '../../../../../components/post/post'
 import LinkTo from '../../../../../components/linkTo/linkTo'
 import styles from '../../../../../styles/activity.module.css'
+import Photo from '../../../../../components/photo/photo'
 
 const getContent = () => (
   <div className={styles.activityContainer}>
@@ -12,6 +13,10 @@ const getContent = () => (
         definitely over but it might still prove valuable to have some coin.
       </span>
     </p>
+    <Photo
+      src="https://media.giphy.com/media/sTmwpUgZqz2JG/giphy.gif"
+      alt="Scrooge McDuck diving into a pool of gold coins"
+    />
     <p>
       <span>
         First,

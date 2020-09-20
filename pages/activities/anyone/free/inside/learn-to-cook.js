@@ -16,19 +16,19 @@ const getContent = () => (
       <li>
         <LinkTo
           href="https://www.youtube.com/watch?v=aoqVGdmVlKk"
-          label="how to cut"
+          label="how to cut (video)"
         />
       </li>
       <li>
         <LinkTo
           href="https://www.youtube.com/watch?v=G-Fg7l7G1zw"
-          label="the types of cuts"
+          label="the types of cuts (video)"
         />
       </li>
       <li>
         <LinkTo
-          href="https://www.bonappetit.com/test-kitchen/cooking-tips/article/how-to-learn-to-cook)."
-          label="how to taste"
+          href="https://www.bonappetit.com/test-kitchen/cooking-tips/article/how-to-learn-to-cook"
+          label="how to taste (article)"
         />
       </li>
     </ol>

@@ -14,23 +14,63 @@ const getContent = () => (
       alt="Joey from Friends staring longingly out fake window with rain"
     />
     <p>No, not like that ☝, not &quot;I need to change the world&quot; kind of thoughts, just &quot;life can be pretty awesome and I want to take advantage of that&quot; kind of thoughts.</p>
+    <p>Some ideas to get you started:</p>
+    <ul>
+      <li>tutoring/mentoring</li>
+      <li>
+        <LinkTo
+          href="/activities/anyone/free/inside/plan-a-trip"
+          label="traveling"
+        />
+      </li>
+      <li>creating sites/apps</li>
+      <li>
+        <LinkTo
+          href="/activities/anyone/notFree/outside/plant-herbs"
+          label="gardening"
+        />
+      </li>
+      <li>hiking</li>
+      <li>rock climbing</li>
+      <li>
+        <LinkTo
+          href="/activities/alone/free/inside/write-a-short-story"
+          label="writing"
+        />
+      </li>
+      <li>
+        <LinkTo
+          href="/activities/alone/free/inside/read-a-classic"
+          label="reading"
+        />
+      </li>
+      <li>wood working</li>
+      <li>cooking/wine/beer/coffee/tea</li>
+      <li>
+        <LinkTo
+          href="/activities/alone/notFree/inside/buy-some-stocks"
+          label="investing"
+        />
+      </li>
+      <li>working out</li>
+    </ul>
     <p>
       <span>
-        Here are a
+       Check out
         {' '}
         <LinkTo
           href="https://youtu.be/6pgaJb2Wwhs"
-          label="couple"
+          label="this video"
         />
         {' '}
-        of
+        and
         {' '}
         <LinkTo
           href="https://medium.com/the-mission/how-to-find-your-true-passion-and-live-a-life-you-wont-regret-on-your-deathbed-c58ce450beaf"
-          label="places"
+          label="this article"
         />
         {' '}
-        to start with.
+       for more.
       </span>
     </p>
     <p>

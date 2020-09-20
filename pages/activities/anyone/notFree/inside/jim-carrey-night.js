@@ -26,7 +26,7 @@ const getContent = () => (
         and go and totally redeem yourself!
       </span>
     </p>
-    <p><span><span className={styles.greenCheck}><i className="fas fa-check"></i></span> - Three forced Jim Carrey references</span></p>
+    <p><span>Three forced Jim Carrey references: <span className={styles.greenCheck}><i className="fas fa-check"></i></span></span></p>
   </div>
 )
 

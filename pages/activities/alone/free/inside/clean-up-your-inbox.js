@@ -10,17 +10,21 @@ const getContent = () => (
       alt="caption saying 'Inbox loading' and chipmunk quickly running away after '3502 unread emails' is displayed"
     />
     <p>
-      If you saw &quot;3502 unread emails&quot; and thought, &quot;I wish&quot;,
+      If you saw &quot;3,502 unread emails&quot; and thought, &quot;I wish&quot;,
       this suggestion is for you. And it&apos;s no longer a suggestion.
     </p>
     <Photo
       src="https://media.giphy.com/media/l0HlFyu24XghJwpqw/giphy.gif"
       alt="Soccer coach commanding player to do what he's telling him to"
     />
-    <p>Yea, sure, it&apos;s not the most exciting, but get it down by 300 and then come back and find something else to do.</p>
     <p>
-      Also, if you have Gmail (and prob other mail services...), you can just cheat and mark all as read 😉
-      I imagine seeing that number go from 3,000+ to nothing is the closest feeling
+      Yea, sure, it&apos;s not the most exciting, but get it down by 300 and then
+      come back and find something else to do. You&apos;ll be happy you did.
+    </p>
+    <p>
+      Also, if you have Gmail (and prob other mail services...),
+      you can just cheat and mark all as read 😉.
+      I imagine seeing that number go from 3,000+ unread to none is the closest feeling
       I&apos;ll get to heroine 🤤
     </p>
     <p>Now go clear at least 300 emails.</p>

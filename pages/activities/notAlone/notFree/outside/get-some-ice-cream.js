@@ -1,10 +1,15 @@
 import { connect } from 'react-redux'
+import Photo from '../../../../../components/photo/photo'
 import Post from '../../../../../components/post/post'
 import styles from '../../../../../styles/activity.module.css'
 
 const getContent = () => (
   <div className={styles.activityContainer}>
     <p>We&apos;re honestly disappointed that we had to tell you to do this.</p>
+    <Photo
+      src="https://media.giphy.com/media/GB91uLrgyuul2/giphy.gif"
+      alt="variety of ice creams on display"
+    />
   </div>
 )
 

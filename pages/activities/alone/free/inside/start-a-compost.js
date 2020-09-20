@@ -25,7 +25,7 @@ const getContent = () => (
     </p>
     <p>
       <span>
-        If you don&apos;t have any space/a backyard, try composting with
+        If you don&apos;t have any space or a backyard, try composting with
         {' '}
         <LinkTo
           href="https://amzn.to/2QzM40f"

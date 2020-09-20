@@ -1,6 +1,7 @@
 import { connect } from 'react-redux'
 import LinkTo from '../../../../../components/linkTo/linkTo'
 import Post from '../../../../../components/post/post'
+import Photo from '../../../../../components/photo/photo'
 import styles from '../../../../../styles/activity.module.css'
 
 const getContent = () => (
@@ -16,9 +17,20 @@ const getContent = () => (
           label="thredup"
         />
         {' '}
-        or just donate them locally!
+        are good for clothes or just go with the time-tested
+        {' '}
+        <LinkTo
+          href="https://rover.ebay.com/rover/1/711-53200-19255-0/1?mpre=https%3A%2F%2Fwww.ebay.com&campid=5338737256&toolid=10001&customid=whatShouldIDoTonight"
+          label="eBay"
+        />
+        {' '}
+        and sell anything and everything.
       </span>
     </p>
+    <Photo
+      src="https://media.giphy.com/media/qi8Yhj4pKcIec/giphy.gif"
+      alt="Eastbound and Down character saying 'Dollar, dollar bills, y'all'"
+    />
     <p>Either way, you have to get rid of those piles you just created.</p>
   </div>
 )

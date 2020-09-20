@@ -25,6 +25,17 @@ const getContent = () => (
         and then start packing!
       </span>
     </p>
+    <p>
+      <span>
+        While you&apos;re out there, you might be interested in learning about how to
+        {' '}
+        <LinkTo
+          href="/activities/anyone/free/inside/go-screenless"
+          label="go screenless"
+        />
+        .
+      </span>
+    </p>
   </div>
 )
 

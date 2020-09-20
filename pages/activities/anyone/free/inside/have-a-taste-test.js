@@ -17,7 +17,7 @@ const getContent = () => (
     />
     <p>But back to you.</p>
     <p>
-      Do you have multiple types/brands of the same type of food/liquid?
+      Do you have multiple types/brands of the same kind of food/liquid?
       Like, do you have a couple of different kinds of
     </p>
     <ul>
@@ -72,7 +72,7 @@ const Content = () => {
   return (
     <Post
       pageInfo={pageInfo}
-      title="Have a taste test"
+      title="Have a taste test...for free!"
       content={userContent}
       timeToComplete="30+ minutes"
     />

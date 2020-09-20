@@ -2,12 +2,17 @@ import { connect } from 'react-redux'
 import Post from '../../../../../components/post/post'
 import LinkTo from '../../../../../components/linkTo/linkTo'
 import styles from '../../../../../styles/activity.module.css'
+import Photo from '../../../../../components/photo/photo'
 
 const getContent = () => (
   <div className={styles.activityContainer}>
     <p>
       This time will be different, right? &#128521;
     </p>
+    <Photo
+      src="https://media.giphy.com/media/L0aWDywDu1ziw/giphy.gif"
+      alt="Joey reading from a script saying 'Beh Bloo de blah blay'"
+    />
     <p>
       <span>
         Classic free options are
@@ -28,7 +33,18 @@ const getContent = () => (
     </p>
     <p>
       <span>
-        Practice for 30 minutes. Now, learn the following phrases, if you haven&apos;t already, by looking them up (via
+        Or, if you&apos;re more serious about learning and don&apos;t mind spending some money,
+        {' '}
+        <LinkTo
+          href="/activities/alone/notFree/inside/take-language-lessons"
+          label="hop over here"
+        />
+        .
+      </span>
+    </p>
+    <p>
+      <span>
+        Practice for at least 30 minutes. Now, learn the following phrases, if you haven&apos;t already, by looking them up (via
         {' '}
         <LinkTo
           href="https://translate.google.com"
@@ -38,7 +54,7 @@ const getContent = () => (
       </span>
     </p>
     <ol>
-      <li>My name is [your name/alter ego] and I am from [country that you&apos;re from]</li>
+      <li>My name is [your name] and I am from [country that you&apos;re from]</li>
       <li>What is your name?</li>
       <li>I don&apos;t know much [language you&apos;re currently translating to]</li>
       <li>What is your favorite restaurant around here?</li>
@@ -59,7 +75,7 @@ const Content = () => {
       pageInfo={pageInfo}
       title="Brush up on a language"
       content={userContent}
-      timeToComplete="30 minutes"
+      timeToComplete="30+ minutes"
     />
   )
 }

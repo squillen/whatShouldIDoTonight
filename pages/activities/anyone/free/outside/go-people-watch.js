@@ -10,7 +10,7 @@ const getContent = () => (
       src="https://media.giphy.com/media/26BRuo6sLetdllPAQ/giphy.gif"
       alt="Guy from Silicon Valley looking out sliding glass door through blinds"
     />
-    <p>This is great since you can go almost anywhere for this and get some cheap entertainment or even some fashion ideas.</p>
+    <p>You can do this almost anywhere and get some free entertainment and even some fashion ideas out if it.</p>
     <p>Go anywhere there are people:</p>
     <ul>
       <li>the park</li>
@@ -27,10 +27,10 @@ const getContent = () => (
           label="Psychology Today"
         />
         {' '}
-        article.
+        article. I mean, if a doctor wrote an article about it it can&apos;t be weird, right??
       </span>
     </p>
-    <p>Have fun, ya sick perv.</p>
+    <p>Either way, have fun, ya sick perv.</p>
   </div>
 )
 

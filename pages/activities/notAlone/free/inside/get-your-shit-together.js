@@ -6,6 +6,10 @@ import styles from '../../../../../styles/activity.module.css'
 
 const getContent = () => (
   <div className={styles.activityContainer}>
+    <Photo
+      src="https://media.giphy.com/media/5hdijbS3MDVw0SHWmn/giphy.gif"
+      alt="Star Trek Captain Kirk shaking Spock with the caption 'Get your shit together'"
+    />
     <p>...and make donation piles.</p>
     <p>Go through your closet and figure out which clothes you no longer want/need.</p>
     <p>

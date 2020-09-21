@@ -2,9 +2,14 @@ import { connect } from 'react-redux'
 import Post from '../../../../../components/post/post'
 import LinkTo from '../../../../../components/linkTo/linkTo'
 import styles from '../../../../../styles/activity.module.css'
+import Photo from '../../../../../components/photo/photo'
 
 const getContent = () => (
   <div className={styles.activityContainer}>
+    <Photo
+      src="https://media.giphy.com/media/4bzIGZNG6iJgs/giphy.gif"
+      alt="Woman holding camera backwards and unwittingly taking picture of herself, with the flash on, with the caption 'I have a friend who's a photographer'"
+    />
     <p>
       <span>
         First, check out

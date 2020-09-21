@@ -10,7 +10,7 @@ const getContent = () => (
       src="https://media.giphy.com/media/zqYA9S9EBR3xe/giphy.gif"
       alt="Meg Ryan orgasm scene in When Harry Met Sally"
     />
-    <p>Feel as good as Meg Ryan and watch some rom-coms tonight. They can get a bad name, but some are genuinely good, like:</p>
+    <p>Feel as good as Meg and watch some rom-coms tonight. They can get a bad name, but some are genuinely good, like:</p>
     <ol>
       <li>
         <LinkTo

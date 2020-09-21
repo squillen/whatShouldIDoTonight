@@ -11,7 +11,7 @@ const getContent = () => (
         Sound smart at parties, but don&apos;t, you know, be
         {' '}
         <LinkTo
-          href="https://youtu.be/Kb22Dcrizp0?t=115"
+          href="https://youtu.be/Kb22Dcrizp0?t=116"
           label="that"
         />
         {' '}
@@ -59,8 +59,9 @@ const getContent = () => (
         label="The Wall Street Journal"
       />
       {' '}
-      where you get professional, unbiased facts on important stories. (Sorry, Uncle Don, you and your facebook articles just don&apos;t know shit.) Yea, it might seem like it&apos;s a little on the pricier side in the age of &quot;free&quot; news, but you definitely get what you pay for.
+      where you get professional, unbiased facts on important stories. (Sorry, Uncle Don, you and your facebook articles just don&apos;t know shit.)
     </p>
+    <p>Yea, it might seem like it&apos;s a little on the pricier side in the age of &quot;free&quot; news, but you definitely get what you pay for.</p>
   </div>
 )
 

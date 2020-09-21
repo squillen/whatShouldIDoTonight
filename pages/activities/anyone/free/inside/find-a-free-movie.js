@@ -6,6 +6,10 @@ import styles from '../../../../../styles/activity.module.css'
 
 const getContent = () => (
   <div className={styles.activityContainer}>
+    <Photo
+      src="https://media.giphy.com/media/2D8g2rXcWx1DO/giphy.gif"
+      alt="Dave Chappelle standing outside and yelling 'FREE!'"
+    />
     <p>
       &quot;Free&quot; as in Netflix, Hulu, Disney+, Prime, etc. You have one of those, right??
     </p>
@@ -60,7 +64,7 @@ const getContent = () => (
         />
       </span>
       {' '}
-      while you&apos;re at it.
+      while you&apos;re at it and enjoy.
     </p>
     <Photo
       src="https://media.giphy.com/media/11vsrRFqhjOcKI/giphy.gif"

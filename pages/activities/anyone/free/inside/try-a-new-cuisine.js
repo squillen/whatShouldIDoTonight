@@ -6,31 +6,34 @@ import styles from '../../../../../styles/activity.module.css'
 
 const getContent = () => (
   <div className={styles.activityContainer}>
-    <p>How about you try something different for a change and be worldly tonight, ya bumpkin.</p>
+    <p>How about you try something different for a change and be worldly tonight, ya dirty bumpkin.</p>
+    <Photo
+      src="https://media.giphy.com/media/IgGXF1GXc45q1Endtk/giphy.gif"
+      alt="Joe Dirt with lit cigarette staring and pointing into camera"
+    />
+    <p>I&apos;m sorry, I&apos;m just projecting.</p>
     <p>
-      There are so many delicious cuisines out there, don&apos;t let yourself get stuck eating 
+      There are so many delicious cuisines out there, so don&apos;t let yourself get stuck eating
       the usual Mexican / Italian / American / Asian foods.
     </p>
-    <p>I&apos;m talking Moroccan, Middle Eastern, Polish, South American, Antarctic.</p>
+    <p>I&apos;m talking Moroccan, Middle Eastern, Polish, South American, Antarctican.</p>
     <p>
       <span>
-        Check
-        {' '} 
+        Ok, that last one doesn&apos;t actually exist, but check
+        {' '}
         <LinkTo
           href="https://www.bbcgoodfood.com/howto/guide/10-new-cuisines-you-need-try"
           label="this"
         />
         {' '}
-        out to get you started.
+        out for the others mentioned there.
       </span>
     </p>
     <Photo
-      src="https://media.giphy.com/media/2UqY3qzXIR6DwM31Aq/giphy.gif"
-      alt="A cartoon of a spinning globe with the caption 'The world is yours'"
+      src="https://media.giphy.com/media/PhrRiKyedpHuNBFHwK/giphy.gif"
+      alt="Parent penguin regurgitating food into child's mouth"
     />
-    <p>
-      <span className={styles.italic}>No, Antarctic isn&apos;t real.</span>
-    </p>
+    <p>☝☝ the Antarctic diet, the next big fad.</p>
 
   </div>
 )

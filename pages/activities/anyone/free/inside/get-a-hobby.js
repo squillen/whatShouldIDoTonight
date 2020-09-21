@@ -20,7 +20,7 @@ const getContent = () => (
     />
     <p>
       <span>
-        Figure out
+        First, figure out
         {' '}
         <LinkTo
           href="https://www.nytimes.com/guides/smarterliving/how-to-find-a-hobby"

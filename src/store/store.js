@@ -8,7 +8,7 @@ import { composeWithDevTools } from 'redux-devtools-extension'
 import activity from './activities/reducer'
 
 const initialState = {
-  state: { server: {} }
+  state: { }
 }
 
 const combinedReducer = combineReducers({

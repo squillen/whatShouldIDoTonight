@@ -12,7 +12,7 @@ const getContent = () => (
     />
     <p>Don&apos;t become a gif. (Or I guess just don&apos;t film yourself cooking.)</p>
     <p>
-      There&apos;s are a good chance all the classes are already booked out for tonight, but maybe not! And if they are, book it for another night!
+      There&apos;s a good chance all the classes are already booked out for tonight, but maybe not! And if they are, book it for another night!
     </p>
     <p>
       <span>
@@ -26,6 +26,35 @@ const getContent = () => (
         and get ready to say bon appetit!
       </span>
     </p>
+    <p>
+      And if nothing&apos;s showing up, try checking online at places like:
+    </p>
+    <ul>
+      <li>
+        <LinkTo
+          href="https://www.masterclass.com/?filtered_category=culinary#explore-our-classes"
+          label="masterclass"
+        />
+      </li>
+      <li>
+        <LinkTo
+          href="https://www.surlatable.com/cooking-classes-1/"
+          label="sur la table"
+        />
+      </li>
+      <li>
+        <LinkTo
+          href="https://massimobottura.it/kitchen-quarantine/"
+          label="Massimo Bottura (Kitchen Quarantine)"
+        />
+      </li>
+      <li>
+        <LinkTo
+          href="https://www.craftsy.com/cook/cookclasses/#"
+          label="Craftsy"
+        />
+      </li>
+    </ul>
   </div>
 )
 

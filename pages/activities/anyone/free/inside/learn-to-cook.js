@@ -34,15 +34,20 @@ const getContent = () => (
     </ol>
     <p>
       <span>
-          And
+        And
         {' '}
         <LinkTo
           href="https://www.cookinglight.com/cooking-101/culinary-school-lessons-every-home-cook-should-know"
-          label="here"
+          label="these"
         />
+        {' '}
+        <LinkTo
+          href="https://www.instructables.com/class/Cooking-Class/"
+          label="sites"
+        />
+        {' '}
+        offer some really good, general cooking basics that you should know.
       </span>
-      {' '}
-        are just some good, general cooking basics you should know.
     </p>
   </div>
 )

@@ -7,7 +7,7 @@ import styles from '../../../../../styles/activity.module.css'
 const getContent = () => (
   <div className={styles.activityContainer}>
     <p>
-      If your Netflix/Hulu/Prime watch list was a TV
+      If your Netflix / Hulu / Prime watchlist was a TV
       show in itself, it would definitely be Hoarders.
     </p>
     <Photo

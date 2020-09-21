@@ -11,7 +11,7 @@ const getContent = () => (
       alt="guys eating ice cream with massive spoon"
     />
     <p>This genius ☝☝ found the loop hole.</p>
-    <p>It&apos;s surprisingly easy...and unsurprisingly unhealthy. I mean, it&apos;s almost literally just &quot;iced&quot; cream. But whatever, you can do the frozen yogurt (or water ice) options instead if you&apos;re concerned. </p>
+    <p>It&apos;s surprisingly easy...and unsurprisingly unhealthy. I mean, it&apos;s almost literally just &quot;iced&quot; cream. But whatever, you can always do the frozen yogurt (or sorbet) options instead.</p>
     <p>
       <span>
         <LinkTo

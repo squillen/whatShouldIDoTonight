@@ -1,6 +1,7 @@
 import { connect } from 'react-redux'
 import Post from '../../../../../components/post/post'
 import Photo from '../../../../../components/photo/photo'
+import LinkTo from '../../../../../components/linkTo/linkTo'
 import styles from '../../../../../styles/activity.module.css'
 
 const getContent = () => (
@@ -19,7 +20,23 @@ const getContent = () => (
       src="https://media.giphy.com/media/Ij8moL0QXBKnK/giphy.gif"
       alt="The Naked Gun - Nice Beaver, - Thanks, I just had it stuffed [actual beaver]"
     />
-    <p className={styles.italic}>p.s. Those are This is Spinal Tap and The Naked Gun (respectively), just in case you didn&apos;t know</p>
+    <p className={styles.italic}>
+      <span>
+        p.s. Those are
+        {' '}
+        <LinkTo
+          href="https://amzn.to/3iRLTdc"
+          label="This is Spinal Tap"
+        />
+        {' and '}
+        <LinkTo
+          href="https://amzn.to/3cqw1w8"
+          label="The Naked Gun"
+        />
+        {' '}
+        (respectively), just in case you didn&apos;t know.
+      </span>
+    </p>
   </div>
 )
 

@@ -36,7 +36,7 @@ const getContent = () => (
           label="recipe to follow"
         />
         {' '}
-        that nicely lays it all out for you.
+        that lays it all out nicely for you.
       </span>
     </p>
     <p>And here are some of the things you&apos;re gonna need:</p>

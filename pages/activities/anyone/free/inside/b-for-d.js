@@ -6,9 +6,9 @@ import styles from '../../../../../styles/activity.module.css'
 
 const getContent = () => (
   <div className={styles.activityContainer}>
-    <p>Being an adult comes with a lot of headaches. Taxes. Deadlines. Kids.</p>
+    <p>Being an adult comes with a lot of headaches. Taxes. Kids. Ailments. Deadlines. Kids.</p>
     <p>What, then, could possibly make life worth living??</p>
-    <p>The answer, my bored friends, is the ability to have mother fucking B for mother fucking D whenever you mother fucking want.</p>
+    <p>The answer, my bored and curious friends, is the ability to have mother fucking breakfast for mother fucking dinner whenever you mother fucking want.</p>
     <p>And tonight is that mother fucking night.</p>
     <Photo
       src="https://media.giphy.com/media/l4hLA63B2qCQmMMmc/giphy.gif"
@@ -41,7 +41,7 @@ const getContent = () => (
         />
       </li>
     </ul>
-    <p>Or with variations on each:</p>
+    <p>Or with variations of the classics:</p>
     <ul>
       <li>
         <LinkTo
@@ -69,11 +69,12 @@ const getContent = () => (
       </li>
     </ul>
     <p>You could just go with cereal, but you deserve better than that.</p>
-    <p>Enjoy you mornight!</p>
     <Photo
       src="https://media.giphy.com/media/L0NBKyiSt5NuUh2ITF/giphy.gif"
       alt="America's Got Talent judge saying 'You deserve everything and much, much more'"
     />
+    <p>Now go enjoy you mornight!</p>
+
   </div>
 )
 

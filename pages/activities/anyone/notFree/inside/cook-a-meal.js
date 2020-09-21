@@ -76,7 +76,7 @@ const Content = () => {
   return (
     <Post
       pageInfo={pageInfo}
-      title="Cook an extra nice meal"
+      title="Cook something nice"
       content={userContent}
       timeToComplete="45+ minutes"
     />

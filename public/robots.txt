@@ -1,0 +1,2 @@
+User-agent: *
+Sitemap: https://whatshouldidotonight.com/sitemap.xml

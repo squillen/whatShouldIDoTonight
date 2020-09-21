@@ -2,11 +2,31 @@ import { connect } from 'react-redux'
 import Post from '../../../../../components/post/post'
 import LinkTo from '../../../../../components/linkTo/linkTo'
 import styles from '../../../../../styles/activity.module.css'
+import Photo from '../../../../../components/photo/photo'
 
 const getContent = () => (
   <div className={styles.activityContainer}>
+    <Photo
+      src="https://media.giphy.com/media/fCTp1Gv8xSUHGqSYU7/giphy.gif"
+      alt="woman flicking out a large stack of credit cards towards the camera"
+    />
     <p>
-      Don&apos;t just sign up for one willy-nilly. Only do it if you&apos;re in a position to and if it actually benefits you.
+      <span>
+        Don&apos;t just sign up for one willy-nilly.
+        {' '}
+        <LinkTo
+          href="https://www.nerdwallet.com/article/credit-cards/open-new-credit-card-or-not"
+          label="Only do it"
+        />
+        {' '}
+        if you&apos;re in a position to and if it
+        {' '}
+        <LinkTo
+          href="https://www.moneyunder30.com/when-should-you-apply-for-a-new-credit-card"
+          label="actually benefits you"
+        />
+        .
+      </span>
     </p>
     <p>
       That said, there are a lot of credit cards out there who want you to sign up, and that means that they&apos;re willing to give you some pretty great benefits, like cash back or miles/travel benefits.

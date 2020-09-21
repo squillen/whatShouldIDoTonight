@@ -6,6 +6,10 @@ import Photo from '../../../../../components/photo/photo'
 
 const getContent = () => (
   <div className={styles.activityContainer}>
+    <Photo
+      src="https://media.giphy.com/media/l2Sq9qGTQnL5NyI6Y/giphy.gif"
+      alt="Dog makin' that money"
+    />
     <p>
       <span>
         If you don&apos;t know anything about buying stocks, check out this
@@ -31,10 +35,6 @@ const getContent = () => (
       </span>
     </p>
     <p><span>Invest responsibly, y&apos;all, and <span className={styles.bold}>make that money!</span></span></p>
-    <Photo
-      src="https://media.giphy.com/media/l2Sq9qGTQnL5NyI6Y/giphy.gif"
-      alt="Dog makin' that money"
-    />
   </div>
 )
 

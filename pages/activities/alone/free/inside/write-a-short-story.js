@@ -1,5 +1,6 @@
 import { connect } from 'react-redux'
 import LinkTo from '../../../../../components/linkTo/linkTo'
+import Photo from '../../../../../components/photo/photo'
 import Post from '../../../../../components/post/post'
 import styles from '../../../../../styles/activity.module.css'
 
@@ -11,14 +12,30 @@ const getContent = () => (
         Check out
         {' '}
         <LinkTo
-          href="http://www.classicshorts.com/"
+          href="https://www.masterclass.com/articles/how-to-write-a-great-short-story-writing-tips-and-exercises-for-story-ideas#short-story-idea-generator"
           label="this site"
         />
         {' '}
-        for some inspiration.
+        for some education on how to write and
+        {' '}
+        <LinkTo
+          href="http://www.classicshorts.com/"
+          label="this site"
+        />
+        {' and '}
+        <LinkTo
+          href="https://blog.reedsy.com/how-to-write-a-short-story/"
+          label="this site"
+        />
+        {' '}
+        for some inspiration on what to write.
       </span>
     </p>
-    <p>Write at least 550 words.</p>
+    <p>Write at least 450 words.</p>
+    <Photo
+      src="https://media.giphy.com/media/JgRMIPzWPgyIw/giphy.gif"
+      alt="monkey pressing keys at random"
+    />
   </div>
 )
 

@@ -57,6 +57,10 @@ const getContent = () => (
         , you kinky devil you.
       </span>
     </p>
+    <Photo
+      src="https://media.giphy.com/media/26gJyhYbxYREkYlNK/giphy.gif"
+      alt="Cory from Boy Meets World creepily staring out window wit both hands pressed against the glass"
+    />
     <p>
       <span>
         <div><span className={styles.italicAndBold}>**mom hat on**</span></div>

@@ -2,9 +2,14 @@ import { connect } from 'react-redux'
 import Post from '../../../../../components/post/post'
 import LinkTo from '../../../../../components/linkTo/linkTo'
 import styles from '../../../../../styles/activity.module.css'
+import Photo from '../../../../../components/photo/photo'
 
 const getContent = () => (
   <div className={styles.activityContainer}>
+    <Photo
+      src="https://media.giphy.com/media/SbwGrFfajN4OI/giphy.gif"
+      alt="Two big poodles swinging in swings"
+    />
     <p>Your tax dollars are paying for those parks so you might as well use them!</p>
     <p>
       <span>

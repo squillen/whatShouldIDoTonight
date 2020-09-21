@@ -14,11 +14,11 @@ const getContent = () => (
       alt="wall-e showing us our future of stagnation"
     />
     <p>
-      And, yes, that ☝☝ might very well be our future, but for now let&apos;s just enjoy the perks of tech...
+      Yea, it&apos;s turning us into fat fucks, but for now let&apos;s just enjoy the perks of tech...
     </p>
     <p>
       <span>
-        And now you can add music lessons to that list courtesy of sites like
+        ...like being able to take music lessons from your house courtesy of sites like
         {' '}
         <LinkTo
           href="https://takelessons.com/"
@@ -29,7 +29,12 @@ const getContent = () => (
           href="https://www.wyzant.com/"
           label="wyzant.com"
         />
-        . Well, actually, you can learn
+        .
+      </span>
+    </p>
+    <p>
+      <span>
+      But, actually, you can learn
         {' '}
         <LinkTo
           href="/activities/alone/notFree/inside/take-language-lessons"

@@ -8,8 +8,8 @@ const getContent = () => (
   <div className={styles.activityContainer}>
     <p>
       It&apos;s surprisingly easy...and unsurprisingly  unhealthy. I mean, it&apos;s almost literally
-      just &quot;iced&quot; cream. But whatever, you can do the frozen yogurt (or sorbet/water ice)
-      options instead if you&apos;re concerned.
+      just &quot;iced&quot; cream. But whatever, you can always do the frozen yogurt (or sorbet/water ice)
+      options instead.
     </p>
     <p>
       <span>

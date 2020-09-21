@@ -18,13 +18,26 @@ const getContent = () => (
           href="https://hinge.co/"
           label="hinge"
         />
+        {' '}
+        for a good free option
         {' or '}
         <LinkTo
           href="https://www.dpbolvw.net/click-100215369-13615689"
           label="eharmony"
         />
+        {' and '}
+        <LinkTo
+          href="https://www.tkqlhce.com/click-100215369-12584425"
+          label="Elite Singles"
+        />
         {' '}
-        and start a conversation!
+        for people who may be a little more committed to finding love (since they paid). Either way, just start a conversation! But, seriously,
+        {' '}
+        <LinkTo
+          href="https://lifehacker.com/how-to-avoid-being-catfished-while-online-dating-1705354497"
+          label="don&apos;t get catfished"
+        />
+        .
       </span>
     </p>
     <p>Don&apos;t forget to invite us to the wedding &#128521;</p>

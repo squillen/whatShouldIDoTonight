@@ -33,12 +33,12 @@
 
 .headerContainer {
   background: #EDEDED;
-  /* margin: 1rem 0 2rem 0; */
   position: sticky;
   top: 0;
   color: #262626;
-  border-radius: 10px;
+  border-radius: 0 0 0.4rem 0.4rem;
   padding: 1rem;
+  border: 0.12rem solid #262626;
 }
 
 .underline {
@@ -70,11 +70,11 @@
   margin-top: 2rem;
   margin-bottom: 4rem;
   background: #EDEDED;
-  /* background: #FAF8EB; */
   padding: 1.5rem;
-  border-radius: 10px;
+  border-radius: 0.4rem;
   color: #262626;
   height: 100%;
+  border: 0.12rem solid #262626;
   overflow-y: scroll;
 }
 

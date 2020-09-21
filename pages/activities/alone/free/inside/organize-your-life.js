@@ -27,7 +27,7 @@ const getContent = () => (
     </p>
     <p>
       <span>
-        Check out groups like
+        Check out sites like
         {' '}
         <LinkTo
           href="https://www.instagram.com/gocleanco/"
@@ -41,7 +41,7 @@ const getContent = () => (
           label="the organization junkie"
         />
         {' '}
-        for ideas/inspiration.
+        for ideas and inspiration.
       </span>
     </p>
     <p>

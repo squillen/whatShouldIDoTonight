@@ -54,6 +54,7 @@ const Content = () => {
   }
   return (
     <Post
+      pageInfo={pageInfo}
       title="Take some music lessons from a person"
       content={userContent}
       timeToComplete="30+ minutes"

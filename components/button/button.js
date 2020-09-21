@@ -2,7 +2,6 @@ import { motion } from 'framer-motion'
 import PropTypes from 'prop-types'
 import Link from 'next/link'
 import styles from './button.module.css'
-import { fadeInUp } from '../../animations/default'
 
 export default function Button (props) {
   const {
@@ -40,7 +39,7 @@ export default function Button (props) {
 
 Button.propTypes = {
   as: PropTypes.string,
-  customStyle: PropTypes.object,
+  customStyle: PropTypes.string,
   href: PropTypes.string,
   inlineStyle: PropTypes.object,
   label: PropTypes.string,

@@ -2,10 +2,10 @@ import Head from 'next/head'
 export const siteTitle = 'What Should I Do Tonight?'
 export const description = `
 Don't waste any more time trying to figure out what to do tonight.
-Check out our site to get over 200 ideas (and counting!) of what you can do tonight!
+Check out our site to get over 200 actually good ideas (and counting!) of what you can do tonight!
 Regardless of whether you're alone, with friends, your partner / boyfriend / girlfriend /
 husband / wife / whoever, What Should I Do Tonight has you covered with ideas you 
-can do right now that range from free or paid and at home or outside. So stop wasting time 
+can do right now that range from free or paid and at home or outside. So stop being bored
 and start doing actually fun stuff tonight!
 `
 

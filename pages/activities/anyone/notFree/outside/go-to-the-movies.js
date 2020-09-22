@@ -6,7 +6,6 @@ import Photo from '../../../../../components/photo/photo'
 
 const getContent = () => (
   <div className={styles.activityContainer}>
-    <p>The title says it all.</p>
     <p>
       <span>
         {' '}
@@ -14,8 +13,7 @@ const getContent = () => (
           href="https://www.fandango.com/movies-in-theaters"
           label="See what&apos;s playing"
         />
-        {' '}
-        now and have fun.
+        , sneak in some goobers, order some popcorn, and enjoy.
       </span>
     </p>
     <Photo

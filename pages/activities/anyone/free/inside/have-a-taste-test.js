@@ -60,6 +60,10 @@ const getContent = () => (
     <p>
       Be prepared for some surprises.
     </p>
+    <Photo
+      src="https://media.giphy.com/media/H62Q3xZkSdq47ug37Y/giphy.gif"
+      alt='Lady doing blind taste test shaking her head no'
+    />
   </div>
 )
 

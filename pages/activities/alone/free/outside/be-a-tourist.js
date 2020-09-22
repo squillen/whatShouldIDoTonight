@@ -37,7 +37,7 @@ const Content = () => {
       pageInfo={pageInfo}
       title="Be a tourist"
       content={userContent}
-      timeToComplete="15 minutes"
+      timeToComplete="45+ minutes"
     />
   )
 }

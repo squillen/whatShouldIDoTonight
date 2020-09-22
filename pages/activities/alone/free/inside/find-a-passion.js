@@ -7,13 +7,12 @@ import Photo from '../../../../../components/photo/photo'
 const getContent = () => (
   <div className={styles.activityContainer}>
     <p>Did you find it yet? Sweet. Next.</p>
-    <p>Alright, fine, maybe it&apos;s not that easy.</p>
-    <p>Spend at least an hour tonight thinking about things to do in life.</p>
+    <p>Alright, fine, maybe it&apos;s not that easy. And that&apos;s why you&apos;re gonna spend at least an hour tonight thinking about things to do in life.</p>
     <Photo
       src="https://media.giphy.com/media/E2d2tsgz7iHo4/giphy.gif"
       alt="Joey from Friends staring longingly out fake window with rain"
     />
-    <p>No, not like that ☝, not &quot;I need to change the world&quot; kind of thoughts, just &quot;life can be pretty awesome and I want to take advantage of that&quot; kind of thoughts.</p>
+    <p>No, not like that ☝, not a &quot;I need to change the world&quot; kind of intensity, just a &quot;life can be pretty awesome and I want to take advantage of that&quot; kind of intensity.</p>
     <p>Some ideas to get you started:</p>
     <ul>
       <li>tutoring/mentoring</li>
@@ -70,11 +69,12 @@ const getContent = () => (
           label="this article"
         />
         {' '}
-       for more.
+       for more insight.
       </span>
     </p>
     <p>
-      Have fun with it, though. Don&apos;t put too much pressure on yourself. Have a glass of wine or a cup of tea and just enjoy the process!
+      Have fun with it, though. Don&apos;t put too much pressure on yourself.
+      Have a glass of wine or a cup of tea and just enjoy the process because you&apos;re alive and that&apos;s awesome!
     </p>
   </div>
 )

@@ -7,7 +7,9 @@ import styles from '../../../../../styles/activity.module.css'
 const getContent = () => (
   <div className={styles.activityContainer}>
     <p>Or whoever, but she&apos;s pretty cool!</p>
-    <iframe title="Yoga with Adriene" className={styles.iframe} src="https://www.youtube-nocookie.com/embed/YbAYMQC_ZaE" frameBorder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowFullScreen></iframe>
+    <div className={styles.iframeContainer}>
+      <iframe title="Yoga with Adriene" className={styles.iframe} src="https://www.youtube-nocookie.com/embed/YbAYMQC_ZaE" frameBorder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowFullScreen></iframe>
+    </div>
     <p>
       <span>
         Check out her

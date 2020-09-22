@@ -7,7 +7,9 @@ import Photo from '../../../../../components/photo/photo'
 const getContent = () => (
   <div className={styles.activityContainer}>
     <p>
-      Take a look around and think about if there&apos;s anything you&apos;d like to redo! Maybe move some of the furniture around and change things up!
+      Take a look around and think about if there&apos;s anything you&apos;d like
+      to redo! Maybe move some of the furniture around and change things up! It&apos;s
+      amazing what a couple simple changes can do to the aesthetics of your place.
     </p>
     <Photo
       src="https://media.giphy.com/media/3oEduY9vzp0VSk0xQA/giphy.gif"

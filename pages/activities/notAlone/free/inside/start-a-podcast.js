@@ -8,7 +8,9 @@ const getContent = () => (
     <p>
       Those things you always listen to? You can create one! Do you all have a unique angle on the world and want the world to hear it?
     </p>
-    <iframe title="Hal in Malcolm in the Middle driving around doing illegal radio show" className={styles.iframe} src="https://www.youtube-nocookie.com/embed/ilWQ6syB5pE" frameBorder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowFullScreen></iframe>
+    <div className={styles.iframeContainer}>
+      <iframe title="Hal in Malcolm in the Middle driving around doing illegal radio show" className={styles.iframe} src="https://www.youtube-nocookie.com/embed/ilWQ6syB5pE" frameBorder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowFullScreen></iframe>
+    </div>
     <p>
       <span>
         You&apos;re damn right you do!

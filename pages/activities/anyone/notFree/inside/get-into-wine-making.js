@@ -12,7 +12,9 @@ const getContent = () => (
     />
     <p>Take part in one of the oldest, most sacred, and revered traditions out there. And then get purple-teeth-shitfaced.</p>
     <p>Check 👇👇 this out for a thorough walk through of the process:</p>
-    <iframe title="Wine making at home: starting a wine kit" className={styles.iframe} src="https://www.youtube-nocookie.com/embed/4Z-8l1caH0I" frameBorder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowFullScreen></iframe>
+    <div className={styles.iframeContainer}>
+      <iframe title="Wine making at home: starting a wine kit" className={styles.iframe} src="https://www.youtube-nocookie.com/embed/4Z-8l1caH0I" frameBorder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowFullScreen></iframe>
+    </div>
     <p>
       <span>
          Now check out their

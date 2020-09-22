@@ -2,14 +2,22 @@ import { connect } from 'react-redux'
 import Post from '../../../../../components/post/post'
 import LinkTo from '../../../../../components/linkTo/linkTo'
 import styles from '../../../../../styles/activity.module.css'
+import Photo from '../../../../../components/photo/photo'
 
 const getContent = () => (
   <div className={styles.activityContainer}>
-    <p>Do you have a bunch of photos on your computer that you never look at? Yes you do, don&apos;t you lie to me, dammit!</p>
     <p>
-      Put them into a photo album that you can show to people ad nauseam whenever they come
-      over without risk of them seeing the naked photos you forgot to hide on your phone 🙈
+      Do you have a bunch of photos on your computer that you never look at?
+      Yes you do, don&apos;t you lie to yourself like that! Or, even worse, to me!
     </p>
+    <p>
+      Put them into a physical photo album that you can sick on people whenever they come
+      over without any risk of them seeing the naked photos you forgot to hide on your phone 🙈
+    </p>
+    <Photo
+      src="https://media.giphy.com/media/9oICkwNJTWogxaGYx1/giphy.gif"
+      alt="Schitt's Creek girl rushing towards her phone with the caption 'Oh my god, gimme that!'"
+    />
     <p>
       <span>
         Use
@@ -19,7 +27,7 @@ const getContent = () => (
           label="Mixbook"
         />
         {' '}
-        to make beautiful albums effortlessly.
+        to make really beautiful albums pretty damn effortlessly.
       </span>
     </p>
   </div>

@@ -12,11 +12,13 @@ const getContent = () => (
     />
     <p>And apparently take some acid ☝😳</p>
     <p>
-      If you&apos;re like me, you probably don&apos;t think of making your own
-      sushi that often. But you can! And for relatively cheap!
+      Did you know that you can make your own sushi pretty easily and cheaply?
+      Well, if you didn&apos;t, now you know. And if you did, this is your
+      reminder to do it more often!
     </p>
-    <p>
-      <span>
+    <p>Here&apos;s what you&apos;re gonna do:</p>
+    <ul>
+      <li> <span>
         Find some
         {' '}
         <LinkTo
@@ -29,45 +31,40 @@ const getContent = () => (
         <span className={styles.italicAndBold}>sushi-grade</span> fish
         {' '}
         (not just any fish will do!). They should.
-      </span>
-    </p>
-    <p>
-      Also get some nori (seaweed sheets) and, instead of just using regular white rice,
+      </span></li>
+      <li>
+      Get some nori (seaweed sheets) and, instead of just using regular white rice,
       consider getting sushi-grade rice, as well, which is stickier and better suited for, well, sushi.
-    </p>
-    <p>
-      <span>
+      </li>
+      <li>
+        <span>
         A
-        {' '}
-        <LinkTo
-          href="https://amzn.to/33FXmq2"
-          label="sushi mat"
-        />
-        {' '}
+          {' '}
+          <LinkTo
+            href="https://amzn.to/33FXmq2"
+            label="sushi mat"
+          />
+          {' '}
         is definitely helpful to make tight rolls, but probably not crucial to quell your random sushi urges.
-        {' '}
+          {' '}
         If you don&apos;t have a mat (and don&apos;t want to buy one), check out
-        {' '}
-        <LinkTo
-          href="https://minimalistbaker.com/how-to-make-sushi-without-a-mat/"
-          label="this article"
-        />
-        {' '}
+          {' '}
+          <LinkTo
+            href="https://minimalistbaker.com/how-to-make-sushi-without-a-mat/"
+            label="this article"
+          />
+          {' '}
         for some helpful tips on how to roll sushi without one.
-      </span>
-    </p>
+        </span>
+      </li>
+    </ul>
     <p>
-      But with that, you&apos;ll have the basics of what you need for at-home sushi!
-      But, of course, you might want to make it fancier.
+      And with that, you&apos;ll have the basics of what you need for at-home sushi!
     </p>
-    <Photo
-      src="https://media.giphy.com/media/VlchmIoZPjjYQ/giphy.gif"
-      alt="cat walking upright in a top hat"
-    />
-    <p>☝ that&apos;s you, you fancy fuck.</p>
+    <p> </p>
     <p>
       <span>
-        In that case, check out
+        But, in case you want to make it fancier, check out
         {' '}
         <LinkTo
           href="https://www.easyhomemadesushi.com/10-sushi-recipes-with-salmon/"
@@ -82,10 +79,19 @@ const getContent = () => (
         for more specific recipes and ideas.
       </span>
     </p>
+    <Photo
+      src="https://media.giphy.com/media/VlchmIoZPjjYQ/giphy.gif"
+      alt="cat walking upright in a top hat"
+    />
+    <p>that&apos;s you, you fancy fuck ☝</p>
     <p>
       Now say wasabi to your new night plans, Branzino, and let the good times roll.
     </p>
-    <p>I hate myself soy much.</p>
+    <p>I know, you hate me and my puns soy much.</p>
+    <Photo
+      src="https://media.giphy.com/media/2UHaIIti8qYdJOzMcE/giphy.gif"
+      alt="lady dressed up as a bottle of Kikkoman soy sauce dancing"
+    />
   </div>
 )
 

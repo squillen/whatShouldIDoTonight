@@ -11,7 +11,7 @@ const getContent = () => (
       src="https://media.giphy.com/media/AjkKC77JZVCEg/giphy.gif"
       alt="The Rock with his fanny pack"
     />
-    <p>So did Dwayne. Don&apos;t be a 1980&apos;s Dwayne. Do be an any-other-decade Dwayne, though.</p>
+    <p>So did Dwayne. Don&apos;t be a 1990&apos;s Dwayne. Do be an any-other-decade Dwayne, though.</p>
     <p>
       Our wardrobe says a lot about who we are and we (and styles) are always changing, so shouldn&apos;t our clothes change with that?
       Not to mention the sense of confidence that comes with some new threads (anyone remember the first day of school??).

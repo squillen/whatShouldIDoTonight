@@ -1,6 +1,7 @@
 .photo, .enlargedPhoto {
   transition: all 1s ease-in;
   cursor: pointer;
+  margin: 0 auto;
 }
 
 .photo {

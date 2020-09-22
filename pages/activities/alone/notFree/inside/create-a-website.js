@@ -19,7 +19,19 @@ const getContent = () => (
           href="https://wix.com"
           label="wix"
         />
-        , where you can create some gorgeous sites with basically no coding background.
+        {' or '}
+        <LinkTo
+          href="https://wordpress.com/"
+          label="wordpress"
+        />
+        , where you can create some pretty great sites with basically no coding background, although
+        {' '}
+        <LinkTo
+          href="/activities/alone/free/inside/learn-something-new"
+          label="learning to code"
+        />
+        {' '}
+        is never a bad thing 😉
       </span>
     </p>
     <p>

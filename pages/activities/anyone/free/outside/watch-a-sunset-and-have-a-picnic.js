@@ -25,11 +25,12 @@ const getContent = () => (
     </p>
     <p>Bring:</p>
     <ul>
-      <li>some cheese</li>
+      <li>some cheeses</li>
       <li>crackers</li>
       <li>wine/alcohol (&quot;if allowed&quot; - our lawyers)</li>
-      <li>a blanket to lay on</li>
+      <li>a blanket to sit on</li>
       <li>napkins/cutlery/plates/cups</li>
+      <li>a camera</li>
       <li>whatever else you can think of</li>
     </ul>
   </div>

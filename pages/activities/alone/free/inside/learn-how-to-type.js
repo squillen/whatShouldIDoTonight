@@ -11,17 +11,28 @@ const getContent = () => (
       alt="cat typing maniacally"
     />
     <p>Computers are pretty much extensions of who we are at this point yet not everyone knows how to properly type. Don&apos;t be one of those people.</p>
-    <p>
-      <span>
-        You can test yourself and practice
-        {' '}
+    <p>First, check this out:</p>
+    <div className={styles.iframeContainer}>
+      <iframe className={styles.iframe} src="https://www.youtube-nocookie.com/embed/1ArVtCQqQRE?start=178" frameBorder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowFullScreen></iframe>
+    </div>
+    <p>Then, test yourself and practice at sites like:</p>
+    <ul>
+      <li>
         <LinkTo
           href="https://www.typingtest.com/"
-          label="here"
+          label="typingtest.com"
         />
-        {'.'}
-      </span>
-    </p>
+      </li>
+      <li>
+        <LinkTo
+          href="https://10fastfingers.com/typing-test/english"
+          label="10fastfingers.com"
+        />
+      </li>
+    </ul>
+    <p>And remember: practice, practicr, [ractice. Shit.</p>
+    <p>Practice, prcatice, practcie. Shit.</p>
+    <p>Practice, practice, practice. Aha!</p>
   </div>
 )
 

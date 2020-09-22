@@ -11,23 +11,10 @@ const getContent = () => (
       alt="Jack Dawson drawing Rose in the Titanic"
     />
     <p>Before you can start drawing those naked French ladies, you have to start with the basics.</p>
-    <p>
-      <span>
-        Watch
-        {' '}
-        <LinkTo
-          href="https://www.youtube.com/watch?v=TOZxfVp_fSc"
-          label="some"
-        />
-        {' '}
-        <LinkTo
-          href="https://www.youtube.com/watch?v=ewMksAbgdBI"
-          label="videos"
-        />
-        {' '}
-        and have fun with it.
-      </span>
-    </p>
+    <p>Check out this video for a really good overview on the basics of drawing:</p>
+    <div className={styles.iframeContainer}>
+      <iframe className={styles.iframe} title="Learn To Draw #01 - Sketching Basics + Materials" src="https://www.youtube.com/embed/ewMksAbgdBI" frameBorder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowFullScreen></iframe>
+    </div>
     <p>
       <span>
         And, if you find yourself really enjoying it or you just want something more serious, check out
@@ -40,14 +27,6 @@ const getContent = () => (
         course for a really great intro, but wait for it to go on sale because those videos always go on sale.
       </span>
     </p>
-    {/* <Info
-      label="Wait for it to go on sale. Those videos always go on sale."
-    /> */}
-    <p>Here&apos;s something to get you started:</p>
-    <Photo
-      src="https://media.giphy.com/media/efgSHVycEBc0Et79xt/giphy.gif"
-      alt="how to draw baby shark"
-    />
   </div>
 )
 

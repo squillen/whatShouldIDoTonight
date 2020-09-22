@@ -6,6 +6,10 @@ import Photo from '../../../../../components/photo/photo'
 
 const getContent = () => (
   <div className={styles.activityContainer}>
+    <Photo
+      src="https://media.giphy.com/media/WEp8jaMzAF8Gs/giphy.gif"
+      alt="Jack Dawson drawing Rose in the Titanic"
+    />
     <p>Before you can start drawing those naked French ladies, you have to start with the basics.</p>
     <p>
       <span>
@@ -39,7 +43,7 @@ const getContent = () => (
     {/* <Info
       label="Wait for it to go on sale. Those videos always go on sale."
     /> */}
-    <p>And now here&apos;s something to get you started:</p>
+    <p>Here&apos;s something to get you started:</p>
     <Photo
       src="https://media.giphy.com/media/efgSHVycEBc0Et79xt/giphy.gif"
       alt="how to draw baby shark"

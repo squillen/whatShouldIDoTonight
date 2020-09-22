@@ -68,14 +68,7 @@ const getContent = () => (
           label="ebags"
         />
         {' '}
-        has def got you covered. Otherwise,
-        {' '}
-        <LinkTo
-          href="https://www.travelpro.com/"
-          label="travelpro"
-        />
-        {' '}
-        makes some of the best damn luggage out there.
+        has def got you covered.
       </span>
     </p>
     <p>Bon voyage!</p>

@@ -13,26 +13,13 @@ const getContent = () => (
     <p>
       Cards, that is. Or the dance. Whatever, you&apos;re bored, right?
     </p>
-    <p>
-      <span>
-        Check out
-        {' '}
-        <LinkTo
-          href="https://youtu.be/Lr1sjF42ssU"
-          label="this video"
-        />
-      </span>
-      {' '}
-      for some tips.
-    </p>
-    <p>
-      <span>
-        <LinkTo
-          href="https://www.wikihow.com/Shuffle-(Dance-Move)"
-          label="(or this if you actually wanted to learn how to dance the shuffle)"
-        />
-      </span>
-    </p>
+    <p>Cards:</p>
+    <div className={styles.iframeContainer}>
+      <iframe className={styles.iframe} title="How to shuffle cards for beginners // Riffle Shuffle with Bridge in the hands tutorial" src="https://www.youtube-nocookie.com/embed/NdCia_d1u5c" frameBorder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowFullScreen></iframe>
+    </div>
+    <p>Dance:</p>
+    <div className={styles.iframeContainer}>
+      <iframe className={styles.iframe} title="HOW TO SHUFFLE DANCE | Evelina" src="https://www.youtube-nocookie.com/embed/RECaepj8LkU" frameBorder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowFullScreen></iframe>    </div>
   </div>
 )
 
@@ -47,7 +34,7 @@ const Content = () => {
       pageInfo={pageInfo}
       title="Learn how to shuffle"
       content={userContent}
-      timeToComplete="20 minutes"
+      timeToComplete="20+ minutes"
     />
   )
 }

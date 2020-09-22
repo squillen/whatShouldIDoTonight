@@ -64,7 +64,7 @@ const getContent = () => (
         And, if you need any new luggage,
         {' '}
         <LinkTo
-          href="https://www.ebags.com/"
+          href="https://ebags.vayb.net/c/2467805/207595/3588"
           label="ebags"
         />
         {' '}

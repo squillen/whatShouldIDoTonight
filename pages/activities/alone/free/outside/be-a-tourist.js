@@ -16,13 +16,12 @@ const getContent = () => (
       <span>
         <LinkTo
           href="https://www.google.com/search?source=hp&ei=VctLX5TODOSF9PwPiJe6gAI&q=touristy+things+to+do+near+me&oq=touristy+things+to+do+near+me&gs_lcp=CgZwc3ktYWIQAzICCAAyBggAEBYQHjIGCAAQFhAeMgYIABAWEB4yBggAEBYQHjIGCAAQFhAeMgYIABAWEB4yBggAEBYQHjIGCAAQFhAeUKgHWKgHYNoJaABwAHgAgAGTAogBkwKSAQMyLTGYAQCgAQKgAQGqAQdnd3Mtd2l6&sclient=psy-ab&ved=0ahUKEwjUzPO6pMPrAhXkAp0JHYiLDiAQ4dUDCAk&uact=5"
-          label="Click this"
+          label="Ask google"
         />
         {' '}
-        and have at it.
+        for touristy things to do near you.
       </span>
     </p>
-    <p>SFW, I promise...&#128521;</p>
   </div>
 )
 

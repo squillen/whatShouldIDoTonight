@@ -11,7 +11,7 @@ const getContent = () => (
       alt="cat mean mugging and dj'ing"
     />
     <p>
-      Don&apos;t let this cat mean-mug you into submission. If s/he can make music so can you!
+      Don&apos;t let this cat mean-mug you like that. If s/he can make music so can you!
       In fact, that&apos;s the great thing about the age of computers--anyone can make music.
       Oh wait, maybe that&apos;s the bad thing about it?
     </p>
@@ -42,6 +42,14 @@ const getContent = () => (
         if you want some help figuring out which program is better suited for you.
       </span>
     </p>
+    <p>And if you want a little more of a rundown of what you need to start making electronic music at home:</p>
+    <div className={styles.iframeContainer}>
+      <iframe title="5 things to start making electronic music at home" className={styles.iframe} src="https://www.youtube-nocookie.com/embed/UxUDIUIfkio" frameBorder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowFullScreen></iframe>
+    </div>
+    <p>And just in case you were like, &quot;who the f is that and why should I listen to her?&quot;, check out her music!</p>
+    <div className={styles.iframeContainer}>
+      <iframe title="Bad Snacks Spotify sample" src="https://open.spotify.com/embed/track/5zOKeWtBRUZxlpfG8P0LnX" className={styles.iframe} frameBorder="0" allowtransparency="true" allow="encrypted-media"></iframe>
+    </div>
     <p>
       <span>
         Or,

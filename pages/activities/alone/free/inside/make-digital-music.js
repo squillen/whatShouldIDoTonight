@@ -45,9 +45,17 @@ const getContent = () => (
         />
       </li>
     </ul>
+    <p>And if you want a little more of a rundown of what you need to start making electronic music at home:</p>
+    <div className={styles.iframeContainer}>
+      <iframe title="5 things to start making electronic music at home" className={styles.iframe} src="https://www.youtube-nocookie.com/embed/UxUDIUIfkio" frameBorder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowFullScreen></iframe>
+    </div>
+    <p>And just in case you were like, &quot;who the f is that and why should I listen to her?&quot;, check out her music!</p>
+    <div className={styles.iframeContainer}>
+      <iframe title="Bad Snacks Spotify sample" src="https://open.spotify.com/embed/track/5zOKeWtBRUZxlpfG8P0LnX" className={styles.iframe} frameBorder="0" allowtransparency="true" allow="encrypted-media"></iframe>
+    </div>
     <p>
       <span>
-        And if you&apos;re ready for some more serious software,
+        If you find yourself ready for some more serious software,
         {' '}
         <LinkTo
           href="/activities/alone/notFree/inside/make-digital-music"

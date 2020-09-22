@@ -17,17 +17,19 @@ const getContent = () => (
       src="https://media.giphy.com/media/sTmwpUgZqz2JG/giphy.gif"
       alt="Scrooge McDuck diving into a pool of gold coins"
     />
+    <p>Here&apos;s a good overview of what bitcoin is, but keep in mind that the source is pro-bitcoin:</p>
+    <div className={styles.iframeContainer}>
+      <iframe className={styles.iframe} title="What is Bitcoin? Bitcoin Explained Simply for Dummies" src="https://www.youtube-nocookie.com/embed/41JCpzvnn_0" frameBorder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowFullScreen></iframe>
+    </div>
     <p>
-      <span>
-        First,
-        {' '}
-        <LinkTo
-          href="https://coindiligent.com/should-i-buy-bitcoin"
-          label="check if"
-        />
-        {' '}
-        bitcoin is right for you.
-      </span>
+      If you&apos;re interested, here&apos;s a
+      {' '}
+      <LinkTo
+        href="https://coindiligent.com/should-i-buy-bitcoin"
+        label="coindiligent"
+      />
+      {' '}
+      article about whether you should buy bitcoin or not (i.e. do you have &quot;funny money&quot; or not?).
     </p>
     <p>
       <span>
@@ -42,12 +44,7 @@ const getContent = () => (
           href="https://www.coinbase.com/"
           label="coinbase"
         />
-        .
-      </span>
-    </p>
-    <p>
-      <span>
-        If you want even more trading info, check out
+        . And if you want even more trading info, check out
         {' '}
         <LinkTo
           href="https://99bitcoins.com/buy-bitcoin/"
@@ -56,7 +53,7 @@ const getContent = () => (
         {'.'}
       </span>
     </p>
-    <p>Invest responsibly, y&apos;all!</p>
+    <p>Either way, invest responsibly, y&apos;all!</p>
   </div>
 )
 

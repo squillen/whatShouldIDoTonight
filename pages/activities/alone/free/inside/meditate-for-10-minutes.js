@@ -14,9 +14,13 @@ const getContent = () => (
     <p>
     Meditation doesn&apos;t have to be boring. In fact, it can actually be *gasp* enjoyable?!
     </p>
+    <p>Check this out for a quick (but thorough!) rundown:</p>
+    <div className={styles.iframeContainer}>
+      <iframe title="How To Meditate For Beginners - A Definitive Guide" className={styles.iframe} src="https://www.youtube-nocookie.com/embed/mMMerxh_12U" frameBorder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowFullScreen></iframe>
+    </div>
     <p>
       <span>
-        Try out
+        And try out apps like
         {' '}
         <LinkTo
           href="https://www.calm.com/"

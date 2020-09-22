@@ -6,23 +6,23 @@ import Photo from '../../../../../components/photo/photo'
 
 const getContent = () => (
   <div className={styles.activityContainer}>
-    <Photo
-      src="https://media.giphy.com/media/l2Sq9qGTQnL5NyI6Y/giphy.gif"
-      alt="Dog makin' that money"
-    />
+    <p>If you don&apos;t know anything about buying stocks, check this out first:</p>
+    <div className={styles.iframeContainer}>
+      <iframe className={styles.iframe} title="Stock Market For Beginners 2020 | How To Invest (Step by Step)" src="https://www.youtube-nocookie.com/embed/dFAiChOmoGI" frameBorder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowFullScreen></iframe>
+    </div>
     <p>
       <span>
-        If you don&apos;t know anything about buying stocks, check out this
+        Nerdwallet.com is also a good place to consult, specifically
         {' '}
         <LinkTo
           href="https://www.nerdwallet.com/article/investing/how-to-buy-stocks"
-          label="nerdwallet"
+          label="this article"
         />
         {' '}
-        article.
+        on how to buy stocks.
       </span>
     </p>
-    <p>If you already know a bit and have everything already set up, go do it!</p>
+    <p>But, otherwise, if you already know a bit and have everything already set up, go do it!</p>
     <p>
       <span>
         Or, if you need a refresher, check out this article by
@@ -35,6 +35,10 @@ const getContent = () => (
       </span>
     </p>
     <p><span>Invest responsibly, y&apos;all, and <span className={styles.bold}>make that money!</span></span></p>
+    <Photo
+      src="https://media.giphy.com/media/l2Sq9qGTQnL5NyI6Y/giphy.gif"
+      alt="Dog makin' that money"
+    />
   </div>
 )
 

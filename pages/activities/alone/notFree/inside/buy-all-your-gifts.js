@@ -8,7 +8,7 @@ const getContent = () => (
   <div className={styles.activityContainer}>
     <p>Let this year be the year that you&apos;re not scrambling to get last minute gifts for everyone.</p>
     <Photo
-      src="https://media.giphy.com/media/eoK5GIUKwf0tO/giphy.gif"
+      src="https://media.giphy.com/media/11iAbnnYIgFMmQ/giphy.gif"
       alt="Shoppers on Black Friday piling into store"
     />
     <p>Get them done. Right now.</p>

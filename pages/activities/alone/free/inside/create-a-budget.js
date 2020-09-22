@@ -47,10 +47,9 @@ const getContent = () => (
         {' '}
         <LinkTo
           href="https://docs.google.com/spreadsheets/d/1xUMVBjuV-0n721CktT7kYp8m2HFI64ZSK_O-9kRaKKQ/edit?usp=sharing"
-          label="I created"
+          label="we created"
         />
-        {' '}
-        a little while ago, if you want.
+        , if you want.
       </span>
     </p>
     <p>

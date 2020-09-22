@@ -13,7 +13,7 @@ const getContent = () => (
       alt="Joey from Friends staring longingly out fake window with rain"
     />
     <p>No, not like that ☝, not a &quot;I need to change the world&quot; kind of intensity, just a &quot;life can be pretty awesome and I want to take advantage of that&quot; kind of intensity.</p>
-    <p>Some ideas to get you started:</p>
+    <p>Consider stuff like:</p>
     <ul>
       <li>tutoring/mentoring</li>
       <li>
@@ -53,29 +53,30 @@ const getContent = () => (
       </li>
       <li>working out</li>
     </ul>
+    <p>Here&apos;s a video to get you started:</p>
+    <div className={styles.iframeContainer}>
+      <iframe className={styles.iframe} src="https://www.youtube-nocookie.com/embed/6pgaJb2Wwhs" frameBorder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowFullScreen></iframe>
+    </div>
     <p>
       <span>
-       Check out
-        {' '}
-        <LinkTo
-          href="https://youtu.be/6pgaJb2Wwhs"
-          label="this video"
-        />
-        {' '}
-        and
+        Then check out
         {' '}
         <LinkTo
           href="https://medium.com/the-mission/how-to-find-your-true-passion-and-live-a-life-you-wont-regret-on-your-deathbed-c58ce450beaf"
-          label="this article"
+          label="this Medium article"
         />
         {' '}
-       for more insight.
+       for some more insight.
       </span>
     </p>
     <p>
       Have fun with it, though. Don&apos;t put too much pressure on yourself.
       Have a glass of wine or a cup of tea and just enjoy the process because you&apos;re alive and that&apos;s awesome!
     </p>
+    <Photo
+      src="https://media.giphy.com/media/3ohzdIuqJoo8QdKlnW/giphy.gif"
+      alt="Will Ferrell in the movie Old School saying 'Awesome! Yes!' in a grocery store cereal aisle and then punching and kicking some of the boxes in excitement"
+    />
   </div>
 )
 

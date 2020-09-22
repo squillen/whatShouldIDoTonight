@@ -168,10 +168,6 @@
     <changefreq>hourly</changefreq>
   </url>
   <url>
-    <loc>https://www.whatshouldidotonight.com/activities/alone/notFree/outside/try-new-exercises</loc>
-    <changefreq>hourly</changefreq>
-  </url>
-  <url>
     <loc>https://www.whatshouldidotonight.com/activities/alone/notFree/inside/buy-all-your-gifts</loc>
     <changefreq>hourly</changefreq>
   </url>
@@ -225,6 +221,10 @@
   </url>
   <url>
     <loc>https://www.whatshouldidotonight.com/activities/alone/notFree/inside/take-music-lessons</loc>
+    <changefreq>hourly</changefreq>
+  </url>
+  <url>
+    <loc>https://www.whatshouldidotonight.com/activities/alone/notFree/outside/try-new-exercises</loc>
     <changefreq>hourly</changefreq>
   </url>
   <url>
@@ -376,46 +376,6 @@
     <changefreq>hourly</changefreq>
   </url>
   <url>
-    <loc>https://www.whatshouldidotonight.com/activities/anyone/notFree/outside/book-a-getaway</loc>
-    <changefreq>hourly</changefreq>
-  </url>
-  <url>
-    <loc>https://www.whatshouldidotonight.com/activities/anyone/notFree/outside/book-your-travel</loc>
-    <changefreq>hourly</changefreq>
-  </url>
-  <url>
-    <loc>https://www.whatshouldidotonight.com/activities/anyone/notFree/outside/foster-a-pet</loc>
-    <changefreq>hourly</changefreq>
-  </url>
-  <url>
-    <loc>https://www.whatshouldidotonight.com/activities/anyone/notFree/outside/go-to-a-comedy-show</loc>
-    <changefreq>hourly</changefreq>
-  </url>
-  <url>
-    <loc>https://www.whatshouldidotonight.com/activities/anyone/notFree/outside/go-to-a-driving-range</loc>
-    <changefreq>hourly</changefreq>
-  </url>
-  <url>
-    <loc>https://www.whatshouldidotonight.com/activities/anyone/notFree/outside/go-to-the-movies</loc>
-    <changefreq>hourly</changefreq>
-  </url>
-  <url>
-    <loc>https://www.whatshouldidotonight.com/activities/anyone/notFree/outside/go-wash-your-car</loc>
-    <changefreq>hourly</changefreq>
-  </url>
-  <url>
-    <loc>https://www.whatshouldidotonight.com/activities/anyone/notFree/outside/plant-herbs</loc>
-    <changefreq>hourly</changefreq>
-  </url>
-  <url>
-    <loc>https://www.whatshouldidotonight.com/activities/anyone/notFree/outside/rent-a-car</loc>
-    <changefreq>hourly</changefreq>
-  </url>
-  <url>
-    <loc>https://www.whatshouldidotonight.com/activities/anyone/notFree/outside/take-a-cooking-class</loc>
-    <changefreq>hourly</changefreq>
-  </url>
-  <url>
     <loc>https://www.whatshouldidotonight.com/activities/anyone/notFree/inside/cook-a-meal</loc>
     <changefreq>hourly</changefreq>
   </url>
@@ -533,6 +493,46 @@
   </url>
   <url>
     <loc>https://www.whatshouldidotonight.com/activities/anyone/notFree/inside/will-smith-night</loc>
+    <changefreq>hourly</changefreq>
+  </url>
+  <url>
+    <loc>https://www.whatshouldidotonight.com/activities/anyone/notFree/outside/book-a-getaway</loc>
+    <changefreq>hourly</changefreq>
+  </url>
+  <url>
+    <loc>https://www.whatshouldidotonight.com/activities/anyone/notFree/outside/book-your-travel</loc>
+    <changefreq>hourly</changefreq>
+  </url>
+  <url>
+    <loc>https://www.whatshouldidotonight.com/activities/anyone/notFree/outside/foster-a-pet</loc>
+    <changefreq>hourly</changefreq>
+  </url>
+  <url>
+    <loc>https://www.whatshouldidotonight.com/activities/anyone/notFree/outside/go-to-a-comedy-show</loc>
+    <changefreq>hourly</changefreq>
+  </url>
+  <url>
+    <loc>https://www.whatshouldidotonight.com/activities/anyone/notFree/outside/go-to-a-driving-range</loc>
+    <changefreq>hourly</changefreq>
+  </url>
+  <url>
+    <loc>https://www.whatshouldidotonight.com/activities/anyone/notFree/outside/go-to-the-movies</loc>
+    <changefreq>hourly</changefreq>
+  </url>
+  <url>
+    <loc>https://www.whatshouldidotonight.com/activities/anyone/notFree/outside/go-wash-your-car</loc>
+    <changefreq>hourly</changefreq>
+  </url>
+  <url>
+    <loc>https://www.whatshouldidotonight.com/activities/anyone/notFree/outside/plant-herbs</loc>
+    <changefreq>hourly</changefreq>
+  </url>
+  <url>
+    <loc>https://www.whatshouldidotonight.com/activities/anyone/notFree/outside/rent-a-car</loc>
+    <changefreq>hourly</changefreq>
+  </url>
+  <url>
+    <loc>https://www.whatshouldidotonight.com/activities/anyone/notFree/outside/take-a-cooking-class</loc>
     <changefreq>hourly</changefreq>
   </url>
   <url>

@@ -18,7 +18,7 @@ const getContent = () => (
         Check out
         {' '}
         <LinkTo
-          href="https://www.healthline.com/nutrition/17-tips-to-sleep-better#2.-Reduce-blue-light-exposure-in-the-evening"
+          href="https://www.healthline.com/nutrition/17-tips-to-sleep-better"
           label="these"
         />
         {' '}

@@ -6,6 +6,7 @@ import Photo from '../../../../../components/photo/photo'
 
 const getContent = () => (
   <div className={styles.activityContainer}>
+    <p>Is a sunset ever anything less than &quot;good&quot;??</p>
     <Photo
       src="https://media.giphy.com/media/GThjxIqLM4h0Y/giphy.gif"
       alt="sun setting"
@@ -19,9 +20,18 @@ const getContent = () => (
           label="some place"
         />
         {' '}
-        near you to watch a sunset and enjoy. Bring some cheese, crackers, wine (&quot;if allowed&quot; - our lawyers), and whatever else you want and make a real night of it!
+        near you to watch and enjoy.
       </span>
     </p>
+    <p>Bring:</p>
+    <ul>
+      <li>some cheese</li>
+      <li>crackers</li>
+      <li>wine/alcohol (&quot;if allowed&quot; - our lawyers)</li>
+      <li>a blanket to lay on</li>
+      <li>napkins/cutlery/plates/cups</li>
+      <li>whatever else you can think of</li>
+    </ul>
   </div>
 )
 

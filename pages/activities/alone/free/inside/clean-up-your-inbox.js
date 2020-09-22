@@ -11,7 +11,7 @@ const getContent = () => (
     />
     <p>
       If you saw &quot;3,502 unread emails&quot; and thought, &quot;I wish&quot;,
-      this suggestion is for you. And it&apos;s no longer a suggestion.
+      this suggestion is for you. And it&apos;s no longer a suggestion:
     </p>
     <Photo
       src="https://media.giphy.com/media/l0HlFyu24XghJwpqw/giphy.gif"
@@ -27,7 +27,7 @@ const getContent = () => (
       I imagine seeing that number go from 3,000+ unread to none is the closest feeling
       I&apos;ll get to heroine 🤤
     </p>
-    <p>Now go clear at least 300 emails.</p>
+    <p>Now go clear at least 300 emails and get a tiny bump of heaven.</p>
   </div>
 )
 

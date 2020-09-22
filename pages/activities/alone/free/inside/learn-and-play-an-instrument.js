@@ -16,7 +16,7 @@ const getContent = () => (
           label="GuitarCenter"
         />
         {' '}
-        or go local and find one that you want to learn how to play and before you know it, you could be all like:
+        or go local and find one that you want to learn how to play. Before you know it, you could be all like:
       </span>
     </p>
     <Photo

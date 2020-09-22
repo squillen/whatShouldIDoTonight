@@ -39,7 +39,7 @@ const getContent = () => (
       <li>
         <LinkTo
           href="https://crimejunkiepodcast.com/"
-          label="Crime Junkies"
+          label="Crime Junkie"
         />
       </li>
       <li>

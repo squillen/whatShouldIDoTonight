@@ -11,7 +11,7 @@ const getContent = () => (
       alt="Phoebe running like a weirdo in Friends"
     />
     <p>
-      I know, you came to this site looking for fun and we told you to go for a run.
+      I know, I know, you came to this site looking for fun and we told you to go for a run.
       It&apos;s just a one letter difference but what a difference indeed.
     </p>
     <p>
@@ -22,7 +22,9 @@ const getContent = () => (
     <p>
       In the shocking case that you&apos;re still actually reading this, check your form against this before you head out:
     </p>
-    <iframe className={styles.iframe} src="https://www.youtube-nocookie.com/embed/_kGESn8ArrU" frameBorder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowFullScreen></iframe>
+    <div className={styles.iframeContainer}>
+      <iframe title="Check your running posture with this video" className={styles.iframe} src="https://www.youtube-nocookie.com/embed/_kGESn8ArrU" frameBorder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowFullScreen></iframe>
+    </div>
     <p>
       <span>
         Now get out there! And consider getting all techy about it with the help of apps like

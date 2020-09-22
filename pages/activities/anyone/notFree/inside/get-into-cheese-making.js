@@ -18,7 +18,9 @@ const getContent = () => (
       </span>
     </p>
     <p>Yea, that&apos;s right, fuck you, I changed my mind and doubled down.</p>
-    <iframe title="How to make mozzarella cheese at home" className={styles.iframe} src="https://www.youtube-nocookie.com/embed/j1dWN5wlYuU" frameBorder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowFullScreen></iframe>
+    <div className={styles.iframeContainer}>
+      <iframe title="How to make mozzarella cheese at home" className={styles.iframe} src="https://www.youtube-nocookie.com/embed/j1dWN5wlYuU" frameBorder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowFullScreen></iframe>
+    </div>
     <p>
       <span>
         Check ☝☝ that out for a simple recipe that you might be able to do right now. If not, check out

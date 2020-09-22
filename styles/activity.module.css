@@ -41,6 +41,13 @@
   color: green;
 }
 
+.iframeContainer {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+}
+
 .iframe {
   width: 560px;
   height: 315px;

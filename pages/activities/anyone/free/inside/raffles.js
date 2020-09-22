@@ -13,7 +13,7 @@ const getContent = () => (
       src="https://media.giphy.com/media/ToMjGpKniGqRNLGBrhu/giphy.gif"
       alt="Jim Carrey in Dumb and Dumber saying 'So you're telling me there's a change?'"
     />
-    <p>Here are a few of raffles to check out:</p>
+    <p>Here are a few notable raffles to check out:</p>
     <ul>
       <li>
         <LinkTo

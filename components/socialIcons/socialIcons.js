@@ -21,11 +21,10 @@ import * as gtag from '../../lib/gtag'
 import utilStyles from '../../styles/utils.module.css'
 
 export default function SocialIcons ({ pageTitle, pageURL, size = 30 }) {
-  const handleShare = (value) => {
+  const handleShare = (action) => {
     gtag.event({
-      value,
+      action,
       label: pageTitle,
-      action: 'shared_article',
       category: 'Social Share'
     })
   }

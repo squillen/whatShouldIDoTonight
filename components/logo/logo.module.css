@@ -51,6 +51,7 @@
 	.headerContainer {
 		margin: 0;
 		padding: 1.8rem 0;
+		font-size: 3rem;
 	}
 
 	.link, .link:hover,

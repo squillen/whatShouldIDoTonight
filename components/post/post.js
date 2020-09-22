@@ -17,6 +17,7 @@ import { getNewUserActivity, resetAll, restoreUserActivities } from '../../src/s
 import { siteTitle, description } from '../../components/defaultHead'
 import Layout from '../../components/layout/layout'
 import Button from '../../components/button/button'
+import SocialIcons from '../../components/socialIcons/socialIcons'
 import utilStyles from '../../styles/utils.module.css'
 
 function Post (props) {
@@ -81,6 +82,7 @@ function Post (props) {
   )
 
   const url = 'https://www.whatshouldidotonight.com/'
+  const pageURL = `${url}${router.pathname}`
 
   return (
     <Layout>
@@ -94,7 +96,7 @@ function Post (props) {
         openGraph={{
           title: pageTitle,
           description: pageDescription,
-          url: `${url}${router.pathname}`,
+          url: pageURL,
           type: 'article',
           article: {
             publishedTime,
@@ -128,7 +130,11 @@ function Post (props) {
                   {timeToComplete}
                 </span>
               </motion.div>
+              <motion.div variants={fadeInFromLeft} className={utilStyles.timeToComplete}>
+                <SocialIcons pageURL={pageURL} pageTitle={pageTitle} />
+              </motion.div>
             </motion.div>
+            {/* END LEFT SECTION */}
             <motion.div variants={fadeIn} className={utilStyles.rightSection}>
               {tellMeAnotherButton}
             </motion.div>

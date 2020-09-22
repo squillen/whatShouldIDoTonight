@@ -60,6 +60,21 @@
   margin: 0.3rem 0;
 }
 
+.leftSection {
+}
+
+.rightSection {
+}
+
+.shareIconsContainer {
+  display: flex;
+  min-width: 13rem;
+  max-width: 16rem;
+  justify-content: space-between;
+  padding-top: 0.2rem;
+  justify-self: flex-end;
+}
+
 .infoIcon {
   width: 1rem;
   height: 1rem;

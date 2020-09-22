@@ -24,10 +24,6 @@ const getContent = () => (
     </p>
     <p>This prepares you for a future thing to do tonight or another night: twister.</p>
     <p>Namaste, mother fuckers.</p>
-    <Photo
-      src="https://media.giphy.com/media/9Xiv14oD5OKGY/giphy.gif"
-      alt="Dog licking owner while she's doing yoga"
-    />
   </div>
 )
 

@@ -34,10 +34,14 @@ const getContent = () => (
         And what you feel is the love and joy the band members have for each other and the music they make. It&apos;s great.
       </span>
     </p>
+    <p>I mean, check out this beautiful rendition of This Must Be The Place:</p>
+    <div className={styles.iframeContainer}>
+      <iframe className={styles.iframe} title="Talking heads - This must be the place HD" src="https://www.youtube-nocookie.com/embed/N7zluBxv2Z0?start=178" frameBorder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowFullScreen></iframe>
+    </div>
     <p>
-      It&apos;s the perfect amount of weird and the perfect amount of 80&apos;s.
+      The film is the perfect amount of weird and the perfect amount of 80&apos;s.
       {' '}
-      And if that doesn&apos;t sell you, how about the fact that it&apos;s got near-perfect ratings on
+      And if you&apos;re still not sold, how about the fact that it&apos;s got near-perfect ratings on
       {' '}
       <LinkTo
         href="https://www.rottentomatoes.com/m/stop_making_sense"
@@ -46,7 +50,7 @@ const getContent = () => (
       .
     </p>
     <p>
-      <span>Oh, and, if you have Prime, <span className={styles.bold}>it&apos;s free!</span></span>
+      <span>Oh, and, if you have Prime, <span className={styles.italicAndBold}>it&apos;s free!</span></span>
     </p>
   </div>
 )

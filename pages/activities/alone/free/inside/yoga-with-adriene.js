@@ -23,10 +23,6 @@ const getContent = () => (
       </span>
     </p>
     <p>Namaste, mother fucker.</p>
-    <Photo
-      src="https://media.giphy.com/media/9Xiv14oD5OKGY/giphy.gif"
-      alt="Dog licking owner while she's doing yoga"
-    />
   </div>
 )
 

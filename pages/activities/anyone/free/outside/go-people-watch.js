@@ -6,12 +6,13 @@ import Photo from '../../../../../components/photo/photo'
 
 const getContent = () => (
   <div className={styles.activityContainer}>
+    <p>You can do this almost anywhere and get some free entertainment and maybe even some fashion ideas out if it.</p>
+    <p>It&apos;s pretty simple, you just go anywhere there are people and watch them. But, like, subtly.</p>
     <Photo
       src="https://media.giphy.com/media/26BRuo6sLetdllPAQ/giphy.gif"
       alt="Guy from Silicon Valley looking out sliding glass door through blinds"
     />
-    <p>You can do this almost anywhere and get some free entertainment and even some fashion ideas out if it.</p>
-    <p>Go anywhere there are people:</p>
+    <p>Consider:</p>
     <ul>
       <li>the park</li>
       <li>a coffee shop</li>
@@ -27,7 +28,7 @@ const getContent = () => (
           label="Psychology Today"
         />
         {' '}
-        article. I mean, if a doctor wrote an article about it it can&apos;t be weird, right??
+        article. I mean, it can&apos;t be too bad if a <span className={styles.italicAndBold}>*doctor*</span> wrote an article about it, right??
       </span>
     </p>
     <p>Either way, have fun, ya sick perv.</p>

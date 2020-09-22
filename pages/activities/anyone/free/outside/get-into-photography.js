@@ -46,6 +46,10 @@ const getContent = () => (
         for some ideas on how to best take photos with your phone.
       </span>
     </p>
+    <p>And, if you don&apos;t feel like reading, check out this video for not only good phone photography tips, but just good photography tips in general:</p>
+    <div className={styles.iframeContainer}>
+      <iframe className={styles.iframe} title="6 Mobile Photography Tips you must know - 2018" src="https://www.youtube-nocookie.com/embed/xHvFHRPLvII?start=178" frameBorder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowFullScreen></iframe>
+    </div>
     <p>
       Have fun and let us know if you took anything your especially proud of! (A picture of your dick doesn&apos;t qualify.)
     </p>

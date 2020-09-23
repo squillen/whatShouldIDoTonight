@@ -23,7 +23,9 @@ const getContent = () => (
         />
         , who you should def check out either way for some fun, entertaining reads.
         {' '}
-        But I&apos;ve thought about that concept often since then, usually at night when I&apos;m on hour three of mindless TV watching and feeling all-around pretty useless.
+        But I&apos;ve thought about that concept often since then, usually at night when I&apos;m
+        {' '}
+        on hour three of mindless TV watching and feeling all-around pretty useless.
       </span>
     </p>
     <Photo
@@ -31,9 +33,9 @@ const getContent = () => (
       alt="Edward Norton in Fight Club zoning out watching TV on the couch"
     />
     <p>
-      It&apos;s obviously infinitely easier to be a consumer
-      but, perhaps less obviously, infinitely more rewarding and satisfying to be a creator.
-      And if you read that and thought &quot;Oh, but I&apos;m not the creator type&quot;:
+      It&apos;s easy (and fun!) to live life as a consumer but, generally speaking,
+      you will likely find life as a creator much more rewarding and fulfilling.
+      And if you read that and thought &quot;Oh, but I&apos;m not the &apos;creator&apos; type&quot;, with all due respect:
     </p>
     <Photo
       src="https://media.giphy.com/media/3oKIP8quIMUnLdfTAQ/giphy.gif"
@@ -41,7 +43,7 @@ const getContent = () => (
     />
     <p>
       You are, at the very least, capable of learning cool new skills that
-      you can use to create new content and ideas (i.e. becoming a &apos;creator&apos;)
+      you can use to create new content and ideas (i.e. living life as a &apos;creator&apos;)
       that you can then share with the world or even just a single person you know.
     </p>
     <p>
@@ -55,8 +57,8 @@ const getContent = () => (
       </span>
     </p>
     <p>
-      People there teach you a huge variety of skills, although it tends to lean towards creative-minded
-      activities like how to:
+      People there teach you a huge variety of skills, although it tends to lean
+      towards more creative-minded activities, like how to:
     </p>
     <ul>
       <li>make videos/websites/music/animations</li>

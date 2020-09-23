@@ -1,0 +1,26 @@
+.loadingContainer {
+  z-index: 3;
+  -webkit-transform: translate(-50%,-50%);
+  transform: translate(-50%,-50%);
+  position: fixed;
+  top: 50%;
+  left: 50%;
+}
+
+.loadingDiv {
+  height: 100%;
+  padding: 2rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: sticky;
+  top: 50%;
+  left: 50%;
+  width: 15rem;
+  height: 5rem;
+  background: white;
+  z-index: 3;
+  color: #262626;
+  border-radius: 15px;
+  box-shadow: 0 2px 20px 0 rgba(0, 0, 0, 0.5);
+}

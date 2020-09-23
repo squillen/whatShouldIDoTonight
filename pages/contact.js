@@ -5,6 +5,7 @@ import { sendContactMail } from '../components/networking/mail-api'
 import Button from '../components/button/button'
 import Modal from '../components/modal/modal'
 import Photo from '../components/photo/photo'
+import Loading from '../components/loading/loading'
 
 const showSuccessModal = () => {
   return (
@@ -49,12 +50,13 @@ export default function ContactForm () {
   const [senderEmail, setSenderEmail] = useState('')
   const [messageType, setMessageType] = useState('question')
   const [formError, setFormError] = useState(false)
+  const [loading, setLoading] = useState(false)
   const [modalToOpen, setModalToOpen] = useState(null)
   const submitContactForm = async (event) => {
     event.preventDefault()
     if (!message.length) return setFormError(true)
     const recipientMail = 'WhatShouldIDoTonight@outlook.com'
-
+    setLoading(true)
     const res = await sendContactMail({ senderEmail, recipientMail, name, title, message, messageType })
     if (res.status < 300) {
       console.info('success!')
@@ -67,6 +69,7 @@ export default function ContactForm () {
       console.error('error')
       setModalToOpen('showErrorModal')
     }
+    setLoading(false)
   }
 
   const modalFunction = {
@@ -146,6 +149,7 @@ export default function ContactForm () {
         modalContent={modalContent}
         onModalClose={() => setModalToOpen(null)}
       />
+      <Loading loading={loading} message="sending" />
     </Layout>
   )
 }

@@ -61,15 +61,15 @@ function Home (props) {
   }
 
   return (
-    <Layout home>
+    <Layout>
       <Head>
         <title>{siteTitle}</title>
       </Head>
       <NextSEO />
       <section className={utilStyles.headingMd}>
-        <motion.div variants={stagger} className={utilStyles.questions}>
+        <div className={utilStyles.questions}>
           {/* ARE YOU ALONE SECTION */}
-          <motion.div variants={fadeInUp} className={utilStyles.question}>
+          <div className={utilStyles.question}>
             <div className={utilStyles.questionHeader}>
               I am alone:
             </div>
@@ -87,9 +87,9 @@ function Home (props) {
                 No
               </div>
             </div>
-          </motion.div>
+          </div>
           {/* SPEND MONEY SECTION */}
-          <motion.div variants={fadeInUp} className={utilStyles.question}>
+          <div className={utilStyles.question}>
             <div className={utilStyles.questionHeader}>
               I am OK spending money:
             </div>
@@ -107,9 +107,9 @@ function Home (props) {
                 No
               </div>
             </div>
-          </motion.div>
+          </div>
           {/* INSIDE OR OUTSIDE SECTION */}
-          <motion.div variants={fadeInUp} className={utilStyles.question}>
+          <div className={utilStyles.question}>
             <div className={utilStyles.questionHeader}>
               I want to go outside:
             </div>
@@ -133,16 +133,16 @@ function Home (props) {
                 No
               </div>
             </div>
-          </motion.div>
-          <motion.div variants={fadeInUp} className={utilStyles.buttonContainer}>
+          </div>
+          <div className={utilStyles.buttonContainer}>
             <Button
               customStyle={utilStyles.tellMeButton}
               inlineStyle={{ border: '3px solid #0F2956', fontSize: '1.5rem' }}
               href={`/activities${currentActivity.category}/${currentActivity.id}`}
               label="tell me"
             />
-          </motion.div>
-        </motion.div>
+          </div>
+        </div>
       </section>
     </Layout>
   )

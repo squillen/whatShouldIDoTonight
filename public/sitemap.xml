@@ -4,7 +4,19 @@
     <changefreq>hourly</changefreq>
   </url>
   <url>
+    <loc>https://www.whatshouldidotonight.com/contact</loc>
+    <changefreq>hourly</changefreq>
+  </url>
+  <url>
     <loc>https://www.whatshouldidotonight.com</loc>
+    <changefreq>hourly</changefreq>
+  </url>
+  <url>
+    <loc>https://www.whatshouldidotonight.com/activities/alone/free/outside/be-a-tourist</loc>
+    <changefreq>hourly</changefreq>
+  </url>
+  <url>
+    <loc>https://www.whatshouldidotonight.com/activities/alone/free/outside/walk-for-30-minutes</loc>
     <changefreq>hourly</changefreq>
   </url>
   <url>
@@ -216,79 +228,7 @@
     <changefreq>hourly</changefreq>
   </url>
   <url>
-    <loc>https://www.whatshouldidotonight.com/activities/alone/free/outside/be-a-tourist</loc>
-    <changefreq>hourly</changefreq>
-  </url>
-  <url>
-    <loc>https://www.whatshouldidotonight.com/activities/alone/free/outside/walk-for-30-minutes</loc>
-    <changefreq>hourly</changefreq>
-  </url>
-  <url>
     <loc>https://www.whatshouldidotonight.com/activities/alone/notFree/outside/try-new-exercises</loc>
-    <changefreq>hourly</changefreq>
-  </url>
-  <url>
-    <loc>https://www.whatshouldidotonight.com/activities/anyone/free/outside/dine-alfresco</loc>
-    <changefreq>hourly</changefreq>
-  </url>
-  <url>
-    <loc>https://www.whatshouldidotonight.com/activities/anyone/free/outside/geocache</loc>
-    <changefreq>hourly</changefreq>
-  </url>
-  <url>
-    <loc>https://www.whatshouldidotonight.com/activities/anyone/free/outside/get-into-photography</loc>
-    <changefreq>hourly</changefreq>
-  </url>
-  <url>
-    <loc>https://www.whatshouldidotonight.com/activities/anyone/free/outside/go-for-a-run</loc>
-    <changefreq>hourly</changefreq>
-  </url>
-  <url>
-    <loc>https://www.whatshouldidotonight.com/activities/anyone/free/outside/go-on-a-photo-walk</loc>
-    <changefreq>hourly</changefreq>
-  </url>
-  <url>
-    <loc>https://www.whatshouldidotonight.com/activities/anyone/free/outside/go-people-watch</loc>
-    <changefreq>hourly</changefreq>
-  </url>
-  <url>
-    <loc>https://www.whatshouldidotonight.com/activities/anyone/free/outside/go-stargazing</loc>
-    <changefreq>hourly</changefreq>
-  </url>
-  <url>
-    <loc>https://www.whatshouldidotonight.com/activities/anyone/free/outside/go-to-a-park</loc>
-    <changefreq>hourly</changefreq>
-  </url>
-  <url>
-    <loc>https://www.whatshouldidotonight.com/activities/anyone/free/outside/grill-something</loc>
-    <changefreq>hourly</changefreq>
-  </url>
-  <url>
-    <loc>https://www.whatshouldidotonight.com/activities/anyone/free/outside/help-the-homeless</loc>
-    <changefreq>hourly</changefreq>
-  </url>
-  <url>
-    <loc>https://www.whatshouldidotonight.com/activities/anyone/free/outside/look-at-cars</loc>
-    <changefreq>hourly</changefreq>
-  </url>
-  <url>
-    <loc>https://www.whatshouldidotonight.com/activities/anyone/free/outside/pick-up-trash</loc>
-    <changefreq>hourly</changefreq>
-  </url>
-  <url>
-    <loc>https://www.whatshouldidotonight.com/activities/anyone/free/outside/plan-a-day-trip</loc>
-    <changefreq>hourly</changefreq>
-  </url>
-  <url>
-    <loc>https://www.whatshouldidotonight.com/activities/anyone/free/outside/prepare-for-a-sunrise</loc>
-    <changefreq>hourly</changefreq>
-  </url>
-  <url>
-    <loc>https://www.whatshouldidotonight.com/activities/anyone/free/outside/train-your-dog</loc>
-    <changefreq>hourly</changefreq>
-  </url>
-  <url>
-    <loc>https://www.whatshouldidotonight.com/activities/anyone/free/outside/watch-a-sunset-and-have-a-picnic</loc>
     <changefreq>hourly</changefreq>
   </url>
   <url>
@@ -373,6 +313,70 @@
   </url>
   <url>
     <loc>https://www.whatshouldidotonight.com/activities/anyone/free/inside/try-a-new-cuisine</loc>
+    <changefreq>hourly</changefreq>
+  </url>
+  <url>
+    <loc>https://www.whatshouldidotonight.com/activities/anyone/free/outside/dine-alfresco</loc>
+    <changefreq>hourly</changefreq>
+  </url>
+  <url>
+    <loc>https://www.whatshouldidotonight.com/activities/anyone/free/outside/geocache</loc>
+    <changefreq>hourly</changefreq>
+  </url>
+  <url>
+    <loc>https://www.whatshouldidotonight.com/activities/anyone/free/outside/get-into-photography</loc>
+    <changefreq>hourly</changefreq>
+  </url>
+  <url>
+    <loc>https://www.whatshouldidotonight.com/activities/anyone/free/outside/go-for-a-run</loc>
+    <changefreq>hourly</changefreq>
+  </url>
+  <url>
+    <loc>https://www.whatshouldidotonight.com/activities/anyone/free/outside/go-on-a-photo-walk</loc>
+    <changefreq>hourly</changefreq>
+  </url>
+  <url>
+    <loc>https://www.whatshouldidotonight.com/activities/anyone/free/outside/go-people-watch</loc>
+    <changefreq>hourly</changefreq>
+  </url>
+  <url>
+    <loc>https://www.whatshouldidotonight.com/activities/anyone/free/outside/go-stargazing</loc>
+    <changefreq>hourly</changefreq>
+  </url>
+  <url>
+    <loc>https://www.whatshouldidotonight.com/activities/anyone/free/outside/go-to-a-park</loc>
+    <changefreq>hourly</changefreq>
+  </url>
+  <url>
+    <loc>https://www.whatshouldidotonight.com/activities/anyone/free/outside/grill-something</loc>
+    <changefreq>hourly</changefreq>
+  </url>
+  <url>
+    <loc>https://www.whatshouldidotonight.com/activities/anyone/free/outside/help-the-homeless</loc>
+    <changefreq>hourly</changefreq>
+  </url>
+  <url>
+    <loc>https://www.whatshouldidotonight.com/activities/anyone/free/outside/look-at-cars</loc>
+    <changefreq>hourly</changefreq>
+  </url>
+  <url>
+    <loc>https://www.whatshouldidotonight.com/activities/anyone/free/outside/pick-up-trash</loc>
+    <changefreq>hourly</changefreq>
+  </url>
+  <url>
+    <loc>https://www.whatshouldidotonight.com/activities/anyone/free/outside/plan-a-day-trip</loc>
+    <changefreq>hourly</changefreq>
+  </url>
+  <url>
+    <loc>https://www.whatshouldidotonight.com/activities/anyone/free/outside/prepare-for-a-sunrise</loc>
+    <changefreq>hourly</changefreq>
+  </url>
+  <url>
+    <loc>https://www.whatshouldidotonight.com/activities/anyone/free/outside/train-your-dog</loc>
+    <changefreq>hourly</changefreq>
+  </url>
+  <url>
+    <loc>https://www.whatshouldidotonight.com/activities/anyone/free/outside/watch-a-sunset-and-have-a-picnic</loc>
     <changefreq>hourly</changefreq>
   </url>
   <url>

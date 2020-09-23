@@ -4,6 +4,7 @@ import PropTypes from 'prop-types'
 import DefaultHead from '../defaultHead'
 import Logo from '../logo/logo'
 import Modal from '../modal/modal'
+import Footer from '../footer/footer'
 import EmailSignup from '../emailSignup/emailSignup'
 import styles from './layout.module.css'
 
@@ -35,6 +36,7 @@ export default function Layout ({ children, home }) {
       <DefaultHead />
       <Logo home={home} />
       <main>{children}</main>
+      <Footer />
       <Modal
         modalContent={modalContent}
         onModalClose={() => setModalToOpen(false)}

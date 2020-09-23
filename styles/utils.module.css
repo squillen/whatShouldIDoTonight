@@ -41,6 +41,40 @@
   border: 0.12rem solid #262626;
 }
 
+.formContainer {
+  min-height: 50vh;
+  padding-bottom: 5rem;
+}
+
+.inputContainer {
+  display: flex;
+  flex-direction: column;
+  width: 50%;
+  min-height: 4rem;
+}
+
+.nameInput,
+.messageTextArea {
+  font-family: 'Fjalla One', sans-serif;
+  font-size: 1.1rem;
+}
+
+.superScript {
+  font-size: 0.5rem;
+}
+
+.nameInput {
+  height: 1.5rem;
+}
+
+.messageTextArea {
+  min-height: 10rem;
+}
+
+.formLabel {
+  margin-right: 0.4rem;
+}
+
 .underline {
   border-bottom: 2px solid #262626;
   /* border-bottom: 2px solid #EDEDED; */
@@ -225,6 +259,10 @@
 .custom404 {
   font-size: 2rem;
   width: 70%;
+}
+
+.contactContainer {
+  min-height: 100vh;
 }
 
 @media only screen and (max-width: 600px) {

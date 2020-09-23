@@ -3,6 +3,44 @@ import Layout from '../components/layout/layout'
 import utilStyles from '../styles/utils.module.css'
 import { sendContactMail } from '../components/networking/mail-api'
 import Button from '../components/button/button'
+import Modal from '../components/modal/modal'
+import Photo from '../components/photo/photo'
+
+const showSuccessModal = () => {
+  return (
+    <div className={utilStyles.modal}>
+      <div className={utilStyles.modalTitle}>
+        YAY!!!
+        <Photo
+          src="https://media.giphy.com/media/bbTIQvcZfSMFO/giphy.gif"
+          alt="fedex driver kicking package onto customers roof"
+        />
+      </div>
+      <div className={utilStyles.modalMessage}>
+        <div>Your message was successfully delivered with great care and enthusiasm. Thank you for your thoughts.</div>
+        <div>Seriously, though, thanks.</div>
+      </div>
+    </div>
+  )
+}
+
+const showErrorModal = () => {
+  return (
+    <div className={utilStyles.modal}>
+      <div className={utilStyles.modalTitle}>
+        OH NO!!
+        <Photo
+          src="https://media.giphy.com/media/sS8YbjrTzu4KI/giphy.gif"
+          alt="Michael Caine in The Dark Knight saying 'You trusted me. And I failed you."
+        />
+      </div>
+      <div className={utilStyles.modalMessage}>
+        <div>We weren&apos;t able to send your message.</div>
+        <div>Please try again later 😢</div>
+      </div>
+    </div>
+  )
+}
 
 export default function ContactForm () {
   const [message, setMessage] = useState('message')
@@ -10,21 +48,33 @@ export default function ContactForm () {
   const [title, setTitle] = useState('title')
   const [senderEmail, setSenderEmail] = useState('')
   const [messageType, setMessageType] = useState('question')
-  const [sendStatus, setSendStatus] = useState(null)
-  const [error, setError] = useState(false)
+  const [formError, setFormError] = useState(false)
+  const [modalToOpen, setModalToOpen] = useState(null)
   const submitContactForm = async (event) => {
     event.preventDefault()
-    if (!message.length) return setError(true)
+    if (!message.length) return setFormError(true)
     const recipientMail = 'WhatShouldIDoTonight@outlook.com'
 
     const res = await sendContactMail({ senderEmail, recipientMail, name, title, message, messageType })
     if (res.status < 300) {
-      console.info('success!!')
+      console.info('success!')
+      setName('')
+      setTitle('')
+      setSenderEmail('')
+      setMessage('')
+      setModalToOpen('showSuccessModal')
     } else {
       console.error('error')
+      setModalToOpen('showErrorModal')
     }
-    setSendStatus(res.status)
   }
+
+  const modalFunction = {
+    showSuccessModal,
+    showErrorModal
+  }[modalToOpen] || function () {}
+
+  const modalContent = modalFunction()
 
   return (
     <Layout>
@@ -92,6 +142,10 @@ export default function ContactForm () {
           onClick={submitContactForm}
         />
       </div>
+      <Modal
+        modalContent={modalContent}
+        onModalClose={() => setModalToOpen(null)}
+      />
     </Layout>
   )
 }

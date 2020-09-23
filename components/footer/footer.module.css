@@ -17,3 +17,10 @@
 .contactContainer > a:hover {
   font-size: 1.05rem;
 }
+
+@media only screen and (max-width: 500px) {
+
+  .footerContainer {
+    padding-top: 12rem;
+  }
+}

@@ -6,6 +6,19 @@
   margin: 0 auto;
 }
 
+.logoContainer {
+  min-height: 30vh;
+}
+
+.childrenContainer {
+  min-height: 70vh;
+} 
+
+.footerContainer {
+  /* height: 15%;
+  min-height: 15%; */
+}
+
 .navContainer {
   display: flex;
   width: 100%;

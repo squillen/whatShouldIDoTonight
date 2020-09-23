@@ -34,9 +34,15 @@ export default function Layout ({ children, home }) {
       animate="animate"
     >
       <DefaultHead />
-      <Logo home={home} />
-      <main>{children}</main>
-      <Footer />
+      <div className={styles.logoContainer}>
+        <Logo home={home} />
+      </div>
+      <div className={styles.childrenContainer}>
+        <main>{children}</main>
+      </div>
+      <div className={styles.footerContainer}>
+        <Footer />
+      </div>
       <Modal
         modalContent={modalContent}
         onModalClose={() => setModalToOpen(false)}

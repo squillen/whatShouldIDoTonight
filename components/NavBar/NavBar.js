@@ -14,32 +14,32 @@ function MoodSubMenu () {
         </Link>
       </li>
       <li className={styles['nav__submenu-item']}>
-        <Link href="/moods/chill">
+        <Link href="/moods/active">
           <a>Active</a>
         </Link>
       </li>
       <li className={styles['nav__submenu-item']}>
-        <Link href="/moods/chill">
+        <Link href="/moods/curious">
           <a>Curious</a>
         </Link>
       </li>
       <li className={styles['nav__submenu-item']}>
-        <Link href="/moods/chill">
+        <Link href="/moods/happy">
           <a>Happy</a>
         </Link>
       </li>
       <li className={styles['nav__submenu-item']}>
-        <Link href="/moods/chill">
+        <Link href="/moods/mad">
           <a>Mad</a>
         </Link>
       </li>
       <li className={styles['nav__submenu-item']}>
-        <Link href="/moods/chill">
+        <Link href="/moods/sad">
           <a>Sad</a>
         </Link>
       </li>
       <li className={styles['nav__submenu-item']}>
-        <Link href="/moods/chill">
+        <Link href="/moods/daring">
           <a>Daring</a>
         </Link>
       </li>
@@ -51,37 +51,37 @@ function CategorySubMenu () {
   return (
     <ul id={styles.dropDownList} className={styles.nav__submenu}>
       <li className={styles['nav__submenu-item']}>
-        <Link href="/categories/chill">
+        <Link href="/categories/tv">
           <a>T.V.</a>
         </Link>
       </li>
       <li className={styles['nav__submenu-item']}>
-        <Link href="/categories/chill">
+        <Link href="/categories/movies">
           <a>Movies</a>
         </Link>
       </li>
       <li className={styles['nav__submenu-item']}>
-        <Link href="/categories/chill">
+        <Link href="/categories/music">
           <a>Music</a>
         </Link>
       </li>
       <li className={styles['nav__submenu-item']}>
-        <Link href="/categories/chill">
+        <Link href="/categories/books">
           <a>Books</a>
         </Link>
       </li>
       <li className={styles['nav__submenu-item']}>
-        <Link href="/categories/chill">
+        <Link href="/categories/deals">
           <a>Deals</a>
         </Link>
       </li>
       <li className={styles['nav__submenu-item']}>
-        <Link href="/categories/chill">
+        <Link href="/categories/sites">
           <a>Sites</a>
         </Link>
       </li>
       <li className={styles['nav__submenu-item']}>
-        <Link href="/categories/chill">
+        <Link href="/categories/food">
           <a>Food</a>
         </Link>
       </li>
@@ -90,7 +90,6 @@ function CategorySubMenu () {
 }
 
 export default function NavBar () {
-  const [activeMenu, setActiveMenu] = useState('category')
   const [showCategoryMenu, setShowCategoryMenu] = useState(false)
   const [showMoodMenu, setShowMoodMenu] = useState(false)
   const [menuHeight, setMenuHeight] = useState(null)

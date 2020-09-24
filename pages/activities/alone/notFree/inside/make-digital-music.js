@@ -59,7 +59,7 @@ const getContent = () => (
           label="hop over here"
         />
         {' '}
-        if you&apos;d rather just get your feet wet for right now right now.
+        if you&apos;d rather just get your feet wet for right now.
       </span>
     </p>
   </div>

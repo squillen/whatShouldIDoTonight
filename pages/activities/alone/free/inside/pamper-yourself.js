@@ -16,7 +16,7 @@ const getContent = () => (
     </p>
     <p>
       <span>
-        If not, check out
+        If not, check
         {' '}
         <LinkTo
           href="https://www.thepennyhoarder.com/save-money/diy-spa-day-for-cheap/"
@@ -28,9 +28,6 @@ const getContent = () => (
     </p>
     <p>
       Now turn on a good movie, get a cup of tea (or a glass of wine/whatever) and get ready for a cheap, relaxing night &#128522;
-    </p>
-    <p className={styles.italic}>
-      p.s. this goes for guys, too, &apos;cause remember, real men don&apos;t give a shit.
     </p>
   </div>
 )

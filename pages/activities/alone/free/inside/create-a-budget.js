@@ -8,7 +8,7 @@ const getContent = () => (
   <div className={styles.activityContainer}>
     <p>
       <span>
-        Ok, not really, I mean go for it, but I just didn&apos;t want you to blow past
+        Ok, not really. I mean, go for it, but I just didn&apos;t want you to blow by
         {' '}
         the real suggestion here, which is to
         {' '}
@@ -17,7 +17,10 @@ const getContent = () => (
       </span>
     </p>
     <p>
-      Wait wait!! Keep reading, it&apos;s not that b...OK, it&apos;s not fun but it can seriously be kind of satisfying once you get into it.
+      Wait wait!! Keep reading, it&apos;s not that b...OK, fine, it&apos;s not &quot;fun&quot;
+      but it can seriously be kind of satisfying once you get into it because it gives you a sense of control
+      and an understanding of where your money is actually going. In some cases you might even realize that
+      you can allow yourself to spend more money for certain things, like dining out or going to the movies.
     </p>
     <p>
       <span>
@@ -27,7 +30,7 @@ const getContent = () => (
           href="https://www.mint.com/"
           label="mint"
         />
-        {' and '}
+        {', '}
         <LinkTo
           href="https://www.nerdwallet.com/blog/finance/how-to-build-a-budget/"
           label="nerdwallet"
@@ -54,7 +57,7 @@ const getContent = () => (
     </p>
     <p>
       <span>
-      There are also paid sites likes
+      There are also paid sites like
         {' '}
         <LinkTo
           href="https://www.youneedabudget.com/"

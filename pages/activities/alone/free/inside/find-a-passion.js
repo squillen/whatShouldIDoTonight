@@ -44,7 +44,9 @@ const getContent = () => (
         />
       </li>
       <li>wood working</li>
-      <li>cooking/wine/beer/coffee/tea</li>
+      <li>cooking/baking</li>
+      <li>wine/beer/scotch/whiskey/etc.</li>
+      <li>coffee/tea</li>
       <li>
         <LinkTo
           href="/activities/alone/notFree/inside/buy-some-stocks"

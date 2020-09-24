@@ -12,8 +12,8 @@ const getContent = () => (
     />
     <p>Yup, you read that right: ditch the screens for a night.</p>
     <p>
-      I know, I know, that&apos;s like asking a crack addict to stop cold turkey, but
-      from the times I&apos;ve done it, I can tell you that it&apos;s well worth it.
+      I know, I know, I&apos;d probably have more luck asking a crack addict to stop cold turkey but,
+      from the times I&apos;ve successfully detoxed, I can tell you that it&apos;s well worth it.
     </p>
     <p>
       Unplug the TV, turn off your computer, and put away your phone,

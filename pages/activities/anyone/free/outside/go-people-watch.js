@@ -6,17 +6,17 @@ import Photo from '../../../../../components/photo/photo'
 
 const getContent = () => (
   <div className={styles.activityContainer}>
-    <p>You can do this almost anywhere and get some free entertainment and maybe even some fashion ideas out if it.</p>
-    <p>It&apos;s pretty simple, you just go anywhere there are people and watch them. But, like, subtly.</p>
+    <p>You can do this almost anywhere and get some free entertainment (and maybe even some fashion ideas).</p>
+    <p>It&apos;s pretty simple, you just go anywhere there are people and then watch them. But, like, subtly.</p>
     <Photo
       src="https://media.giphy.com/media/26BRuo6sLetdllPAQ/giphy.gif"
       alt="Guy from Silicon Valley looking out sliding glass door through blinds"
     />
-    <p>Consider:</p>
+    <p>Consider a:</p>
     <ul>
-      <li>the park</li>
-      <li>a coffee shop</li>
-      <li>a hiking trail</li>
+      <li>park</li>
+      <li>coffee shop</li>
+      <li>hiking trail</li>
       <li>wherever</li>
     </ul>
     <p>

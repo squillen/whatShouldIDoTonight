@@ -11,7 +11,7 @@ const getContent = () => (
       <iframe title="Clip of James Acaster Live at the Apollo" className={styles.iframe} src="https://www.youtube-nocookie.com/embed/89E_zW1qIM8" frameBorder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowFullScreen></iframe>
     </div>
     <p>
-      Now check out some notable stand-ups and get ready for a funny night. I mean,
+      Now check out these notable comedians and get ready for a funny night. I mean,
       the night itself won&apos;t be funny, cause it&apos;s, you know, a time of day, but there will be lots of funny things said during the night.
       Yea, whatever, there&apos;s a reason my name isn&apos;t on this list:
     </p>

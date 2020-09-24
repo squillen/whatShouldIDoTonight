@@ -18,10 +18,12 @@ const getContent = () => (
       <span>
         Check out the
         {' '}
+        &quot;
         <LinkTo
           href="https://www.diynetwork.com/how-to/skills-and-know-how/painting/how-to-paint-a-room"
           label="how to"
         />
+        &quot;
         {' '}
         before you start.
       </span>

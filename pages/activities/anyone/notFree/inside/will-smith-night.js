@@ -10,7 +10,7 @@ const getContent = () => (
       src="https://media.giphy.com/media/xT1XGXoaqfJXP3KCfC/giphy.gif"
       alt="Will Smith punching an alien in the face in Independence Day"
     />
-    <p>If Will Smith can save the world from aliens, you&apos;re damn right he can save you&apos;re night from boredom.</p>
+    <p>If Will Smith can save the world from aliens, you&apos;re damn right he can save your night from boredom.</p>
     <p>
       <span>
         He&apos;s

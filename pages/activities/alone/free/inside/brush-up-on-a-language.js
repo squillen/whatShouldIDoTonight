@@ -42,9 +42,10 @@ const getContent = () => (
         .
       </span>
     </p>
+    <p>Practice for at least 30 minutes.</p>
     <p>
       <span>
-        Practice for at least 30 minutes. Now, learn the following phrases, if you haven&apos;t already, by looking them up (via
+        Now, learn the following phrases, if you haven&apos;t already, by looking them up (via
         {' '}
         <LinkTo
           href="https://translate.google.com"

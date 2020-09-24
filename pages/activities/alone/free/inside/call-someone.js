@@ -12,7 +12,7 @@ const getContent = () => (
       src="https://media.giphy.com/media/THmjzgkvUlcTO9BVHY/giphy.gif"
       alt="The Situation looking baffled while on a duck phone"
     />
-    <p>the reaction of whoever you&apos;re calling ☝☝, because they&apos;re mother ducking shocked and ecstatic that you&apos;re actually calling.</p>
+    <p>☝☝ The reaction of whoever you&apos;re calling, because they&apos;re mother ducking shocked and ecstatic that you&apos;re actually calling.</p>
   </div>
 )
 

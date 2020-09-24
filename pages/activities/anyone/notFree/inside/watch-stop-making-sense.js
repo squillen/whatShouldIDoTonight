@@ -36,7 +36,7 @@ const getContent = () => (
     </p>
     <p>I mean, check out this beautiful rendition of This Must Be The Place:</p>
     <div className={styles.iframeContainer}>
-      <iframe className={styles.iframe} title="Talking heads - This must be the place HD" src="https://www.youtube-nocookie.com/embed/N7zluBxv2Z0?start=178" frameBorder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowFullScreen></iframe>
+      <iframe className={styles.iframe} title="Talking heads - This must be the place HD" src="https://www.youtube-nocookie.com/embed/N7zluBxv2Z0" frameBorder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowFullScreen></iframe>
     </div>
     <p>
       The film is the perfect amount of weird and the perfect amount of 80&apos;s.

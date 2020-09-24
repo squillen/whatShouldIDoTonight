@@ -12,7 +12,7 @@ const getContent = () => (
     />
     <p>Quit your grumbling. I mean, don&apos;t do whatever the fuck ☝ that ☝ is, but give it a chance otherwise.</p>
     <p>
-    Meditation doesn&apos;t have to be boring. In fact, it can actually be *gasp* enjoyable?!
+    Meditation doesn&apos;t have to be boring. In fact, it can actually be *gasp* (in meditation they call that a deep breath in) enjoyable?!
     </p>
     <p>Check this out for a quick (but thorough!) rundown:</p>
     <div className={styles.iframeContainer}>

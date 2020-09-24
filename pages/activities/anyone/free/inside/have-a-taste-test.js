@@ -55,7 +55,7 @@ const getContent = () => (
     <p>
       If you&apos;re with someone who&apos;s a real snob about whatever you&apos;re tasting,
       consider placing some bets on whether or not they actually know what
-      they hell they&apos;re talking about.
+      the hell they&apos;re talking about.
     </p>
     <p>
       Be prepared for some surprises.

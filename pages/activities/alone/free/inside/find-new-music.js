@@ -12,7 +12,7 @@ const getContent = () => (
     />
     <p>When was the last time you felt ☝ that ☝ passionately about some music?</p>
     <p>
-      There&apos;s a good chance you&apos;re music pool has gotten stagnant lately.
+      There&apos;s a good chance your music pool has gotten stagnant lately.
       Right now, find at least three new bands that you enjoy.
     </p>
     <p>

@@ -9,20 +9,20 @@ $submenu-width: 180px;
   background: $color-blue-dark;
 }
 
-.slide-enter {
+.menu-primary-enter {
   transform: translateY(-100%);
   transition: .3s cubic-bezier(0, 1, 0.5, 1);
 
-  &.slide-enter-active {
+  &.menu-primary-enter-active {
     transform: translateY(0%);
   }
 }
 
-.slide-leave {
+.menu-primary-exit {
   transform: translateY(0%);
   transition: .3s ease-in-out;
 
-  &.slide-leave-active {
+  &.menu-primary-exit-active {
     transform: translateY(-100%);
   }
 }
@@ -47,7 +47,10 @@ $submenu-width: 180px;
 }
 
 .nav {
-  display: inline-block;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
   margin: 2rem auto 0;
   color: #fff;
   text-align: left;

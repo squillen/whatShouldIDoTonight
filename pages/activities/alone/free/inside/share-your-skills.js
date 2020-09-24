@@ -21,8 +21,8 @@ const getContent = () => (
       alt="Woman doing what looks like very impressive/difficult juggling"
     />
     <p>
-      Ok, those might not be exactly the kind of skills you can share there, but you can do almost anything else, although it tends to lean towards creative-minded
-      activities, like how to:
+      Ok, those ☝☝ might not be exactly the kind of skills you can share there, but you can do almost
+      anything else, although it tends to lean towards the more creative-minded activities, like how to:
     </p>
     <ul>
       <li>make videos/websites/music/animations</li>

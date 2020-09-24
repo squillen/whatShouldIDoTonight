@@ -71,7 +71,18 @@ const getContent = () => (
       </span>
     </p>
     <p>That was weird since I don&apos;t have any kids...and I&apos;m a man.</p>
-    <p>Now go Leeroy Jenkins that shit.</p>
+    <p>
+      <span>
+        Now go
+        {' '}
+        <LinkTo
+          href="https://www.urbandictionary.com/define.php?term=leeroy%20jenkins"
+          label="Leeroy Jenkins"
+        />
+        {' '}
+        that shit.
+      </span>
+    </p>
     <Photo
       src="https://media.giphy.com/media/JPry9tfvgTYic/giphy.gif"
       alt="Big ant (or something like that) jumping from twig onto a big ol' spider and getting immediately eaten with the caption 'Leeroy Jenkins' scrolling in"

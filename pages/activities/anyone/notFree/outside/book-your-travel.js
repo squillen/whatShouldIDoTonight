@@ -20,7 +20,7 @@ const getContent = () => (
           label="start to"
         />
       </span>
-      ! And book it!
+      ! And then book it!
     </p>
     <p>
       <span>
@@ -68,7 +68,7 @@ const getContent = () => (
           label="ebags"
         />
         {' '}
-        has def got you covered.
+        has def got you covered. (Seriously, I still have one of their bags from like 15 years ago and it has held up amazingly. They&apos;re legit in my book.)
       </span>
     </p>
     <p>Bon voyage!</p>

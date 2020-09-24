@@ -8,7 +8,7 @@ const getContent = () => (
   <div className={styles.activityContainer}>
     <p>
       You know that stuff that you buy for like $4 a bottle?
-      You can make that yourself pretty damn easily and cheaply, it just takes a couple weeks to start.
+      You can make that yourself pretty damn easily and cheaply. It just takes a couple weeks to start.
     </p>
     <p>
       <span>
@@ -18,7 +18,7 @@ const getContent = () => (
           href="https://www.healthline.com/nutrition/kombucha-scoby#what-it-is"
           label="SCOBY"
         />
-        , which, admittedly, kinda looks like a eugenics program gone wrong.
+        , which, admittedly, kinda looks like a eugenics program gone wrong:
       </span>
     </p>
     <Photo

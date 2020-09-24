@@ -10,7 +10,9 @@ const getContent = () => (
       src="https://media.giphy.com/media/102xzU5V7M1YOs/giphy.gif"
       alt="Man in chef outfit dropping fries into pot that soon catches on fire"
     />
-    <p>Don&apos;t become a gif. (Or I guess just don&apos;t film yourself cooking.)</p>
+    <p>
+      Don&apos;t become a gif. Or at least just don&apos;t film yourself cooking...
+    </p>
     <p>
       There&apos;s a good chance all the classes are already booked out for tonight, but maybe not! And if they are, book it for another night!
     </p>

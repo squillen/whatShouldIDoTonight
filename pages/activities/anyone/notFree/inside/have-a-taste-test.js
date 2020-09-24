@@ -17,7 +17,7 @@ const getContent = () => (
     />
     <p>But back to you.</p>
     <p>
-      Go to the store and get multiple brands/price-ranges of one or some (or all!) of the following:
+      Go to the store and get multiple brands/price ranges of one, some, or all of the following:
     </p>
     <ul>
       <li>Beers</li>
@@ -50,7 +50,7 @@ const getContent = () => (
     <p>
       If you&apos;re with someone who&apos;s a real snob about whatever you&apos;re tasting,
       consider placing some bets on whether or not they actually know what
-      they hell they&apos;re talking about.
+      the hell they&apos;re talking about.
     </p>
     <p>
       Be prepared for some surprises.

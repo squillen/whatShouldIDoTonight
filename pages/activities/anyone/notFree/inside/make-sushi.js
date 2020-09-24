@@ -83,9 +83,9 @@ const getContent = () => (
       src="https://media.giphy.com/media/VlchmIoZPjjYQ/giphy.gif"
       alt="cat walking upright in a top hat"
     />
-    <p>that&apos;s you, you fancy fuck ☝</p>
+    <p>That&apos;s you, you fancy fuck ☝</p>
     <p>
-      Now say wasabi to your new night plans, Branzino, and let the good times roll.
+      Now say wasabi to your new night plans, Branzino, and let the good times roll. Like, you know, a sushi roll.
     </p>
     <p>I know, you hate me and my puns soy much.</p>
     <Photo

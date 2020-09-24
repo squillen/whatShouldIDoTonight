@@ -10,7 +10,7 @@ const getContent = () => (
       src="https://media.giphy.com/media/keTQt1Ry7yM9dlwDkp/giphy.gif"
       alt="Robin Williams as Mrs.Doubtfire running through restaurant screaming 'Help is on the way!'"
     />
-    <p>You&apos;re damn right it is, dear. ☝☝</p>
+    <p>You&apos;re damn right it is, dear ☝☝</p>
     <p>
       <span>
       Whether you want to laugh, cry, or laugh until you cry, Robin Williams is ready to

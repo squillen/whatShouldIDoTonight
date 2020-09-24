@@ -6,7 +6,7 @@ import Photo from '../../../../../components/photo/photo'
 
 const getContent = () => (
   <div className={styles.activityContainer}>
-    <p>Pick a movie and cook (or buy) something related to the film or to the area that it&apos;s filmed in.</p>
+    <p>Pick a movie and cook (or buy) something related to the film, area, or era that it&apos;s filmed in.</p>
     <p>
       <span>
         So, for example, if you pick
@@ -15,7 +15,7 @@ const getContent = () => (
           href="https://amzn.to/3hjAa5A"
           label="The Godfather"
         />
-        , make some veal marsala (tuxedo optional, but not really).
+        , make some veal marsala. (Tuxedo optional, but not really.)
       </span>
     </p>
     <p>
@@ -53,8 +53,7 @@ const getContent = () => (
           href="https://amzn.to/32wZrFp"
           label="Battle Royale"
         />
-        {' '}
-        (free on IMDbTV).
+        , which is actually free on IMDbTV.
       </span>
     </p>
     <p>Bonus if you also add the drink of choice from the region you choose!</p>

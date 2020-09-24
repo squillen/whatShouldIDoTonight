@@ -43,7 +43,7 @@ const getContent = () => (
         {' '}
       </span>
     </p>
-    <p>I&apos;d personally recommend</p>
+    <p>We recommend:</p>
     <ul>
       <li>
         <LinkTo

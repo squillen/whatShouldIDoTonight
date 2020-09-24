@@ -10,7 +10,7 @@ const getContent = () => (
       src="https://media.giphy.com/media/U4YBjXbucPwuny4rBM/giphy.gif"
       alt="Woman mindlessly hacking away on some sweet potatoes"
     />
-    <p>Life&apos;s too short for bad food. So make better food and make it faster.</p>
+    <p>Life&apos;s too short for bad food. So make it better and make it faster.</p>
     <p>Learn:</p>
     <ol>
       <li>

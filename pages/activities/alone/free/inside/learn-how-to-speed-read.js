@@ -33,6 +33,7 @@ const getContent = () => (
       src="https://media.giphy.com/media/8dYmJ6Buo3lYY/giphy.gif"
       alt="Baby acting like he can read"
     />
+    <p>Legend.</p>
   </div>
 )
 

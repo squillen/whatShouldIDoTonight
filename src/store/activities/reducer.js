@@ -4,7 +4,10 @@ const activityInitialState = {
   userActivities: [],
   originalUserActivities: [],
   currentActivity: {},
-  showActivities: []
+  showActivities: [],
+  aloneActivities: {},
+  notAloneActivities: {},
+  activities: []
 }
 
 export default function reducer (state = activityInitialState, action) {
@@ -12,13 +15,14 @@ export default function reducer (state = activityInitialState, action) {
     case activityActionTypes.SET_ALL_ACTIVITIES:
       return {
         ...state,
-        activities: action.payload
+        activities: action.payload.activities,
+        aloneActivities: action.payload.aloneActivities,
+        notAloneActivities: action.payload.notAloneActivities
       }
     case activityActionTypes.SET_USER_ACTIVITIES:
       return {
         ...state,
         originalUserActivities: action.payload,
-        showActivities: [],
         userActivities: action.payload
       }
     case activityActionTypes.GET_NEW_USER_ACTIVITY: {
@@ -26,17 +30,12 @@ export default function reducer (state = activityInitialState, action) {
       const userActivities = state.userActivities || []
       const userActivitiesCopy = [...userActivities]
 
-      // copy shownActivities
-      const shownActivities = state.shownActivities || []
-      const shownActivitiesCopy = [...shownActivities]
-
       // mutate userActivitiesCopy copy with one less activity
       const randomIndex = Math.floor(Math.random() * userActivitiesCopy.length)
       const currentActivity = userActivitiesCopy.splice(randomIndex, 1)[0] || {}
       return {
         ...state,
         currentActivity,
-        showActivities: [...shownActivitiesCopy, currentActivity],
         userActivities: userActivitiesCopy
       }
     }

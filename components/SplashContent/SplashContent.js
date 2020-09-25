@@ -1,41 +1,48 @@
 import { connect } from 'react-redux'
+import Link from 'next/link'
 import PropTypes from 'prop-types'
 import styles from './SplashContent.module.css'
 
-function SplashContent ({ todaysArticles }) {
-  console.log('todaysArticles :>> ', todaysArticles)
-  const [article1, article2, article3] = todaysArticles
-  const getBackground = article => `url(https://what-should-i-do-tonight.s3.us-east-2.amazonaws.com/images/${article.id}.jpg) center no-repeat`
+function SplashContent ({ content = [], banner }) {
+  const [content1, content2, content3] = content
+  const getBackground = currContent => currContent ? `url(${currContent.image}) center no-repeat` : ''
+  const getContentURL = currContent => currContent && currContent.name
+    ? `/tv/show?id=${currContent._id}`
+    : ''
+  const getContentDiv = currContent => (
+    <div className={styles.background} style={{ background: getBackground(currContent), backgroundSize: 'cover' }}>
+      <div className={styles.overlay} />
+      <Link href={getContentURL(currContent)} passHref>
+        <a>
+          <div className={styles.text}>{currContent.name || ''}</div>
+        </a>
+      </Link>
+    </div>
+  )
   return (
     <div className={styles.splashContentContainer}>
-      <div className={styles.largeImageContainer}>
-        <div
-          className={styles.largeImage}
-          key={article1.id}
-        >
-          <div className={styles.background} style={{ background: getBackground(article1), backgroundSize: 'cover' }}>
-            <div className={styles.overlay} />
-            <div className={styles.text}>{article1.id.split('-').join(' ')}</div>
+      <div className={styles.banner}>{banner}</div>
+      <div className={styles.imagesContainer}>
+        <div className={styles.largeImageContainer}>
+          <div
+            className={styles.largeImage}
+            key={content1.name}
+          >
+            {getContentDiv(content1)}
           </div>
         </div>
-      </div>
-      <div className={styles.smallImagesContainer}>
-        <div
-          className={styles.smallImage}
-          key={article2.id}
-        >
-          <div className={styles.background} style={{ background: getBackground(article2), backgroundSize: 'cover' }}>
-            <div className={styles.overlay} />
-            <div className={styles.text}>{article2.id.split('-').join(' ')}</div>
+        <div className={styles.smallImagesContainer}>
+          <div
+            className={styles.smallImage}
+            key={content2.name}
+          >
+            {getContentDiv(content2)}
           </div>
-        </div>
-        <div
-          className={styles.smallImage}
-          key={article3.id}
-        >
-          <div className={styles.background} style={{ background: getBackground(article3), backgroundSize: 'cover' }}>
-            <div className={styles.overlay} />
-            <div className={styles.text}>{article3.id.split('-').join(' ')}</div>
+          <div
+            className={styles.smallImage}
+            key={content3.name}
+          >
+            {getContentDiv(content3)}
           </div>
         </div>
       </div>
@@ -44,7 +51,8 @@ function SplashContent ({ todaysArticles }) {
 }
 
 SplashContent.propTypes = {
-  todaysArticles: PropTypes.array
+  content: PropTypes.array,
+  banner: PropTypes.string
 }
 
 export default connect((state) => state)(SplashContent)

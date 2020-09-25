@@ -1,48 +1,52 @@
-import React, { useState } from 'react'
+import React, { useState, useEffect } from 'react'
 import PropTypes from 'prop-types'
 import Head from 'next/head'
 
 // REDUX
-import { connect, useSelector } from 'react-redux'
+import { connect } from 'react-redux'
 import { bindActionCreators } from 'redux'
 import wrapper from '../src/store/store'
-import { getNewUserActivity, setUserActivities } from '../src/store/activities/action'
+import { getNewUserActivity, setUserActivities, setAllActivities } from '../src/store/activities/action'
 
 // COMPONENTS
 import Layout from '../components/layout/layout'
 import NextSEO from '../components/nextSEO'
 import { siteTitle } from '../components/defaultHead'
 import RandomGenerator from '../components/RandomGenerator/RandomGenerator'
-import SplashContent from '../components/SplashContent/SplashContent'
 
 // HELPERS
-import utilStyles from '../styles/utils.module.css'
 import { getAllActivitiesData } from '../lib/posts'
+import { sortActivities } from '../lib/helpers/dataHelpers'
 
 export const getStaticProps = wrapper.getStaticProps(({ store }) => {
   const activities = getAllActivitiesData()
+  const { aloneActivities, notAloneActivities } = sortActivities(activities)
   return {
     props: {
-      activities
+      activities,
+      aloneActivities,
+      notAloneActivities
     }
   }
 })
 
-function Home ({ activities }) {
-  const todaysArticles = [
-    activities['/alone/notFree/inside'][2],
-    activities['/alone/notFree/inside'][3],
-    activities['/alone/notFree/inside'][4]
-  ]
-  console.log('activities :>> ', activities)
+function Home (props) {
+  const { activities, aloneActivities, notAloneActivities } = props
+  const [firstLoad, setFirstLoad] = useState(true)
+  useEffect(() => {
+    if (firstLoad) {
+      props.setAllActivities({ activities, aloneActivities, notAloneActivities })
+      setFirstLoad(false)
+    }
+  }, firstLoad)
+
   return (
     <Layout>
       <Head>
         <title>{siteTitle}</title>
       </Head>
       <NextSEO />
-      <SplashContent todaysArticles={todaysArticles} />
-      {/* <RandomGenerator activities={activities} /> */}
+      <RandomGenerator activities={activities} />
     </Layout>
   )
 }
@@ -50,14 +54,18 @@ function Home ({ activities }) {
 const mapDispatchToProps = (dispatch) => {
   return {
     getNewUserActivity: bindActionCreators(getNewUserActivity, dispatch),
-    setUserActivities: bindActionCreators(setUserActivities, dispatch)
+    setUserActivities: bindActionCreators(setUserActivities, dispatch),
+    setAllActivities: bindActionCreators(setAllActivities, dispatch)
   }
 }
 
 Home.propTypes = {
   setUserActivities: PropTypes.func,
+  setAllActivities: PropTypes.func,
   getNewUserActivity: PropTypes.func,
-  activities: PropTypes.object
+  activities: PropTypes.object,
+  aloneActivities: PropTypes.array,
+  notAloneActivities: PropTypes.array
 }
 
 export default connect((state) => state, mapDispatchToProps)(Home)

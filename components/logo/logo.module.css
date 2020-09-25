@@ -7,6 +7,7 @@
 }
 
 .headerContainer {
+	padding-left: 1rem;
 	display: flex;
 	justify-content: center;
 	height: 100%;

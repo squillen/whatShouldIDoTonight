@@ -6,7 +6,7 @@ import styles from './Scrollable.module.css'
 function Scrollable ({ content = [] }) {
   console.log('content :>> ', content)
   const getBackground = el => `url(${el.image}) center no-repeat`
-  const getContentURL = el => `/tv/show?id=${content._id}`
+  const getContentURL = el => `/tv/show?id=${el._id}`
   return (
     <div className={styles.scrollableContainer}>
       {

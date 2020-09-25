@@ -12,6 +12,14 @@
     <changefreq>hourly</changefreq>
   </url>
   <url>
+    <loc>https://www.whatshouldidotonight.com/tv/show</loc>
+    <changefreq>hourly</changefreq>
+  </url>
+  <url>
+    <loc>https://www.whatshouldidotonight.com/categories/activities</loc>
+    <changefreq>hourly</changefreq>
+  </url>
+  <url>
     <loc>https://www.whatshouldidotonight.com/categories/tv</loc>
     <changefreq>hourly</changefreq>
   </url>
@@ -176,6 +184,10 @@
     <changefreq>hourly</changefreq>
   </url>
   <url>
+    <loc>https://www.whatshouldidotonight.com/activities/alone/notFree/outside/try-new-exercises</loc>
+    <changefreq>hourly</changefreq>
+  </url>
+  <url>
     <loc>https://www.whatshouldidotonight.com/activities/alone/notFree/inside/buy-all-your-gifts</loc>
     <changefreq>hourly</changefreq>
   </url>
@@ -229,10 +241,6 @@
   </url>
   <url>
     <loc>https://www.whatshouldidotonight.com/activities/alone/notFree/inside/take-music-lessons</loc>
-    <changefreq>hourly</changefreq>
-  </url>
-  <url>
-    <loc>https://www.whatshouldidotonight.com/activities/alone/notFree/outside/try-new-exercises</loc>
     <changefreq>hourly</changefreq>
   </url>
   <url>

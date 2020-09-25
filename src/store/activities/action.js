@@ -11,8 +11,8 @@ export const resetAll = () => (dispatch) => {
   return dispatch({ type: activityActionTypes.RESET_ALL })
 }
 
-export const setAllActivities = (activities) => (dispatch) => {
-  return dispatch({ type: activityActionTypes.SET_ALL_ACTIVITIES, payload: activities })
+export const setAllActivities = (payload) => (dispatch) => {
+  return dispatch({ type: activityActionTypes.SET_ALL_ACTIVITIES, payload })
 }
 
 export const setUserActivities = (payload) => (dispatch) => {

@@ -66,6 +66,11 @@ function CategorySubMenu () {
         </Link>
       </li>
       <li className={styles['nav__submenu-item']}>
+        <Link href="/categories/music">
+          <a>Podcasts</a>
+        </Link>
+      </li>
+      <li className={styles['nav__submenu-item']}>
         <Link href="/categories/books">
           <a>Books</a>
         </Link>
@@ -89,22 +94,27 @@ function CategorySubMenu () {
   )
 }
 
+function ActivitiesSubMenu () {
+  return (
+    <ul id={styles.dropDownList} className={styles.nav__submenu}>
+      <li className={styles['nav__submenu-item']}>
+        <Link href="/categories/activities?status=alone">
+          <a>Alone</a>
+        </Link>
+      </li>
+      <li className={styles['nav__submenu-item']}>
+        <Link href="/categories/activities?status=notAlone">
+          <a>Not Alone</a>
+        </Link>
+      </li>
+    </ul>
+  )
+}
+
 export default function NavBar () {
   const [showCategoryMenu, setShowCategoryMenu] = useState(false)
   const [showMoodMenu, setShowMoodMenu] = useState(false)
-  const [menuHeight, setMenuHeight] = useState(null)
-  const dropdownRef = useRef(null)
-
-  useEffect(() => {
-    const currentRef = dropdownRef.current || {}
-    const firstChild = currentRef.firstChild || {}
-    setMenuHeight(firstChild.offsetHeight)
-  }, [])
-
-  function calcHeight (el) {
-    const height = el.offsetHeight
-    setMenuHeight(height)
-  }
+  const [showActivitiesMenu, setShowActivitiesMenu] = useState(false)
 
   return (
     <div className={styles.navBarContainer}>
@@ -126,7 +136,7 @@ export default function NavBar () {
               </CSSTransition>
             </div>
           </li>
-          <li className={styles['nav__menu-item']} onMouseLeave={() => setShowMoodMenu(false)}>
+          {/* <li className={styles['nav__menu-item']} onMouseLeave={() => setShowMoodMenu(false)}>
             <a onMouseEnter={() => setShowMoodMenu(true)}>
               by mood
             </a>
@@ -140,12 +150,28 @@ export default function NavBar () {
                 </div>
               </CSSTransition>
             </div>
-          </li>
-          <li className={styles['nav__menu-item']}>
-            <a>random generator</a>
+          </li> */}
+
+          <li className={styles['nav__menu-item']} onMouseLeave={() => setShowActivitiesMenu(false)}>
+            <a onMouseEnter={() => setShowActivitiesMenu(true)}>
+              by activity
+            </a>
+            <div className={styles['submenu-container']}>
+              <CSSTransition
+                timeout={500}
+                classNames="menu-primary"
+              >
+                <div className={styles.menu}>
+                  { showActivitiesMenu && <ActivitiesSubMenu /> }
+                </div>
+              </CSSTransition>
+            </div>
           </li>
           <li className={styles['nav__menu-item']}>
             <a>site favorites</a>
+          </li>
+          <li className={styles['nav__menu-item']}>
+            <a>random generator</a>
           </li>
         </ul>
       </nav>

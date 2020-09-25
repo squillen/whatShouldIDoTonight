@@ -76,6 +76,11 @@ function CategorySubMenu () {
         </Link>
       </li>
       <li className={styles['nav__submenu-item']}>
+        <Link href="/categories/learn">
+          <a>Learn</a>
+        </Link>
+      </li>
+      <li className={styles['nav__submenu-item']}>
         <Link href="/categories/deals">
           <a>Deals</a>
         </Link>

@@ -41,56 +41,62 @@ function Activities ({ aloneActivities, notAloneActivities }) {
   const [currentActivities, setCurrentActivities] = useState([])
   const [showFree, setShowFree] = useState(true)
   const [showNotFree, setShowNotFree] = useState(true)
-  const setUserActivities = () => {
-    const router = useRouter()
-    const { asPath = '' } = router
-    const status = asPath.split('?')[1].split('=')[1]
-    const allActivities = status === 'alone'
-      ? aloneActivities
-      : notAloneActivities
-    setAllActivities(allActivities)
-    let currentActivities = [...allActivities.free, ...allActivities.notFree]
-    currentActivities = currentActivities.sort((a, b) => a.id - b.id)
-    setCurrentActivities(currentActivities)
-  }
-
-  useEffect(() => {
-    let currentActivities = []
-    if (showFree && showNotFree) {
-      currentActivities = [...allActivities.free, ...allActivities.notFree]
-    } else if (showFree && !showNotFree) {
-      currentActivities = [...allActivities.free]
-    } else {
-      currentActivities = [...allActivities.notFree]
-    }
-    currentActivities = currentActivities.sort((a, b) => {
+  const [userAlone, setUserAlone] = useState(true)
+  function sort (arr) {
+    return arr.sort((a, b) => {
       if (a.id > b.id) return 1
       if (a.id < b.id) return -1
       return 0
     })
+  }
+  const setUserActivities = () => {
+    const router = useRouter()
+    const { asPath = '' } = router
+    const status = asPath.split('?')[1].split('=')[1]
+    const userIsAlone = status === 'alone'
+    const allActivities = userIsAlone
+      ? aloneActivities
+      : notAloneActivities
+    setAllActivities(allActivities)
+    setUserAlone(userIsAlone)
+    let currentActivities = [...allActivities.free, ...allActivities.notFree]
+    currentActivities = sort(currentActivities)
     setCurrentActivities(currentActivities)
-  }, [showFree, showNotFree])
+  }
+
+  useEffect(() => {
+    const newActivities = userAlone ? aloneActivities : notAloneActivities
+    let currentActivities = []
+    if (showFree) currentActivities = [...newActivities.free]
+    if (showNotFree) currentActivities = [...currentActivities, ...newActivities.notFree]
+    currentActivities = sort(currentActivities)
+    setCurrentActivities(currentActivities)
+  }, [showFree, showNotFree, userAlone])
 
   if (!allActivities) setUserActivities()
   return (
     <Layout>
       <div className={utilStyles.activitiesContainer}>
-        <div className={utilStyles.options}>
+        <div className={utilStyles.activityOptions}>
           <div className={utilStyles[showFree ? 'selectedActivityOption' : 'activityOption']} onClick={() => setShowFree(!showFree)}>free</div>
           <div className={utilStyles[showNotFree ? 'selectedActivityOption' : 'activityOption']} onClick={() => setShowNotFree(!showNotFree)}>not free</div>
+          <div className={utilStyles[userAlone ? 'selectedActivityOption' : 'activityOption']} onClick={() => setUserAlone(true)}>alone</div>
+          <div className={utilStyles[!userAlone ? 'selectedActivityOption' : 'activityOption']} onClick={() => setUserAlone(false)}>not alone</div>
         </div>
         <div className={utilStyles.activities}>
-          {
-            currentActivities.map((activity, idx) => (
-              <div className="activity" key={`${activity.id}-${idx}`}>
-                <Link href={`/activities${activity.category}/${activity.id}`}>
-                  <a>
-                    {activity.id.split('-').join(' ')}
-                  </a>
-                </Link>
-              </div>
-            ))
-          }
+          <ol>
+            {
+              currentActivities.map((activity, idx) => (
+                <li className="activity" key={`${activity.id}-${idx}`}>
+                  <Link href={`/activities${activity.category}/${activity.id}`}>
+                    <a>
+                      {activity.id.split('-').join(' ')}
+                    </a>
+                  </Link>
+                </li>
+              ))
+            }
+          </ol>
         </div>
       </div>
     </Layout>

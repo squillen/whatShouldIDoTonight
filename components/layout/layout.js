@@ -36,9 +36,7 @@ export default function Layout ({ children, home }) {
       animate="animate"
     >
       <DefaultHead />
-      <div className={styles.headerContainer}>
-        <NavBar />
-      </div>
+      <NavBar />
       <div className={styles.childrenContainer}>
         <main>{children}</main>
       </div>

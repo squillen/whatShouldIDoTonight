@@ -1,47 +1,70 @@
 import React, { useState } from 'react'
 import PropTypes from 'prop-types'
 
-// REDUX
-import { connect } from 'react-redux'
-import { bindActionCreators } from 'redux'
-import wrapper from '../../src/store/store'
-import { getNewUserActivity, setUserActivities } from '../../src/store/activities/action'
-
 // COMPONENTS
 import Layout from '../../components/layout/layout'
+import SplashContent from '../../components/SplashContent/SplashContent'
 
 // HELPERS
 import utilStyles from '../../styles/utils.module.css'
+import callAPI from '../../lib/helpers/callAPI'
+import displayContent from '../../lib/helpers/displayContent'
 
-export const getStaticProps = wrapper.getStaticProps(({ store }) => {
-  return {
-    props: {}
+export async function getStaticProps () {
+  let tvShows = []
+  let free = []
+  let comedy = []
+  let drama = []
+  let horror = []
+  let action = []
+  try {
+    tvShows = await callAPI('tv')
+    comedy = await callAPI('tv?comedy=comedy')
+    drama = await callAPI('tv?drama=drama')
+    horror = await callAPI('tv?horror=horror')
+    action = await callAPI('tv?action=action')
+    free = await callAPI('tv?free=free')
+  } catch (e) {
+    console.error(e)
   }
-})
+  return {
+    props: {
+      tvShows,
+      free,
+      comedy,
+      drama,
+      horror,
+      action
+    }
+  }
+}
 
-function TVSection () {
+function TVSection ({ tvShows, comedy, horror, free, drama, action }) {
+  const contentCategories = [
+    { content: comedy, header: 'Comedy' },
+    { content: horror, header: 'Horror' },
+    { content: free, header: 'Free' },
+    { content: drama, header: 'Drama' },
+    { content: action, header: 'Action' }
+  ]
+  const displayedContent = contentCategories.map(displayContent)
   return (
     <Layout>
       <div className={utilStyles.tvContainer}>
-        <div className="header">
-          tv to watch
-        </div>
+        <SplashContent content={tvShows} banner="Only Watch the Best" />
+        {displayedContent}
       </div>
     </Layout>
   )
 }
 
-const mapDispatchToProps = (dispatch) => {
-  return {
-    getNewUserActivity: bindActionCreators(getNewUserActivity, dispatch),
-    setUserActivities: bindActionCreators(setUserActivities, dispatch)
-  }
-}
-
 TVSection.propTypes = {
-  setUserActivities: PropTypes.func,
-  getNewUserActivity: PropTypes.func,
-  activities: PropTypes.object
+  tvShows: PropTypes.array,
+  comedy: PropTypes.array,
+  drama: PropTypes.array,
+  action: PropTypes.array,
+  horror: PropTypes.array,
+  free: PropTypes.array
 }
 
-export default connect((state) => state, mapDispatchToProps)(TVSection)
+export default TVSection

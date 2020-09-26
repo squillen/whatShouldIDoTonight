@@ -17,6 +17,7 @@ import RandomGenerator from '../components/RandomGenerator/RandomGenerator'
 // HELPERS
 import { getAllActivitiesData } from '../lib/posts'
 import { sortActivities } from '../lib/helpers/dataHelpers'
+import utilStyles from '../styles/utils.module.css'
 
 export const getStaticProps = wrapper.getStaticProps(({ store }) => {
   const activities = getAllActivitiesData()
@@ -41,7 +42,7 @@ function Home (props) {
   }, firstLoad)
 
   return (
-    <Layout>
+    <Layout home>
       <Head>
         <title>{siteTitle}</title>
       </Head>

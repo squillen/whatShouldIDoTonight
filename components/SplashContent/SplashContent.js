@@ -3,12 +3,13 @@ import Link from 'next/link'
 import PropTypes from 'prop-types'
 import styles from './SplashContent.module.css'
 
-function SplashContent ({ content = [], banner }) {
+function SplashContent ({ content = [], banner, destination }) {
   const [content1, content2, content3] = content
   const getBackground = currContent => currContent ? `url(${currContent.image}) center no-repeat` : ''
   const getContentURL = currContent => currContent && currContent.name
-    ? `/tv/show?id=${currContent._id}`
+    ? `${destination}?id=${currContent._id}`
     : ''
+  const height = banner ? '90%' : '100%'
   const getContentDiv = currContent => (
     <div className={styles.background} style={{ background: getBackground(currContent), backgroundSize: 'cover' }}>
       <div className={styles.overlay} />
@@ -21,8 +22,14 @@ function SplashContent ({ content = [], banner }) {
   )
   return (
     <div className={styles.splashContentContainer}>
-      <div className={styles.banner}>{banner}</div>
-      <div className={styles.imagesContainer}>
+      {
+        banner
+          ? (
+            <div className={styles.banner}>{banner}</div>
+          )
+          : null
+      }
+      <div className={styles.imagesContainer} style={{ height }}>
         <div className={styles.largeImageContainer}>
           <div
             className={styles.largeImage}

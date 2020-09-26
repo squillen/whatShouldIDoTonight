@@ -74,14 +74,39 @@ function Activities ({ aloneActivities, notAloneActivities }) {
   }, [showFree, showNotFree, userAlone])
 
   if (!allActivities) setUserActivities()
+  const cancelButton = <i className="fas fa-times"></i>
   return (
     <Layout>
       <div className={utilStyles.activitiesContainer}>
         <div className={utilStyles.activityOptions}>
-          <div className={utilStyles[showFree ? 'selectedActivityOption' : 'activityOption']} onClick={() => setShowFree(!showFree)}>free</div>
-          <div className={utilStyles[showNotFree ? 'selectedActivityOption' : 'activityOption']} onClick={() => setShowNotFree(!showNotFree)}>not free</div>
-          <div className={utilStyles[userAlone ? 'selectedActivityOption' : 'activityOption']} onClick={() => setUserAlone(true)}>alone</div>
-          <div className={utilStyles[!userAlone ? 'selectedActivityOption' : 'activityOption']} onClick={() => setUserAlone(false)}>not alone</div>
+          <div
+            className={utilStyles[showFree ? 'selectedActivityOption' : 'activityOption']}
+            onClick={() => showNotFree === false ? () => {} : setShowFree(!showFree)}
+          >
+            <div>free</div>
+            {showFree ? cancelButton : null}
+          </div>
+          <div
+            className={utilStyles[showNotFree ? 'selectedActivityOption' : 'activityOption']}
+            onClick={() => showFree === false ? () => {} : setShowNotFree(!showNotFree)}
+          >
+            <div>not free</div>
+            {showNotFree ? cancelButton : null}
+          </div>
+          <div
+            className={utilStyles[userAlone ? 'selectedActivityOption' : 'activityOption']}
+            onClick={() => setUserAlone(true)}
+          >
+            <div>alone</div>
+            {userAlone ? cancelButton : null}
+          </div>
+          <div
+            className={utilStyles[!userAlone ? 'selectedActivityOption' : 'activityOption']}
+            onClick={() => setUserAlone(false)}
+          >
+            <div>not alone</div>
+            {!userAlone ? cancelButton : null}
+          </div>
         </div>
         <div className={utilStyles.activities}>
           <ol>

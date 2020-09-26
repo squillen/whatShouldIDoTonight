@@ -3,7 +3,7 @@
 	text-decoration: none;
 	height: 100%;
 	-webkit-backface-visibility: hidden;
-	color: #EDEDED;
+	color: white;
 }
 
 .headerContainer {
@@ -24,7 +24,7 @@
 
 .flicker, .flickerFast, .flickerSlow {
 	color: #ffcc00;
-	animation: flicker 3s linear infinite;
+	animation: flicker 3s linear 2;
 }
 
 .flickerSlow {

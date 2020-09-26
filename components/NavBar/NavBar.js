@@ -47,76 +47,46 @@ function MoodSubMenu () {
   )
 }
 
-function CategorySubMenu () {
+function createSubMenu (items) {
   return (
     <ul id={styles.dropDownList} className={styles.nav__submenu}>
-      <li className={styles['nav__submenu-item']}>
-        <Link href="/categories/tv">
-          <a>T.V.</a>
-        </Link>
-      </li>
-      <li className={styles['nav__submenu-item']}>
-        <Link href="/categories/movies">
-          <a>Movies</a>
-        </Link>
-      </li>
-      <li className={styles['nav__submenu-item']}>
-        <Link href="/categories/music">
-          <a>Music</a>
-        </Link>
-      </li>
-      <li className={styles['nav__submenu-item']}>
-        <Link href="/categories/music">
-          <a>Podcasts</a>
-        </Link>
-      </li>
-      <li className={styles['nav__submenu-item']}>
-        <Link href="/categories/books">
-          <a>Books</a>
-        </Link>
-      </li>
-      <li className={styles['nav__submenu-item']}>
-        <Link href="/categories/learn">
-          <a>Learn</a>
-        </Link>
-      </li>
-      <li className={styles['nav__submenu-item']}>
-        <Link href="/categories/deals">
-          <a>Deals</a>
-        </Link>
-      </li>
-      <li className={styles['nav__submenu-item']}>
-        <Link href="/categories/sites">
-          <a>Sites</a>
-        </Link>
-      </li>
-      <li className={styles['nav__submenu-item']}>
-        <Link href="/categories/food">
-          <a>Food</a>
-        </Link>
-      </li>
+      {
+        items.map(item => (
+          <li className={styles['nav__submenu-item']} key={item.title}>
+            <Link href={item.href}>
+              <a>{item.title}</a>
+            </Link>
+          </li>
+        ))
+      }
     </ul>
   )
+}
+
+function CategorySubMenu () {
+  const items = [
+    { title: 'Watch', href: '/categories/watch' },
+    // { title: 'Music', href: '/categories/music' },
+    { title: 'Listen', href: '/categories/listen' },
+    { title: 'Read', href: '/categories/read' },
+    { title: 'Learn', href: '/categories/learn' },
+    // { title: 'Deals', href: '/categories/deals' },
+    // { title: 'Sites', href: '/categories/sites' },
+    { title: 'Eat', href: '/categories/eat' },
+    { title: 'Do', href: '/categories/do' }
+  ]
+  return createSubMenu(items)
 }
 
 function ActivitiesSubMenu () {
-  return (
-    <ul id={styles.dropDownList} className={styles.nav__submenu}>
-      <li className={styles['nav__submenu-item']}>
-        <Link href="/categories/activities?status=alone">
-          <a>Alone</a>
-        </Link>
-      </li>
-      <li className={styles['nav__submenu-item']}>
-        <Link href="/categories/activities?status=notAlone">
-          <a>Not Alone</a>
-        </Link>
-      </li>
-    </ul>
-  )
+  const items = [
+    { title: 'Alone', href: '/categories/activities?status=alone' },
+    { title: 'Not Alone', href: '/categories/activities?status=notAlone' }
+  ]
+  return createSubMenu(items)
 }
 
-export default function NavBar () {
+export default function NavBar ({ home }) {
   const [showCategoryMenu, setShowCategoryMenu] = useState(false)
   const [showMoodMenu, setShowMoodMenu] = useState(false)
   const [showActivitiesMenu, setShowActivitiesMenu] = useState(false)
@@ -173,11 +143,21 @@ export default function NavBar () {
             </div>
           </li>
           <li className={styles['nav__menu-item']}>
-            <a>site favorites</a>
+            <Link href="/favorites">
+              <a>site favorites</a>
+            </Link>
           </li>
-          <li className={styles['nav__menu-item']}>
-            <a>random generator</a>
-          </li>
+          {
+            home
+              ? null
+              : (
+                <li className={styles['nav__menu-item']}>
+                  <Link href="/">
+                    <a>random generator</a>
+                  </Link>
+                </li>
+              )
+          }
         </ul>
       </nav>
     </div>

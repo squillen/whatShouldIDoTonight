@@ -9,7 +9,7 @@
 
 .contactContainer > a {
   cursor: pointer;
-  color: #EDEDED;
+  color: white;
   text-decoration: none;
   font-size: 1rem;
   transition: all 0.2s ease-in-out;

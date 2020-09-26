@@ -14,7 +14,8 @@
   font-size: 1rem;
   border: 3px solid #262626;
   border-radius: 1rem;
-  background: #EDEDED;
+  /* background: #EDEDED; */
+  background: white;
   color: #262626;
   display: flex;
   justify-content: center;
@@ -38,12 +39,12 @@
 .button:hover,
 .large:hover {
   background: #3D50C1;
-  color: #EDEDED;
+  color: white;
 }
 
 .resetButton:hover {
   background: red;
-  color: #EDEDED;
+  color: white;
 }
 
 .admonishOKButton {

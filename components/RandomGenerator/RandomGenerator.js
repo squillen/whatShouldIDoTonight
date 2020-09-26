@@ -106,6 +106,13 @@ function RandomGenerator (props) {
           />
         </div>
       </div>
+      <div className={utilStyles.indexHeaderSectionContainer}>
+        <div className={utilStyles.headerSectionBackground}>
+          <div className={utilStyles.headerSectionText}>
+            The site for curated ideas and suggestions
+          </div>
+        </div>
+      </div>
     </section>
   )
 }

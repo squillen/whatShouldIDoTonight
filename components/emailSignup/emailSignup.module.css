@@ -26,12 +26,12 @@
   height: 2.5rem;
   margin: 0.25em 0;
   cursor: pointer;
-  background: #EDEDED;
+  background: white;
   color: black;
   display: flex;
   justify-content: center;
   align-items: center;
-  border: 3px solid #EDEDED;
+  border: 3px solid white;
   border-image: linear-gradient(#EC6192, #EC4C34, #FFBD2B, #EBDE56, #57C754, #53A1EB) 1;
 } 
 
@@ -73,7 +73,7 @@
   -webkit-justify-content: center;
   -ms-flex-pack: center;
   justify-content: center;
-  color: #EDEDED;
+  color: white;
   font-weight: 500;
 }
 

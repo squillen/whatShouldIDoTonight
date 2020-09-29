@@ -12,6 +12,16 @@ module.exports = {
       config.devtool = 'cheap-module-source-map'
     }
 
+    // config.module.rules.push({
+    //   test: /\.scss$/,
+    //   use: [
+    //     options.defaultLoaders.babel,
+    //     {
+    //       loader: '@mdx-js/loader'
+    //     }
+    //   ]
+    // })
+
     return config
   }
 }

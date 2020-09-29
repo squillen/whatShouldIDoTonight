@@ -24,15 +24,15 @@ export async function getStaticProps () {
   let selfImprovement = []
 
   try {
-    spotlight = await callAPI('read?spotlight=spotlight')
-    free = await callAPI('read?free=free')
-    autoBio = await callAPI('read?category=autoBio')
-    crime = await callAPI('read?category=crime')
-    history = await callAPI('read?category=history')
-    personal = await callAPI('read?category=personal')
-    finance = await callAPI('read?category=finance')
-    food = await callAPI('read?category=food')
-    selfImprovement = await callAPI('read?category=selfImprovement')
+    // spotlight = await callAPI('read?spotlight=spotlight')
+    // free = await callAPI('read?free=free')
+    // autoBio = await callAPI('read?category=autoBio')
+    // crime = await callAPI('read?category=crime')
+    // history = await callAPI('read?category=history')
+    // personal = await callAPI('read?category=personal')
+    // finance = await callAPI('read?category=finance')
+    // food = await callAPI('read?category=food')
+    // selfImprovement = await callAPI('read?category=selfImprovement')
   } catch (e) {
     console.error(e)
   }

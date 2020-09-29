@@ -26,17 +26,17 @@ export async function getStaticProps () {
   let recipe = []
 
   try {
-    spotlight = await callAPI('eat?spotlight=spotlight')
-    indian = await callAPI('eat?category=indian')
-    asian = await callAPI('eat?category=asian')
-    american = await callAPI('eat?category=american')
-    italian = await callAPI('eat?category=italian')
-    mexican = await callAPI('eat?category=mexican')
-    thai = await callAPI('eat?category=thai')
-    japanese = await callAPI('eat?category=japanese')
-    chinese = await callAPI('eat?category=chinese')
-    dessert = await callAPI('eat?category=dessert')
-    recipe = await callAPI('eat?recipe=recipe')
+    // spotlight = await callAPI('eat?spotlight=spotlight')
+    // indian = await callAPI('eat?category=indian')
+    // asian = await callAPI('eat?category=asian')
+    // american = await callAPI('eat?category=american')
+    // italian = await callAPI('eat?category=italian')
+    // mexican = await callAPI('eat?category=mexican')
+    // thai = await callAPI('eat?category=thai')
+    // japanese = await callAPI('eat?category=japanese')
+    // chinese = await callAPI('eat?category=chinese')
+    // dessert = await callAPI('eat?category=dessert')
+    // recipe = await callAPI('eat?recipe=recipe')
   } catch (e) {
     console.error(e)
   }

@@ -23,14 +23,14 @@ export async function getStaticProps () {
   let food = []
 
   try {
-    spotlight = await callAPI('listen?spotlight=spotlight')
-    comedy = await callAPI('listen?category=comedy')
-    technology = await callAPI('listen?category=technology')
-    educational = await callAPI('listen?category=educational')
-    finance = await callAPI('listen?category=finance')
-    code = await callAPI('listen?category=code')
-    crime = await callAPI('listen?category=crime')
-    food = await callAPI('listen?category=food')
+    // spotlight = await callAPI('listen?spotlight=spotlight')
+    // comedy = await callAPI('listen?category=comedy')
+    // technology = await callAPI('listen?category=technology')
+    // educational = await callAPI('listen?category=educational')
+    // finance = await callAPI('listen?category=finance')
+    // code = await callAPI('listen?category=code')
+    // crime = await callAPI('listen?category=crime')
+    // food = await callAPI('listen?category=food')
   } catch (e) {
     console.error(e)
   }

@@ -21,13 +21,13 @@ export async function getStaticProps () {
   let horror = []
   let action = []
   try {
-    spotlight = await callAPI('watch?spotlight=spotlight')
-    free = await callAPI('watch?free=free')
-    ideas = await callAPI('watch?ideas=ideas')
-    comedy = await callAPI('watch?category=comedy')
-    drama = await callAPI('watch?category=drama')
-    horror = await callAPI('watch?category=horror')
-    action = await callAPI('watch?category=action')
+    // spotlight = await callAPI('watch?spotlight=spotlight')
+    // free = await callAPI('watch?free=free')
+    // ideas = await callAPI('watch?ideas=ideas')
+    // comedy = await callAPI('watch?category=comedy')
+    // drama = await callAPI('watch?category=drama')
+    // horror = await callAPI('watch?category=horror')
+    // action = await callAPI('watch?category=action')
   } catch (e) {
     console.error(e)
   }

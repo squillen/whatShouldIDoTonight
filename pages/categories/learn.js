@@ -22,13 +22,13 @@ export async function getStaticProps () {
   let personal = []
 
   try {
-    spotlight = await callAPI('learn?spotlight=spotlight')
-    free = await callAPI('learn?free=free')
-    art = await callAPI('learn?category=art')
-    code = await callAPI('learn?category=code')
-    finance = await callAPI('learn?category=finance')
-    food = await callAPI('learn?category=food')
-    personal = await callAPI('learn?category=personal')
+    // spotlight = await callAPI('learn?spotlight=spotlight')
+    // free = await callAPI('learn?free=free')
+    // art = await callAPI('learn?category=art')
+    // code = await callAPI('learn?category=code')
+    // finance = await callAPI('learn?category=finance')
+    // food = await callAPI('learn?category=food')
+    // personal = await callAPI('learn?category=personal')
   } catch (e) {
     console.error(e)
   }
@@ -45,7 +45,7 @@ export async function getStaticProps () {
   }
 }
 
-function TVSection ({ spotlight, art, code, free, finance, food, personal }) {
+function TVSection ({ spotlight = [], art, code, free, finance, food, personal }) {
   const source = 'learn'
   const contentCategories = [
     { content: art, header: 'Art', source },

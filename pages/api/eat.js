@@ -7,16 +7,12 @@ const handler = nextConnect()
 handler.use(middleware)
 
 handler.get(async (req, res) => {
-  const { spotlight, art, code, free, finance, cook, id } = req.query
+  const { spotlight, category, id } = req.query
   try {
     let result
-    const learnCollection = req.db.collection('watch')
-    if (art || code || finance || cook) {
-      const searchFor = art || code || free || finance || cook
-      result = await learnCollection.find({ categories: { $in: [searchFor] } })
-      result = await result.toArray()
-    } else if (free) {
-      result = await learnCollection.find({ free: true })
+    const learnCollection = req.db.collection('eat')
+    if (category) {
+      result = await learnCollection.find({ categories: { $in: [category] } })
       result = await result.toArray()
     } else if (id) {
       const _id = ObjectId(id)
@@ -30,7 +26,7 @@ handler.get(async (req, res) => {
     }
     res.json(result)
   } catch (e) {
-    throw new Error('ERROR IN LEARN API :::', e)
+    throw new Error('ERROR IN EAT API :::', e)
   }
 })
 

@@ -7,13 +7,12 @@ const handler = nextConnect()
 handler.use(middleware)
 
 handler.get(async (req, res) => {
-  const { comedy, drama, horror, action, free, id, spotlight, ideas } = req.query
+  const { spotlight, ideas, category, free, id } = req.query
   try {
     let result
     const showsCollection = req.db.collection('watch')
-    if (comedy || drama || horror || action) {
-      const searchFor = comedy || drama || horror || action
-      result = await showsCollection.find({ categories: { $in: [searchFor] } })
+    if (category) {
+      result = await showsCollection.find({ categories: { $in: [category] } })
       result = await result.toArray()
     } else if (free) {
       result = await showsCollection.find({ free: true })
@@ -33,7 +32,7 @@ handler.get(async (req, res) => {
     }
     res.json(result)
   } catch (e) {
-    throw new Error('ERROR IN TV API :::', e)
+    throw new Error('ERROR IN WATCH API :::', e)
   }
 })
 

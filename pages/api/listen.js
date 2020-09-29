@@ -7,30 +7,31 @@ const handler = nextConnect()
 handler.use(middleware)
 
 handler.get(async (req, res) => {
-  const { spotlight, art, code, free, finance, cook, id } = req.query
+  const {
+    spotlight,
+    category,
+    id
+  } = req.query
   try {
     let result
-    const learnCollection = req.db.collection('watch')
-    if (art || code || finance || cook) {
-      const searchFor = art || code || free || finance || cook
-      result = await learnCollection.find({ categories: { $in: [searchFor] } })
-      result = await result.toArray()
-    } else if (free) {
-      result = await learnCollection.find({ free: true })
+    const listenCollection = req.db.collection('listen')
+    if (category) {
+      // const searchFor = comedy || code || finance || educational || food || technology || crime
+      result = await listenCollection.find({ categories: { $in: [category] } })
       result = await result.toArray()
     } else if (id) {
       const _id = ObjectId(id)
-      result = await learnCollection.findOne({ _id })
+      result = await listenCollection.findOne({ _id })
     } else if (spotlight) {
-      result = await learnCollection.find({ spotlight: true })
+      result = await listenCollection.find({ spotlight: true })
       result = await result.toArray()
     } else {
-      result = await learnCollection.find()
+      result = await listenCollection.find()
       result = await result.toArray()
     }
     res.json(result)
   } catch (e) {
-    throw new Error('ERROR IN LEARN API :::', e)
+    throw new Error('ERROR IN LISTEN API :::', e)
   }
 })
 

@@ -88,6 +88,10 @@
     <changefreq>weekly</changefreq>
   </url>
   <url>
+    <loc>http://localhost:3000/activities/alone/free/outside/walk-for-30-minutes</loc>
+    <changefreq>weekly</changefreq>
+  </url>
+  <url>
     <loc>http://localhost:3000/activities/alone/free/inside/be-informed</loc>
     <changefreq>weekly</changefreq>
   </url>
@@ -237,10 +241,6 @@
   </url>
   <url>
     <loc>http://localhost:3000/activities/alone/free/inside/yoga-with-adriene</loc>
-    <changefreq>weekly</changefreq>
-  </url>
-  <url>
-    <loc>http://localhost:3000/activities/alone/free/outside/walk-for-30-minutes</loc>
     <changefreq>weekly</changefreq>
   </url>
   <url>

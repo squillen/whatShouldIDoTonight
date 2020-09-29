@@ -15,7 +15,7 @@ function Scrollable ({ content = [], source }) {
         content && content.map(el => (
           <motion.div
             className={styles.contentCard}
-            key={el.name}
+            key={el && el.name}
             whileHover={{ scale: 1.05 }}
             whileTap={{ scale: 0.9 }}
             variants={fadeInFromLeft}
@@ -24,12 +24,12 @@ function Scrollable ({ content = [], source }) {
               <a className={styles.cardLink}>
                 <div className={styles.topHalf} style={{ background: getBackground(el), backgroundSize: 'cover' }}>
                   <div className={styles.ribbon}>
-                    <span className={styles.ribbonText}>{el.free && 'FREE'}</span>
+                    <span className={styles.ribbonText}>{el && el.free && 'FREE'}</span>
                   </div>
                 </div>
                 <div className={styles.bottomHalf}>
-                  <div className={styles.showName}>{el.name}</div>
-                  <div className={styles.tagline}>{el.tagline}</div>
+                  <div className={styles.showName}>{el && el.name}</div>
+                  <div className={styles.tagline}>{el && el.tagline}</div>
                 </div>
               </a>
             </Link>

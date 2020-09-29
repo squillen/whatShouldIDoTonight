@@ -3,7 +3,7 @@ import Link from 'next/link'
 import PropTypes from 'prop-types'
 import styles from './SplashContent.module.css'
 
-function SplashContent ({ content = [], banner, source }) {
+function SplashContent ({ content = [{}, {}, {}], banner, source }) {
   const [content1, content2, content3] = content
   const getBackground = currContent => currContent ? `url(${currContent.image}) center no-repeat` : ''
   const getContentURL = currContent => currContent && currContent.name
@@ -13,9 +13,9 @@ function SplashContent ({ content = [], banner, source }) {
   const getContentDiv = currContent => (
     <div className={styles.background} style={{ background: getBackground(currContent), backgroundSize: 'cover' }}>
       <div className={styles.overlay} />
-      <Link href={getContentURL(currContent)} passHref>
+      <Link href={getContentURL(currContent)}>
         <a>
-          <div className={styles.text}>{currContent.name || ''}</div>
+          <div className={styles.text}>{(currContent && currContent.name) || ''}</div>
         </a>
       </Link>
     </div>
@@ -33,23 +33,23 @@ function SplashContent ({ content = [], banner, source }) {
         <div className={styles.largeImageContainer}>
           <div
             className={styles.largeImage}
-            key={content1.name}
+            key={content1 && content1.name}
           >
-            {getContentDiv(content1)}
+            {getContentDiv(content1 || {})}
           </div>
         </div>
         <div className={styles.smallImagesContainer}>
           <div
             className={styles.smallImage}
-            key={content2.name}
+            key={content2 && content2.name}
           >
-            {getContentDiv(content2)}
+            {getContentDiv(content2 || {})}
           </div>
           <div
             className={styles.smallImage}
-            key={content3.name}
+            key={content3 && content3.name}
           >
-            {getContentDiv(content3)}
+            {getContentDiv(content3 || {})}
           </div>
         </div>
       </div>

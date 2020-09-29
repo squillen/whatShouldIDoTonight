@@ -6,7 +6,7 @@ import Link from 'next/link'
 import utilStyles from '../../styles/utils.module.css'
 import handleMarkdown from '../../lib/helpers/handleMarkdown'
 
-export default function ContentDisplay ({ source, back }) {
+export default function ContentDisplay ({ source = {}, back = '/' }) {
   return (
     <>
       <Head>

@@ -19,8 +19,9 @@ function Content () {
   const getActivity = async () => {
     try {
       const router = useRouter()
-      const { id } = router.query
-      const activity = await callAPI(`listen?id=${id}`)
+      const { id = '' } = router.query
+      let activity = {}
+      if (id) activity = await callAPI(`listen?id=${id}`)
       setActivity(activity)
     } catch (e) {
       console.error(e)

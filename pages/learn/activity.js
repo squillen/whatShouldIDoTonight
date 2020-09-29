@@ -18,8 +18,9 @@ function Content () {
   const getCourse = async () => {
     try {
       const router = useRouter()
-      const { id } = router.query
-      const course = await callAPI(`learn?id=${id}`)
+      const { id = '' } = router.query
+      let course = {}
+      if (id) course = await callAPI(`learn?id=${id}`)
       setCourse(course)
     } catch (e) {
       console.error(e)

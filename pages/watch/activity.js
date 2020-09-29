@@ -23,8 +23,9 @@ function Content () {
   const getShow = async () => {
     try {
       const router = useRouter()
-      const { id } = router.query
-      const show = await callAPI(`watch?id=${id}`)
+      const { id = '' } = router.query
+      let show = {}
+      if (id) show = await callAPI(`watch?id=${id}`)
       setShow(show)
     } catch (e) {
       console.error(e)

@@ -19,8 +19,9 @@ function Content () {
   const getStuff = async () => {
     try {
       const router = useRouter()
-      const { id } = router.query
-      const stuff = await callAPI(`eat?id=${id}`)
+      const { id = '' } = router.query
+      let stuff = {}
+      if (id) stuff = await callAPI(`eat?id=${id}`)
       setStuff(stuff)
     } catch (e) {
       console.error(e)

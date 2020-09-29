@@ -6,8 +6,8 @@ function addPage (page) {
   const route = path === '/index' ? '' : path
 
   return `  <url>
-    <loc>${`${process.env.WEBSITE_URL || 'https://www.whatshouldidotonight.com'}${route}`}</loc>
-    <changefreq>hourly</changefreq>
+    <loc>${`${process.env.SITE_URI || 'https://www.whatshouldidotonight.com'}${route}`}</loc>
+    <changefreq>weekly</changefreq>
   </url>`
 }
 

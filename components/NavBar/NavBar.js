@@ -1,8 +1,8 @@
 
-import React, { useState, useEffect, useRef } from 'react'
+import React, { useState } from 'react'
 import { CSSTransition } from 'react-transition-group'
 import Link from 'next/link'
-import styles from './NavBar.module.scss'
+import styles from '../../styles/NavBar.module.scss'
 import Logo from '../logo/logo'
 
 function createSubMenu (items) {
@@ -11,7 +11,7 @@ function createSubMenu (items) {
       {
         items.map(item => (
           <li className={styles['nav__submenu-item']} key={item.title}>
-            <Link href={item.href}>
+            <Link href={`${process.env.SITE_URI}${item.href}`}>
               <a>{item.title}</a>
             </Link>
           </li>

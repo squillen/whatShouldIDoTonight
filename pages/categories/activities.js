@@ -54,7 +54,7 @@ function Activities ({ aloneActivities, notAloneActivities }) {
   const setUserActivities = () => {
     const router = useRouter()
     const { asPath = '' } = router
-    const status = asPath.split('?')[1].split('=')[1]
+    const status = asPath && asPath.split('?')[1] && asPath.split('?')[1].split('=')[1]
     const userIsAlone = status === 'alone'
     const allActivities = userIsAlone
       ? aloneActivities
@@ -120,7 +120,7 @@ function Activities ({ aloneActivities, notAloneActivities }) {
                 <li className="activity" key={`${activity.id}-${idx}`}>
                   <Link href={`/activities${activity.category}/${activity.id}`}>
                     <a>
-                      {activity.id.split('-').join(' ')}
+                      {activity.id && activity.id.split('-').join(' ')}
                     </a>
                   </Link>
                 </li>

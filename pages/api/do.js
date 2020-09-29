@@ -29,6 +29,9 @@ handler.get(async (req, res) => {
       result = await result.toArray()
     }
     res.json(result)
+    // const test = JSON.parse(result)
+    // if (test) res.json(result)
+    // else throw new Error()
   } catch (e) {
     throw new Error('ERROR IN DO API :::', e)
   }

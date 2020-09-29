@@ -19,8 +19,9 @@ function Content () {
   const getActivities = async () => {
     try {
       const router = useRouter()
-      const { category } = router.query
-      const activities = await callAPI(`read?category=${category}`)
+      const { category = '' } = router.query
+      let activities = []
+      if (category) activities = await callAPI(`read?category=${category}`)
       setActivities(activities)
     } catch (e) {
       console.error(e)

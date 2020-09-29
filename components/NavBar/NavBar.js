@@ -1,7 +1,7 @@
 import React, { useState } from 'react'
 import { CSSTransition } from 'react-transition-group'
 import Link from 'next/link'
-import styles from './NavBar.module.css'
+import styles from './Navbar.module.css'
 import Logo from '../logo/logo'
 
 function createSubMenu (items) {

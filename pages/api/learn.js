@@ -7,13 +7,12 @@ const handler = nextConnect()
 handler.use(middleware)
 
 handler.get(async (req, res) => {
-  const { spotlight, art, code, free, finance, cook, id } = req.query
+  const { spotlight, category, free, id } = req.query
   try {
     let result
     const learnCollection = req.db.collection('learn')
-    if (art || code || finance || cook) {
-      const searchFor = art || code || free || finance || cook
-      result = await learnCollection.find({ categories: { $in: [searchFor] } })
+    if (category) {
+      result = await learnCollection.find({ categories: { $in: [category] } })
       result = await result.toArray()
     } else if (free) {
       result = await learnCollection.find({ free: true })

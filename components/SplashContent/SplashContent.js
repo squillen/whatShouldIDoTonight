@@ -3,11 +3,11 @@ import Link from 'next/link'
 import PropTypes from 'prop-types'
 import styles from './SplashContent.module.css'
 
-function SplashContent ({ content = [], banner, destination }) {
+function SplashContent ({ content = [], banner, source }) {
   const [content1, content2, content3] = content
   const getBackground = currContent => currContent ? `url(${currContent.image}) center no-repeat` : ''
   const getContentURL = currContent => currContent && currContent.name
-    ? `${destination}?id=${currContent._id}`
+    ? currContent.pagePath || `/${source}/activity?id=${currContent._id}`
     : ''
   const height = banner ? '90%' : '100%'
   const getContentDiv = currContent => (
@@ -59,7 +59,8 @@ function SplashContent ({ content = [], banner, destination }) {
 
 SplashContent.propTypes = {
   content: PropTypes.array,
-  banner: PropTypes.string
+  banner: PropTypes.string,
+  source: PropTypes.string
 }
 
 export default connect((state) => state)(SplashContent)

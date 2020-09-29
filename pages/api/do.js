@@ -7,30 +7,30 @@ const handler = nextConnect()
 handler.use(middleware)
 
 handler.get(async (req, res) => {
-  const { spotlight, art, code, free, finance, cook, id } = req.query
+  const { spotlight, category, free, limit = 0, id } = req.query
+  const numberLimit = Number(limit)
   try {
     let result
-    const learnCollection = req.db.collection('watch')
-    if (art || code || finance || cook) {
-      const searchFor = art || code || free || finance || cook
-      result = await learnCollection.find({ categories: { $in: [searchFor] } })
+    const learnCollection = req.db.collection('do')
+    if (category) {
+      result = await learnCollection.find({ categories: { $in: [category] } }).limit(numberLimit)
       result = await result.toArray()
     } else if (free) {
-      result = await learnCollection.find({ free: true })
+      result = await learnCollection.find({ free: true }).limit(numberLimit)
       result = await result.toArray()
     } else if (id) {
       const _id = ObjectId(id)
       result = await learnCollection.findOne({ _id })
     } else if (spotlight) {
-      result = await learnCollection.find({ spotlight: true })
+      result = await learnCollection.find({ spotlight: true }).limit(numberLimit)
       result = await result.toArray()
     } else {
-      result = await learnCollection.find()
+      result = await learnCollection.find().limit(numberLimit)
       result = await result.toArray()
     }
     res.json(result)
   } catch (e) {
-    throw new Error('ERROR IN LEARN API :::', e)
+    throw new Error('ERROR IN DO API :::', e)
   }
 })
 

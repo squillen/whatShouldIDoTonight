@@ -1,9 +1,11 @@
-import React, { useState } from 'react'
+import React from 'react'
+import Head from 'next/head'
 import PropTypes from 'prop-types'
 
 // COMPONENTS
 import Layout from '../../components/layout/layout'
 import SplashContent from '../../components/SplashContent/SplashContent'
+import { siteTitle } from '../../components/defaultHead'
 
 // HELPERS
 import utilStyles from '../../styles/utils.module.css'
@@ -11,7 +13,7 @@ import callAPI from '../../lib/helpers/callAPI'
 import displayContent from '../../lib/helpers/displayContent'
 
 export async function getStaticProps () {
-  let tvShows = []
+  let spotlight = []
   let ideas = []
   let free = []
   let comedy = []
@@ -19,19 +21,19 @@ export async function getStaticProps () {
   let horror = []
   let action = []
   try {
-    tvShows = await callAPI('watch?spotlight=spotlight')
-    ideas = await callAPI('watch?ideas=ideas')
-    comedy = await callAPI('watch?comedy=comedy')
-    drama = await callAPI('watch?drama=drama')
-    horror = await callAPI('watch?horror=horror')
-    action = await callAPI('watch?action=action')
+    spotlight = await callAPI('watch?spotlight=spotlight')
     free = await callAPI('watch?free=free')
+    ideas = await callAPI('watch?ideas=ideas')
+    comedy = await callAPI('watch?category=comedy')
+    drama = await callAPI('watch?category=drama')
+    horror = await callAPI('watch?category=horror')
+    action = await callAPI('watch?category=action')
   } catch (e) {
     console.error(e)
   }
   return {
     props: {
-      tvShows,
+      spotlight,
       ideas,
       free,
       comedy,
@@ -42,23 +44,26 @@ export async function getStaticProps () {
   }
 }
 
-function TVSection ({ tvShows, comedy, horror, free, drama, action, ideas }) {
-  const destination = '/watch/show'
+function TVSection ({ spotlight, comedy, horror, free, drama, action, ideas }) {
+  const source = 'watch'
   const contentCategories = [
-    { content: comedy, header: 'Comedy', destination },
-    { content: horror, header: 'Horror', destination },
-    { content: ideas, header: 'Ideas', destination },
-    { content: free, header: 'Free', destination },
-    { content: drama, header: 'Drama', destination },
-    { content: action, header: 'Action', destination }
+    { content: comedy, header: 'Comedy', source },
+    { content: horror, header: 'Horror', source },
+    { content: ideas, header: 'Ideas', source },
+    { content: free, header: 'Free', source },
+    { content: drama, header: 'Drama', source },
+    { content: action, header: 'Action', source }
   ]
   const displayedContent = contentCategories.map(displayContent)
   return (
     <Layout>
+      <Head>
+        <title>What to watch - {siteTitle}</title>
+      </Head>
       <div className={utilStyles.tvContainer}>
-        <SplashContent content={tvShows} banner="Watch the less known" destination={destination} />
+        <SplashContent content={spotlight} banner="Watch the less known" source={source} />
         <div className={utilStyles.infoContainer}>
-          <div className={utilStyles.infoHeader}>We&apos;ve watched thousands of hours of less-known TV for you</div>
+          <div className={utilStyles.infoHeader}>We&apos;ve watched thousands of hours of less-known TV for you.</div>
           <div className={utilStyles.infoBody}>
             <p>
               Totally for research.
@@ -72,7 +77,7 @@ function TVSection ({ tvShows, comedy, horror, free, drama, action, ideas }) {
 }
 
 TVSection.propTypes = {
-  tvShows: PropTypes.array,
+  spotlight: PropTypes.array,
   comedy: PropTypes.array,
   drama: PropTypes.array,
   action: PropTypes.array,

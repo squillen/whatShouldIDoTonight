@@ -2,7 +2,7 @@
 import React, { useState } from 'react'
 import { CSSTransition } from 'react-transition-group'
 import Link from 'next/link'
-import styles from '../../styles/NavBar.module.scss'
+import styles from './NavBar.module.scss'
 import Logo from '../logo/logo'
 
 function createSubMenu (items) {

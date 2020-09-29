@@ -1,9 +1,11 @@
 import React, { useState } from 'react'
+import Head from 'next/head'
 import PropTypes from 'prop-types'
 
 // COMPONENTS
 import Layout from '../../components/layout/layout'
 import SplashContent from '../../components/SplashContent/SplashContent'
+import { siteTitle } from '../../components/defaultHead'
 
 // HELPERS
 import utilStyles from '../../styles/utils.module.css'
@@ -13,18 +15,22 @@ import displayContent from '../../lib/helpers/displayContent'
 export async function getStaticProps () {
   let spotlight = []
   let comedy = []
-  let crime = []
+  let technology = []
+  let educational = []
   let finance = []
   let code = []
-  let education = []
+  let crime = []
+  let food = []
 
   try {
     spotlight = await callAPI('listen?spotlight=spotlight')
-    comedy = await callAPI('listen?comedy=comedy')
-    crime = await callAPI('listen?crime=crime')
-    finance = await callAPI('listen?finance=finance')
-    code = await callAPI('listen?code=code')
-    education = await callAPI('listen?education=education')
+    comedy = await callAPI('listen?category=comedy')
+    technology = await callAPI('listen?category=technology')
+    educational = await callAPI('listen?category=educational')
+    finance = await callAPI('listen?category=finance')
+    code = await callAPI('listen?category=code')
+    crime = await callAPI('listen?category=crime')
+    food = await callAPI('listen?category=food')
   } catch (e) {
     console.error(e)
   }
@@ -32,47 +38,79 @@ export async function getStaticProps () {
     props: {
       spotlight,
       comedy,
+      technology,
+      educational,
+      finance,
       code,
       crime,
-      finance,
-      education
+      food
     }
   }
 }
 
-function TVSection ({ spotlight, comedy, code, crime, finance, education }) {
-  const destination = '/listen/thing'
-  const contentCategories = [
-    { content: comedy, header: 'Comedy', destination },
-    { content: code, header: 'Code', destination },
-    { content: finance, header: 'Finance', destination },
-    { content: crime, header: 'Crime', destination },
-    { content: education, header: 'Education', destination }
+function Listen ({
+  spotlight,
+  comedy,
+  technology,
+  educational,
+  finance,
+  code,
+  crime,
+  food
+}) {
+  const source = 'listen'
+  const contentCategories1 = [
+    { content: comedy, header: 'Comedy', source },
+    { content: technology, header: 'Tech', source },
+    { content: educational, header: 'Educational', source }
   ]
-  const displayedContent = contentCategories.map(displayContent)
+
+  const contentCategories2 = [
+    { content: finance, header: 'Finance', source },
+    { content: code, header: 'Code', source },
+    { content: crime, header: 'Crime', source },
+    { content: food, path: 'food-and-drink', header: 'Food & Drink', source }
+  ]
+  const displayedContent1 = contentCategories1.map(displayContent)
+  const displayedContent2 = contentCategories2.map(displayContent)
   return (
     <Layout>
+      <Head>
+        <title>What to listen to - {siteTitle}</title>
+      </Head>
       <div className={utilStyles.pageContainer}>
-        <SplashContent content={spotlight} banner="Listen to quality" destination={destination} />
+        <SplashContent content={spotlight} banner="Listen to quality" source={source} />
         <div className={utilStyles.infoContainer}>
           <div className={utilStyles.infoHeader}>Do you know how many bad podcasts are out there?</div>
           <div className={utilStyles.infoBody}>
-            <p>Now you don&apos;t have to.</p>
+            <p>We do. And now you don&apos;t have to.</p>
+            <p>You&apos;re welcome.</p>
           </div>
         </div>
-        {displayedContent}
+        {displayedContent1}
+        <div className={utilStyles.sponsoredContentContainer}>
+          <div className={utilStyles.sponsorTitle}>
+            Curious about crime?
+          </div>
+          <div className={utilStyles.sponsorBody}>
+            here is some sponsored content that breaks up the page!
+          </div>
+        </div>
+        {displayedContent2}
       </div>
     </Layout>
   )
 }
 
-TVSection.propTypes = {
+Listen.propTypes = {
   spotlight: PropTypes.array,
   comedy: PropTypes.array,
+  technology: PropTypes.array,
+  educational: PropTypes.array,
+  finance: PropTypes.array,
   code: PropTypes.array,
   crime: PropTypes.array,
-  finance: PropTypes.array,
-  education: PropTypes.array
+  food: PropTypes.array
 }
 
-export default TVSection
+export default Listen

@@ -7,13 +7,12 @@ const handler = nextConnect()
 handler.use(middleware)
 
 handler.get(async (req, res) => {
-  const { spotlight, art, code, free, finance, cook, id } = req.query
+  const { spotlight, free, category, id } = req.query
   try {
     let result
-    const learnCollection = req.db.collection('watch')
-    if (art || code || finance || cook) {
-      const searchFor = art || code || free || finance || cook
-      result = await learnCollection.find({ categories: { $in: [searchFor] } })
+    const learnCollection = req.db.collection('read')
+    if (category) {
+      result = await learnCollection.find({ categories: { $in: [category] } })
       result = await result.toArray()
     } else if (free) {
       result = await learnCollection.find({ free: true })
@@ -24,13 +23,13 @@ handler.get(async (req, res) => {
     } else if (spotlight) {
       result = await learnCollection.find({ spotlight: true })
       result = await result.toArray()
-    } else {
+    } else if (all) {
       result = await learnCollection.find()
       result = await result.toArray()
     }
     res.json(result)
   } catch (e) {
-    throw new Error('ERROR IN LEARN API :::', e)
+    throw new Error('ERROR IN READ API :::', e)
   }
 })
 

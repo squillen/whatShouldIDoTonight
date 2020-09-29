@@ -85,7 +85,7 @@ function Post (props) {
   const pageURL = `${url}${router.pathname}`
 
   return (
-    <Layout>
+    <Layout home>
       <Head>
         <title>{pageTitle} - {siteTitle}</title>
       </Head>

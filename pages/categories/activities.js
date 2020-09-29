@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react'
 import Link from 'next/link'
+import Head from 'next/head'
 import { useRouter } from 'next/router'
 import PropTypes from 'prop-types'
 
@@ -11,6 +12,7 @@ import { getNewUserActivity, setUserActivities } from '../../src/store/activitie
 
 // COMPONENTS
 import Layout from '../../components/layout/layout'
+import { siteTitle } from '../../components/defaultHead'
 
 // HELPERS
 import utilStyles from '../../styles/utils.module.css'
@@ -77,6 +79,9 @@ function Activities ({ aloneActivities, notAloneActivities }) {
   const cancelButton = <i className="fas fa-times"></i>
   return (
     <Layout>
+      <Head>
+        <title>Activities to do {userAlone ? 'by yourself' : 'with others'} - {siteTitle}</title>
+      </Head>
       <div className={utilStyles.activitiesContainer}>
         <div className={utilStyles.activityOptions}>
           <div

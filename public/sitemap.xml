@@ -12,7 +12,51 @@
     <changefreq>hourly</changefreq>
   </url>
   <url>
-    <loc>https://www.whatshouldidotonight.com/eat/dish</loc>
+    <loc>https://www.whatshouldidotonight.com/eat/activity</loc>
+    <changefreq>hourly</changefreq>
+  </url>
+  <url>
+    <loc>https://www.whatshouldidotonight.com/eat/all</loc>
+    <changefreq>hourly</changefreq>
+  </url>
+  <url>
+    <loc>https://www.whatshouldidotonight.com/do/activity</loc>
+    <changefreq>hourly</changefreq>
+  </url>
+  <url>
+    <loc>https://www.whatshouldidotonight.com/do/all</loc>
+    <changefreq>hourly</changefreq>
+  </url>
+  <url>
+    <loc>https://www.whatshouldidotonight.com/learn/activity</loc>
+    <changefreq>hourly</changefreq>
+  </url>
+  <url>
+    <loc>https://www.whatshouldidotonight.com/learn/all</loc>
+    <changefreq>hourly</changefreq>
+  </url>
+  <url>
+    <loc>https://www.whatshouldidotonight.com/read/activity</loc>
+    <changefreq>hourly</changefreq>
+  </url>
+  <url>
+    <loc>https://www.whatshouldidotonight.com/read/all</loc>
+    <changefreq>hourly</changefreq>
+  </url>
+  <url>
+    <loc>https://www.whatshouldidotonight.com/listen/activity</loc>
+    <changefreq>hourly</changefreq>
+  </url>
+  <url>
+    <loc>https://www.whatshouldidotonight.com/listen/all</loc>
+    <changefreq>hourly</changefreq>
+  </url>
+  <url>
+    <loc>https://www.whatshouldidotonight.com/watch/activity</loc>
+    <changefreq>hourly</changefreq>
+  </url>
+  <url>
+    <loc>https://www.whatshouldidotonight.com/watch/all</loc>
     <changefreq>hourly</changefreq>
   </url>
   <url>
@@ -44,27 +88,67 @@
     <changefreq>hourly</changefreq>
   </url>
   <url>
-    <loc>https://www.whatshouldidotonight.com/learn/course</loc>
-    <changefreq>hourly</changefreq>
-  </url>
-  <url>
-    <loc>https://www.whatshouldidotonight.com/read/thing</loc>
-    <changefreq>hourly</changefreq>
-  </url>
-  <url>
-    <loc>https://www.whatshouldidotonight.com/listen/thing</loc>
-    <changefreq>hourly</changefreq>
-  </url>
-  <url>
-    <loc>https://www.whatshouldidotonight.com/watch/show</loc>
-    <changefreq>hourly</changefreq>
-  </url>
-  <url>
     <loc>https://www.whatshouldidotonight.com/activities/alone/free/outside/be-a-tourist</loc>
     <changefreq>hourly</changefreq>
   </url>
   <url>
     <loc>https://www.whatshouldidotonight.com/activities/alone/free/outside/walk-for-30-minutes</loc>
+    <changefreq>hourly</changefreq>
+  </url>
+  <url>
+    <loc>https://www.whatshouldidotonight.com/activities/alone/notFree/inside/buy-all-your-gifts</loc>
+    <changefreq>hourly</changefreq>
+  </url>
+  <url>
+    <loc>https://www.whatshouldidotonight.com/activities/alone/notFree/inside/buy-some-bitcoin</loc>
+    <changefreq>hourly</changefreq>
+  </url>
+  <url>
+    <loc>https://www.whatshouldidotonight.com/activities/alone/notFree/inside/buy-some-stocks</loc>
+    <changefreq>hourly</changefreq>
+  </url>
+  <url>
+    <loc>https://www.whatshouldidotonight.com/activities/alone/notFree/inside/create-a-website</loc>
+    <changefreq>hourly</changefreq>
+  </url>
+  <url>
+    <loc>https://www.whatshouldidotonight.com/activities/alone/notFree/inside/get-some-skills</loc>
+    <changefreq>hourly</changefreq>
+  </url>
+  <url>
+    <loc>https://www.whatshouldidotonight.com/activities/alone/notFree/inside/learn-something-new</loc>
+    <changefreq>hourly</changefreq>
+  </url>
+  <url>
+    <loc>https://www.whatshouldidotonight.com/activities/alone/notFree/inside/listen-to-an-audio-book</loc>
+    <changefreq>hourly</changefreq>
+  </url>
+  <url>
+    <loc>https://www.whatshouldidotonight.com/activities/alone/notFree/inside/make-a-photo-album</loc>
+    <changefreq>hourly</changefreq>
+  </url>
+  <url>
+    <loc>https://www.whatshouldidotonight.com/activities/alone/notFree/inside/make-digital-music</loc>
+    <changefreq>hourly</changefreq>
+  </url>
+  <url>
+    <loc>https://www.whatshouldidotonight.com/activities/alone/notFree/inside/pamper-yourself</loc>
+    <changefreq>hourly</changefreq>
+  </url>
+  <url>
+    <loc>https://www.whatshouldidotonight.com/activities/alone/notFree/inside/play-some-video-games</loc>
+    <changefreq>hourly</changefreq>
+  </url>
+  <url>
+    <loc>https://www.whatshouldidotonight.com/activities/alone/notFree/inside/rent-new-movie</loc>
+    <changefreq>hourly</changefreq>
+  </url>
+  <url>
+    <loc>https://www.whatshouldidotonight.com/activities/alone/notFree/inside/take-language-lessons</loc>
+    <changefreq>hourly</changefreq>
+  </url>
+  <url>
+    <loc>https://www.whatshouldidotonight.com/activities/alone/notFree/inside/take-music-lessons</loc>
     <changefreq>hourly</changefreq>
   </url>
   <url>
@@ -224,59 +308,99 @@
     <changefreq>hourly</changefreq>
   </url>
   <url>
-    <loc>https://www.whatshouldidotonight.com/activities/alone/notFree/inside/buy-all-your-gifts</loc>
+    <loc>https://www.whatshouldidotonight.com/activities/notAlone/free/inside/clean-your-place</loc>
     <changefreq>hourly</changefreq>
   </url>
   <url>
-    <loc>https://www.whatshouldidotonight.com/activities/alone/notFree/inside/buy-some-bitcoin</loc>
+    <loc>https://www.whatshouldidotonight.com/activities/notAlone/free/inside/develop-alter-egos</loc>
     <changefreq>hourly</changefreq>
   </url>
   <url>
-    <loc>https://www.whatshouldidotonight.com/activities/alone/notFree/inside/buy-some-stocks</loc>
+    <loc>https://www.whatshouldidotonight.com/activities/notAlone/free/inside/get-your-shit-together</loc>
     <changefreq>hourly</changefreq>
   </url>
   <url>
-    <loc>https://www.whatshouldidotonight.com/activities/alone/notFree/inside/create-a-website</loc>
+    <loc>https://www.whatshouldidotonight.com/activities/notAlone/free/inside/have-a-date-night</loc>
     <changefreq>hourly</changefreq>
   </url>
   <url>
-    <loc>https://www.whatshouldidotonight.com/activities/alone/notFree/inside/get-some-skills</loc>
+    <loc>https://www.whatshouldidotonight.com/activities/notAlone/free/inside/listen-to-each-others-songs</loc>
     <changefreq>hourly</changefreq>
   </url>
   <url>
-    <loc>https://www.whatshouldidotonight.com/activities/alone/notFree/inside/learn-something-new</loc>
+    <loc>https://www.whatshouldidotonight.com/activities/notAlone/free/inside/play-board-games</loc>
     <changefreq>hourly</changefreq>
   </url>
   <url>
-    <loc>https://www.whatshouldidotonight.com/activities/alone/notFree/inside/listen-to-an-audio-book</loc>
+    <loc>https://www.whatshouldidotonight.com/activities/notAlone/free/inside/start-a-podcast</loc>
     <changefreq>hourly</changefreq>
   </url>
   <url>
-    <loc>https://www.whatshouldidotonight.com/activities/alone/notFree/inside/make-a-photo-album</loc>
+    <loc>https://www.whatshouldidotonight.com/activities/notAlone/free/inside/write-a-poem</loc>
     <changefreq>hourly</changefreq>
   </url>
   <url>
-    <loc>https://www.whatshouldidotonight.com/activities/alone/notFree/inside/make-digital-music</loc>
+    <loc>https://www.whatshouldidotonight.com/activities/notAlone/free/inside/yoga-with-adriene</loc>
     <changefreq>hourly</changefreq>
   </url>
   <url>
-    <loc>https://www.whatshouldidotonight.com/activities/alone/notFree/inside/pamper-yourself</loc>
+    <loc>https://www.whatshouldidotonight.com/activities/notAlone/free/outside/go-play-tennis</loc>
     <changefreq>hourly</changefreq>
   </url>
   <url>
-    <loc>https://www.whatshouldidotonight.com/activities/alone/notFree/inside/play-some-video-games</loc>
+    <loc>https://www.whatshouldidotonight.com/activities/notAlone/free/outside/walk-for-30-minutes</loc>
     <changefreq>hourly</changefreq>
   </url>
   <url>
-    <loc>https://www.whatshouldidotonight.com/activities/alone/notFree/inside/rent-new-movie</loc>
+    <loc>https://www.whatshouldidotonight.com/activities/notAlone/notFree/inside/make-some-ice-cream</loc>
     <changefreq>hourly</changefreq>
   </url>
   <url>
-    <loc>https://www.whatshouldidotonight.com/activities/alone/notFree/inside/take-language-lessons</loc>
+    <loc>https://www.whatshouldidotonight.com/activities/notAlone/notFree/outside/get-some-ice-cream</loc>
     <changefreq>hourly</changefreq>
   </url>
   <url>
-    <loc>https://www.whatshouldidotonight.com/activities/alone/notFree/inside/take-music-lessons</loc>
+    <loc>https://www.whatshouldidotonight.com/activities/notAlone/notFree/outside/go-to-a-beer-garden</loc>
+    <changefreq>hourly</changefreq>
+  </url>
+  <url>
+    <loc>https://www.whatshouldidotonight.com/activities/notAlone/notFree/outside/go-to-a-games-cafe</loc>
+    <changefreq>hourly</changefreq>
+  </url>
+  <url>
+    <loc>https://www.whatshouldidotonight.com/activities/notAlone/notFree/outside/go-to-a-gin-bar</loc>
+    <changefreq>hourly</changefreq>
+  </url>
+  <url>
+    <loc>https://www.whatshouldidotonight.com/activities/notAlone/notFree/outside/go-to-a-happy-hour</loc>
+    <changefreq>hourly</changefreq>
+  </url>
+  <url>
+    <loc>https://www.whatshouldidotonight.com/activities/notAlone/notFree/outside/go-to-a-new-restaurant</loc>
+    <changefreq>hourly</changefreq>
+  </url>
+  <url>
+    <loc>https://www.whatshouldidotonight.com/activities/notAlone/notFree/outside/go-to-a-tequila-bar</loc>
+    <changefreq>hourly</changefreq>
+  </url>
+  <url>
+    <loc>https://www.whatshouldidotonight.com/activities/notAlone/notFree/outside/go-to-a-whiskey-bar</loc>
+    <changefreq>hourly</changefreq>
+  </url>
+  <url>
+    <loc>https://www.whatshouldidotonight.com/activities/notAlone/notFree/outside/go-to-a-wine-bar</loc>
+    <changefreq>hourly</changefreq>
+  </url>
+  <url>
+    <loc>https://www.whatshouldidotonight.com/activities/notAlone/notFree/outside/have-a-date-night</loc>
+    <changefreq>hourly</changefreq>
+  </url>
+  <url>
+    <loc>https://www.whatshouldidotonight.com/activities/notAlone/notFree/outside/play-putt-putt</loc>
+    <changefreq>hourly</changefreq>
+  </url>
+  <url>
+    <loc>https://www.whatshouldidotonight.com/activities/notAlone/notFree/outside/thrift-store-dinner</loc>
     <changefreq>hourly</changefreq>
   </url>
   <url>
@@ -428,46 +552,6 @@
     <changefreq>hourly</changefreq>
   </url>
   <url>
-    <loc>https://www.whatshouldidotonight.com/activities/anyone/notFree/outside/book-a-getaway</loc>
-    <changefreq>hourly</changefreq>
-  </url>
-  <url>
-    <loc>https://www.whatshouldidotonight.com/activities/anyone/notFree/outside/book-your-travel</loc>
-    <changefreq>hourly</changefreq>
-  </url>
-  <url>
-    <loc>https://www.whatshouldidotonight.com/activities/anyone/notFree/outside/foster-a-pet</loc>
-    <changefreq>hourly</changefreq>
-  </url>
-  <url>
-    <loc>https://www.whatshouldidotonight.com/activities/anyone/notFree/outside/go-to-a-comedy-show</loc>
-    <changefreq>hourly</changefreq>
-  </url>
-  <url>
-    <loc>https://www.whatshouldidotonight.com/activities/anyone/notFree/outside/go-to-a-driving-range</loc>
-    <changefreq>hourly</changefreq>
-  </url>
-  <url>
-    <loc>https://www.whatshouldidotonight.com/activities/anyone/notFree/outside/go-to-the-movies</loc>
-    <changefreq>hourly</changefreq>
-  </url>
-  <url>
-    <loc>https://www.whatshouldidotonight.com/activities/anyone/notFree/outside/go-wash-your-car</loc>
-    <changefreq>hourly</changefreq>
-  </url>
-  <url>
-    <loc>https://www.whatshouldidotonight.com/activities/anyone/notFree/outside/plant-herbs</loc>
-    <changefreq>hourly</changefreq>
-  </url>
-  <url>
-    <loc>https://www.whatshouldidotonight.com/activities/anyone/notFree/outside/rent-a-car</loc>
-    <changefreq>hourly</changefreq>
-  </url>
-  <url>
-    <loc>https://www.whatshouldidotonight.com/activities/anyone/notFree/outside/take-a-cooking-class</loc>
-    <changefreq>hourly</changefreq>
-  </url>
-  <url>
     <loc>https://www.whatshouldidotonight.com/activities/anyone/notFree/inside/cook-a-meal</loc>
     <changefreq>hourly</changefreq>
   </url>
@@ -588,99 +672,43 @@
     <changefreq>hourly</changefreq>
   </url>
   <url>
-    <loc>https://www.whatshouldidotonight.com/activities/notAlone/free/inside/clean-your-place</loc>
+    <loc>https://www.whatshouldidotonight.com/activities/anyone/notFree/outside/book-a-getaway</loc>
     <changefreq>hourly</changefreq>
   </url>
   <url>
-    <loc>https://www.whatshouldidotonight.com/activities/notAlone/free/inside/develop-alter-egos</loc>
+    <loc>https://www.whatshouldidotonight.com/activities/anyone/notFree/outside/book-your-travel</loc>
     <changefreq>hourly</changefreq>
   </url>
   <url>
-    <loc>https://www.whatshouldidotonight.com/activities/notAlone/free/inside/get-your-shit-together</loc>
+    <loc>https://www.whatshouldidotonight.com/activities/anyone/notFree/outside/foster-a-pet</loc>
     <changefreq>hourly</changefreq>
   </url>
   <url>
-    <loc>https://www.whatshouldidotonight.com/activities/notAlone/free/inside/have-a-date-night</loc>
+    <loc>https://www.whatshouldidotonight.com/activities/anyone/notFree/outside/go-to-a-comedy-show</loc>
     <changefreq>hourly</changefreq>
   </url>
   <url>
-    <loc>https://www.whatshouldidotonight.com/activities/notAlone/free/inside/listen-to-each-others-songs</loc>
+    <loc>https://www.whatshouldidotonight.com/activities/anyone/notFree/outside/go-to-a-driving-range</loc>
     <changefreq>hourly</changefreq>
   </url>
   <url>
-    <loc>https://www.whatshouldidotonight.com/activities/notAlone/free/inside/play-board-games</loc>
+    <loc>https://www.whatshouldidotonight.com/activities/anyone/notFree/outside/go-to-the-movies</loc>
     <changefreq>hourly</changefreq>
   </url>
   <url>
-    <loc>https://www.whatshouldidotonight.com/activities/notAlone/free/inside/start-a-podcast</loc>
+    <loc>https://www.whatshouldidotonight.com/activities/anyone/notFree/outside/go-wash-your-car</loc>
     <changefreq>hourly</changefreq>
   </url>
   <url>
-    <loc>https://www.whatshouldidotonight.com/activities/notAlone/free/inside/write-a-poem</loc>
+    <loc>https://www.whatshouldidotonight.com/activities/anyone/notFree/outside/plant-herbs</loc>
     <changefreq>hourly</changefreq>
   </url>
   <url>
-    <loc>https://www.whatshouldidotonight.com/activities/notAlone/free/inside/yoga-with-adriene</loc>
+    <loc>https://www.whatshouldidotonight.com/activities/anyone/notFree/outside/rent-a-car</loc>
     <changefreq>hourly</changefreq>
   </url>
   <url>
-    <loc>https://www.whatshouldidotonight.com/activities/notAlone/notFree/inside/make-some-ice-cream</loc>
-    <changefreq>hourly</changefreq>
-  </url>
-  <url>
-    <loc>https://www.whatshouldidotonight.com/activities/notAlone/free/outside/go-play-tennis</loc>
-    <changefreq>hourly</changefreq>
-  </url>
-  <url>
-    <loc>https://www.whatshouldidotonight.com/activities/notAlone/free/outside/walk-for-30-minutes</loc>
-    <changefreq>hourly</changefreq>
-  </url>
-  <url>
-    <loc>https://www.whatshouldidotonight.com/activities/notAlone/notFree/outside/get-some-ice-cream</loc>
-    <changefreq>hourly</changefreq>
-  </url>
-  <url>
-    <loc>https://www.whatshouldidotonight.com/activities/notAlone/notFree/outside/go-to-a-beer-garden</loc>
-    <changefreq>hourly</changefreq>
-  </url>
-  <url>
-    <loc>https://www.whatshouldidotonight.com/activities/notAlone/notFree/outside/go-to-a-games-cafe</loc>
-    <changefreq>hourly</changefreq>
-  </url>
-  <url>
-    <loc>https://www.whatshouldidotonight.com/activities/notAlone/notFree/outside/go-to-a-gin-bar</loc>
-    <changefreq>hourly</changefreq>
-  </url>
-  <url>
-    <loc>https://www.whatshouldidotonight.com/activities/notAlone/notFree/outside/go-to-a-happy-hour</loc>
-    <changefreq>hourly</changefreq>
-  </url>
-  <url>
-    <loc>https://www.whatshouldidotonight.com/activities/notAlone/notFree/outside/go-to-a-new-restaurant</loc>
-    <changefreq>hourly</changefreq>
-  </url>
-  <url>
-    <loc>https://www.whatshouldidotonight.com/activities/notAlone/notFree/outside/go-to-a-tequila-bar</loc>
-    <changefreq>hourly</changefreq>
-  </url>
-  <url>
-    <loc>https://www.whatshouldidotonight.com/activities/notAlone/notFree/outside/go-to-a-whiskey-bar</loc>
-    <changefreq>hourly</changefreq>
-  </url>
-  <url>
-    <loc>https://www.whatshouldidotonight.com/activities/notAlone/notFree/outside/go-to-a-wine-bar</loc>
-    <changefreq>hourly</changefreq>
-  </url>
-  <url>
-    <loc>https://www.whatshouldidotonight.com/activities/notAlone/notFree/outside/have-a-date-night</loc>
-    <changefreq>hourly</changefreq>
-  </url>
-  <url>
-    <loc>https://www.whatshouldidotonight.com/activities/notAlone/notFree/outside/play-putt-putt</loc>
-    <changefreq>hourly</changefreq>
-  </url>
-  <url>
-    <loc>https://www.whatshouldidotonight.com/activities/notAlone/notFree/outside/thrift-store-dinner</loc>
+    <loc>https://www.whatshouldidotonight.com/activities/anyone/notFree/outside/take-a-cooking-class</loc>
     <changefreq>hourly</changefreq>
   </url>
 </urlset>

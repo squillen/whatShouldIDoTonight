@@ -11,21 +11,25 @@ handler.get(async (req, res) => {
   const numberLimit = Number(limit)
   try {
     let result
-    const learnCollection = req.db.collection('do')
-    if (category) {
-      result = await learnCollection.find({ categories: { $in: [category] } }).limit(numberLimit)
+    const doCollection = req.db.collection('do')
+    if (category === 'all') {
+      result = await doCollection.find()
+      result = await result.toArray()
+    } else if (category) {
+      console.log('inside category', category)
+      result = await doCollection.find({ categories: { $in: [category] } }).limit(numberLimit)
       result = await result.toArray()
     } else if (free) {
-      result = await learnCollection.find({ free: true }).limit(numberLimit)
+      result = await doCollection.find({ free: true }).limit(numberLimit)
       result = await result.toArray()
     } else if (id) {
       const _id = ObjectId(id)
-      result = await learnCollection.findOne({ _id })
+      result = await doCollection.findOne({ _id })
     } else if (spotlight) {
-      result = await learnCollection.find({ spotlight: true }).limit(numberLimit)
+      result = await doCollection.find({ spotlight: true }).limit(numberLimit)
       result = await result.toArray()
     } else {
-      result = await learnCollection.find().limit(numberLimit)
+      result = await doCollection.find().limit(numberLimit)
       result = await result.toArray()
     }
     res.json(result)

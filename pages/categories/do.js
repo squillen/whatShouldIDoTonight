@@ -14,8 +14,10 @@ import callAPI from '../../lib/helpers/callAPI'
 import displayContent from '../../lib/helpers/displayContent'
 import displayCategoryOptions from '../../lib/helpers/displayCategoryOptions'
 import { stagger } from '../../animations/default'
+import ContentCallOut from '../../components/ContentCallOut/ContentCallOut'
 
 export async function getStaticProps () {
+  let all = []
   let spotlight = []
   let food = []
   let finance = []
@@ -37,6 +39,7 @@ export async function getStaticProps () {
 
   try {
     spotlight = await callAPI('do?spotlight=spotlight')
+    all = await callAPI('do?limit=10&all=all')
     food = await callAPI('do?limit=10&category=food')
     educational = await callAPI('do?limit=10&category=educational')
     listen = await callAPI('do?limit=10&category=listen')
@@ -60,6 +63,7 @@ export async function getStaticProps () {
   return {
     props: {
       spotlight,
+      all,
       food,
       outside,
       active,
@@ -81,9 +85,10 @@ export async function getStaticProps () {
   }
 }
 
-function DoSection ({ spotlight, active, educational, outside, free, alone, read, home, volunteer, listen, watch, calm, social, food, finance, code, tech, selfImprovement }) {
+function DoSection ({ spotlight, all, active, educational, outside, free, alone, read, home, volunteer, listen, watch, calm, social, food, finance, code, tech, selfImprovement }) {
   const source = 'do'
   const contentCategories = [
+    { active: all, header: 'All', source, ref: useRef('All') },
     { content: active, header: 'Active', source, ref: useRef('Active') },
     { content: alone, header: 'Alone', source, ref: useRef('Alone') },
     { content: calm, path: 'calm', header: 'Chill', source, ref: useRef('Chill') },
@@ -103,7 +108,12 @@ function DoSection ({ spotlight, active, educational, outside, free, alone, read
     { content: watch, header: 'Watch', source, ref: useRef('Watch') }
   ]
   const categoryOptions = contentCategories.map(displayCategoryOptions)
-  const displayedContent = contentCategories.map(displayContent)
+  const displayedContent1 = contentCategories.slice(0, 4).map(displayContent)
+  const displayedContent2 = contentCategories.slice(4, 7).map(displayContent)
+  const displayedContent3 = contentCategories.slice(7, 9).map(displayContent)
+  const displayedContent4 = contentCategories.slice(9, 12).map(displayContent)
+  const displayedContent5 = contentCategories.slice(12, 14).map(displayContent)
+  const displayedContent6 = contentCategories.slice(14, 30).map(displayContent)
 
   return (
     <Layout>
@@ -112,13 +122,21 @@ function DoSection ({ spotlight, active, educational, outside, free, alone, read
       </Head>
       <div className={utilStyles.pageContainer}>
         <SplashContent content={spotlight} banner="Do worthwhile shit" destination={source} />
-        {/* <div className={utilStyles.infoContainer}>
-          <div className={utilStyles.infoHeader}>Stuff you can do right now.</div>
-        </div> */}
         <motion.div variants={stagger} className={utilStyles.categoryOptions}>
           {categoryOptions}
         </motion.div>
-        {displayedContent}
+
+        {displayedContent1}
+        <ContentCallOut callOutInfo={{ title: 'test', body: 'hello!' }} />
+        {displayedContent2}
+        <ContentCallOut callOutInfo={{ title: 'test', body: 'hello!' }} />
+        {displayedContent3}
+        <ContentCallOut callOutInfo={{ title: 'test', body: 'hello!' }} />
+        {displayedContent4}
+        <ContentCallOut callOutInfo={{ title: 'test', body: 'hello!' }} />
+        {displayedContent5}
+        <ContentCallOut callOutInfo={{ title: 'test', body: 'hello!' }} />
+        {displayedContent6}
       </div>
     </Layout>
   )

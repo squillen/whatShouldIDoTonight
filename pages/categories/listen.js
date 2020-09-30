@@ -5,6 +5,7 @@ import PropTypes from 'prop-types'
 // COMPONENTS
 import Layout from '../../components/layout/layout'
 import SplashContent from '../../components/SplashContent/SplashContent'
+import ContentCallOut from '../../components/ContentCallOut/ContentCallOut'
 import { siteTitle } from '../../components/defaultHead'
 
 // HELPERS
@@ -73,6 +74,10 @@ function Listen ({
   ]
   const displayedContent1 = contentCategories1.map(displayContent)
   const displayedContent2 = contentCategories2.map(displayContent)
+  const sponsorOne = {
+    title: 'Curious about crime?',
+    body: 'here is some sponsored content that breaks up the page!'
+  }
   return (
     <Layout>
       <Head>
@@ -88,14 +93,7 @@ function Listen ({
           </div>
         </div>
         {displayedContent1}
-        <div className={utilStyles.sponsoredContentContainer}>
-          <div className={utilStyles.sponsorTitle}>
-            Curious about crime?
-          </div>
-          <div className={utilStyles.sponsorBody}>
-            here is some sponsored content that breaks up the page!
-          </div>
-        </div>
+        <ContentCallOut callOutInfo={sponsorOne} />
         {displayedContent2}
       </div>
     </Layout>

@@ -10,18 +10,18 @@ handler.get(async (req, res) => {
   const { spotlight, category, id } = req.query
   try {
     let result
-    const learnCollection = req.db.collection('eat')
+    const eatCollection = req.db.collection('eat')
     if (category) {
-      result = await learnCollection.find({ categories: { $in: [category] } })
+      result = await eatCollection.find({ categories: { $in: [category] } })
       result = await result.toArray()
     } else if (id) {
       const _id = ObjectId(id)
-      result = await learnCollection.findOne({ _id })
+      result = await eatCollection.findOne({ _id })
     } else if (spotlight) {
-      result = await learnCollection.find({ spotlight: true })
+      result = await eatCollection.find({ spotlight: true })
       result = await result.toArray()
     } else {
-      result = await learnCollection.find()
+      result = await eatCollection.find()
       result = await result.toArray()
     }
     res.json(result)

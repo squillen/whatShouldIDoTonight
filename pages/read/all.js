@@ -7,12 +7,10 @@ import { connect } from 'react-redux'
 
 // COMPONENTS
 import Layout from '../../components/layout/layout'
-import Loading from '../../components/loading/loading'
+import DisplayAllEvents from '../../components/DisplayAllEvents/DisplayAllEvents'
 
 // HELPERS
-import utilStyles from '../../styles/utils.module.css'
 import callAPI from '../../lib/helpers/callAPI'
-import ContentDisplay from '../../components/ContentDisplay/ContentDisplay'
 
 function Content () {
   const [activities, setActivities] = useState(null)
@@ -29,7 +27,7 @@ function Content () {
   if (!activities) getActivities()
   return (
     <Layout>
-      read category!
+      <DisplayAllEvents activities={activities} source="read" />
     </Layout>
   )
 }

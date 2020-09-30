@@ -10,7 +10,7 @@ function createSubMenu (items) {
       {
         items.map(item => (
           <li className={styles['nav__submenu-item']} key={item.title}>
-            <Link href={`${process.env.SITE_URI || 'http://localhost:3000'}${item.href}`}>
+            <Link href={item.href}>
               <a>{item.title}</a>
             </Link>
           </li>

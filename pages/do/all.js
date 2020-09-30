@@ -7,29 +7,30 @@ import { connect } from 'react-redux'
 
 // COMPONENTS
 import Layout from '../../components/layout/layout'
-import Loading from '../../components/loading/loading'
+import DisplayAllEvents from '../../components/DisplayAllEvents/DisplayAllEvents'
 
 // HELPERS
-import utilStyles from '../../styles/utils.module.css'
 import callAPI from '../../lib/helpers/callAPI'
-import ContentDisplay from '../../components/ContentDisplay/ContentDisplay'
 
 function Content () {
-  const [activities, setActivities] = useState(null)
-  const getActivities = async () => {
+  const [allActivities, setAllActivities] = useState([])
+  const [calledAPI, setCalledAPI] = useState(false)
+  const getAllActivities = async () => {
     try {
       const router = useRouter()
       const { category } = router.query
-      const activities = await callAPI(`watch?category=${category}`)
-      setActivities(activities)
+      const allActivities = await callAPI(`do?category=${category}`)
+      setAllActivities(allActivities)
     } catch (e) {
       console.error(e)
+    } finally {
+      setCalledAPI(true)
     }
   }
-  if (!activities) getActivities()
+  if (!calledAPI && !allActivities.length) getAllActivities()
   return (
     <Layout>
-      read category!
+      <DisplayAllEvents header="Do All the Stuff" activities={allActivities} source="do" />
     </Layout>
   )
 }

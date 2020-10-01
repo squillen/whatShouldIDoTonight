@@ -15,6 +15,9 @@ handler.get(async (req, res) => {
     if (category === 'all') {
       result = await doCollection.find()
       result = await result.toArray()
+    } else if (category === 'free') {
+      result = await doCollection.find({ free: true }).limit(numberLimit)
+      result = await result.toArray()
     } else if (category) {
       result = await doCollection.find({ categories: { $in: [category] } }).limit(numberLimit)
       result = await result.toArray()
@@ -34,6 +37,8 @@ handler.get(async (req, res) => {
     res.json(result)
   } catch (e) {
     throw new Error('ERROR IN DO API :::', e)
+  } finally {
+    req.closeDB()
   }
 })
 

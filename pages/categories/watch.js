@@ -25,13 +25,23 @@ export async function getStaticProps () {
   let horror = []
   let action = []
   try {
-    spotlight = await callAPI('watch?spotlight=spotlight')
-    free = await callAPI('watch?free=free')
-    ideas = await callAPI('watch?ideas=ideas')
-    comedy = await callAPI('watch?category=comedy')
-    drama = await callAPI('watch?category=drama')
-    horror = await callAPI('watch?category=horror')
-    action = await callAPI('watch?category=action')
+    const handleCall = (path) => callAPI(`watch?${path}`).catch(console.error)
+    const promises = await Promise.all([
+      handleCall('spotlight=spotlight'),
+      handleCall('free=free'),
+      handleCall('ideas=ideas'),
+      handleCall('category=comedy'),
+      handleCall('category=drama'),
+      handleCall('category=horror'),
+      handleCall('category=action')
+    ])
+    spotlight = promises[0]
+    free = promises[1]
+    ideas = promises[2]
+    comedy = promises[3]
+    drama = promises[4]
+    horror = promises[5]
+    action = promises[6]
   } catch (e) {
     console.error(e)
   }
@@ -58,7 +68,7 @@ function TVSection ({ spotlight, comedy, horror, free, drama, action, ideas }) {
     { content: drama, header: 'Drama', source, ref: useRef('Drama') },
     { content: action, header: 'Action', source, ref: useRef('Action') }
   ]
-  const findCallOut = coll => coll.find(item => item.spotlight !== true)
+  const findCallOut = coll => coll && Array.isArray(coll) && coll.find(item => item.spotlight !== true)
   const dramaCallOut = findCallOut(drama)
   const freeCallOut = findCallOut(free)
   const horrorCallOut = findCallOut(horror)
@@ -69,13 +79,17 @@ function TVSection ({ spotlight, comedy, horror, free, drama, action, ideas }) {
   const displayedContent4 = contentCategories.slice(5, 7).map(displayContent)
   const displayedContent5 = contentCategories.slice(7, 9).map(displayContent)
   const displayedContent6 = contentCategories.slice(9, contentCategories.length).map(displayContent)
-  const doTheDew = {
-    header: '"Do the Dew"',
-    contents: ['-Mountain Dew', 'Straight wisdom.']
+  const davidLetterman = {
+    header: '"Everyone has a purpose in life. Perhaps yours is watching television."',
+    contents: ['-David Letterman', 'Absolutely inspiring.']
   }
-  const justDoIt = {
-    header: '"Doing something is better than doing nothing."',
-    contents: ['-whatshouldidotonight.com', 'Come for the fun, stay for the knowledge.']
+  const fredArmisen = {
+    header: '"I really like watching TV at home."',
+    contents: ['-Fred Armisen']
+  }
+  const laurenLapkus = {
+    header: '"I live for watching TV and partying with my book club."',
+    contents: ['-Lauren Lapkus', 'Truth.']
   }
   return (
     <Layout>
@@ -98,13 +112,13 @@ function TVSection ({ spotlight, comedy, horror, free, drama, action, ideas }) {
         {displayedContent2}
         <ContentCallOut source="watch" item={freeCallOut} />
         {displayedContent3}
-        <ContentCallOut body={doTheDew} />
+        <ContentCallOut item={fredArmisen} />
         {displayedContent4}
         {
           displayedContent5.length
             ? (
               <>
-                <ContentCallOut body={justDoIt} />
+                <ContentCallOut item={laurenLapkus} />
                 {displayedContent5}
               </>
             )

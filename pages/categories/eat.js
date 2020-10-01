@@ -31,18 +31,33 @@ export async function getStaticProps () {
   let recipe = []
 
   try {
-    spotlight = await callAPI('eat?spotlight=spotlight')
-    all = await callAPI('eat?limit=10&all=all')
-    indian = await callAPI('eat?category=indian')
-    asian = await callAPI('eat?category=asian')
-    american = await callAPI('eat?category=american')
-    italian = await callAPI('eat?category=italian')
-    mexican = await callAPI('eat?category=mexican')
-    thai = await callAPI('eat?category=thai')
-    japanese = await callAPI('eat?category=japanese')
-    chinese = await callAPI('eat?category=chinese')
-    dessert = await callAPI('eat?category=dessert')
-    recipe = await callAPI('eat?recipe=recipe')
+    const handleCall = (path) => callAPI(`eat?${path}`).catch(console.error)
+    const promises = await Promise.all([
+      handleCall('spotlight=spotlight'),
+      handleCall('limit=10&all=all'),
+      handleCall('category=indian'),
+      handleCall('category=asian'),
+      handleCall('category=american'),
+      handleCall('category=italian'),
+      handleCall('category=mexican'),
+      handleCall('category=thai'),
+      handleCall('category=japanese'),
+      handleCall('category=chinese'),
+      handleCall('category=dessert'),
+      handleCall('recipe=recipe')
+    ])
+    spotlight = promises[0]
+    all = promises[1]
+    indian = promises[2]
+    asian = promises[3]
+    american = promises[4]
+    italian = promises[5]
+    mexican = promises[6]
+    thai = promises[7]
+    japanese = promises[8]
+    chinese = promises[9]
+    dessert = promises[10]
+    recipe = promises[11]
   } catch (e) {
     console.error(e)
   }
@@ -79,7 +94,7 @@ function TVSection ({ spotlight, all, indian, asian, american, italian, mexican,
     { content: dessert, header: 'Dessert', source, ref: useRef('Dessert') },
     { content: recipe, header: 'Recipes', source, ref: useRef('Recipes') }
   ]
-  const findCallOut = coll => coll.find(item => item.spotlight !== true)
+  const findCallOut = coll => coll && Array.isArray(coll) && coll.find(item => item.spotlight !== true)
   const italianCallOut = findCallOut(italian)
   const japaneseCallOut = findCallOut(japanese)
   const dessertCallOut = findCallOut(dessert)
@@ -95,8 +110,8 @@ function TVSection ({ spotlight, all, indian, asian, american, italian, mexican,
     contents: ['-How Paula Deen says basil.']
   }
   const justDoIt = {
-    header: '"Doing something is better than doing nothing."',
-    contents: ['-whatshouldidotonight.com', 'Come for the fun, stay for the knowledge.']
+    header: '"The more you weigh, the harder you are to kidnap. Stay safe. Eat cake."',
+    contents: ['-someone smart']
   }
   return (
     <Layout>
@@ -112,13 +127,13 @@ function TVSection ({ spotlight, all, indian, asian, american, italian, mexican,
           {categoryOptions}
         </motion.div>
         {displayedContent1}
-        <ContentCallOut body={doTheDew} />
+        <ContentCallOut item={doTheDew} />
         {displayedContent2}
         <ContentCallOut source="eat" item={dessertCallOut} />
         {displayedContent3}
         <ContentCallOut source="eat" item={italianCallOut} />
         {displayedContent4}
-        <ContentCallOut body={justDoIt} />
+        <ContentCallOut item={justDoIt} />
         {displayedContent5}
         <ContentCallOut source="eat" item={japaneseCallOut} />
         {displayedContent6}

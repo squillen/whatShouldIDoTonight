@@ -30,7 +30,7 @@ function Content () {
     <Layout>
       {
         course
-          ? <ContentDisplay source={course} back={router.back} />
+          ? <ContentDisplay content={course} back={router.back} />
           : <Loading />
       }
     </Layout>

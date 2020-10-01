@@ -20,10 +20,10 @@ import handleSeasons from '../../lib/helpers/handleSeasons'
 
 function Content () {
   const [show, setShow] = useState(null)
+  const router = useRouter()
+  const { id } = router.query
   const getShow = async () => {
     try {
-      const router = useRouter()
-      const { id } = router.query
       const show = await callAPI(`watch?id=${id}`)
       setShow(show)
     } catch (e) {

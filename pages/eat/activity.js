@@ -16,10 +16,10 @@ import ContentDisplay from '../../components/ContentDisplay/ContentDisplay'
 
 function Content () {
   const [dish, setDish] = useState(null)
+  const router = useRouter()
+  const { id } = router.query
   const getDish = async () => {
     try {
-      const router = useRouter()
-      const { id } = router.query
       const dish = await callAPI(`eat?id=${id}`)
       setDish(dish)
     } catch (e) {
@@ -31,10 +31,9 @@ function Content () {
     <Layout>
       {
         dish
-          ? <ContentDisplay source={dish} back="/categories/eat" />
-          : <Loading />
+          ? <ContentDisplay source={dish} back={router.back} />
+          : <Loading loading={true} />
       }
-
     </Layout>
   )
 }

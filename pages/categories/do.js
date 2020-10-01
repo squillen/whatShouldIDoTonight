@@ -6,6 +6,7 @@ import PropTypes from 'prop-types'
 // COMPONENTS
 import Layout from '../../components/layout/layout'
 import SplashContent from '../../components/SplashContent/SplashContent'
+import ContentCallOut from '../../components/ContentCallOut/ContentCallOut'
 import { siteTitle } from '../../components/defaultHead'
 
 // HELPERS
@@ -14,7 +15,6 @@ import callAPI from '../../lib/helpers/callAPI'
 import displayContent from '../../lib/helpers/displayContent'
 import displayCategoryOptions from '../../lib/helpers/displayCategoryOptions'
 import { stagger } from '../../animations/default'
-import ContentCallOut from '../../components/ContentCallOut/ContentCallOut'
 
 export async function getStaticProps () {
   let all = []
@@ -88,7 +88,7 @@ export async function getStaticProps () {
 function DoSection ({ spotlight, all, active, educational, outside, free, alone, read, home, volunteer, listen, watch, calm, social, food, finance, code, tech, selfImprovement }) {
   const source = 'do'
   const contentCategories = [
-    { active: all, header: 'All', source, ref: useRef('All') },
+    { content: all, header: 'All', source, ref: useRef('All') },
     { content: active, header: 'Active', source, ref: useRef('Active') },
     { content: alone, header: 'Alone', source, ref: useRef('Alone') },
     { content: calm, path: 'calm', header: 'Chill', source, ref: useRef('Chill') },
@@ -107,6 +107,10 @@ function DoSection ({ spotlight, all, active, educational, outside, free, alone,
     { content: volunteer, header: 'Volunteer', source, ref: useRef('Volunteer') },
     { content: watch, header: 'Watch', source, ref: useRef('Watch') }
   ]
+  const findCallOut = coll => coll.find(item => item.spotlight !== true)
+  const foodCallOut = findCallOut(food)
+  const outsideCallOut = findCallOut(outside)
+  const selfImprovementCallOut = findCallOut(selfImprovement)
   const categoryOptions = contentCategories.map(displayCategoryOptions)
   const displayedContent1 = contentCategories.slice(0, 4).map(displayContent)
   const displayedContent2 = contentCategories.slice(4, 7).map(displayContent)
@@ -114,7 +118,14 @@ function DoSection ({ spotlight, all, active, educational, outside, free, alone,
   const displayedContent4 = contentCategories.slice(9, 12).map(displayContent)
   const displayedContent5 = contentCategories.slice(12, 14).map(displayContent)
   const displayedContent6 = contentCategories.slice(14, 30).map(displayContent)
-
+  const doTheDew = {
+    header: '"Do the Dew"',
+    contents: ['-Mountain Dew', 'Straight wisdom.']
+  }
+  const justDoIt = {
+    header: '"Doing something is better than doing nothing."',
+    contents: ['-whatshouldidotonight.com', 'Come for the fun, stay for the knowledge.']
+  }
   return (
     <Layout>
       <Head>
@@ -125,17 +136,16 @@ function DoSection ({ spotlight, all, active, educational, outside, free, alone,
         <motion.div variants={stagger} className={utilStyles.categoryOptions}>
           {categoryOptions}
         </motion.div>
-
         {displayedContent1}
-        <ContentCallOut callOutInfo={{ title: 'test', body: 'hello!' }} />
+        <ContentCallOut body={doTheDew} />
         {displayedContent2}
-        <ContentCallOut callOutInfo={{ title: 'test', body: 'hello!' }} />
+        <ContentCallOut source="do" item={selfImprovementCallOut} />
         {displayedContent3}
-        <ContentCallOut callOutInfo={{ title: 'test', body: 'hello!' }} />
+        <ContentCallOut source="do" item={outsideCallOut} />
         {displayedContent4}
-        <ContentCallOut callOutInfo={{ title: 'test', body: 'hello!' }} />
+        <ContentCallOut body={justDoIt} />
         {displayedContent5}
-        <ContentCallOut callOutInfo={{ title: 'test', body: 'hello!' }} />
+        <ContentCallOut source="do" item={foodCallOut} />
         {displayedContent6}
       </div>
     </Layout>

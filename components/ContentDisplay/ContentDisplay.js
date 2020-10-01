@@ -1,8 +1,11 @@
 import PropTypes from 'prop-types'
 import { siteTitle } from '../../components/defaultHead'
 import Head from 'next/head'
-import Link from 'next/link'
 
+// COMPONENTS
+import BackButton from '../BackButton/BackButton'
+
+// HELPERS
 import utilStyles from '../../styles/utils.module.css'
 import handleMarkdown from '../../lib/helpers/handleMarkdown'
 
@@ -24,11 +27,7 @@ export default function ContentDisplay ({ source, back }) {
         </div>
         <div className={utilStyles.pageBodyContainer}>
           <div className={utilStyles.backButton}>
-            <Link href={back}>
-              <a className={utilStyles.backButton}>
-                <span><i className="fas fa-arrow-left"></i><span className={utilStyles.backText}>back</span></span>
-              </a>
-            </Link>
+            <BackButton back={back} />
           </div>
           {
             source.TLDR

@@ -1,37 +1,23 @@
-import React, { useState } from 'react'
+import React from 'react'
 import { useRouter } from 'next/router'
 import PropTypes from 'prop-types'
 
 // REDUX
 import { connect } from 'react-redux'
 
-// COMPONENTS
-import Layout from '../../components/layout/layout'
-import DisplayAllEvents from '../../components/DisplayAllEvents/DisplayAllEvents'
-
 // HELPERS
-import callAPI from '../../lib/helpers/callAPI'
+import GetAllEvents from '../../components/GetAllEvents/GetAllEvents'
 
 function Content () {
-  const [allActivities, setAllActivities] = useState([])
-  const [calledAPI, setCalledAPI] = useState(false)
-  const getAllActivities = async () => {
-    try {
-      const router = useRouter()
-      const { category } = router.query
-      const allActivities = await callAPI(`do?category=${category}`)
-      setAllActivities(allActivities)
-    } catch (e) {
-      console.error(e)
-    } finally {
-      setCalledAPI(true)
-    }
-  }
-  if (!calledAPI && !allActivities.length) getAllActivities()
+  const router = useRouter()
+  const { category } = router.query
   return (
-    <Layout>
-      <DisplayAllEvents header="Do All the Stuff" activities={allActivities} source="do" />
-    </Layout>
+    <GetAllEvents
+      header="Do All the Stuff!!!"
+      source="do"
+      category={category}
+      back={router.back}
+    />
   )
 }
 

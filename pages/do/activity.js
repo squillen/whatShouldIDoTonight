@@ -16,11 +16,11 @@ import ContentDisplay from '../../components/ContentDisplay/ContentDisplay'
 
 function Content () {
   const [stuff, setStuff] = useState(null)
+  const router = useRouter()
+  const { id } = router.query
   const getStuff = async () => {
     try {
-      const router = useRouter()
-      const { id } = router.query
-      const stuff = await callAPI(`eat?id=${id}`)
+      const stuff = await callAPI(`do?id=${id}`)
       setStuff(stuff)
     } catch (e) {
       console.error(e)
@@ -31,8 +31,8 @@ function Content () {
     <Layout>
       {
         stuff
-          ? <ContentDisplay source={stuff} back="/categories/do" />
-          : <Loading />
+          ? <ContentDisplay source={stuff} back={router.back} />
+          : <Loading loading={true} />
       }
 
     </Layout>

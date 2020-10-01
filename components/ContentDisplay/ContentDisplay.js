@@ -9,20 +9,20 @@ import BackButton from '../BackButton/BackButton'
 import utilStyles from '../../styles/utils.module.css'
 import handleMarkdown from '../../lib/helpers/handleMarkdown'
 
-export default function ContentDisplay ({ source, back }) {
+export default function ContentDisplay ({ content, back }) {
   return (
     <>
       <Head>
-        <title>{source.name} - {siteTitle}</title>
+        <title>{content.name} - {siteTitle}</title>
       </Head>
       <div className={utilStyles.pageContainer}>
         <div className={utilStyles.pageHeaderContainer}>
           <div
             className={utilStyles.imageBanner}
-            style={{ background: `url(${source.image}) center no-repeat` }}
+            style={{ background: `url(${content.image}) center no-repeat` }}
           >
             <div className={utilStyles.overlay} />
-            <div className={utilStyles.pageActivityName}>{source.name}</div>
+            <div className={utilStyles.pageActivityName}>{content.name}</div>
           </div>
         </div>
         <div className={utilStyles.pageBodyContainer}>
@@ -30,18 +30,18 @@ export default function ContentDisplay ({ source, back }) {
             <BackButton back={back} />
           </div>
           {
-            source.TLDR
+            content.TLDR
               ? (
                 <div className={utilStyles.TLDR}>
                   <div className={utilStyles.TLDRHeader}>TL;DR:</div>
-                  <div className={utilStyles.TLDRText}>{handleMarkdown(source.TLDR)}</div>
+                  <div className={utilStyles.TLDRText}>{handleMarkdown(content.TLDR)}</div>
                 </div>
               )
               : null
           }
           <div className={utilStyles.pageBodyNotes}>
             <div className={utilStyles.pageBodyText}>
-              {handleMarkdown(source.body)}
+              {handleMarkdown(content.body)}
             </div>
           </div>
         </div>
@@ -51,6 +51,6 @@ export default function ContentDisplay ({ source, back }) {
 }
 
 ContentDisplay.propTypes = {
-  source: PropTypes.object,
+  content: PropTypes.object,
   back: PropTypes.string
 }

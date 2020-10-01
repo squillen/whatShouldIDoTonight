@@ -31,7 +31,7 @@ function Content () {
     <Layout>
       {
         activity
-          ? <ContentDisplay source={activity} back={router.back} />
+          ? <ContentDisplay content={activity} back={router.back} />
           : <Loading />
       }
     </Layout>

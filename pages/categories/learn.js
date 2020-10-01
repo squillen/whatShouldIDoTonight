@@ -26,13 +26,23 @@ export async function getStaticProps () {
   let selfImprovement = []
 
   try {
-    spotlight = await callAPI('learn?spotlight=spotlight')
-    free = await callAPI('learn?free=free')
-    art = await callAPI('learn?category=art')
-    code = await callAPI('learn?category=code')
-    finance = await callAPI('learn?category=finance')
-    food = await callAPI('learn?category=food')
-    selfImprovement = await callAPI('learn?category=selfImprovement')
+    const handleCall = (path) => callAPI(`learn?${path}`).catch(console.error)
+    const promises = await Promise.all([
+      handleCall('spotlight=spotlight'),
+      handleCall('free=free'),
+      handleCall('category=art'),
+      handleCall('category=code'),
+      handleCall('category=finance'),
+      handleCall('category=food'),
+      handleCall('category=selfImprovement')
+    ])
+    spotlight = promises[0]
+    free = promises[1]
+    art = promises[2]
+    code = promises[3]
+    finance = promises[4]
+    food = promises[5]
+    selfImprovement = promises[6]
   } catch (e) {
     console.error(e)
   }
@@ -59,9 +69,8 @@ function TVSection ({ spotlight, art, code, free, finance, food, selfImprovement
     { content: free, header: 'Free', source, ref: useRef('Free') },
     { content: food, path: 'food', header: 'Food & Drink', source, ref: useRef('Food & Drink') }
   ]
-  const findCallOut = coll => coll.find(item => item.spotlight !== true)
+  const findCallOut = coll => coll && Array.isArray(coll) && coll.find(item => item.spotlight !== true)
   const codeCallOut = findCallOut(code)
-  console.log('codeCallOut :>> ', codeCallOut)
   const selfImprovementCallOut = findCallOut(selfImprovement)
   const foodCallOut = findCallOut(food)
   const categoryOptions = contentCategories.map(displayCategoryOptions)
@@ -71,13 +80,17 @@ function TVSection ({ spotlight, art, code, free, finance, food, selfImprovement
   const displayedContent4 = contentCategories.slice(6, 9).map(displayContent)
   const displayedContent5 = contentCategories.slice(9, 14).map(displayContent)
   const displayedContent6 = contentCategories.slice(14, 30).map(displayContent)
-  const doTheDew = {
-    header: '"Do the Dew"',
-    contents: ['-Mountain Dew', 'Straight wisdom.']
+  const markTwain = {
+    header: '"Never let formal education get in the way of your learning."',
+    contents: ['-Mark Twain']
   }
-  const justDoIt = {
-    header: '"Doing something is better than doing nothing."',
-    contents: ['-whatshouldidotonight.com', 'Come for the fun, stay for the knowledge.']
+  const yogiBerra = {
+    header: '"If you come to a fork in the road, take it."',
+    contents: ['-Yogi Berra']
+  }
+  const albertEinstein = {
+    header: '"Any fool can know. The point is to understand."',
+    contents: ['-Albert Einstein', 'What a genius.']
   }
   return (
     <Layout>
@@ -95,7 +108,7 @@ function TVSection ({ spotlight, art, code, free, finance, food, selfImprovement
         {displayedContent1}
         <ContentCallOut source="learn" item={selfImprovementCallOut} />
         {displayedContent2}
-        <ContentCallOut body={doTheDew} />
+        <ContentCallOut item={markTwain} />
         {displayedContent3}
         <ContentCallOut source="learn" item={codeCallOut} />
         {displayedContent4}
@@ -103,7 +116,7 @@ function TVSection ({ spotlight, art, code, free, finance, food, selfImprovement
           displayedContent5.length
             ? (
               <>
-                <ContentCallOut body={justDoIt} />
+                <ContentCallOut item={albertEinstein} />
                 {displayedContent5}
               </>
             )

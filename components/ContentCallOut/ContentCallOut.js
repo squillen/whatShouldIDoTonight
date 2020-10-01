@@ -1,10 +1,11 @@
 import Link from 'next/link'
 import PropTypes from 'prop-types'
 import styles from './ContentCallOut.module.css'
-export default function ContentCallOut ({ source, item = {}, body, color = 'blue' }) {
+export default function ContentCallOut ({ source, item = {}, color = 'darkBlue' }) {
   const getStyle = (image) => {
     const backgroundColor = {
-      blue: 'rgba(25,110,171,0.999)'
+      blue: 'rgba(25,110,171,0.999)',
+      darkBlue: '#0d2035'
     }[color]
     return {
       background: image
@@ -27,19 +28,21 @@ export default function ContentCallOut ({ source, item = {}, body, color = 'blue
   const handleBody = () => {
     return (
       <div className={styles.nonLinkContentContainer} style={getStyle()}>
-        <div className={styles.bodyHeader}>{body.header}</div>
-        {
-          body.contents.map(el => (
-            <div key={el} className={styles.bodyDiv}>{el}</div>
-          ))
-        }
+        <div className={styles.bodyHeader}>{item.header}</div>
+        <div className={styles.bodyContainer}>
+          {
+            item.contents.map(el => (
+              <div key={el} className={styles.bodyDiv}>{el}</div>
+            ))
+          }
+        </div>
       </div>
     )
   }
   const contents = (
-    item.tagline
+    source && item.tagline
       ? createContent()
-      : body
+      : item.contents
         ? handleBody()
         : null
   )

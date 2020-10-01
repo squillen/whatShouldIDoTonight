@@ -28,15 +28,27 @@ export async function getStaticProps () {
   let selfImprovement = []
 
   try {
-    spotlight = await callAPI('read?spotlight=spotlight')
-    free = await callAPI('read?free=free')
-    autoBio = await callAPI('read?category=autoBio')
-    crime = await callAPI('read?category=crime')
-    history = await callAPI('read?category=history')
-    personal = await callAPI('read?category=personal')
-    finance = await callAPI('read?category=finance')
-    food = await callAPI('read?category=food')
-    selfImprovement = await callAPI('read?category=selfImprovement')
+    const handleCall = (path) => callAPI(`read?${path}`).catch(console.error)
+    const promises = await Promise.all([
+      handleCall('spotlight=spotlight'),
+      handleCall('free=free'),
+      handleCall('category=autoBio'),
+      handleCall('category=crime'),
+      handleCall('category=history'),
+      handleCall('category=personal'),
+      handleCall('category=finance'),
+      handleCall('category=food'),
+      handleCall('category=selfImprovement')
+    ])
+    spotlight = promises[0]
+    free = promises[1]
+    autoBio = promises[2]
+    crime = promises[3]
+    history = promises[4]
+    personal = promises[5]
+    finance = promises[6]
+    food = promises[7]
+    selfImprovement = promises[8]
   } catch (e) {
     console.error(e)
   }
@@ -65,9 +77,9 @@ function TVSection ({ spotlight, free, autoBio, crime, history, personal, financ
     { content: personal, header: 'Personal', source, ref: useRef('Personal') },
     { content: finance, header: 'Finance', source, ref: useRef('Finance') },
     { content: food, header: 'Food', source, ref: useRef('Food') },
-    { content: selfImprovement, path: 'selfImprovement', header: 'Self Improvement', source, ref: useRef('Self Improvement') },
+    { content: selfImprovement, path: 'selfImprovement', header: 'Self Improvement', source, ref: useRef('Self Improvement') }
   ]
-  const findCallOut = coll => coll.find(item => item.spotlight !== true)
+  const findCallOut = coll => coll && Array.isArray(coll) && coll.find(item => item.spotlight !== true)
   const crimeCallOut = findCallOut(crime)
   const selfImprovementCallOut = findCallOut(selfImprovement)
   const foodCallOut = findCallOut(food)
@@ -78,13 +90,17 @@ function TVSection ({ spotlight, free, autoBio, crime, history, personal, financ
   const displayedContent4 = contentCategories.slice(6, 9).map(displayContent)
   const displayedContent5 = contentCategories.slice(9, 14).map(displayContent)
   const displayedContent6 = contentCategories.slice(14, 30).map(displayContent)
-  const doTheDew = {
-    header: '"Do the Dew"',
-    contents: ['-Mountain Dew', 'Straight wisdom.']
+  const dorothyParker = {
+    header: '"The cure for boredom is curiosity. There is no cure for curiosity."',
+    contents: ['-Dorothy Parker']
   }
-  const justDoIt = {
-    header: '"Doing something is better than doing nothing."',
-    contents: ['-whatshouldidotonight.com', 'Come for the fun, stay for the knowledge.']
+  const stevenWright = {
+    header: '"To steal ideas from one person is plagiarism; to steal from many is research."',
+    contents: ['-Steven Wright']
+  }
+  const tupacShakur = {
+    header: '"Even the genius asks questions."',
+    contents: ['-Tupac Shakur']
   }
   return (
     <Layout>
@@ -107,7 +123,7 @@ function TVSection ({ spotlight, free, autoBio, crime, history, personal, financ
         {displayedContent1}
         <ContentCallOut source="read" item={selfImprovementCallOut} />
         {displayedContent2}
-        <ContentCallOut body={doTheDew} />
+        <ContentCallOut item={dorothyParker} />
         {displayedContent3}
         <ContentCallOut source="read" item={crimeCallOut} />
         {displayedContent4}
@@ -115,7 +131,7 @@ function TVSection ({ spotlight, free, autoBio, crime, history, personal, financ
           displayedContent5.length
             ? (
               <>
-                <ContentCallOut body={justDoIt} />
+                <ContentCallOut item={stevenWright} />
                 {displayedContent5}
               </>
             )

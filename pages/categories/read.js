@@ -1,16 +1,20 @@
-import React, { useState } from 'react'
+import React, { useRef } from 'react'
 import Head from 'next/head'
+import { motion } from 'framer-motion'
 import PropTypes from 'prop-types'
 
 // COMPONENTS
 import Layout from '../../components/layout/layout'
 import SplashContent from '../../components/SplashContent/SplashContent'
 import { siteTitle } from '../../components/defaultHead'
+import ContentCallOut from '../../components/ContentCallOut/ContentCallOut'
 
 // HELPERS
 import utilStyles from '../../styles/utils.module.css'
 import callAPI from '../../lib/helpers/callAPI'
 import displayContent from '../../lib/helpers/displayContent'
+import displayCategoryOptions from '../../lib/helpers/displayCategoryOptions'
+import { stagger } from '../../animations/default'
 
 export async function getStaticProps () {
   let spotlight = []
@@ -54,16 +58,34 @@ export async function getStaticProps () {
 function TVSection ({ spotlight, free, autoBio, crime, history, personal, finance, food, selfImprovement }) {
   const source = 'read'
   const contentCategories = [
-    { content: autoBio, header: 'Autobiography', source },
-    { content: free, header: 'Free', source },
-    { content: crime, header: 'Crime', source },
-    { content: history, header: 'History', source },
-    { content: personal, header: 'Personal', source },
-    { content: finance, header: 'Finance', source },
-    { content: food, header: 'Food', source },
-    { content: selfImprovement, header: 'Self Improvement', source }
+    { content: autoBio, header: 'Autobiography', source, ref: useRef('Autobiography') },
+    { content: free, header: 'Free', source, ref: useRef('Free') },
+    { content: crime, header: 'Crime', source, ref: useRef('Crime') },
+    { content: history, header: 'History', source, ref: useRef('History') },
+    { content: personal, header: 'Personal', source, ref: useRef('Personal') },
+    { content: finance, header: 'Finance', source, ref: useRef('Finance') },
+    { content: food, header: 'Food', source, ref: useRef('Food') },
+    { content: selfImprovement, path: 'selfImprovement', header: 'Self Improvement', source, ref: useRef('Self Improvement') },
   ]
-  const displayedContent = contentCategories.map(displayContent)
+  const findCallOut = coll => coll.find(item => item.spotlight !== true)
+  const crimeCallOut = findCallOut(crime)
+  const selfImprovementCallOut = findCallOut(selfImprovement)
+  const foodCallOut = findCallOut(food)
+  const categoryOptions = contentCategories.map(displayCategoryOptions)
+  const displayedContent1 = contentCategories.slice(0, 2).map(displayContent)
+  const displayedContent2 = contentCategories.slice(2, 4).map(displayContent)
+  const displayedContent3 = contentCategories.slice(4, 6).map(displayContent)
+  const displayedContent4 = contentCategories.slice(6, 9).map(displayContent)
+  const displayedContent5 = contentCategories.slice(9, 14).map(displayContent)
+  const displayedContent6 = contentCategories.slice(14, 30).map(displayContent)
+  const doTheDew = {
+    header: '"Do the Dew"',
+    contents: ['-Mountain Dew', 'Straight wisdom.']
+  }
+  const justDoIt = {
+    header: '"Doing something is better than doing nothing."',
+    contents: ['-whatshouldidotonight.com', 'Come for the fun, stay for the knowledge.']
+  }
   return (
     <Layout>
       <Head>
@@ -79,7 +101,36 @@ function TVSection ({ spotlight, free, autoBio, crime, history, personal, financ
             </p>
           </div>
         </div>
-        {displayedContent}
+        <motion.div variants={stagger} className={utilStyles.categoryOptions}>
+          {categoryOptions}
+        </motion.div>
+        {displayedContent1}
+        <ContentCallOut source="read" item={selfImprovementCallOut} />
+        {displayedContent2}
+        <ContentCallOut body={doTheDew} />
+        {displayedContent3}
+        <ContentCallOut source="read" item={crimeCallOut} />
+        {displayedContent4}
+        {
+          displayedContent5.length
+            ? (
+              <>
+                <ContentCallOut body={justDoIt} />
+                {displayedContent5}
+              </>
+            )
+            : null
+        }
+        {
+          displayedContent6.length
+            ? (
+              <>
+                <ContentCallOut source="read" item={foodCallOut} />
+                {displayedContent6}
+              </>
+            )
+            : null
+        }
       </div>
     </Layout>
   )

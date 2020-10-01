@@ -16,7 +16,6 @@ handler.get(async (req, res) => {
       result = await doCollection.find()
       result = await result.toArray()
     } else if (category) {
-      console.log('inside category', category)
       result = await doCollection.find({ categories: { $in: [category] } }).limit(numberLimit)
       result = await result.toArray()
     } else if (free) {

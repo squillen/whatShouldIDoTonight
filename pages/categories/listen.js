@@ -26,17 +26,32 @@ export async function getStaticProps () {
   let crime = []
   let food = []
   let selfImprovement = []
+  let spooky = []
 
   try {
-    spotlight = await callAPI('listen?spotlight=spotlight')
-    comedy = await callAPI('listen?category=comedy')
-    technology = await callAPI('listen?category=tech')
-    educational = await callAPI('listen?category=educational')
-    finance = await callAPI('listen?category=finance')
-    code = await callAPI('listen?category=code')
-    crime = await callAPI('listen?category=crime')
-    food = await callAPI('listen?category=food')
-    selfImprovement = await callAPI('listen?category=selfImprovement')
+    const handleCall = (path) => callAPI(`listen?${path}`).catch(console.error)
+    const promises = await Promise.all([
+      handleCall('spotlight=spotlight'),
+      handleCall('category=comedy'),
+      handleCall('category=tech'),
+      handleCall('category=educational'),
+      handleCall('category=finance'),
+      handleCall('category=code'),
+      handleCall('category=crime'),
+      handleCall('category=food'),
+      handleCall('category=selfImprovement'),
+      handleCall('category=spooky')
+    ])
+    spotlight = promises[0]
+    comedy = promises[1]
+    technology = promises[2]
+    educational = promises[3]
+    finance = promises[4]
+    code = promises[5]
+    crime = promises[6]
+    food = promises[7]
+    selfImprovement = promises[8]
+    spooky = promises[9]
   } catch (e) {
     console.error(e)
   }
@@ -50,7 +65,8 @@ export async function getStaticProps () {
       code,
       crime,
       food,
-      selfImprovement
+      selfImprovement,
+      spooky
     }
   }
 }
@@ -64,12 +80,14 @@ function Listen ({
   code,
   crime,
   food,
-  selfImprovement
+  selfImprovement,
+  spooky
 }) {
   const source = 'listen'
   const contentCategories = [
     { content: comedy, header: 'Comedy', source, ref: useRef('Comedy') },
     { content: technology, header: 'Tech', source, ref: useRef('Tech') },
+    { content: spooky, header: 'Spooky', source, ref: useRef('Spooky') },
     { content: educational, header: 'Educational', source, ref: useRef('Educational') },
     { content: finance, header: 'Finance', source, ref: useRef('Finance') },
     { content: code, header: 'Code', source, ref: useRef('Code') },
@@ -77,7 +95,7 @@ function Listen ({
     { content: food, path: 'food', header: 'Food & Drink', source, ref: useRef('Food & Drink') }
   ]
 
-  const findCallOut = coll => coll.find(item => item.spotlight !== true)
+  const findCallOut = coll => coll && Array.isArray(coll) && coll.find(item => item.spotlight !== true)
   const codeCallOut = findCallOut(code)
   const crimeCallOut = findCallOut(crime)
   const selfImprovementCallOut = findCallOut(selfImprovement)
@@ -88,13 +106,13 @@ function Listen ({
   const displayedContent4 = contentCategories.slice(5, 8).map(displayContent)
   const displayedContent5 = contentCategories.slice(8, 10).map(displayContent)
   const displayedContent6 = contentCategories.slice(10, 30).map(displayContent)
-  const doTheDew = {
-    header: '"Do the Dew"',
-    contents: ['-Mountain Dew', 'Straight wisdom.']
+  const LBJ = {
+    header: '"You aren’t learning anything when you’re talking."',
+    contents: ['-Lyndon B. Johnson']
   }
-  const justDoIt = {
-    header: '"Doing something is better than doing nothing."',
-    contents: ['-whatshouldidotonight.com', 'Come for the fun, stay for the knowledge.']
+  const Buddha = {
+    header: '"The quieter you become, the more you can hear."',
+    contents: ['-Buddha']
   }
   return (
     <Layout>
@@ -116,7 +134,7 @@ function Listen ({
         {displayedContent1}
         <ContentCallOut source="listen" item={selfImprovementCallOut} />
         {displayedContent2}
-        <ContentCallOut source="listen" item={crimeCallOut} />
+        <ContentCallOut item={Buddha} />
         {displayedContent3}
         <ContentCallOut source="listen" item={codeCallOut} />
         {displayedContent4}
@@ -124,7 +142,7 @@ function Listen ({
           displayedContent5.length
             ? (
               <>
-                <ContentCallOut body={justDoIt} />
+                <ContentCallOut source="listen" item={crimeCallOut} />
                 {displayedContent5}
               </>
             )
@@ -134,7 +152,7 @@ function Listen ({
           displayedContent6.length
             ? (
               <>
-                <ContentCallOut body={doTheDew} />
+                <ContentCallOut item={LBJ} />
                 {displayedContent6}
               </>
             )
@@ -154,7 +172,8 @@ Listen.propTypes = {
   code: PropTypes.array,
   crime: PropTypes.array,
   food: PropTypes.array,
-  selfImprovement: PropTypes.array
+  selfImprovement: PropTypes.array,
+  spooky: PropTypes.array
 }
 
 export default Listen

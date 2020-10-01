@@ -31,7 +31,7 @@ function Content () {
     <Layout>
       {
         dish
-          ? <ContentDisplay source={dish} back={router.back} />
+          ? <ContentDisplay content={dish} back={router.back} />
           : <Loading loading={true} />
       }
     </Layout>

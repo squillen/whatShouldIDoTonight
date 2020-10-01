@@ -30,6 +30,8 @@ handler.get(async (req, res) => {
     res.json(result)
   } catch (e) {
     throw new Error('ERROR IN EAT API :::', e)
+  } finally {
+    req.closeDB()
   }
 })
 

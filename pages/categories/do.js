@@ -38,25 +38,47 @@ export async function getStaticProps () {
   let active = []
 
   try {
-    spotlight = await callAPI('do?spotlight=spotlight')
-    all = await callAPI('do?limit=10&all=all')
-    food = await callAPI('do?limit=10&category=food')
-    educational = await callAPI('do?limit=10&category=educational')
-    listen = await callAPI('do?limit=10&category=listen')
-    free = await callAPI('do?free=free')
-    calm = await callAPI('do?limit=10&category=calm')
-    alone = await callAPI('do?limit=10&category=alone')
-    watch = await callAPI('do?limit=10&category=watch')
-    volunteer = await callAPI('do?limit=10&category=volunteer')
-    home = await callAPI('do?limit=10&category=home')
-    read = await callAPI('do?limit=10&category=read')
-    social = await callAPI('do?limit=10&category=social')
-    finance = await callAPI('do?limit=10&category=finance')
-    code = await callAPI('do?limit=10&category=code')
-    tech = await callAPI('do?limit=10&category=tech')
-    outside = await callAPI('do?limit=10&category=outside')
-    active = await callAPI('do?limit=10&category=active')
-    selfImprovement = await callAPI('do?limit=10&category=selfImprovement')
+    const handleCall = (path) => callAPI(`do?${path}`).catch(console.error)
+    const promises = await Promise.all([
+      handleCall('?spotlight=spotlight'),
+      handleCall('?limit=10&all=all'),
+      handleCall('?limit=10&category=food'),
+      handleCall('?limit=10&category=educational'),
+      handleCall('?limit=10&category=listen'),
+      handleCall('?free=free'),
+      handleCall('?limit=10&category=calm'),
+      handleCall('?limit=10&category=alone'),
+      handleCall('?limit=10&category=watch'),
+      handleCall('?limit=10&category=volunteer'),
+      handleCall('?limit=10&category=home'),
+      handleCall('?limit=10&category=read'),
+      handleCall('?limit=10&category=social'),
+      handleCall('?limit=10&category=finance'),
+      handleCall('?limit=10&category=code'),
+      handleCall('?limit=10&category=tech'),
+      handleCall('?limit=10&category=outside'),
+      handleCall('?limit=10&category=active'),
+      handleCall('?limit=10&category=selfImprovement')
+    ])
+    spotlight = promises[0]
+    all = promises[1]
+    food = promises[2]
+    educational = promises[3]
+    listen = promises[4]
+    free = promises[5]
+    calm = promises[6]
+    alone = promises[7]
+    watch = promises[8]
+    volunteer = promises[9]
+    home = promises[10]
+    read = promises[11]
+    social = promises[12]
+    finance = promises[13]
+    code = promises[14]
+    tech = promises[15]
+    outside = promises[16]
+    active = promises[17]
+    selfImprovement = promises[18]
   } catch (e) {
     console.error(e)
   }
@@ -107,7 +129,7 @@ function DoSection ({ spotlight, all, active, educational, outside, free, alone,
     { content: volunteer, header: 'Volunteer', source, ref: useRef('Volunteer') },
     { content: watch, header: 'Watch', source, ref: useRef('Watch') }
   ]
-  const findCallOut = coll => coll.find(item => item.spotlight !== true)
+  const findCallOut = coll => coll && Array.isArray(coll) && coll.find(item => item.spotlight !== true)
   const foodCallOut = findCallOut(food)
   const outsideCallOut = findCallOut(outside)
   const selfImprovementCallOut = findCallOut(selfImprovement)
@@ -122,9 +144,9 @@ function DoSection ({ spotlight, all, active, educational, outside, free, alone,
     header: '"Do the Dew"',
     contents: ['-Mountain Dew', 'Straight wisdom.']
   }
-  const justDoIt = {
-    header: '"Doing something is better than doing nothing."',
-    contents: ['-whatshouldidotonight.com', 'Come for the fun, stay for the knowledge.']
+  const doTheImpossible = {
+    header: '"Some people say nothing is impossible, but I do nothing everyday."',
+    contents: ['-A.A. Milne', 'Tonight, you do the possible: something']
   }
   return (
     <Layout>
@@ -132,18 +154,18 @@ function DoSection ({ spotlight, all, active, educational, outside, free, alone,
         <title>What to do - {siteTitle}</title>
       </Head>
       <div className={utilStyles.pageContainer}>
-        <SplashContent content={spotlight} banner="Do worthwhile shit" destination={source} />
+        <SplashContent content={spotlight} banner="Stuff Worthy of Your Time" destination={source} />
         <motion.div variants={stagger} className={utilStyles.categoryOptions}>
           {categoryOptions}
         </motion.div>
         {displayedContent1}
-        <ContentCallOut body={doTheDew} />
+        <ContentCallOut item={doTheImpossible} />
         {displayedContent2}
         <ContentCallOut source="do" item={selfImprovementCallOut} />
         {displayedContent3}
         <ContentCallOut source="do" item={outsideCallOut} />
         {displayedContent4}
-        <ContentCallOut body={justDoIt} />
+        <ContentCallOut item={doTheDew} />
         {displayedContent5}
         <ContentCallOut source="do" item={foodCallOut} />
         {displayedContent6}

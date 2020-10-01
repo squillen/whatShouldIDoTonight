@@ -28,19 +28,26 @@
   font-size: 3.2rem;
   padding: 1rem;
   z-index: 100;
+  min-height: 20vh;
 }
 
 .contentBody {
   font-size: 1.8rem;
   padding: 1rem;
-  min-height: 20vh;
+  min-height: 25vh;
 }
 
 .contentLink {
   text-decoration: none;
 }
 
+.bodyContainer {
+  padding: 1rem 0 2rem 0;
+}
+
 .bodyHeader {
+  width: 90%;
+  margin: 0 auto;
   text-align: center;
 }
 

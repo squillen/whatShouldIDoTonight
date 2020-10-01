@@ -30,6 +30,8 @@ handler.get(async (req, res) => {
     res.json(result)
   } catch (e) {
     throw new Error('ERROR IN READ API :::', e)
+  } finally {
+    req.closeDB()
   }
 })
 

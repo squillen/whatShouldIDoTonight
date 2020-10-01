@@ -11,7 +11,10 @@ handler.get(async (req, res) => {
   try {
     let result
     const eatCollection = req.db.collection('eat')
-    if (category) {
+    if (category === 'all') {
+      result = await eatCollection.find()
+      result = await result.toArray()
+    } else if (category) {
       result = await eatCollection.find({ categories: { $in: [category] } })
       result = await result.toArray()
     } else if (id) {

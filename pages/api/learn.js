@@ -11,7 +11,10 @@ handler.get(async (req, res) => {
   try {
     let result
     const learnCollection = req.db.collection('learn')
-    if (category) {
+    if (category === 'free') {
+      result = await learnCollection.find({ free: true })
+      result = await result.toArray()
+    } else if (category) {
       result = await learnCollection.find({ categories: { $in: [category] } })
       result = await result.toArray()
     } else if (free) {

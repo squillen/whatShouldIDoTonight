@@ -19,6 +19,7 @@ import Layout from '../../components/layout/layout'
 import Button from '../../components/button/button'
 import SocialIcons from '../../components/socialIcons/socialIcons'
 import utilStyles from '../../styles/utils.module.css'
+import BackButton from '../BackButton/BackButton'
 
 function Post (props) {
   const {
@@ -113,6 +114,7 @@ function Post (props) {
         }}
       />
       <motion.div className={utilStyles.postContainer} exit={{ opacity: 0 }} variants={stagger}>
+        {/* <BackButton onClick={router.back} /> */}
         {/* <header> */}
         <motion.div variants={stagger} className={utilStyles.headerContainer}>
           <motion.div variants={fadeInFromLeft} className={utilStyles.headingXl}>{pageTitle}</motion.div>

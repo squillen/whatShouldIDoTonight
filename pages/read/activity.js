@@ -20,10 +20,10 @@ import ContentDisplay from '../../components/ContentDisplay/ContentDisplay'
 
 function Content () {
   const [activity, setActivity] = useState(null)
+  const router = useRouter()
+  const { id } = router.query
   const getActivity = async () => {
     try {
-      const router = useRouter()
-      const { id } = router.query
       const activity = await callAPI(`read?id=${id}`)
       setActivity(activity)
     } catch (e) {
@@ -35,7 +35,7 @@ function Content () {
     <Layout>
       {
         activity
-          ? <ContentDisplay source={activity} back="/categories/read" />
+          ? <ContentDisplay source={activity} back={router.back} />
           : <Loading />
       }
 

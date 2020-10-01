@@ -15,10 +15,10 @@ import callAPI from '../../lib/helpers/callAPI'
 
 function Content () {
   const [course, setCourse] = useState(null)
+  const router = useRouter()
+  const { id } = router.query
   const getCourse = async () => {
     try {
-      const router = useRouter()
-      const { id } = router.query
       const course = await callAPI(`learn?id=${id}`)
       setCourse(course)
     } catch (e) {
@@ -30,7 +30,7 @@ function Content () {
     <Layout>
       {
         course
-          ? <ContentDisplay source={course} back="/categories/learn" />
+          ? <ContentDisplay source={course} back={router.back} />
           : <Loading />
       }
     </Layout>

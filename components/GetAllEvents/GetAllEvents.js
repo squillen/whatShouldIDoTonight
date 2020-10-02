@@ -35,9 +35,11 @@ function GetAllEvents ({ header = 'Things To Do', source, category, back }) {
 
   function getFiltersAndCategories () {
     const newFilters = allActivities && allActivities.reduce((obj, el) => {
-      el.categories.forEach(category => {
-        if (category === '') obj.free = true
-        else obj[category] = true
+      el.categories.forEach(currCategory => {
+        if (currCategory !== category) {
+          if (currCategory === '') obj.free = true
+          else obj[currCategory] = true
+        }
       })
       return obj
     }, {})
@@ -62,7 +64,6 @@ function GetAllEvents ({ header = 'Things To Do', source, category, back }) {
       filtersCopy[c] = !filtersCopy[c]
       filtersCopy.all = false
     }
-    setFilters(filtersCopy)
     getNewActivities(filtersCopy)
   }
 
@@ -75,6 +76,7 @@ function GetAllEvents ({ header = 'Things To Do', source, category, back }) {
     }
     for (const key in filtersCopy) {
       if (filtersCopy[key]) {
+        keepList.push(key)
         allActivities.forEach(a => {
           const safeCategories = a.categories || []
           const categoriesWithDoNotWants = [...safeCategories, ...doNotWants]
@@ -86,10 +88,9 @@ function GetAllEvents ({ header = 'Things To Do', source, category, back }) {
         })
       }
     }
-    const uniqueKeepList = Array.from(new Set(keepList))
     const newCurrentActivities = Object.values(newActivities)
     categories.forEach(c => {
-      if (!uniqueKeepList.includes(c)) filtersCopy[c] = false
+      if (!keepList.includes(c)) filtersCopy[c] = false
       else filtersCopy[c] = true
     })
     setCurrentActivities(newCurrentActivities)

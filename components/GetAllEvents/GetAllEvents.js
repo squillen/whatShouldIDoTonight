@@ -14,7 +14,7 @@ import styles from './GetAllEvents.module.css'
 
 function GetAllEvents ({ header = 'Things To Do', source, category, back }) {
   const [allActivities, setAllActivities] = useState([])
-  const [currentActivities, setCurrentActivities] = useState([])
+  const [currentActivities, setCurrentActivities] = useState(null)
   const [calledAPI, setCalledAPI] = useState(false)
   const [filters, setFilters] = useState({})
   const [categories, setCategories] = useState([])
@@ -36,10 +36,8 @@ function GetAllEvents ({ header = 'Things To Do', source, category, back }) {
   function getFiltersAndCategoriesOnLoad () {
     const newFilters = allActivities && allActivities.reduce((obj, el) => {
       el.categories.forEach(currCategory => {
-        if (currCategory !== category) {
-          if (currCategory === '') obj.free = true
-          else obj[currCategory] = true
-        }
+        if (currCategory === '') obj.free = true
+        else obj[currCategory] = true
       })
       return obj
     }, {})
@@ -68,7 +66,7 @@ function GetAllEvents ({ header = 'Things To Do', source, category, back }) {
   }
 
   function getNewActivities (passedFilters = {}, stop = false) {
-    console.log('stop :>> ', stop);
+    console.log('stop :>> ', stop)
     const filtersCopy = { ...passedFilters }
     const newActivities = {}
     const doNotWants = []
@@ -133,23 +131,29 @@ function GetAllEvents ({ header = 'Things To Do', source, category, back }) {
           source={source}
           back={back}
         />
-        <div className={styles.filters}>
-          {
-            categories && categories.map(c => {
-              return (
-                <div
-                  key={c}
-                  className={styles.filter}
-                >
-                  <div onClick={() => onClick(c)} className={styles[filters[c] ? 'selectedCheckbox' : 'emptyCheckbox']}>
-                    {filters[c] && <span>&#10003;</span>}
-                  </div>
-                  <div className={styles.label}>{handleCategory(c)}</div>
-                </div>
-              )
-            })
-          }
-        </div>
+        {
+          categories && categories.length
+            ? (
+              <div className={styles.filters}>
+                {
+                  categories.map(c => {
+                    return (
+                      <div
+                        key={c}
+                        className={styles.filter}
+                      >
+                        <div onClick={() => onClick(c)} className={styles[filters[c] ? 'selectedCheckbox' : 'emptyCheckbox']}>
+                          {filters[c] && <span>&#10003;</span>}
+                        </div>
+                        <div className={styles.label}>{handleCategory(c)}</div>
+                      </div>
+                    )
+                  })
+                }
+              </div>
+            )
+            : null
+        }
       </div>
     </Layout>
   )

@@ -1,3 +1,7 @@
+.displayAllContainer {
+  width: 100%;
+}
+
 .headerContainer {
   font-size: 4.4rem;
   text-align: center;
@@ -19,4 +23,17 @@
   /* justify-content: center; */
   flex-wrap: wrap;
   padding: 3rem;
+}
+
+.noActivities {
+  width: 100%;
+  min-height: 20vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.label {
+  font-size: 1.5rem;
 }

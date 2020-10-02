@@ -15,33 +15,26 @@ import callAPI from '../../lib/helpers/callAPI'
 import displayContent from '../../lib/helpers/displayContent'
 import displayCategoryOptions from '../../lib/helpers/displayCategoryOptions'
 import { stagger } from '../../animations/default'
+import { slice } from '../../lib/helpers/dataHelpers'
 
 export async function getStaticProps () {
   let spotlight = []
   let ideas = []
   let free = []
-  let comedy = []
-  let drama = []
-  let horror = []
-  let action = []
+  let all = []
+
   try {
     const handleCall = (path) => callAPI(`watch?${path}`).catch(console.error)
     const promises = await Promise.all([
       handleCall('spotlight=spotlight'),
       handleCall('free=free'),
       handleCall('ideas=ideas'),
-      handleCall('category=comedy'),
-      handleCall('category=drama'),
-      handleCall('category=horror'),
-      handleCall('category=action')
+      handleCall('all=all')
     ])
     spotlight = promises[0]
     free = promises[1]
     ideas = promises[2]
-    comedy = promises[3]
-    drama = promises[4]
-    horror = promises[5]
-    action = promises[6]
+    all = promises[3]
   } catch (e) {
     console.error(e)
   }
@@ -50,23 +43,21 @@ export async function getStaticProps () {
       spotlight,
       ideas,
       free,
-      comedy,
-      drama,
-      horror,
-      action
+      all
     }
   }
 }
 
-function TVSection ({ spotlight, comedy, horror, free, drama, action, ideas }) {
+function WatchSection ({ spotlight, free, ideas, all = {} }) {
+  const { comedy, horror, drama, action } = all
   const source = 'watch'
   const contentCategories = [
-    { content: comedy, header: 'Comedy', source, ref: useRef('Comedy') },
-    { content: horror, header: 'Horror', source, ref: useRef('Horror') },
-    { content: ideas, header: 'Ideas', source, ref: useRef('Ideas') },
-    { content: free, header: 'Free', source, ref: useRef('Free') },
-    { content: drama, header: 'Drama', source, ref: useRef('Drama') },
-    { content: action, header: 'Action', source, ref: useRef('Action') }
+    { content: slice(comedy), header: 'Comedy', source, ref: useRef('Comedy') },
+    { content: slice(horror), header: 'Horror', source, ref: useRef('Horror') },
+    { content: slice(ideas), header: 'Ideas', source, ref: useRef('Ideas') },
+    { content: slice(free), header: 'Free', source, ref: useRef('Free') },
+    { content: slice(drama), header: 'Drama', source, ref: useRef('Drama') },
+    { content: slice(action), header: 'Action', source, ref: useRef('Action') }
   ]
   const findCallOut = coll => coll && Array.isArray(coll) && coll.find(item => item.spotlight !== true)
   const dramaCallOut = findCallOut(drama)
@@ -139,14 +130,11 @@ function TVSection ({ spotlight, comedy, horror, free, drama, action, ideas }) {
   )
 }
 
-TVSection.propTypes = {
+WatchSection.propTypes = {
   spotlight: PropTypes.array,
-  comedy: PropTypes.array,
-  drama: PropTypes.array,
-  action: PropTypes.array,
-  horror: PropTypes.array,
+  all: PropTypes.object,
   free: PropTypes.array,
   ideas: PropTypes.array
 }
 
-export default TVSection
+export default WatchSection

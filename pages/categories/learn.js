@@ -18,48 +18,33 @@ import { stagger } from '../../animations/default'
 
 export async function getStaticProps () {
   let spotlight = []
-  let art = []
-  let code = []
+  let all = []
   let free = []
-  let finance = []
-  let food = []
-  let selfImprovement = []
 
   try {
     const handleCall = (path) => callAPI(`learn?${path}`).catch(console.error)
     const promises = await Promise.all([
       handleCall('spotlight=spotlight'),
       handleCall('free=free'),
-      handleCall('category=art'),
-      handleCall('category=code'),
-      handleCall('category=finance'),
-      handleCall('category=food'),
-      handleCall('category=selfImprovement')
+      handleCall('all=all')
     ])
     spotlight = promises[0]
     free = promises[1]
-    art = promises[2]
-    code = promises[3]
-    finance = promises[4]
-    food = promises[5]
-    selfImprovement = promises[6]
+    all = promises[2]
   } catch (e) {
     console.error(e)
   }
   return {
     props: {
       spotlight,
-      art,
-      code,
-      free,
-      finance,
-      food,
-      selfImprovement
+      all,
+      free
     }
   }
 }
 
-function TVSection ({ spotlight, art, code, free, finance, food, selfImprovement }) {
+function LearnSection ({ spotlight, all, free }) {
+  const { art, code, finance, food, selfImprovement } = all
   const source = 'learn'
   const contentCategories = [
     { content: art, header: 'Art', source, ref: useRef('Art') },
@@ -106,11 +91,11 @@ function TVSection ({ spotlight, art, code, free, finance, food, selfImprovement
           {categoryOptions}
         </motion.div>
         {displayedContent1}
-        <ContentCallOut source="learn" item={selfImprovementCallOut} />
+        <ContentCallOut source={source} item={selfImprovementCallOut} />
         {displayedContent2}
         <ContentCallOut item={markTwain} />
         {displayedContent3}
-        <ContentCallOut source="learn" item={codeCallOut} />
+        <ContentCallOut source={source} item={codeCallOut} />
         {displayedContent4}
         {
           displayedContent5.length
@@ -126,7 +111,7 @@ function TVSection ({ spotlight, art, code, free, finance, food, selfImprovement
           displayedContent6.length
             ? (
               <>
-                <ContentCallOut source="learn" item={foodCallOut} />
+                <ContentCallOut source={source} item={foodCallOut} />
                 {displayedContent6}
               </>
             )
@@ -137,8 +122,9 @@ function TVSection ({ spotlight, art, code, free, finance, food, selfImprovement
   )
 }
 
-TVSection.propTypes = {
+LearnSection.propTypes = {
   spotlight: PropTypes.array,
+  all: PropTypes.object,
   art: PropTypes.array,
   code: PropTypes.array,
   finance: PropTypes.array,
@@ -148,4 +134,4 @@ TVSection.propTypes = {
   ideas: PropTypes.array
 }
 
-export default TVSection
+export default LearnSection

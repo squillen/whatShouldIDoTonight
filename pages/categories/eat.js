@@ -15,6 +15,7 @@ import callAPI from '../../lib/helpers/callAPI'
 import displayContent from '../../lib/helpers/displayContent'
 import displayCategoryOptions from '../../lib/helpers/displayCategoryOptions'
 import { stagger } from '../../animations/default'
+import { slice } from '../../lib/helpers/dataHelpers'
 
 export async function getStaticProps () {
   let spotlight = []
@@ -43,17 +44,17 @@ function EatSection ({ spotlight, all }) {
   const { indian, asian, american, italian, mexican, thai, japanese, chinese, dessert, recipe } = all
   const source = 'eat'
   const contentCategories = [
-    { content: all, header: 'All', source, ref: useRef('All') },
-    { content: indian, header: 'Indian', source, ref: useRef('Indian') },
-    { content: asian, header: 'Asian', source, ref: useRef('Asian') },
-    { content: american, header: 'American', source, ref: useRef('American') },
-    { content: italian, header: 'Italian', source, ref: useRef('Italian') },
-    { content: mexican, header: 'Mexican', source, ref: useRef('Mexican') },
-    { content: thai, header: 'Thai', source, ref: useRef('Thai') },
-    { content: japanese, header: 'Japanese', source, ref: useRef('Japanese') },
-    { content: chinese, header: 'Chinese', source, ref: useRef('Chinese') },
-    { content: dessert, header: 'Dessert', source, ref: useRef('Dessert') },
-    { content: recipe, header: 'Recipes', source, ref: useRef('Recipes') }
+    { content: slice(all), header: 'All', source, ref: useRef('All') },
+    { content: slice(indian), header: 'Indian', source, ref: useRef('Indian') },
+    { content: slice(asian), header: 'Asian', source, ref: useRef('Asian') },
+    { content: slice(american), header: 'American', source, ref: useRef('American') },
+    { content: slice(italian), header: 'Italian', source, ref: useRef('Italian') },
+    { content: slice(mexican), header: 'Mexican', source, ref: useRef('Mexican') },
+    { content: slice(thai), header: 'Thai', source, ref: useRef('Thai') },
+    { content: slice(japanese), header: 'Japanese', source, ref: useRef('Japanese') },
+    { content: slice(chinese), header: 'Chinese', source, ref: useRef('Chinese') },
+    { content: slice(dessert), header: 'Dessert', source, ref: useRef('Dessert') },
+    { content: slice(recipe), header: 'Recipes', source, ref: useRef('Recipes') }
   ]
   const findCallOut = coll => coll && Array.isArray(coll) && coll.find(item => item.spotlight !== true)
   const italianCallOut = findCallOut(italian)

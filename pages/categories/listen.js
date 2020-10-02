@@ -15,6 +15,7 @@ import callAPI from '../../lib/helpers/callAPI'
 import displayContent from '../../lib/helpers/displayContent'
 import displayCategoryOptions from '../../lib/helpers/displayCategoryOptions'
 import { stagger } from '../../animations/default'
+import { slice } from '../../lib/helpers/dataHelpers'
 
 export async function getStaticProps () {
   let spotlight = []
@@ -43,14 +44,14 @@ function ListenSection ({ spotlight, all }) {
   const { comedy, technology, educational, finance, code, crime, food, selfImprovement, spooky } = all
   const source = 'listen'
   const contentCategories = [
-    { content: comedy, header: 'Comedy', source, ref: useRef('Comedy') },
-    { content: technology, header: 'Tech', source, ref: useRef('Tech') },
-    { content: spooky, header: 'Spooky', source, ref: useRef('Spooky') },
-    { content: educational, header: 'Educational', source, ref: useRef('Educational') },
-    { content: finance, header: 'Finance', source, ref: useRef('Finance') },
-    { content: code, header: 'Code', source, ref: useRef('Code') },
-    { content: crime, header: 'Crime', source, ref: useRef('Crime') },
-    { content: food, path: 'food', header: 'Food & Drink', source, ref: useRef('Food & Drink') }
+    { content: slice(comedy), header: 'Comedy', source, ref: useRef('Comedy') },
+    { content: slice(technology), header: 'Tech', source, ref: useRef('Tech') },
+    { content: slice(spooky), header: 'Spooky', source, ref: useRef('Spooky') },
+    { content: slice(educational), header: 'Educational', source, ref: useRef('Educational') },
+    { content: slice(finance), header: 'Finance', source, ref: useRef('Finance') },
+    { content: slice(code), header: 'Code', source, ref: useRef('Code') },
+    { content: slice(crime), header: 'Crime', source, ref: useRef('Crime') },
+    { content: slice(food), path: 'food', header: 'Food & Drink', source, ref: useRef('Food & Drink') }
   ]
 
   const findCallOut = coll => coll && Array.isArray(coll) && coll.find(item => item.spotlight !== true)

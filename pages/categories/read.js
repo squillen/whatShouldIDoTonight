@@ -15,6 +15,7 @@ import callAPI from '../../lib/helpers/callAPI'
 import displayContent from '../../lib/helpers/displayContent'
 import displayCategoryOptions from '../../lib/helpers/displayCategoryOptions'
 import { stagger } from '../../animations/default'
+import { slice } from '../../lib/helpers/dataHelpers'
 
 export async function getStaticProps () {
   let spotlight = []
@@ -47,14 +48,14 @@ function ReadSection ({ spotlight, free, all }) {
   const { autoBio, crime, history, personal, finance, food, selfImprovement } = all
   const source = 'read'
   const contentCategories = [
-    { content: autoBio, header: 'Autobiography', source, ref: useRef('Autobiography') },
-    { content: free, header: 'Free', source, ref: useRef('Free') },
-    { content: crime, header: 'Crime', source, ref: useRef('Crime') },
-    { content: history, header: 'History', source, ref: useRef('History') },
-    { content: personal, header: 'Personal', source, ref: useRef('Personal') },
-    { content: finance, header: 'Finance', source, ref: useRef('Finance') },
-    { content: food, header: 'Food', source, ref: useRef('Food') },
-    { content: selfImprovement, path: 'selfImprovement', header: 'Self Improvement', source, ref: useRef('Self Improvement') }
+    { content: slice(autoBio), header: 'Autobiography', source, ref: useRef('Autobiography') },
+    { content: slice(free), header: 'Free', source, ref: useRef('Free') },
+    { content: slice(crime), header: 'Crime', source, ref: useRef('Crime') },
+    { content: slice(history), header: 'History', source, ref: useRef('History') },
+    { content: slice(personal), header: 'Personal', source, ref: useRef('Personal') },
+    { content: slice(finance), header: 'Finance', source, ref: useRef('Finance') },
+    { content: slice(food), header: 'Food', source, ref: useRef('Food') },
+    { content: slice(selfImprovement), path: 'selfImprovement', header: 'Self Improvement', source, ref: useRef('Self Improvement') }
   ]
   const findCallOut = coll => coll && Array.isArray(coll) && coll.find(item => item.spotlight !== true)
   const crimeCallOut = findCallOut(crime)

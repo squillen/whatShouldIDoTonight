@@ -1,4 +1,4 @@
-import React, { useState, useRef } from 'react'
+import React, { useRef } from 'react'
 import { motion } from 'framer-motion'
 import Head from 'next/head'
 import PropTypes from 'prop-types'
@@ -14,6 +14,7 @@ import utilStyles from '../../styles/utils.module.css'
 import callAPI from '../../lib/helpers/callAPI'
 import displayContent from '../../lib/helpers/displayContent'
 import displayCategoryOptions from '../../lib/helpers/displayCategoryOptions'
+import { slice } from '../../lib/helpers/dataHelpers'
 import { stagger } from '../../animations/default'
 
 export async function getStaticProps () {
@@ -41,26 +42,26 @@ export async function getStaticProps () {
 
 function DoSection ({ spotlight, all = {} }) {
   const source = 'do'
-  const { active, educational, outside, free, alone, read, home, volunteer, listen, watch, calm, social, food, finance, code, tech, selfImprovement } = all
+  const { total, active, educational, outside, free, alone, read, home, volunteer, listen, watch, calm, social, food, finance, code, tech, selfImprovement } = all
   const contentCategories = [
-    { content: all, header: 'All', source, ref: useRef('All') },
-    { content: active, header: 'Active', source, ref: useRef('Active') },
-    { content: alone, header: 'Alone', source, ref: useRef('Alone') },
-    { content: calm, path: 'calm', header: 'Chill', source, ref: useRef('Chill') },
-    { content: code, header: 'Code', source, ref: useRef('Code') },
-    { content: educational, header: 'Educational', source, ref: useRef('Educational') },
-    { content: finance, header: 'Finance', source, ref: useRef('Finance') },
-    { content: food, path: 'food', header: 'Eat', source, ref: useRef('Eat') },
-    { content: free, header: 'Free', source, ref: useRef('Free') },
-    { content: home, header: 'Home', source, ref: useRef('Home') },
-    { content: listen, header: 'Listen', source, ref: useRef('Listen') },
-    { content: outside, header: 'Outside', source, ref: useRef('Outside') },
-    { content: read, path: 'read', header: 'Read & Write', source, ref: useRef('Read & Write') },
-    { content: selfImprovement, path: 'selfImprovement', header: 'Self Improvement', source, ref: useRef('Self Improvement') },
-    { content: social, header: 'Social', source, ref: useRef('Social') },
-    { content: tech, header: 'Tech', source, ref: useRef('Tech') },
-    { content: volunteer, header: 'Volunteer', source, ref: useRef('Volunteer') },
-    { content: watch, header: 'Watch', source, ref: useRef('Watch') }
+    { content: slice(total), header: 'All', source, ref: useRef('All') },
+    { content: slice(active), header: 'Active', source, ref: useRef('Active') },
+    { content: slice(alone), header: 'Alone', source, ref: useRef('Alone') },
+    { content: slice(calm), path: 'calm', header: 'Chill', source, ref: useRef('Chill') },
+    { content: slice(code), header: 'Code', source, ref: useRef('Code') },
+    { content: slice(educational), header: 'Educational', source, ref: useRef('Educational') },
+    { content: slice(finance), header: 'Finance', source, ref: useRef('Finance') },
+    { content: slice(food), path: 'food', header: 'Eat', source, ref: useRef('Eat') },
+    { content: slice(free), header: 'Free', source, ref: useRef('Free') },
+    { content: slice(home), header: 'Home', source, ref: useRef('Home') },
+    { content: slice(listen), header: 'Listen', source, ref: useRef('Listen') },
+    { content: slice(outside), header: 'Outside', source, ref: useRef('Outside') },
+    { content: slice(read), path: 'read', header: 'Read & Write', source, ref: useRef('Read & Write') },
+    { content: slice(selfImprovement), path: 'selfImprovement', header: 'Self Improvement', source, ref: useRef('Self Improvement') },
+    { content: slice(social), header: 'Social', source, ref: useRef('Social') },
+    { content: slice(tech), header: 'Tech', source, ref: useRef('Tech') },
+    { content: slice(volunteer), header: 'Volunteer', source, ref: useRef('Volunteer') },
+    { content: slice(watch), header: 'Watch', source, ref: useRef('Watch') }
   ]
   const findCallOut = coll => coll && Array.isArray(coll) && coll.find(item => item.spotlight !== true)
   const foodCallOut = findCallOut(food)

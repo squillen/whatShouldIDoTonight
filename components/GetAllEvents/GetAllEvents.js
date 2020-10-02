@@ -68,6 +68,7 @@ function GetAllEvents ({ header = 'Things To Do', source, category, back }) {
   }
 
   function getNewActivities (passedFilters = {}, stop = false) {
+    console.log('stop :>> ', stop);
     const filtersCopy = { ...passedFilters }
     const newActivities = {}
     const doNotWants = []
@@ -103,7 +104,13 @@ function GetAllEvents ({ header = 'Things To Do', source, category, back }) {
       else if (!doNotWants.includes(c)) filtersCopy[c] = true
       else filtersCopy[c] = false
     })
-    if (!stop) return getNewActivities(filtersCopy, true)
+    if (!stop) {
+      const newDoNotWants = []
+      for (const key in filtersCopy) {
+        if (!filtersCopy[key]) newDoNotWants.push(key)
+      }
+      return getNewActivities(filtersCopy, newDoNotWants.length === doNotWants.length) // go back through with updated filters
+    }
     const newCurrentActivities = Object.values(newActivities)
     setCurrentActivities(newCurrentActivities)
     setFilters(filtersCopy)

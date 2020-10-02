@@ -19,67 +19,28 @@ import { stagger } from '../../animations/default'
 export async function getStaticProps () {
   let spotlight = []
   let all = []
-  let indian = []
-  let asian = []
-  let american = []
-  let italian = []
-  let mexican = []
-  let thai = []
-  let japanese = []
-  let chinese = []
-  let dessert = []
-  let recipe = []
 
   try {
     const handleCall = (path) => callAPI(`eat?${path}`).catch(console.error)
     const promises = await Promise.all([
       handleCall('spotlight=spotlight'),
-      handleCall('limit=10&all=all'),
-      handleCall('category=indian'),
-      handleCall('category=asian'),
-      handleCall('category=american'),
-      handleCall('category=italian'),
-      handleCall('category=mexican'),
-      handleCall('category=thai'),
-      handleCall('category=japanese'),
-      handleCall('category=chinese'),
-      handleCall('category=dessert'),
-      handleCall('recipe=recipe')
+      handleCall('all=all')
     ])
     spotlight = promises[0]
     all = promises[1]
-    indian = promises[2]
-    asian = promises[3]
-    american = promises[4]
-    italian = promises[5]
-    mexican = promises[6]
-    thai = promises[7]
-    japanese = promises[8]
-    chinese = promises[9]
-    dessert = promises[10]
-    recipe = promises[11]
   } catch (e) {
     console.error(e)
   }
   return {
     props: {
       spotlight,
-      all,
-      indian,
-      asian,
-      american,
-      italian,
-      mexican,
-      thai,
-      japanese,
-      chinese,
-      dessert,
-      recipe
+      all
     }
   }
 }
 
-function TVSection ({ spotlight, all, indian, asian, american, italian, mexican, thai, japanese, chinese, dessert, recipe }) {
+function EatSection ({ spotlight, all }) {
+  const { indian, asian, american, italian, mexican, thai, japanese, chinese, dessert, recipe } = all
   const source = 'eat'
   const contentCategories = [
     { content: all, header: 'All', source, ref: useRef('All') },
@@ -129,31 +90,22 @@ function TVSection ({ spotlight, all, indian, asian, american, italian, mexican,
         {displayedContent1}
         <ContentCallOut item={doTheDew} />
         {displayedContent2}
-        <ContentCallOut source="eat" item={dessertCallOut} />
+        <ContentCallOut source={source} item={dessertCallOut} />
         {displayedContent3}
-        <ContentCallOut source="eat" item={italianCallOut} />
+        <ContentCallOut source={source} item={italianCallOut} />
         {displayedContent4}
         <ContentCallOut item={justDoIt} />
         {displayedContent5}
-        <ContentCallOut source="eat" item={japaneseCallOut} />
+        <ContentCallOut source={source} item={japaneseCallOut} />
         {displayedContent6}
       </div>
     </Layout>
   )
 }
 
-TVSection.propTypes = {
-  all: PropTypes.array,
-  spotlight: PropTypes.array,
-  indian: PropTypes.array,
-  asian: PropTypes.array,
-  american: PropTypes.array,
-  italian: PropTypes.array,
-  mexican: PropTypes.array,
-  thai: PropTypes.array,
-  japanese: PropTypes.array,
-  chinese: PropTypes.array,
-  dessert: PropTypes.array
+EatSection.propTypes = {
+  all: PropTypes.object,
+  spotlight: PropTypes.array
 }
 
-export default TVSection
+export default EatSection

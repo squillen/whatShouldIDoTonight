@@ -1,17 +1,23 @@
 import { ObjectId } from 'mongodb'
 import nextConnect from 'next-connect'
 import middleware from '../../middleware/database'
+import { getAllCategories } from '../../lib/helpers/dataHelpers'
 
 const handler = nextConnect()
 
 handler.use(middleware)
 
 handler.get(async (req, res) => {
-  const { spotlight, category, id } = req.query
+  const { spotlight, category, all, id } = req.query
   try {
     let result
     const eatCollection = req.db.collection('eat')
-    if (category === 'all') {
+    if (all) {
+      result = await eatCollection.find()
+      result = await result.toArray()
+      const categories = getAllCategories(result)
+      return res.json(categories)
+    } else if (category === 'all') {
       result = await eatCollection.find()
       result = await result.toArray()
     } else if (category) {

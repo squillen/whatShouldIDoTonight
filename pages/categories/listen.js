@@ -18,71 +18,29 @@ import { stagger } from '../../animations/default'
 
 export async function getStaticProps () {
   let spotlight = []
-  let comedy = []
-  let technology = []
-  let educational = []
-  let finance = []
-  let code = []
-  let crime = []
-  let food = []
-  let selfImprovement = []
-  let spooky = []
+  let all = []
 
   try {
     const handleCall = (path) => callAPI(`listen?${path}`).catch(console.error)
     const promises = await Promise.all([
       handleCall('spotlight=spotlight'),
-      handleCall('category=comedy'),
-      handleCall('category=tech'),
-      handleCall('category=educational'),
-      handleCall('category=finance'),
-      handleCall('category=code'),
-      handleCall('category=crime'),
-      handleCall('category=food'),
-      handleCall('category=selfImprovement'),
-      handleCall('category=spooky')
+      handleCall('all=all')
     ])
     spotlight = promises[0]
-    comedy = promises[1]
-    technology = promises[2]
-    educational = promises[3]
-    finance = promises[4]
-    code = promises[5]
-    crime = promises[6]
-    food = promises[7]
-    selfImprovement = promises[8]
-    spooky = promises[9]
+    all = promises[1]
   } catch (e) {
     console.error(e)
   }
   return {
     props: {
       spotlight,
-      comedy,
-      technology,
-      educational,
-      finance,
-      code,
-      crime,
-      food,
-      selfImprovement,
-      spooky
+      all
     }
   }
 }
 
-function Listen ({
-  spotlight,
-  comedy,
-  technology,
-  educational,
-  finance,
-  code,
-  crime,
-  food,
-  selfImprovement,
-  spooky
-}) {
+function ListenSection ({ spotlight, all }) {
+  const { comedy, technology, educational, finance, code, crime, food, selfImprovement, spooky } = all
   const source = 'listen'
   const contentCategories = [
     { content: comedy, header: 'Comedy', source, ref: useRef('Comedy') },
@@ -132,17 +90,17 @@ function Listen ({
           {categoryOptions}
         </motion.div>
         {displayedContent1}
-        <ContentCallOut source="listen" item={selfImprovementCallOut} />
+        <ContentCallOut source={source} item={selfImprovementCallOut} />
         {displayedContent2}
         <ContentCallOut item={Buddha} />
         {displayedContent3}
-        <ContentCallOut source="listen" item={codeCallOut} />
+        <ContentCallOut source={source} item={codeCallOut} />
         {displayedContent4}
         {
           displayedContent5.length
             ? (
               <>
-                <ContentCallOut source="listen" item={crimeCallOut} />
+                <ContentCallOut source={source} item={crimeCallOut} />
                 {displayedContent5}
               </>
             )
@@ -163,17 +121,9 @@ function Listen ({
   )
 }
 
-Listen.propTypes = {
+ListenSection.propTypes = {
   spotlight: PropTypes.array,
-  comedy: PropTypes.array,
-  technology: PropTypes.array,
-  educational: PropTypes.array,
-  finance: PropTypes.array,
-  code: PropTypes.array,
-  crime: PropTypes.array,
-  food: PropTypes.array,
-  selfImprovement: PropTypes.array,
-  spooky: PropTypes.array
+  all: PropTypes.object
 }
 
-export default Listen
+export default ListenSection

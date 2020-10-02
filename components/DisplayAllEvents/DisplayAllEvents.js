@@ -33,8 +33,9 @@ export default class DisplayAllEvents extends React.Component {
   render () {
     const { currentActivities } = this.state
     const { header = 'Do all the stuffs!', source, back } = this.props
+    const noActivitiesDiv = this.showNoActivities()
     return (
-      <motion.div variants={stagger}>
+      <motion.div className={styles.displayAllContainer} variants={stagger}>
         <Head>
           <title>{header} - {siteTitle}</title>
         </Head>
@@ -45,14 +46,25 @@ export default class DisplayAllEvents extends React.Component {
         </div>
         <motion.div variants={stagger} className={styles.activitiesContainer}>
           {
-            currentActivities
+            currentActivities && currentActivities.length
               ? currentActivities.map(activity => (
                 <ContentCard key={activity.name} activity={activity} source={source} />
               ))
-              : <Loading loading={true} />
+              : currentActivities && currentActivities.length === 0
+                ? noActivitiesDiv
+                : <Loading loading={true} />
           }
         </motion.div>
       </motion.div>
+    )
+  }
+
+  showNoActivities () {
+    return (
+      <div className={styles.noActivities}>
+        <div className={styles.label}>Try adjusting your filters.</div>
+        <img src="https://media.giphy.com/media/10h8CdMQUWoZ8Y/giphy.gif" alt="Willy Wonka saying 'You get nothing! You lose! Good day, sir!'"/>
+      </div>
     )
   }
 }

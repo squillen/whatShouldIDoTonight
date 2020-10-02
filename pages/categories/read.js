@@ -19,36 +19,18 @@ import { stagger } from '../../animations/default'
 export async function getStaticProps () {
   let spotlight = []
   let free = []
-  let autoBio = []
-  let crime = []
-  let history = []
-  let personal = []
-  let finance = []
-  let food = []
-  let selfImprovement = []
+  let all = []
 
   try {
     const handleCall = (path) => callAPI(`read?${path}`).catch(console.error)
     const promises = await Promise.all([
       handleCall('spotlight=spotlight'),
       handleCall('free=free'),
-      handleCall('category=autoBio'),
-      handleCall('category=crime'),
-      handleCall('category=history'),
-      handleCall('category=personal'),
-      handleCall('category=finance'),
-      handleCall('category=food'),
-      handleCall('category=selfImprovement')
+      handleCall('all=all')
     ])
     spotlight = promises[0]
     free = promises[1]
-    autoBio = promises[2]
-    crime = promises[3]
-    history = promises[4]
-    personal = promises[5]
-    finance = promises[6]
-    food = promises[7]
-    selfImprovement = promises[8]
+    all = promises[2]
   } catch (e) {
     console.error(e)
   }
@@ -56,18 +38,13 @@ export async function getStaticProps () {
     props: {
       spotlight,
       free,
-      autoBio,
-      crime,
-      history,
-      personal,
-      finance,
-      food,
-      selfImprovement
+      all
     }
   }
 }
 
-function TVSection ({ spotlight, free, autoBio, crime, history, personal, finance, food, selfImprovement }) {
+function ReadSection ({ spotlight, free, all }) {
+  const { autoBio, crime, history, personal, finance, food, selfImprovement } = all
   const source = 'read'
   const contentCategories = [
     { content: autoBio, header: 'Autobiography', source, ref: useRef('Autobiography') },
@@ -121,11 +98,11 @@ function TVSection ({ spotlight, free, autoBio, crime, history, personal, financ
           {categoryOptions}
         </motion.div>
         {displayedContent1}
-        <ContentCallOut source="read" item={selfImprovementCallOut} />
+        <ContentCallOut source={source} item={selfImprovementCallOut} />
         {displayedContent2}
         <ContentCallOut item={dorothyParker} />
         {displayedContent3}
-        <ContentCallOut source="read" item={crimeCallOut} />
+        <ContentCallOut source={source} item={crimeCallOut} />
         {displayedContent4}
         {
           displayedContent5.length
@@ -141,7 +118,7 @@ function TVSection ({ spotlight, free, autoBio, crime, history, personal, financ
           displayedContent6.length
             ? (
               <>
-                <ContentCallOut source="read" item={foodCallOut} />
+                <ContentCallOut source={source} item={foodCallOut} />
                 {displayedContent6}
               </>
             )
@@ -152,17 +129,10 @@ function TVSection ({ spotlight, free, autoBio, crime, history, personal, financ
   )
 }
 
-TVSection.propTypes = {
+ReadSection.propTypes = {
   spotlight: PropTypes.array,
   free: PropTypes.array,
-  autoBio: PropTypes.array,
-  code: PropTypes.array,
-  crime: PropTypes.array,
-  finance: PropTypes.array,
-  history: PropTypes.array,
-  personal: PropTypes.array,
-  food: PropTypes.array,
-  selfImprovement: PropTypes.array
+  all: PropTypes.object
 }
 
-export default TVSection
+export default ReadSection

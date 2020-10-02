@@ -16,13 +16,16 @@ function GetAllEvents ({ header = 'Things To Do', source, category, back }) {
   const [allActivities, setAllActivities] = useState([])
   const [currentActivities, setCurrentActivities] = useState([])
   const [calledAPI, setCalledAPI] = useState(false)
-  const [callDB, setCallDB] = useState(false)
   const [filters, setFilters] = useState({})
   const [categories, setCategories] = useState([])
-  const getAllActivities = async () => {
+  const stub = `${source}?category=${category}`
+  if (category && !calledAPI && allActivities && !allActivities.length) getAllActivitiesOnLoad()
+  if (!categories.length && allActivities && allActivities.length) getFiltersAndCategories()
+  async function getAllActivitiesOnLoad () {
     try {
-      const allActivities = await callAPI(`${source}?category=${category}`)
+      const allActivities = await callAPI(stub)
       setAllActivities(allActivities)
+      setCurrentActivities(allActivities)
     } catch (e) {
       console.error(e)
     } finally {
@@ -55,44 +58,35 @@ function GetAllEvents ({ header = 'Things To Do', source, category, back }) {
         filtersCopy[key] = bool
       }
       filtersCopy.all = !all
-    } else filtersCopy[c] = !filtersCopy[c]
+    } else {
+      filtersCopy[c] = !filtersCopy[c]
+      filtersCopy.all = false
+    }
     setFilters(filtersCopy)
-    setCallDB(true)
-    // getNewActivities()
+    getNewActivities(filtersCopy)
   }
 
-  const callDBForNewActivities = async () => {
-    const includedCategories = []
-    const excludedCategories = []
-    for (const key in filters) {
-      if (filters[key]) includedCategories.push(key)
-      if (!filters[key]) excludedCategories.push(key)
+  function getNewActivities (filtersCopy) {
+    const newActivities = {}
+    const doNotWants = []
+    for (const key in filtersCopy) {
+      if (!filtersCopy[key]) doNotWants.push(key)
     }
-    const query = `${source}?included=${includedCategories}&excluded=${excludedCategories}`
-    try {
-      const result = await callAPI(query)
-      // let newFilters = []
-      // result.forEach(activity => newFilters.push(...activity.categories))
-      // newFilters = Array.from(new Set(newFilters))
-      // const filtersCopy = { ...filters }
-      // for (const key in filtersCopy) {
-      //   filtersCopy[key] = false
-      // }
-      // newFilters.forEach(filter => {
-      //   filtersCopy[filter] = true
-      // })
-      // setFilters(filtersCopy)
-      setCurrentActivities(result)
-      console.log('result.length :>> ', result.length)
-    } catch (e) {
-      console.error(e)
+    for (const key in filtersCopy) {
+      if (filtersCopy[key]) {
+        allActivities.forEach(a => {
+          const safeCategories = a.categories || []
+          const categoriesWithDoNotWants = [...safeCategories, ...doNotWants]
+          const uniqueCategories = Array.from(new Set(categoriesWithDoNotWants))
+          if (categoriesWithDoNotWants.length === uniqueCategories.length) {
+            newActivities[a.name] = a
+          }
+        })
+      }
     }
+    const newCurrentActivities = Object.values(newActivities)
+    setCurrentActivities(newCurrentActivities)
   }
-
-  useEffect(() => {
-    setCallDB(false)
-    callDBForNewActivities()
-  }, [callDB])
 
   const handleCategory = (c) => {
     if (c === 'selfImprovement') return 'self improvement'
@@ -102,9 +96,6 @@ function GetAllEvents ({ header = 'Things To Do', source, category, back }) {
     if (c === 'read') return 'read & write'
     return c
   }
-
-  if (!calledAPI && allActivities && !allActivities.length) getAllActivities()
-  if (!categories.length && allActivities && allActivities.length) getFiltersAndCategories()
   return (
     <Layout>
       <div className={styles.contentContainer}>

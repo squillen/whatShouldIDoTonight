@@ -48,19 +48,19 @@
     <changefreq>weekly</changefreq>
   </url>
   <url>
-    <loc>http://localhost:3000/eat/activity</loc>
-    <changefreq>weekly</changefreq>
-  </url>
-  <url>
-    <loc>http://localhost:3000/eat/all</loc>
-    <changefreq>weekly</changefreq>
-  </url>
-  <url>
     <loc>http://localhost:3000/learn/activity</loc>
     <changefreq>weekly</changefreq>
   </url>
   <url>
     <loc>http://localhost:3000/learn/all</loc>
+    <changefreq>weekly</changefreq>
+  </url>
+  <url>
+    <loc>http://localhost:3000/eat/activity</loc>
+    <changefreq>weekly</changefreq>
+  </url>
+  <url>
+    <loc>http://localhost:3000/eat/all</loc>
     <changefreq>weekly</changefreq>
   </url>
   <url>
@@ -85,10 +85,6 @@
   </url>
   <url>
     <loc>http://localhost:3000/watch/all</loc>
-    <changefreq>weekly</changefreq>
-  </url>
-  <url>
-    <loc>http://localhost:3000/activities/alone/free/outside/walk-for-30-minutes</loc>
     <changefreq>weekly</changefreq>
   </url>
   <url>
@@ -241,6 +237,10 @@
   </url>
   <url>
     <loc>http://localhost:3000/activities/alone/free/inside/yoga-with-adriene</loc>
+    <changefreq>weekly</changefreq>
+  </url>
+  <url>
+    <loc>http://localhost:3000/activities/alone/free/outside/walk-for-30-minutes</loc>
     <changefreq>weekly</changefreq>
   </url>
   <url>
@@ -652,15 +652,15 @@
     <changefreq>weekly</changefreq>
   </url>
   <url>
+    <loc>http://localhost:3000/activities/notAlone/notFree/inside/make-some-ice-cream</loc>
+    <changefreq>weekly</changefreq>
+  </url>
+  <url>
     <loc>http://localhost:3000/activities/notAlone/free/outside/go-play-tennis</loc>
     <changefreq>weekly</changefreq>
   </url>
   <url>
     <loc>http://localhost:3000/activities/notAlone/free/outside/walk-for-30-minutes</loc>
-    <changefreq>weekly</changefreq>
-  </url>
-  <url>
-    <loc>http://localhost:3000/activities/notAlone/notFree/inside/make-some-ice-cream</loc>
     <changefreq>weekly</changefreq>
   </url>
   <url>

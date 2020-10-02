@@ -20,7 +20,7 @@ function GetAllEvents ({ header = 'Things To Do', source, category, back }) {
   const [categories, setCategories] = useState([])
   const stub = `${source}?category=${category}`
   if (category && !calledAPI && allActivities && !allActivities.length) getAllActivitiesOnLoad()
-  if (!categories.length && allActivities && allActivities.length) getFiltersAndCategories()
+  if (!categories.length && allActivities && allActivities.length) getFiltersAndCategoriesOnLoad()
   async function getAllActivitiesOnLoad () {
     try {
       const allActivities = await callAPI(stub)
@@ -33,7 +33,7 @@ function GetAllEvents ({ header = 'Things To Do', source, category, back }) {
     }
   }
 
-  function getFiltersAndCategories () {
+  function getFiltersAndCategoriesOnLoad () {
     const newFilters = allActivities && allActivities.reduce((obj, el) => {
       el.categories.forEach(currCategory => {
         if (currCategory !== category) {
@@ -67,32 +67,44 @@ function GetAllEvents ({ header = 'Things To Do', source, category, back }) {
     getNewActivities(filtersCopy)
   }
 
-  function getNewActivities (filtersCopy) {
+  function getNewActivities (passedFilters = {}, stop = false) {
+    const filtersCopy = { ...passedFilters }
     const newActivities = {}
     const doNotWants = []
     const keepList = []
     for (const key in filtersCopy) {
       if (!filtersCopy[key]) doNotWants.push(key)
     }
+    const userDoesNotWantFree = doNotWants.includes('free')
     for (const key in filtersCopy) {
       if (filtersCopy[key]) {
         keepList.push(key)
         allActivities.forEach(a => {
           const safeCategories = a.categories || []
           const categoriesWithDoNotWants = [...safeCategories, ...doNotWants]
-          const uniqueCategories = Array.from(new Set(categoriesWithDoNotWants))
-          if (categoriesWithDoNotWants.length === uniqueCategories.length) {
+          const userDoesNotWantFreeAndIsFree = userDoesNotWantFree && a.free
+          let add = false
+          if (userDoesNotWantFreeAndIsFree) {
+            // do nothing
+          } else if (categoriesWithDoNotWants.length === Array.from(new Set(categoriesWithDoNotWants)).length) {
+            add = true
+          } else if (safeCategories.includes(key)) {
+            add = true
+          }
+          if (add) {
             newActivities[a.name] = a
             keepList.push(...safeCategories)
           }
         })
       }
     }
-    const newCurrentActivities = Object.values(newActivities)
     categories.forEach(c => {
       if (!keepList.includes(c)) filtersCopy[c] = false
-      else filtersCopy[c] = true
+      else if (!doNotWants.includes(c)) filtersCopy[c] = true
+      else filtersCopy[c] = false
     })
+    if (!stop) return getNewActivities(filtersCopy, true)
+    const newCurrentActivities = Object.values(newActivities)
     setCurrentActivities(newCurrentActivities)
     setFilters(filtersCopy)
   }

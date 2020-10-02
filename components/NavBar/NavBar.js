@@ -94,11 +94,11 @@ export default function NavBar ({ home }) {
         <ul className={styles.nav__menu}>
           <ByCategory />
           {/* <ByActivity /> */}
-          <li className={styles['nav__menu-item']}>
+          {/* <li className={styles['nav__menu-item']}>
             <Link href="/favorites">
               <a>site favorites</a>
             </Link>
-          </li>
+          </li> */}
           {
             home
               ? null

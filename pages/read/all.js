@@ -14,7 +14,7 @@ function Content () {
   const cleanedCategory = category && category.toLowerCase() === 'selfimprovement' ? 'self improvement' : category
   return (
     <GetAllEvents
-      header={`${cleanedCategory} reads`}
+      header={`${cleanedCategory || ''} reads`}
       source="read"
       category={category}
       back={router.back}

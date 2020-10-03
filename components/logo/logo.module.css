@@ -53,7 +53,7 @@
 @media only screen and (max-width: 500px) {
 	.headerContainer {
 		margin: 0;
-		padding: 1.8rem 0;
+		padding: 1.8rem;
 		font-size: 3rem;
 	}
 

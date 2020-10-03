@@ -13,7 +13,7 @@ function Content () {
   const { category } = router.query
   return (
     <GetAllEvents
-      header={`${category} things to watch!`}
+      header={`${category || ''} things to watch!`}
       source="watch"
       category={category}
       back={router.back}

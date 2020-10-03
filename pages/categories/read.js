@@ -46,9 +46,10 @@ export async function getStaticProps () {
 
 function ReadSection ({ spotlight, free, all }) {
   const obj = all || {}
-  const { autoBio, crime, history, personal, finance, food, selfImprovement } = obj
+  const { total, autoBio, crime, history, personal, finance, food, selfImprovement } = obj
   const source = 'read'
   const contentCategories = [
+    { content: slice(total), header: 'All', source, ref: useRef('All') },
     { content: slice(autoBio), header: 'Autobiography', source, ref: useRef('Autobiography') },
     { content: slice(free), header: 'Free', source, ref: useRef('Free') },
     { content: slice(crime), header: 'Crime', source, ref: useRef('Crime') },

@@ -82,7 +82,7 @@ function EatSection ({ spotlight, all }) {
         <title>What to eat - {siteTitle}</title>
       </Head>
       <div className={utilStyles.pageContainer}>
-        {spotlight && <SplashContent content={spotlight} banner="Hand-picked dishes" source={source} />}
+        {spotlight && Array.isArray(spotlight) && spotlight.length && <SplashContent content={spotlight} banner="Hand-picked dishes" source={source} />}
         <div className={utilStyles.infoContainer}>
           <div className={utilStyles.infoHeader}>We found the recipes worth cooking. The diabetes was totally worth it.</div>
         </div>

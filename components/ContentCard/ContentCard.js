@@ -6,12 +6,9 @@ import { fadeInFromLeft } from '../../animations/default'
 import styles from './ContentCard.module.css'
 
 export default function ContentCard ({ activity, source }) {
-  const [selectedActivities, setSelectedActivities] = useState([])
-  const [userFilters, setUserFilters] = useState([])
-  const currentURL = process.env.NODE_ENV === 'production' ? 'https://what-should-i-do-tonight-git-siteredesign11.squillen.vercel.app' : 'https://what-should-i-do-tonight-git-siteredesign11.squillen.vercel.app'
-  // const currentURL = process.env.NODE_ENV === 'production' ? process.env.SITE_URI : 'http://localhost:3000'
+  const currentURL = process.env.NODE_ENV === 'development' ? 'http://localhost:3000' : process.env.SITE_URI
   const getBackground = el => `url(${el.image}) center no-repeat`
-  const getContentURL = el => el.pagePath ? `${currentURL}${el.pagePath}` : `/${source}/activity?id=${el._id}`
+  const getContentURL = el => el.pagePath ? new URL(el.pagePath, currentURL) : `/${source}/activity?id=${el._id}`
   return (
     <motion.div
       className={styles.contentCard}

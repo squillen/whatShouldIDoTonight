@@ -41,7 +41,8 @@ export async function getStaticProps () {
 }
 
 function ListenSection ({ spotlight, all }) {
-  const { comedy, technology, educational, finance, code, crime, food, selfImprovement, spooky } = all
+  const obj = all || {}
+  const { comedy, technology, educational, finance, code, crime, food, selfImprovement, spooky } = obj
   const source = 'listen'
   const contentCategories = [
     { content: slice(comedy), header: 'Comedy', source, ref: useRef('Comedy') },
@@ -79,7 +80,7 @@ function ListenSection ({ spotlight, all }) {
         <title>What to listen to - {siteTitle}</title>
       </Head>
       <div className={utilStyles.pageContainer}>
-        <SplashContent content={spotlight} banner="Listen to the less known" source={source} />
+        {spotlight && <SplashContent content={spotlight} banner="Listen to the less known" source={source} />}
         <div className={utilStyles.infoContainer}>
           <div className={utilStyles.infoHeader}>Do you know how many bad podcasts are out there?</div>
           <div className={utilStyles.infoBody}>

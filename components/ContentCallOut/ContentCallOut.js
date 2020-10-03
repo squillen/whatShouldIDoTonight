@@ -19,7 +19,12 @@ export default function ContentCallOut ({ source, item = {}, color = 'darkBlue' 
     return (
       <div className={styles.sponsoredContentContainer} style={style}>
         <div className={styles.overlay} />
-        <div className={styles.contentTitle}>{name}</div>
+        <div className={styles.sponsoredContentContainerHeader}>
+          <div className={styles.contentTitleContainer}>
+            <div className={styles.contentTitle}>{name}</div>
+            <div className={styles.goToButton}><i className="far fa-arrow-alt-circle-right"></i></div>
+          </div>
+        </div>
         <div className={styles.contentBody}>{tagline}</div>
       </div>
     )

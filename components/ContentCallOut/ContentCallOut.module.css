@@ -26,15 +26,25 @@
 .contentTitle,
 .bodyHeader {
   font-size: 3.2rem;
-  padding: 1rem;
   z-index: 100;
-  min-height: 20vh;
+}
+
+.contentTitleContainer {
+  padding: 1rem;
+  height: 10vh;
+  display: flex;
+  align-items: center;
 }
 
 .contentBody {
   font-size: 1.8rem;
   padding: 1rem;
   min-height: 25vh;
+}
+
+.goToButton {
+  margin-left: 1rem;
+  font-size: 1.2rem;
 }
 
 .contentLink {

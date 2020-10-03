@@ -28,18 +28,21 @@
 .menu-container {
   text-align: center;
 }
+
 #dropDownList {
   list-style: none;
   padding-left: 0;
   margin-top: 0;
   margin-bottom: 0;
 }
+
 .nav {
   display: flex;
   justify-content: center;
   align-items: center;
-  width: 100%;
-  margin: 2rem auto 0;
+  width: 50%;
+  /* width: 100%; */
+  /* margin: 2rem auto 0; */
   color: #fff;
   text-align: left;
 }
@@ -51,22 +54,22 @@
   line-height: inherit;
   cursor: pointer;
 }
-.nav__menu {
+.navMenu {
   line-height: 45px;
   font-weight: 700;
 }
-.nav__menu-item {
+.navMenu-item {
   display: inline-block;
   position: relative;
   font-size: 1.3rem;
 }
-.nav__menu-item:hover {
+.navMenu-item:hover {
   background-color: rgba(25, 110, 171, 0.9990371148459384);
 }
-.nav__menu-item:hover .nav__submenu {
+.navMenu-item:hover .navSubMenu {
   display: block;
 }
-.nav__submenu {
+.navSubMenu {
   font-weight: 300;
   text-transform: none;
   display: none;
@@ -75,19 +78,99 @@
   background-color: #00aeef;
   background-color: rgba(25, 110, 171, 0.9990371148459384);
 }
-.nav__menu-item:hover .submenu-container {
+.navMenu-item:hover .submenu-container {
   z-index: 5;
 }
-.nav__submenu-item:hover {
+.navSubMenu-item:hover {
   background: rgba(0, 0, 0, 0.1);
 }
+
+.mobileNavWhite,
+.mobileNavBlack {
+  display: none;
+  z-index: 10000;
+  width: 50px;
+  height: 50px;
+  color: white;
+  cursor: pointer;
+}
+
+.mobileNavBlack {
+  color: black;
+}
+
+.bar1, .bar2, .bar3, .changeBar1,  .changeBar2,  .changeBar3 {
+  width: 35px;
+  height: 5px;
+  background-color: white;
+  margin: 6px 0;
+  transition: 0.4s;
+}
+
+.changeBar1,  .changeBar2,  .changeBar3 {
+  background-color: black;
+}
+
+.changeBar1 {
+  -webkit-transform: rotate(-45deg) translate(-9px, 6px);
+  transform: rotate(-45deg) translate(-9px, 6px);
+}
+
+.changeBar2 {opacity: 0;}
+
+.changeBar3 {
+  -webkit-transform: rotate(45deg) translate(-8px, -8px);
+  transform: rotate(45deg) translate(-8px, -8px);
+}
+
+.menu {
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  opacity: 0;
+  transition: all 1s ease;
+  display: none;
+  flex-direction: column;
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 100%;
+  min-height: 100vh;
+  width: 100%;
+  min-width: 100vw;
+  background: white;
+  z-index: 20;
+}
+
 @media only screen and (max-width: 700px) {
+  .nav {
+    display: none
+  }
+
   .submenu-container {
     min-width: 0;
- }
+  }
+
+  .menu {
+    position: fixed;
+    opacity: 1;
+    display: flex;
+  }
+
+  .menuLink {
+    font-size: 36px;
+    cursor: pointer;
+    margin: 20px 0;
+  }
+
+  .mobileNavWhite,
+  .mobileNavBlack {
+    display: inline-block;
+    padding-top: 8px;
+  }
 }
 @media only screen and (max-width: 800px) {
-  .nav__menu {
+  .navMenu {
     display: flex;
     flex-direction: column;
  }

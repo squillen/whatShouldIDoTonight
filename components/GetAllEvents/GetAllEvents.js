@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react'
+import React, { useState } from 'react'
 import PropTypes from 'prop-types'
 
 // REDUX
@@ -12,13 +12,14 @@ import DisplayAllEvents from '../DisplayAllEvents/DisplayAllEvents'
 import callAPI from '../../lib/helpers/callAPI'
 import styles from './GetAllEvents.module.css'
 
-function GetAllEvents ({ header = 'Things To Do', source, category, back }) {
+function GetAllEvents ({ header = 'Things To Do', source, category = '', back }) {
   const [allActivities, setAllActivities] = useState([])
   const [currentActivities, setCurrentActivities] = useState(null)
   const [calledAPI, setCalledAPI] = useState(false)
   const [filters, setFilters] = useState({})
   const [categories, setCategories] = useState([])
-  const stub = `${source}?category=${category}`
+  const destination = category.toLowerCase() === 'all' ? '' : `category=${category}`
+  const stub = `${source}?${destination}`
   if (category && !calledAPI && allActivities && !allActivities.length) getAllActivitiesOnLoad()
   if (!categories.length && allActivities && allActivities.length) getFiltersAndCategoriesOnLoad()
   async function getAllActivitiesOnLoad () {
@@ -35,7 +36,8 @@ function GetAllEvents ({ header = 'Things To Do', source, category, back }) {
 
   function getFiltersAndCategoriesOnLoad () {
     const newFilters = allActivities && allActivities.reduce((obj, el) => {
-      el.categories.forEach(currCategory => {
+      const cleanedCategories = el.categories || []
+      cleanedCategories.forEach(currCategory => {
         if (currCategory === '') obj.free = true
         else obj[currCategory] = true
       })

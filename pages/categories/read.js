@@ -45,7 +45,8 @@ export async function getStaticProps () {
 }
 
 function ReadSection ({ spotlight, free, all }) {
-  const { autoBio, crime, history, personal, finance, food, selfImprovement } = all
+  const obj = all || {}
+  const { autoBio, crime, history, personal, finance, food, selfImprovement } = obj
   const source = 'read'
   const contentCategories = [
     { content: slice(autoBio), header: 'Autobiography', source, ref: useRef('Autobiography') },
@@ -86,7 +87,7 @@ function ReadSection ({ spotlight, free, all }) {
         <title>What to read - {siteTitle}</title>
       </Head>
       <div className={utilStyles.pageContainer}>
-        <SplashContent content={spotlight} banner="Books worth reading" source={source} />
+        {spotlight && <SplashContent content={spotlight} banner="Books worth reading" source={source} /> }
         <div className={utilStyles.infoContainer}>
           <div className={utilStyles.infoHeader}>We&apos;ve read tons of books for you.</div>
           <div className={utilStyles.infoBody}>

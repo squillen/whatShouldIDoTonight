@@ -45,7 +45,8 @@ export async function getStaticProps () {
 }
 
 function LearnSection ({ spotlight, all, free }) {
-  const { art, code, finance, food, selfImprovement } = all
+  const obj = all || {}
+  const { art, code, finance, food, selfImprovement } = obj
   const source = 'learn'
   const contentCategories = [
     { content: slice(art), header: 'Art', source, ref: useRef('Art') },
@@ -84,7 +85,7 @@ function LearnSection ({ spotlight, all, free }) {
         <title>What to learn - {siteTitle}</title>
       </Head>
       <div className={utilStyles.pageContainer}>
-        <SplashContent content={spotlight} banner="Be better than yesterday" source={source} />
+        {spotlight && <SplashContent content={spotlight} banner="Be better than yesterday" source={source} />}
         <div className={utilStyles.infoContainer}>
           <div className={utilStyles.infoHeader}>Hand-picked courses worth the watch.</div>
         </div>

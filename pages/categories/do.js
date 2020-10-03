@@ -42,7 +42,8 @@ export async function getStaticProps () {
 
 function DoSection ({ spotlight, all = {} }) {
   const source = 'do'
-  const { total, active, educational, outside, free, alone, read, home, volunteer, listen, watch, calm, social, food, finance, code, tech, selfImprovement } = all
+  const obj = all || {}
+  const { total, active, educational, outside, free, alone, read, home, volunteer, listen, watch, calm, social, food, finance, code, tech, selfImprovement } = obj
   const contentCategories = [
     { content: slice(total), header: 'All', source, ref: useRef('All') },
     { content: slice(active), header: 'Active', source, ref: useRef('Active') },
@@ -88,9 +89,7 @@ function DoSection ({ spotlight, all = {} }) {
         <title>What to do - {siteTitle}</title>
       </Head>
       <div className={utilStyles.pageContainer}>
-        {
-          spotlight && <SplashContent content={spotlight} banner="Stuff Worthy of Your Time" destination={source} />
-        }
+        {spotlight && <SplashContent content={spotlight} banner="Stuff Worthy of Your Time" destination={source} />}
         <div className={utilStyles.infoContainer}>
           <div className={utilStyles.infoHeader}>Ideas that don&apos;t suck.</div>
         </div>

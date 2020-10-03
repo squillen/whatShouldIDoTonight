@@ -76,7 +76,7 @@
   background-color: rgba(25, 110, 171, 0.9990371148459384);
 }
 .nav__menu-item:hover .submenu-container {
-  z-index: 5;
+  z-index: 4;
 }
 .nav__submenu-item:hover {
   background: rgba(0, 0, 0, 0.1);
@@ -85,7 +85,7 @@
 .mobileNavWhite,
 .mobileNavBlack {
   display: none;
-  z-index: 10000;
+  z-index: 6;
   width: 50px;
   height: 50px;
   color: white;
@@ -137,7 +137,7 @@
   width: 100%;
   min-width: 100vw;
   background: white;
-  z-index: 20;
+  z-index: 5;
 }
 
 @media only screen and (max-width: 800px) {

@@ -16,7 +16,7 @@ handler.get(async (req, res) => {
       result = await watchCollection.find()
       result = await result.toArray()
       const categories = getAllCategories(result)
-      return res.json(categories)
+      return res.json(categories || {})
     } else if (category) {
       result = await watchCollection.find({ categories: { $in: [category] } })
       result = await result.toArray()

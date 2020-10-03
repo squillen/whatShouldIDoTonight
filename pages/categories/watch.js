@@ -31,10 +31,10 @@ export async function getStaticProps () {
       handleCall('ideas=ideas'),
       handleCall('all=all')
     ])
-    spotlight = promises[0]
-    free = promises[1]
-    ideas = promises[2]
-    all = promises[3]
+    spotlight = promises[0] || []
+    free = promises[1] || []
+    ideas = promises[2] || []
+    all = promises[3] || {}
   } catch (e) {
     console.error(e)
   }

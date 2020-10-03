@@ -49,7 +49,8 @@ export async function getStaticProps () {
 }
 
 function WatchSection ({ spotlight, free, ideas, all = {} }) {
-  const { comedy, horror, drama, action } = all
+  const obj = all || {}
+  const { comedy, horror, drama, action } = obj
   const source = 'watch'
   const contentCategories = [
     { content: slice(comedy), header: 'Comedy', source, ref: useRef('Comedy') },
@@ -88,7 +89,9 @@ function WatchSection ({ spotlight, free, ideas, all = {} }) {
         <title>What to watch - {siteTitle}</title>
       </Head>
       <div className={utilStyles.tvContainer}>
-        <SplashContent content={spotlight} banner="Watch the less known" source={source} />
+        {
+          spotlight && Array.isArray(spotlight) && <SplashContent content={spotlight} banner="Watch the less known" source={source} />
+        }
         <div className={utilStyles.infoContainer}>
           <div className={utilStyles.infoHeader}>We&apos;ve watched thousands of hours of less-known TV for you.</div>
           <div className={utilStyles.infoBody}>
@@ -119,7 +122,7 @@ function WatchSection ({ spotlight, free, ideas, all = {} }) {
           displayedContent6.length
             ? (
               <>
-                <ContentCallOut source="watch" item={horrorCallOut} />
+                <ContentCallOut source={source} item={horrorCallOut} />
                 {displayedContent6}
               </>
             )

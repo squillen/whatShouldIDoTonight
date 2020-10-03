@@ -13,7 +13,7 @@ function Content () {
   const { category } = router.query
   return (
     <GetAllEvents
-      header={category ? `${category} foods` : null}
+      header={category ? `${category || ''} foods` : null}
       source="eat"
       category={category}
       back={router.back}

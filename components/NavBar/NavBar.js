@@ -23,10 +23,10 @@ const activities = [
 
 function createSubMenu (items) {
   return (
-    <ul id={styles.dropDownList} className={styles.navSubMenu}>
+    <ul id={styles.dropDownList} className={styles.nav__submenu}>
       {
         items.map(item => (
-          <li className={styles['navSubMenu-item']} key={item.title}>
+          <li className={styles['nav__submenu-item']} key={item.title}>
             <Link href={item.href}>
               <a>{item.title}</a>
             </Link>
@@ -37,22 +37,16 @@ function createSubMenu (items) {
   )
 }
 
-function getMobileCategories () {
-  return categories.map(c => (
-    <Link href={c.href} key={c.title}>
-      <a className={styles.menuLink}>
-        {c.title}
-      </a>
-    </Link>
-  ))
-}
-
 function CategorySubMenu () {
   return createSubMenu(categories)
 }
 
 function ActivitiesSubMenu () {
-  return createSubMenu(activities)
+  const items = [
+    { title: 'Alone', href: '/categories/activities?status=alone' },
+    { title: 'Not Alone', href: '/categories/activities?status=notAlone' }
+  ]
+  return createSubMenu(items)
 }
 
 export default function NavBar ({ home }) {
@@ -62,7 +56,7 @@ export default function NavBar ({ home }) {
 
   function ByActivity () {
     return (
-      <li className={styles['navMenu-item']} onMouseLeave={() => setShowActivitiesMenu(false)}>
+      <li className={styles['nav__menu-item']} onMouseLeave={() => setShowActivitiesMenu(false)}>
         <a onMouseEnter={() => setShowActivitiesMenu(true)}>
           by activity
         </a>
@@ -82,7 +76,7 @@ export default function NavBar ({ home }) {
 
   function ByCategory () {
     return (
-      <li className={styles['navMenu-item']} onMouseLeave={() => setShowCategoryMenu(false)}>
+      <li className={styles['nav__menu-item']} onMouseLeave={() => setShowCategoryMenu(false)}>
         <a onMouseEnter={() => setShowCategoryMenu(true)}>
         by category
         </a>
@@ -100,6 +94,16 @@ export default function NavBar ({ home }) {
     )
   }
 
+  function getMobileCategories () {
+    return categories.map(c => (
+      <Link href={c.href} key={c.title}>
+        <a className={styles.menuLink}>
+          {c.title}
+        </a>
+      </Link>
+    ))
+  }
+
   const toggleOpen = () => setOpenMenu(!openMenu)
   const mobileCategories = getMobileCategories(categories)
   return (
@@ -113,7 +117,7 @@ export default function NavBar ({ home }) {
       {
         openMenu
           ? (
-            <div className={styles.menu}>
+            <div className={styles.navbarMenu}>
               {mobileCategories}
               {
                 home
@@ -129,10 +133,10 @@ export default function NavBar ({ home }) {
           : null
       }
       <nav className={styles.nav}>
-        <ul className={styles.navMenu}>
+        <ul className={styles.nav__menu}>
           <ByCategory />
           {/* <ByActivity /> */}
-          {/* <li className={styles['navMenu-item']}>
+          {/* <li className={styles['nav__menu-item']}>
             <Link href="/favorites">
               <a>site favorites</a>
             </Link>
@@ -141,7 +145,7 @@ export default function NavBar ({ home }) {
             home
               ? null
               : (
-                <li className={styles['navMenu-item']}>
+                <li className={styles['nav__menu-item']}>
                   <Link href="/">
                     <a>idea generator</a>
                   </Link>

@@ -76,7 +76,7 @@ background: radial-gradient(circle, rgba(13,32,53,1) 36%, rgba(25,110,171,0.9990
   background: white;
   position: -webkit-sticky;
   position: sticky;
-  top: 3rem;
+  top: 0;
   color: #262626;
   border-radius: 0 0 0.4rem 0.4rem;
   padding: 1rem;
@@ -383,20 +383,33 @@ background: radial-gradient(circle, rgba(13,32,53,1) 36%, rgba(25,110,171,0.9990
 }
 
 .infoContainer {
-  width: 50%;
   margin: 0 auto;
   margin-top: 2rem;
+  padding: 2rem;
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  width: 30rem;
-  height: 25rem;
-  border-radius: 69% 31% 70% 30% / 30% 30% 70% 70% ;
+  width: 30%;
+  min-height: 5rem;
+  border-radius: 14% 86% 17% 93% / 58% 51% 69% 48%;
+  /* border-radius: 2rem; */
+  /* border-radius: 69% 31% 70% 30% / 30% 30% 70% 70% ; */
   /* background: rgb(176,40,100);
-  background: radial-gradient(circle, rgba(176,40,100,1) 36%, rgba(72,122,182) 97%); */
-  background: rgb(13,32,53);
-  background: radial-gradient(circle, rgba(13,32,53,1) 36%, rgba(25,110,171,0.9990371148459384) 97%);
+  background: rgb(13,32,53);*/
+  background: radial-gradient(circle at 10%, rgba(13,32,53,1) 16%, rgba(25,110,171,0.9990371148459384) 87%);
+  /* background: radial-gradient(circle at 10%, rgba(13,32,53,1) 36%, rgba(176,40,100,.997) 97%); */
+  /* background: radial-gradient(circle at 10%, rgba(176,40,100,1) 26%, rgba(13,32,53,1) 17%); */
+  /* background: radial-gradient(ellipse at bottom,  rgba(13,32,53,1) 36%, rgba(176,40,100,1) 97%); */
+  
+}
+
+.infoHeader {
+  font-size: 1.8rem;
+  text-align: center;
+  width: 85%;
+  color: white;
+  /* line-height: 3rem; */
 }
 
 .categoryOptions {
@@ -436,14 +449,6 @@ background: radial-gradient(circle, rgba(13,32,53,1) 36%, rgba(25,110,171,0.9990
 
 .categoryOption:hover > a {
   font-size: 0.95rem
-}
-
-.infoHeader {
-  font-size: 2.5rem;
-  text-align: center;
-  width: 70%;
-  color: white;
-  /* line-height: 3rem; */
 }
 
 .infoBody {
@@ -585,6 +590,10 @@ background: radial-gradient(circle, rgba(13,32,53,1) 36%, rgba(25,110,171,0.9990
   .questions {
     width: 100%;
     margin: 0 0 2rem 3rem;
+  }
+
+  .infoContainer {
+    width: 80%;
   }
 }
 

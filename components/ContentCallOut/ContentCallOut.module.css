@@ -31,7 +31,7 @@
 
 .contentTitleContainer {
   padding: 1rem;
-  height: 10vh;
+  min-height: 10vh;
   display: flex;
   align-items: center;
 }
@@ -65,4 +65,38 @@
   text-align: center;
   padding-left: 1rem;
   font-size: 1.3rem;
+}
+
+@media only screen and (max-width: 600px) {
+
+  .contentTitleContainer {
+
+  }
+
+  .contentBody {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+  }
+
+  .nonLinkContentContainer {
+    min-height: 30vh;
+  }
+
+  .bodyHeader {
+    min-height: 15vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .bodyContainer {
+    min-height: 50%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+  }
+
 }

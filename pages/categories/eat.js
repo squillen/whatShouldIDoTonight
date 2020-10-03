@@ -69,7 +69,7 @@ function EatSection ({ spotlight, all }) {
   const displayedContent6 = contentCategories.slice(14, 30).map(displayContent)
   const doTheDew = {
     header: '"Butter"',
-    contents: ['-How Paula Deen says basil.']
+    contents: ['-How Paula Deen says "basil".']
   }
   const justDoIt = {
     header: '"The more you weigh, the harder you are to kidnap. Stay safe. Eat cake."',

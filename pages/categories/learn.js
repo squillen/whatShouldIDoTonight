@@ -46,9 +46,10 @@ export async function getStaticProps () {
 
 function LearnSection ({ spotlight, all, free }) {
   const obj = all || {}
-  const { art, code, finance, food, selfImprovement } = obj
+  const { total, art, code, finance, food, selfImprovement } = obj
   const source = 'learn'
   const contentCategories = [
+    { content: slice(total), header: 'All', source, ref: useRef('All') },
     { content: slice(art), header: 'Art', source, ref: useRef('Art') },
     { content: slice(code), header: 'Coding', source, ref: useRef('Coding') },
     { content: slice(selfImprovement), path: 'selfImprovement', header: 'Self Improvement', source, ref: useRef('Self Improvement') },

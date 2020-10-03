@@ -50,9 +50,10 @@ export async function getStaticProps () {
 
 function WatchSection ({ spotlight, free, ideas, all = {} }) {
   const obj = all || {}
-  const { comedy, horror, drama, action } = obj
+  const { total, comedy, horror, drama, action } = obj
   const source = 'watch'
   const contentCategories = [
+    { content: slice(total), header: 'All', source, ref: useRef('All') },
     { content: slice(comedy), header: 'Comedy', source, ref: useRef('Comedy') },
     { content: slice(horror), header: 'Horror', source, ref: useRef('Horror') },
     { content: slice(ideas), header: 'Ideas', source, ref: useRef('Ideas') },

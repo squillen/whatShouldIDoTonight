@@ -85,7 +85,7 @@ function LearnSection ({ spotlight, all, free }) {
         <title>What to learn - {siteTitle}</title>
       </Head>
       <div className={utilStyles.pageContainer}>
-        {spotlight && <SplashContent content={spotlight} banner="Be better than yesterday" source={source} />}
+        {spotlight && Array.isArray(spotlight) && spotlight.length && <SplashContent content={spotlight} banner="Be better than yesterday" source={source} />}
         <div className={utilStyles.infoContainer}>
           <div className={utilStyles.infoHeader}>Hand-picked courses worth the watch.</div>
         </div>

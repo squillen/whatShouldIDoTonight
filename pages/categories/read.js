@@ -87,7 +87,7 @@ function ReadSection ({ spotlight, free, all }) {
         <title>What to read - {siteTitle}</title>
       </Head>
       <div className={utilStyles.pageContainer}>
-        {spotlight && <SplashContent content={spotlight} banner="Books worth reading" source={source} /> }
+        {spotlight && Array.isArray(spotlight) && spotlight.length && <SplashContent content={spotlight} banner="Books worth reading" source={source} /> }
         <div className={utilStyles.infoContainer}>
           <div className={utilStyles.infoHeader}>We&apos;ve read tons of books for you.</div>
           <div className={utilStyles.infoBody}>

@@ -89,7 +89,7 @@ function DoSection ({ spotlight, all = {} }) {
         <title>What to do - {siteTitle}</title>
       </Head>
       <div className={utilStyles.pageContainer}>
-        {spotlight && <SplashContent content={spotlight} banner="Stuff Worthy of Your Time" destination={source} />}
+        {spotlight && Array.isArray(spotlight) && spotlight.length && <SplashContent content={spotlight} banner="Stuff Worthy of Your Time" destination={source} />}
         <div className={utilStyles.infoContainer}>
           <div className={utilStyles.infoHeader}>Ideas that don&apos;t suck.</div>
         </div>

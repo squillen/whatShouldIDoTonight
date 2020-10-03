@@ -90,7 +90,7 @@ function WatchSection ({ spotlight, free, ideas, all = {} }) {
       </Head>
       <div className={utilStyles.tvContainer}>
         {
-          spotlight && Array.isArray(spotlight) && <SplashContent content={spotlight} banner="Watch the less known" source={source} />
+          spotlight && Array.isArray(spotlight) && spotlight.length && <SplashContent content={spotlight} banner="Watch the less known" source={source} />
         }
         <div className={utilStyles.infoContainer}>
           <div className={utilStyles.infoHeader}>We&apos;ve watched thousands of hours of less-known TV for you.</div>

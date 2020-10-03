@@ -80,7 +80,7 @@ function ListenSection ({ spotlight, all }) {
         <title>What to listen to - {siteTitle}</title>
       </Head>
       <div className={utilStyles.pageContainer}>
-        {spotlight && <SplashContent content={spotlight} banner="Listen to the less known" source={source} />}
+        {spotlight && Array.isArray(spotlight) && spotlight.length && <SplashContent content={spotlight} banner="Listen to the less known" source={source} />}
         <div className={utilStyles.infoContainer}>
           <div className={utilStyles.infoHeader}>Do you know how many bad podcasts are out there?</div>
           <div className={utilStyles.infoBody}>

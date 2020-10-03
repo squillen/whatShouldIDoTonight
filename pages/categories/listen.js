@@ -42,12 +42,14 @@ export async function getStaticProps () {
 
 function ListenSection ({ spotlight, all }) {
   const obj = all || {}
-  const { comedy, technology, educational, finance, code, crime, food, selfImprovement, spooky } = obj
+  const { total, comedy, technology, educational, finance, code, crime, food, selfImprovement, spooky, watch } = obj
   const source = 'listen'
   const contentCategories = [
+    { content: slice(total), header: 'All', source, ref: useRef('All') },
     { content: slice(comedy), header: 'Comedy', source, ref: useRef('Comedy') },
     { content: slice(technology), header: 'Tech', source, ref: useRef('Tech') },
     { content: slice(spooky), header: 'Spooky', source, ref: useRef('Spooky') },
+    { content: slice(watch), path: 'watch', header: 'Shows & Movies', source, ref: useRef('Shows & Movies') },
     { content: slice(educational), header: 'Educational', source, ref: useRef('Educational') },
     { content: slice(finance), header: 'Finance', source, ref: useRef('Finance') },
     { content: slice(code), header: 'Code', source, ref: useRef('Code') },

@@ -42,10 +42,10 @@ export async function getStaticProps () {
 
 function EatSection ({ spotlight, all }) {
   const obj = all || {}
-  const { indian, asian, american, italian, mexican, thai, japanese, chinese, dessert, recipe } = obj
+  const { total, indian, asian, american, italian, mexican, thai, japanese, chinese, dessert, recipe } = obj
   const source = 'eat'
   const contentCategories = [
-    { content: slice(all), header: 'All', source, ref: useRef('All') },
+    { content: slice(total), header: 'All', source, ref: useRef('All') },
     { content: slice(indian), header: 'Indian', source, ref: useRef('Indian') },
     { content: slice(asian), header: 'Asian', source, ref: useRef('Asian') },
     { content: slice(american), header: 'American', source, ref: useRef('American') },

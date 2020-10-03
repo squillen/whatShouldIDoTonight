@@ -20,6 +20,8 @@
 
 .activitiesContainer {
   display: flex;
+  width: 90%;
+  margin: 0 auto;
   /* justify-content: center; */
   flex-wrap: wrap;
   padding: 3rem;

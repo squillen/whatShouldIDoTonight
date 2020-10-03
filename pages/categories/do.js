@@ -49,9 +49,9 @@ function DoSection ({ spotlight, all = {} }) {
     { content: slice(alone), header: 'Alone', source, ref: useRef('Alone') },
     { content: slice(calm), path: 'calm', header: 'Chill', source, ref: useRef('Chill') },
     { content: slice(code), header: 'Code', source, ref: useRef('Code') },
+    { content: slice(food), path: 'food', header: 'Eat', source, ref: useRef('Eat') },
     { content: slice(educational), header: 'Educational', source, ref: useRef('Educational') },
     { content: slice(finance), header: 'Finance', source, ref: useRef('Finance') },
-    { content: slice(food), path: 'food', header: 'Eat', source, ref: useRef('Eat') },
     { content: slice(free), header: 'Free', source, ref: useRef('Free') },
     { content: slice(home), header: 'Home', source, ref: useRef('Home') },
     { content: slice(listen), header: 'Listen', source, ref: useRef('Listen') },
@@ -91,6 +91,9 @@ function DoSection ({ spotlight, all = {} }) {
         {
           spotlight && <SplashContent content={spotlight} banner="Stuff Worthy of Your Time" destination={source} />
         }
+        <div className={utilStyles.infoContainer}>
+          <div className={utilStyles.infoHeader}>Ideas that don&apos;t suck.</div>
+        </div>
         <motion.div variants={stagger} className={utilStyles.categoryOptions}>
           {categoryOptions}
         </motion.div>

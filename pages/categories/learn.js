@@ -86,7 +86,7 @@ function LearnSection ({ spotlight, all, free }) {
       <div className={utilStyles.pageContainer}>
         <SplashContent content={spotlight} banner="Be better than yesterday" source={source} />
         <div className={utilStyles.infoContainer}>
-          <div className={utilStyles.infoHeader}>Hand-picked courses that&apos;re worth the watch.</div>
+          <div className={utilStyles.infoHeader}>Hand-picked courses worth the watch.</div>
         </div>
         <motion.div variants={stagger} className={utilStyles.categoryOptions}>
           {categoryOptions}

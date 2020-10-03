@@ -17,6 +17,7 @@ import utilStyles from '../../styles/utils.module.css'
 import callAPI from '../../lib/helpers/callAPI'
 import handleMarkdown from '../../lib/helpers/handleMarkdown'
 import handleSeasons from '../../lib/helpers/handleSeasons'
+import BackButton from '../../components/BackButton/BackButton'
 
 function Content () {
   const [show, setShow] = useState(null)
@@ -52,11 +53,7 @@ function Content () {
                 </div>
                 <div className={utilStyles.pageBodyContainer}>
                   <div className={utilStyles.backButton}>
-                    <Link href="/categories/activities">
-                      <a className={utilStyles.backButton}>
-                        <span><i className="fas fa-arrow-left"></i><span className={utilStyles.backText}>back</span></span>
-                      </a>
-                    </Link>
+                    <BackButton back={router.back} />
                   </div>
                   <div className={utilStyles.pageBodyNotes}>
                     <div className={utilStyles.pageHeader}>

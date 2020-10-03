@@ -18,21 +18,19 @@
 
 .imagesContainer {
   width: 100%;
-  min-height: 90%;
+  height: 90%;
   display: flex;
   cursor: pointer;
 }
 
 .largeImageContainer {
   width: 50%;
-  height: 100%;
 }
 
 .smallImagesContainer {
   display: flex;
   flex-direction: column;
   width: 50%;
-  height: 100%;
 }
 
 .largeImage {
@@ -41,9 +39,8 @@
 }
 
 .smallImage {
-  height: 100%;
   width: 100%;
-
+  height: 100%;
 }
 
 .background {

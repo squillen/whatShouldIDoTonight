@@ -21,7 +21,7 @@ const getContent = () => (
     </ul>
     <p>
       <span>
-        And, if you feel like being a fucking weirdo about it and taking it to the next level, check out this
+        And, if you feel like being a weirdo about it and taking it to the next level, check out this
         {' '}
         <LinkTo
           href="https://www.psychologytoday.com/us/blog/fulfillment-any-age/201504/the-experts-guide-people-watching"

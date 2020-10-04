@@ -7,7 +7,7 @@ import styles from '../../../../../styles/activity.module.css'
 const getContent = () => (
   <div className={styles.activityContainer}>
     <p>
-      I kinda feel like an asshole when I say that, like I&apos;m telling you to get a life, but
+      I kinda feel like a douche when I say that, like I&apos;m telling you to get a life, but
       I&apos;m just telling you to get something to do in your life.
       That&apos;s better, right?? 😅
     </p>
@@ -38,7 +38,7 @@ const getContent = () => (
     </p>
     <p>
       Now have fun finally getting a life, loser. Oh wait, I guess I
-      was being just an asshole that whole time 😯
+      was being just a douche that whole time 😯
     </p>
     <p>Just kidding 😘</p>
   </div>

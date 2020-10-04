@@ -23,14 +23,11 @@ const getContent = () => (
           label="this"
         />
         {' '}
-        shit out.
+        baby out.
       </span>
     </p>
     <p>
       Now turn on a good movie, get a cup of tea (or a glass of wine/whatever) and get ready for a cheap, relaxing night &#128522;
-    </p>
-    <p className={styles.italic}>
-      p.s. this goes for guys, too, &apos;cause remember, real men don&apos;t give a shit.
     </p>
   </div>
 )

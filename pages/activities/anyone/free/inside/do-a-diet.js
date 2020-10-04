@@ -7,15 +7,15 @@ import Photo from '../../../../../components/photo/photo'
 const getContent = () => (
   <div className={styles.activityContainer}>
     <p>
-      You know those assholes who always say that they&apos;re on
-      some gluten-free/keto/paleo/all-meat diet? Try being one of those assholes.
+      You know those smarmy d-bags who always say that they&apos;re on
+      some gluten-free/keto/paleo/all-meat diet? Try being one of them.
     </p>
     <Photo
       src="https://media.giphy.com/media/3ohzARhsw7JS7EEXvO/giphy.gif"
       alt="Ladies backing away from other lady who's gluten free...and allergic to the sun"
     />
     <p>
-      Just start with a night and see how you like it. As one of those assholes, though,
+      Just start with a night and see how you like it. But, as one of those D&apos;s,
       I&apos;d say that it&apos;s obviously going to take more than a night to feel anything,
       but it&apos;d still be fun to try!
     </p>
@@ -40,7 +40,7 @@ const getContent = () => (
         just in case.
       </span>
     </p>
-    <p>But with that, welcome to the team, you smarmy dickwad.</p>
+    <p>But with that, welcome to the team, you smug douche.</p>
   </div>
 )
 

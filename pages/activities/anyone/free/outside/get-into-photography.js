@@ -51,7 +51,7 @@ const getContent = () => (
       <iframe className={styles.iframe} title="6 Mobile Photography Tips you must know - 2018" src="https://www.youtube-nocookie.com/embed/xHvFHRPLvII?start=178" frameBorder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowFullScreen></iframe>
     </div>
     <p>
-      Have fun and let us know if you took anything your especially proud of! (A picture of your dick doesn&apos;t qualify.)
+      Have fun and let us know if you took anything your especially proud of! (A picture of your dick doesn&apos;t qualify...)
     </p>
   </div>
 )

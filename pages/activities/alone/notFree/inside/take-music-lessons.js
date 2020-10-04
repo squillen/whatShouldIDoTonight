@@ -14,7 +14,7 @@ const getContent = () => (
       alt="wall-e showing us our future of stagnation"
     />
     <p>
-      Yea, it&apos;s turning us into fat fucks, but for now let&apos;s just enjoy the perks of tech...
+      Yea, it&apos;s turning us into fat blobs, but for now let&apos;s just enjoy the perks of tech...
     </p>
     <p>
       <span>

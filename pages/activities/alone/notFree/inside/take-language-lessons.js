@@ -59,7 +59,7 @@ const Content = () => {
   return (
     <Post
       pageInfo={pageInfo}
-      title="Take some language lessons with a person"
+      title="Take some language lessons...with a person!"
       content={userContent}
       timeToComplete="30+ minutes"
     />

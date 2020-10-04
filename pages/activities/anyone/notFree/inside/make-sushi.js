@@ -83,7 +83,7 @@ const getContent = () => (
       src="https://media.giphy.com/media/VlchmIoZPjjYQ/giphy.gif"
       alt="cat walking upright in a top hat"
     />
-    <p>that&apos;s you, you fancy fuck ☝</p>
+    <p>that&apos;s you, fancyface ☝</p>
     <p>
       Now say wasabi to your new night plans, Branzino, and let the good times roll.
     </p>

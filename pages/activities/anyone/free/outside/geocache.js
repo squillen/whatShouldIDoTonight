@@ -21,7 +21,7 @@ const getContent = () => (
         {' '}
         It&apos;s a great way to get out, explore, and have some good old fashioned fun.
         {' '}
-        And it really shows you the playful spirit of people, which makes you feel all warm and shit.
+        And it really shows you the playful spirit of people, which makes you feel all warm and fuzzy.
       </span>
     </p>
     <Photo

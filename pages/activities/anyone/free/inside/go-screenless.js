@@ -20,7 +20,7 @@ const getContent = () => (
       iPads, iWatch, etc.
     </p>
     <p>
-      Put them under lock and key if you can. This shit is addicting.
+      Put them under lock and key if you can. This stuff is crazy addicting.
     </p>
     <Photo
       src="https://media.giphy.com/media/tRGtd0jWj3GYU/giphy.gif"

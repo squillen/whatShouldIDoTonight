@@ -43,7 +43,7 @@ const getContent = () => (
           {' '}
           and if it doesn&apos;t contain butter in the ingredients
           {' '}
-          you tell that recipe to kindly fuck off.
+          you tell that recipe to kindly piss off.
         </span>
       </li>
       <li>

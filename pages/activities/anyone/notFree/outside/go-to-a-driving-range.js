@@ -19,9 +19,10 @@ const getContent = () => (
           label="driving ranges near you"
         />
         {' '}
-        and get some anger out by smacking the shit out of some helpless balls. That&apos;s what she said. If she was crazy.
+        and get some anger out by smacking the shit out of some helpless balls.
       </span>
     </p>
+    <p>That&apos;s what she said. If she was crazy.</p>
     <Photo
       src="https://media.giphy.com/media/f8pT7bphqES4M/giphy.gif"
       alt="Michael Scott stifling a laugh"

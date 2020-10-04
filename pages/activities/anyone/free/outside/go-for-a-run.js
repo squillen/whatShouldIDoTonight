@@ -15,8 +15,8 @@ const getContent = () => (
       It&apos;s just a one letter difference but what a difference indeed.
     </p>
     <p>
-      So, yes, you could rightfully tell us to go fuck ourselves and quickly move on
-      to the next suggestion but there&apos;s a good chance this suggestion
+      So, yes, you could rightfully tell us to go screw ourselves and quickly move on
+      to the next suggestion, but there&apos;s a good chance this suggestion
       might leave you with more happiness than any other suggestion here.
     </p>
     <p>

@@ -11,7 +11,7 @@ const getContent = () => (
       alt="Clark Kent turning into Superman"
     />
     <p>
-      Clark Kent goes from a puny nobody to everyone&apos;s hero (without doing anything to his face, fucking stupid, but whatever).
+      Clark Kent goes from a puny nobody to everyone&apos;s hero (without doing anything to his face, uhhh, ok...).
       Why can&apos;t you do the same?? I mean, aside from the obvious fact that he&apos;s superior to humans in every way. Oh, and also that he&apos;s not real.
     </p>
     <p>

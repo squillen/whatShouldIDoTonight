@@ -23,7 +23,7 @@ const getContent = () => (
       </span>
     </p>
     <p>This prepares you for a future thing to do tonight or another night: twister.</p>
-    <p>Namaste, mother fuckers.</p>
+    <p>Namaste, ya sexy, stretchy beasts.</p>
   </div>
 )
 

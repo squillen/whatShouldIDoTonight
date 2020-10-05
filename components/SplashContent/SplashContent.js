@@ -9,7 +9,6 @@ function SplashContent ({ content = [], banner, source }) {
   const getContentURL = currContent => currContent && currContent.name
     ? currContent.pagePath || `/${source}/activity?id=${currContent._id}`
     : ''
-  const minHeight = banner ? '90%' : '100%'
   const getContentDiv = currContent => (
     <div className={styles.background} style={{ background: getBackground(currContent), backgroundSize: 'cover' }}>
       <div className={styles.overlay} />
@@ -29,7 +28,7 @@ function SplashContent ({ content = [], banner, source }) {
           )
           : null
       }
-      <div className={styles.imagesContainer} style={{ minHeight }}>
+      <div className={styles.imagesContainer}>
         <div className={styles.largeImageContainer}>
           <div
             className={styles.largeImage}

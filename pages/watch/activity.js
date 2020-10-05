@@ -10,71 +10,35 @@ import { connect } from 'react-redux'
 // COMPONENTS
 import Layout from '../../components/layout/layout'
 import Loading from '../../components/loading/loading'
-import { siteTitle } from '../../components/defaultHead'
+import ContentDisplay from '../../components/ContentDisplay/ContentDisplay'
 
 // HELPERS
-import utilStyles from '../../styles/utils.module.css'
 import callAPI from '../../lib/helpers/callAPI'
 import handleMarkdown from '../../lib/helpers/handleMarkdown'
 import handleSeasons from '../../lib/helpers/handleSeasons'
-import BackButton from '../../components/BackButton/BackButton'
 
 function Content () {
-  const [show, setShow] = useState(null)
+  const [activity, setActivity] = useState(null)
   const router = useRouter()
   const { id } = router.query
-  const getShow = async () => {
+  const getActivity = async () => {
     try {
-      const show = await callAPI(`watch?id=${id}`)
-      setShow(show)
+      const activity = await callAPI(`watch?id=${id}`)
+      const markdownTLDR = await handleMarkdown(activity.TLDR)
+      const markdownBody = await handleMarkdown(activity.body)
+      activity.markdownTLDR = markdownTLDR
+      activity.markdownBody = markdownBody
+      setActivity(activity)
     } catch (e) {
       console.error(e)
     }
   }
-  if (!show) getShow()
+  if (!activity) getActivity()
   return (
     <Layout>
       {
-        show
-          ? (
-            <>
-              <Head>
-                <title>{show.name} - {siteTitle}</title>
-              </Head>
-              <div className={utilStyles.pageContainer}>
-                <div className={utilStyles.pageHeaderContainer}>
-                  <div
-                    className={utilStyles.imageBanner}
-                    style={{ background: `url(${show.image}) center no-repeat` }}
-                  >
-                    <div className={utilStyles.overlay} />
-                    <div className={utilStyles.pageActivityName}>{show.name}</div>
-                  </div>
-                </div>
-                <div className={utilStyles.pageBodyContainer}>
-                  <div className={utilStyles.backButton}>
-                    <BackButton back={router.back} />
-                  </div>
-                  <div className={utilStyles.pageBodyNotes}>
-                    <div className={utilStyles.pageHeader}>
-                    Why you should watch:
-                    </div>
-                    <div className={utilStyles.pageBodyText}>
-                      {handleMarkdown(show.body)}
-                    </div>
-                  </div>
-                  <div className={utilStyles.seasonsToWatchContainer}>
-                    <div className={utilStyles.pageHeader}>
-                    Seasons to watch:
-                    </div>
-                    <div className={utilStyles.seasonsToWatchTable}>
-                      {handleSeasons(show.seasonsToWatch, show.name)}
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </>
-          )
+        activity
+          ? <ContentDisplay content={activity} back={router.back} />
           : <Loading />
       }
     </Layout>

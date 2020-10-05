@@ -13,7 +13,6 @@ import Loading from '../../components/loading/loading'
 import { siteTitle } from '../../components/defaultHead'
 
 // HELPERS
-import utilStyles from '../../styles/utils.module.css'
 import callAPI from '../../lib/helpers/callAPI'
 import handleMarkdown from '../../lib/helpers/handleMarkdown'
 import ContentDisplay from '../../components/ContentDisplay/ContentDisplay'
@@ -38,7 +37,6 @@ function Content () {
           ? <ContentDisplay content={activity} back={router.back} />
           : <Loading />
       }
-
     </Layout>
   )
 }

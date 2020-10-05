@@ -15,7 +15,7 @@ import callAPI from '../../lib/helpers/callAPI'
 import displayContent from '../../lib/helpers/displayContent'
 import displayCategoryOptions from '../../lib/helpers/displayCategoryOptions'
 import { stagger } from '../../animations/default'
-import { slice } from '../../lib/helpers/dataHelpers'
+import { slice, findCallOut } from '../../lib/helpers/dataHelpers'
 
 export async function getStaticProps () {
   let spotlight = []
@@ -50,20 +50,27 @@ export async function getStaticProps () {
 
 function WatchSection ({ spotlight, free, ideas, all = {} }) {
   const obj = all || {}
-  const { total, comedy, horror, drama, action } = obj
+  const { total, absurd, nature, romance, paranormal, international, documentary, movies, comedy, horror, drama, action } = obj
   const source = 'watch'
   const contentCategories = [
     { content: slice(total), header: 'All', source, ref: useRef('All') },
+    { content: slice(absurd), header: 'Absurdist Comedy', source, ref: useRef('Absurdist Comedy') },
+    { content: slice(action), header: 'Action', source, ref: useRef('Action') },
     { content: slice(comedy), header: 'Comedy', source, ref: useRef('Comedy') },
+    { content: slice(documentary), header: 'Documentaries', source, ref: useRef('Documentaries') },
+    { content: slice(drama), header: 'Drama', source, ref: useRef('Drama') },
+    { content: slice(free), header: 'Free', source, ref: useRef('Free') },
     { content: slice(horror), header: 'Horror', source, ref: useRef('Horror') },
     { content: slice(ideas), header: 'Ideas', source, ref: useRef('Ideas') },
-    { content: slice(free), header: 'Free', source, ref: useRef('Free') },
-    { content: slice(drama), header: 'Drama', source, ref: useRef('Drama') },
-    { content: slice(action), header: 'Action', source, ref: useRef('Action') }
+    { content: slice(international), header: 'International', source, ref: useRef('International') },
+    { content: slice(movies), header: 'Movies', source, ref: useRef('Movies') },
+    { content: slice(nature), header: 'Nature', source, ref: useRef('Nature') },
+    { content: slice(paranormal), header: 'Paranormal', source, ref: useRef('Paranormal') },
+    { content: slice(romance), header: 'Romance', source, ref: useRef('Romance') }
   ]
-  const findCallOut = coll => coll && Array.isArray(coll) && coll.find(item => item.spotlight !== true)
+
   const dramaCallOut = findCallOut(drama)
-  const freeCallOut = findCallOut(free)
+  const freeCallOut = findCallOut(drama, dramaCallOut)
   const horrorCallOut = findCallOut(horror)
   const categoryOptions = contentCategories.map(displayCategoryOptions)
   const displayedContent1 = contentCategories.slice(0, 2).map(displayContent)

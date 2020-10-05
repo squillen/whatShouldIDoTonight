@@ -373,6 +373,7 @@ background: radial-gradient(circle, rgba(13,32,53,1) 36%, rgba(25,110,171,0.9990
 
 .pageActivityName {
   color: white;
+  text-align: center;
   font-size: 8rem;
   z-index: 2;
 }

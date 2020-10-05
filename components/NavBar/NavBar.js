@@ -78,8 +78,10 @@ export default function NavBar ({ home }) {
     return (
       <li className={styles['nav__menu-item']} onMouseLeave={() => setShowCategoryMenu(false)}>
         <a onMouseEnter={() => setShowCategoryMenu(true)}>
-        by category
+          by category
         </a>
+        <div className={styles.underline} />
+
         <div className={styles['submenu-container']}>
           <CSSTransition
             timeout={500}
@@ -118,16 +120,19 @@ export default function NavBar ({ home }) {
         openMenu
           ? (
             <div className={styles.navbarMenu}>
-              {mobileCategories}
-              {
-                home
-                  ? null
-                  : (
-                    <Link href="/">
-                      <a className={styles.menuLink}>Idea Generator</a>
-                    </Link>
-                  )
-              }
+              <div className={styles.mobileCategories}>
+                {mobileCategories}
+                {
+                  home
+                    ? null
+                    : (
+                      <Link href="/">
+                        <a className={styles.menuLink}>Idea Generator</a>
+                      </Link>
+                    )
+                }
+              </div>
+
             </div>
           )
           : null

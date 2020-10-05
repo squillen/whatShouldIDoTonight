@@ -54,8 +54,8 @@ const getContent = () => (
         Check out
         {' '}
         <LinkTo
-          href="https://time.com/5524332/best-podcasts-to-listen-to/"
-          label="this list"
+          href="/categories/listen"
+          label="our listen page"
         />
         {' '}
         for even more ideas.

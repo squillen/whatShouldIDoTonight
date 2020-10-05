@@ -15,7 +15,7 @@ import callAPI from '../../lib/helpers/callAPI'
 import displayContent from '../../lib/helpers/displayContent'
 import displayCategoryOptions from '../../lib/helpers/displayCategoryOptions'
 import { stagger } from '../../animations/default'
-import { slice } from '../../lib/helpers/dataHelpers'
+import { slice, findCallOut } from '../../lib/helpers/dataHelpers'
 
 export async function getStaticProps () {
   let spotlight = []
@@ -42,22 +42,22 @@ export async function getStaticProps () {
 
 function ListenSection ({ spotlight, all }) {
   const obj = all || {}
-  const { total, comedy, technology, educational, finance, code, crime, food, selfImprovement, spooky, watch } = obj
+  const { total, travel, comedy, tech, educational, finance, code, crime, food, selfImprovement, spooky, watch } = obj
   const source = 'listen'
   const contentCategories = [
     { content: slice(total), header: 'All', source, ref: useRef('All') },
     { content: slice(comedy), header: 'Comedy', source, ref: useRef('Comedy') },
-    { content: slice(technology), header: 'Tech', source, ref: useRef('Tech') },
-    { content: slice(spooky), header: 'Spooky', source, ref: useRef('Spooky') },
-    { content: slice(watch), path: 'watch', header: 'Shows & Movies', source, ref: useRef('Shows & Movies') },
     { content: slice(educational), header: 'Educational', source, ref: useRef('Educational') },
     { content: slice(finance), header: 'Finance', source, ref: useRef('Finance') },
+    { content: slice(food), path: 'food', header: 'Food & Drink', source, ref: useRef('Food & Drink') },
+    { content: slice(spooky), header: 'Spooky', source, ref: useRef('Spooky') },
+    { content: slice(travel), header: 'Travel', source, ref: useRef('Travel') },
+    { content: slice(watch), path: 'watch', header: 'Shows & Movies', source, ref: useRef('Shows & Movies') },
     { content: slice(code), header: 'Code', source, ref: useRef('Code') },
     { content: slice(crime), header: 'Crime', source, ref: useRef('Crime') },
-    { content: slice(food), path: 'food', header: 'Food & Drink', source, ref: useRef('Food & Drink') }
+    { content: slice(tech), header: 'Tech', source, ref: useRef('Tech') },
   ]
 
-  const findCallOut = coll => coll && Array.isArray(coll) && coll.find(item => item.spotlight !== true)
   const codeCallOut = findCallOut(code)
   const crimeCallOut = findCallOut(crime)
   const selfImprovementCallOut = findCallOut(selfImprovement)

@@ -15,7 +15,7 @@ import callAPI from '../../lib/helpers/callAPI'
 import displayContent from '../../lib/helpers/displayContent'
 import displayCategoryOptions from '../../lib/helpers/displayCategoryOptions'
 import { stagger } from '../../animations/default'
-import { slice } from '../../lib/helpers/dataHelpers'
+import { slice, findCallOut} from '../../lib/helpers/dataHelpers'
 
 export async function getStaticProps () {
   let spotlight = []
@@ -59,7 +59,6 @@ function ReadSection ({ spotlight, free, all }) {
     { content: slice(food), header: 'Food', source, ref: useRef('Food') },
     { content: slice(selfImprovement), path: 'selfImprovement', header: 'Self Improvement', source, ref: useRef('Self Improvement') }
   ]
-  const findCallOut = coll => coll && Array.isArray(coll) && coll.find(item => item.spotlight !== true)
   const crimeCallOut = findCallOut(crime)
   const selfImprovementCallOut = findCallOut(selfImprovement)
   const foodCallOut = findCallOut(food)

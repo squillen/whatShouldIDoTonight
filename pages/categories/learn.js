@@ -15,7 +15,7 @@ import callAPI from '../../lib/helpers/callAPI'
 import displayContent from '../../lib/helpers/displayContent'
 import displayCategoryOptions from '../../lib/helpers/displayCategoryOptions'
 import { stagger } from '../../animations/default'
-import { slice } from '../../lib/helpers/dataHelpers'
+import { slice, findCallOut } from '../../lib/helpers/dataHelpers'
 
 export async function getStaticProps () {
   let spotlight = []
@@ -46,18 +46,18 @@ export async function getStaticProps () {
 
 function LearnSection ({ spotlight, all, free }) {
   const obj = all || {}
-  const { total, art, code, finance, food, selfImprovement } = obj
+  const { total, science, art, code, finance, food, selfImprovement } = obj
   const source = 'learn'
   const contentCategories = [
     { content: slice(total), header: 'All', source, ref: useRef('All') },
     { content: slice(art), header: 'Art', source, ref: useRef('Art') },
     { content: slice(code), header: 'Coding', source, ref: useRef('Coding') },
-    { content: slice(selfImprovement), path: 'selfImprovement', header: 'Self Improvement', source, ref: useRef('Self Improvement') },
     { content: slice(finance), header: 'Finance', source, ref: useRef('Finance') },
+    { content: slice(food), path: 'food', header: 'Food & Drink', source, ref: useRef('Food & Drink') },
     { content: slice(free), header: 'Free', source, ref: useRef('Free') },
-    { content: slice(food), path: 'food', header: 'Food & Drink', source, ref: useRef('Food & Drink') }
+    { content: slice(science), header: 'Science', source, ref: useRef('Science') },
+    { content: slice(selfImprovement), path: 'selfImprovement', header: 'Self Improvement', source, ref: useRef('Self Improvement') }
   ]
-  const findCallOut = coll => coll && Array.isArray(coll) && coll.find(item => item.spotlight !== true)
   const codeCallOut = findCallOut(code)
   const selfImprovementCallOut = findCallOut(selfImprovement)
   const foodCallOut = findCallOut(food)

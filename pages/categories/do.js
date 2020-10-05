@@ -1,7 +1,13 @@
-import React, { useRef } from 'react'
+import React, { useState, useRef } from 'react'
 import { motion } from 'framer-motion'
 import Head from 'next/head'
 import PropTypes from 'prop-types'
+
+// REDUX
+import wrapper from '../../src/store/store'
+import { connect } from 'react-redux'
+import { bindActionCreators } from 'redux'
+import { setDoActivities } from '../../src/store/categories/action'
 
 // COMPONENTS
 import Layout from '../../components/layout/layout'
@@ -11,36 +17,34 @@ import { siteTitle } from '../../components/defaultHead'
 
 // HELPERS
 import utilStyles from '../../styles/utils.module.css'
-import callAPI from '../../lib/helpers/callAPI'
+import { getActivitiesFromDB } from '../../lib/helpers/db/requests'
 import displayContent from '../../lib/helpers/displayContent'
 import displayCategoryOptions from '../../lib/helpers/displayCategoryOptions'
-import { slice } from '../../lib/helpers/dataHelpers'
+import { slice, findCallOut } from '../../lib/helpers/dataHelpers'
 import { stagger } from '../../animations/default'
 
-export async function getStaticProps () {
-  let all = []
-  let spotlight = []
-
-  try {
-    const handleCall = (path) => callAPI(`do?${path}`).catch(console.error)
-    const promises = await Promise.all([
-      handleCall('spotlight=spotlight'),
-      handleCall('all=all')
-    ])
-    spotlight = promises[0]
-    all = promises[1]
-  } catch (e) {
-    console.error(e)
-  }
-  return {
-    props: {
-      spotlight,
-      all
+export const getStaticProps = wrapper.getStaticProps(async ({ store }) => {
+  const state = store.getState()
+  console.log('state :>> ', state)
+  const all = state.category.doActivities.all || {}
+  const spotlight = state.category.doActivities.spotlight || []
+  if (spotlight && !spotlight.length) return getActivitiesFromDB('do')
+  else {
+    return {
+      props: {
+        spotlight,
+        all
+      }
     }
   }
-}
+})
 
-function DoSection ({ spotlight, all = {} }) {
+function DoSection ({ spotlight, all = {}, setInRedux, setDoActivitiesFromProps }) {
+  const [updatedRedux, setUpdatedRedux] = useState(false)
+  if (!updatedRedux && setInRedux) {
+    setUpdatedRedux(true)
+    setDoActivitiesFromProps({ all, spotlight })
+  }
   const source = 'do'
   const obj = all || {}
   const { total, active, educational, outside, free, alone, read, home, volunteer, listen, watch, calm, social, food, finance, code, tech, selfImprovement } = obj
@@ -50,9 +54,9 @@ function DoSection ({ spotlight, all = {} }) {
     { content: slice(alone), header: 'Alone', source, ref: useRef('Alone') },
     { content: slice(calm), path: 'calm', header: 'Chill', source, ref: useRef('Chill') },
     { content: slice(code), header: 'Code', source, ref: useRef('Code') },
-    { content: slice(food), path: 'food', header: 'Eat', source, ref: useRef('Eat') },
     { content: slice(educational), header: 'Educational', source, ref: useRef('Educational') },
     { content: slice(finance), header: 'Finance', source, ref: useRef('Finance') },
+    { content: slice(food), path: 'food', header: 'Eat', source, ref: useRef('Eat') },
     { content: slice(free), header: 'Free', source, ref: useRef('Free') },
     { content: slice(home), header: 'Home', source, ref: useRef('Home') },
     { content: slice(listen), header: 'Listen', source, ref: useRef('Listen') },
@@ -64,7 +68,6 @@ function DoSection ({ spotlight, all = {} }) {
     { content: slice(volunteer), header: 'Volunteer', source, ref: useRef('Volunteer') },
     { content: slice(watch), header: 'Watch', source, ref: useRef('Watch') }
   ]
-  const findCallOut = coll => coll && Array.isArray(coll) && coll.find(item => item.spotlight !== true)
   const foodCallOut = findCallOut(food)
   const outsideCallOut = findCallOut(outside)
   const selfImprovementCallOut = findCallOut(selfImprovement)
@@ -114,7 +117,15 @@ function DoSection ({ spotlight, all = {} }) {
 
 DoSection.propTypes = {
   spotlight: PropTypes.array,
-  all: PropTypes.object
+  all: PropTypes.object,
+  setDoActivitiesFromProps: PropTypes.func,
+  setInRedux: PropTypes.string
 }
 
-export default DoSection
+const mapDispatchToProps = (dispatch) => {
+  return {
+    setDoActivitiesFromProps: bindActionCreators(setDoActivities, dispatch)
+  }
+}
+
+export default connect((state) => state, mapDispatchToProps)(DoSection)

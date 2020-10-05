@@ -28,6 +28,13 @@
 .menu-container {
   text-align: center;
 }
+
+.underline {
+  border-bottom: 1px solid white;
+  width: 40%;
+  margin: 0 auto
+}
+
 #dropDownList {
   list-style: none;
   padding-left: 0;
@@ -51,6 +58,7 @@
   line-height: inherit;
   cursor: pointer;
 }
+
 .nav__menu {
   line-height: 45px;
   font-weight: 700;
@@ -66,6 +74,11 @@
 .nav__menu-item:hover .nav__submenu {
   display: block;
 }
+
+.nav__menu-item:hover .underline {
+  display: none;
+}
+
 .nav__submenu {
   font-weight: 300;
   text-transform: none;
@@ -80,6 +93,14 @@
 }
 .nav__submenu-item:hover {
   background: rgba(0, 0, 0, 0.1);
+}
+
+.mobileCategories {
+  padding: 1rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
 }
 
 .mobileNavWhite,

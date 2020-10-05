@@ -6,13 +6,15 @@ import { composeWithDevTools } from 'redux-devtools-extension'
 
 // IMPORT REDUCERS
 import activity from './activities/reducer'
+import category from './categories/reducer'
 
 const initialState = {
   state: { }
 }
 
 const combinedReducer = combineReducers({
-  activity
+  activity,
+  category
 })
 
 const reducer = (state = initialState, action) => {

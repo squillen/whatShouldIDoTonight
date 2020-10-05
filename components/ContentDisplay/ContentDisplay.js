@@ -34,14 +34,17 @@ export default function ContentDisplay ({ content, back }) {
               ? (
                 <div className={utilStyles.TLDR}>
                   <div className={utilStyles.TLDRHeader}>TL;DR:</div>
-                  <div className={utilStyles.TLDRText}>{handleMarkdown(content.TLDR)}</div>
+                  <div dangerouslySetInnerHTML={{ __html: content.markdownTLDR }} />
+                  {/* <div className={utilStyles.TLDRText}>{content.markdownTLDR || handleMarkdown(content.TLDR)}</div> */}
                 </div>
               )
               : null
           }
           <div className={utilStyles.pageBodyNotes}>
             <div className={utilStyles.pageBodyText}>
-              {handleMarkdown(content.body)}
+              <div dangerouslySetInnerHTML={{ __html: content.markdownBody }} />
+
+              {/* {content.markdownBody || handleMarkdown(content.body)} */}
             </div>
           </div>
         </div>

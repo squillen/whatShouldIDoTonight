@@ -9,7 +9,9 @@ import activity from './activities/reducer'
 import category from './categories/reducer'
 
 const initialState = {
-  state: { }
+  state: { },
+  activity: 'init',
+  category: 'init'
 }
 
 const combinedReducer = combineReducers({
@@ -20,6 +22,8 @@ const combinedReducer = combineReducers({
 const reducer = (state = initialState, action) => {
   const actionType = action.type
   if (actionType === HYDRATE) {
+    if (action.payload.activity === 'init') delete action.payload.activity
+    if (action.payload.category === 'init') delete action.payload.category
     return {
       ...state,
       server: {

@@ -19,7 +19,6 @@ import Layout from '../../components/layout/layout'
 import Button from '../../components/button/button'
 import SocialIcons from '../../components/socialIcons/socialIcons'
 import utilStyles from '../../styles/utils.module.css'
-import BackButton from '../BackButton/BackButton'
 
 function Post (props) {
   const {

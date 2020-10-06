@@ -11,27 +11,27 @@ import Loading from '../../components/loading/loading'
 
 // HELPERS
 import utilStyles from '../../styles/utils.module.css'
-import callAPI from '../../lib/helpers/callAPI'
+import { getActivityFromDB } from '../../lib/helpers/db/requests'
 import ContentDisplay from '../../components/ContentDisplay/ContentDisplay'
 
 function Content () {
-  const [dish, setDish] = useState(null)
+  const [activity, setActivity] = useState(null)
   const router = useRouter()
   const { id } = router.query
-  const getDish = async () => {
+  const getActivity = async () => {
     try {
-      const dish = await callAPI(`eat?id=${id}`)
-      setDish(dish)
+      const newActivity = await getActivityFromDB('eat', id)
+      setActivity(newActivity)
     } catch (e) {
       console.error(e)
     }
   }
-  if (!dish) getDish()
+  if (!activity && id) getActivity()
   return (
     <Layout>
       {
-        dish
-          ? <ContentDisplay content={dish} back={router.back} />
+        activity
+          ? <ContentDisplay content={activity} back={router.back} />
           : <Loading loading={true} />
       }
     </Layout>
@@ -39,7 +39,7 @@ function Content () {
 }
 
 Content.propTypes = {
-  dish: PropTypes.object
+  activity: PropTypes.object
 }
 
 export default connect((state) => state)(Content)

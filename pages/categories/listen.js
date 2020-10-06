@@ -1,133 +1,94 @@
-import React, { useRef } from 'react'
+import React, { useState } from 'react'
 import Head from 'next/head'
-import { motion } from 'framer-motion'
 import PropTypes from 'prop-types'
+
+// REDUX
+import wrapper from '../../src/store/store'
+import { connect } from 'react-redux'
+import { bindActionCreators } from 'redux'
+import { setListenActivities } from '../../src/store/categories/action'
 
 // COMPONENTS
 import Layout from '../../components/layout/layout'
 import SplashContent from '../../components/SplashContent/SplashContent'
-import ContentCallOut from '../../components/ContentCallOut/ContentCallOut'
+import HandleContent from '../../components/HandleContent'
 import { siteTitle } from '../../components/defaultHead'
 
 // HELPERS
 import utilStyles from '../../styles/utils.module.css'
-import callAPI from '../../lib/helpers/callAPI'
-import displayContent from '../../lib/helpers/displayContent'
-import displayCategoryOptions from '../../lib/helpers/displayCategoryOptions'
-import { stagger } from '../../animations/default'
-import { slice, findCallOut } from '../../lib/helpers/dataHelpers'
+import { getActivitiesFromDB } from '../../lib/helpers/db/requests'
 
-export async function getStaticProps () {
-  let spotlight = []
-  let all = []
-
-  try {
-    const handleCall = (path) => callAPI(`listen?${path}`).catch(console.error)
-    const promises = await Promise.all([
-      handleCall('spotlight=spotlight'),
-      handleCall('all=all')
-    ])
-    spotlight = promises[0]
-    all = promises[1]
-  } catch (e) {
-    console.error(e)
-  }
-  return {
-    props: {
-      spotlight,
-      all
+export const getStaticProps = wrapper.getStaticProps(({ store }) => {
+  const state = store.getState()
+  const all = state.category.listenActivities.all || {}
+  const spotlight = state.category.listenActivities.spotlight || []
+  if (spotlight && !spotlight.length) return getActivitiesFromDB('listen')
+  else {
+    return {
+      props: {
+        spotlight,
+        all
+      }
     }
   }
-}
+})
 
-function ListenSection ({ spotlight, all }) {
-  const obj = all || {}
-  const { total, travel, comedy, tech, educational, finance, code, crime, food, selfImprovement, spooky, watch } = obj
+function ListenSection ({ spotlight = [], all = {}, setInRedux, setListenActivitiesFromProps }) {
+  const [updatedRedux, setUpdatedRedux] = useState(false)
+  if (!updatedRedux && setInRedux) {
+    setUpdatedRedux(true)
+    setListenActivitiesFromProps({ all, spotlight })
+  }
   const source = 'listen'
-  const contentCategories = [
-    { content: slice(total), header: 'All', source, ref: useRef('All') },
-    { content: slice(comedy), header: 'Comedy', source, ref: useRef('Comedy') },
-    { content: slice(educational), header: 'Educational', source, ref: useRef('Educational') },
-    { content: slice(finance), header: 'Finance', source, ref: useRef('Finance') },
-    { content: slice(food), path: 'food', header: 'Food & Drink', source, ref: useRef('Food & Drink') },
-    { content: slice(spooky), header: 'Spooky', source, ref: useRef('Spooky') },
-    { content: slice(travel), header: 'Travel', source, ref: useRef('Travel') },
-    { content: slice(watch), path: 'watch', header: 'Shows & Movies', source, ref: useRef('Shows & Movies') },
-    { content: slice(code), header: 'Code', source, ref: useRef('Code') },
-    { content: slice(crime), header: 'Crime', source, ref: useRef('Crime') },
-    { content: slice(tech), header: 'Tech', source, ref: useRef('Tech') },
+  const obj = all || {}
+  const quotes = [
+    {
+      header: '"You aren’t learning anything when you’re talking."',
+      contents: ['-Lyndon B. Johnson']
+    },
+    {
+      header: '"The quieter you become, the more you can hear."',
+      contents: ['-Buddha']
+    }
   ]
 
-  const codeCallOut = findCallOut(code)
-  const crimeCallOut = findCallOut(crime)
-  const selfImprovementCallOut = findCallOut(selfImprovement)
-  const categoryOptions = contentCategories.map(displayCategoryOptions)
-  const displayedContent1 = contentCategories.slice(0, 2).map(displayContent)
-  const displayedContent2 = contentCategories.slice(2, 3).map(displayContent)
-  const displayedContent3 = contentCategories.slice(3, 5).map(displayContent)
-  const displayedContent4 = contentCategories.slice(5, 8).map(displayContent)
-  const displayedContent5 = contentCategories.slice(8, 10).map(displayContent)
-  const displayedContent6 = contentCategories.slice(10, 30).map(displayContent)
-  const LBJ = {
-    header: '"You aren’t learning anything when you’re talking."',
-    contents: ['-Lyndon B. Johnson']
-  }
-  const Buddha = {
-    header: '"The quieter you become, the more you can hear."',
-    contents: ['-Buddha']
-  }
+  const display = (
+    <HandleContent
+      all={obj}
+      source={source}
+      quotes={quotes}
+    />
+  )
+
   return (
     <Layout>
       <Head>
-        <title>What to listen to - {siteTitle}</title>
+        <title>What to Listen - {siteTitle}</title>
       </Head>
-      <div className={utilStyles.pageContainer}>
-        {spotlight && Array.isArray(spotlight) && spotlight.length && <SplashContent content={spotlight} banner="Listen to the less known" source={source} />}
-        <div className={utilStyles.infoContainer}>
-          <div className={utilStyles.infoHeader}>Do you know how many bad podcasts are out there?</div>
-          <div className={utilStyles.infoBody}>
-            <p>We do. And now you don&apos;t have to.</p>
-            <p>You&apos;re welcome.</p>
-          </div>
+      {spotlight && Array.isArray(spotlight) && spotlight.length && <SplashContent content={spotlight} banner="Listen to the less known" source={source} />}
+      <div className={utilStyles.infoContainer}>
+        <div className={utilStyles.infoHeader}>Do you know how many bad podcasts are out there?</div>
+        <div className={utilStyles.infoBody}>
+          <p>We do. And now you don&apos;t have to.</p>
+          <p>You&apos;re welcome.</p>
         </div>
-        <motion.div variants={stagger} className={utilStyles.categoryOptions}>
-          {categoryOptions}
-        </motion.div>
-        {displayedContent1}
-        <ContentCallOut source={source} item={selfImprovementCallOut} />
-        {displayedContent2}
-        <ContentCallOut item={Buddha} />
-        {displayedContent3}
-        <ContentCallOut source={source} item={codeCallOut} />
-        {displayedContent4}
-        {
-          displayedContent5.length
-            ? (
-              <>
-                <ContentCallOut source={source} item={crimeCallOut} />
-                {displayedContent5}
-              </>
-            )
-            : null
-        }
-        {
-          displayedContent6.length
-            ? (
-              <>
-                <ContentCallOut item={LBJ} />
-                {displayedContent6}
-              </>
-            )
-            : null
-        }
       </div>
+      {display}
     </Layout>
   )
 }
 
 ListenSection.propTypes = {
   spotlight: PropTypes.array,
-  all: PropTypes.object
+  all: PropTypes.object,
+  setListenActivitiesFromProps: PropTypes.func,
+  setInRedux: PropTypes.string
 }
 
-export default ListenSection
+const mapDispatchToProps = (dispatch) => {
+  return {
+    setListenActivitiesFromProps: bindActionCreators(setListenActivities, dispatch)
+  }
+}
+
+export default connect((state) => state, mapDispatchToProps)(ListenSection)

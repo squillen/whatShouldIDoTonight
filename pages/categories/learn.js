@@ -1,126 +1,80 @@
-import React, { useRef } from 'react'
-import PropTypes from 'prop-types'
-import { motion } from 'framer-motion'
+import React, { useState } from 'react'
 import Head from 'next/head'
+import PropTypes from 'prop-types'
+
+// REDUX
+import wrapper from '../../src/store/store'
+import { connect } from 'react-redux'
+import { bindActionCreators } from 'redux'
+import { setLearnActivities } from '../../src/store/categories/action'
 
 // COMPONENTS
 import Layout from '../../components/layout/layout'
 import SplashContent from '../../components/SplashContent/SplashContent'
+import HandleContent from '../../components/HandleContent'
 import { siteTitle } from '../../components/defaultHead'
-import ContentCallOut from '../../components/ContentCallOut/ContentCallOut'
 
 // HELPERS
 import utilStyles from '../../styles/utils.module.css'
-import callAPI from '../../lib/helpers/callAPI'
-import displayContent from '../../lib/helpers/displayContent'
-import displayCategoryOptions from '../../lib/helpers/displayCategoryOptions'
-import { stagger } from '../../animations/default'
-import { slice, findCallOut } from '../../lib/helpers/dataHelpers'
+import { getActivitiesFromDB } from '../../lib/helpers/db/requests'
 
-export async function getStaticProps () {
-  let spotlight = []
-  let all = []
-  let free = []
-
-  try {
-    const handleCall = (path) => callAPI(`learn?${path}`).catch(console.error)
-    const promises = await Promise.all([
-      handleCall('spotlight=spotlight'),
-      handleCall('free=free'),
-      handleCall('all=all')
-    ])
-    spotlight = promises[0]
-    free = promises[1]
-    all = promises[2]
-  } catch (e) {
-    console.error(e)
-  }
-  return {
-    props: {
-      spotlight,
-      all,
-      free
+export const getStaticProps = wrapper.getStaticProps(({ store }) => {
+  const state = store.getState()
+  const all = state.category.learnActivities.all || {}
+  const spotlight = state.category.learnActivities.spotlight || []
+  if (spotlight && !spotlight.length) return getActivitiesFromDB('learn')
+  else {
+    return {
+      props: {
+        spotlight,
+        all
+      }
     }
   }
-}
+})
 
-function LearnSection ({ spotlight, all, free }) {
-  const obj = all || {}
-  const { total, science, art, code, finance, food, selfImprovement } = obj
+function LearnSection ({ spotlight = [], all = {}, setInRedux, setLearnActivitiesFromProps }) {
+  const [updatedRedux, setUpdatedRedux] = useState(false)
+  if (!updatedRedux && setInRedux) {
+    setUpdatedRedux(true)
+    setLearnActivitiesFromProps({ all, spotlight })
+  }
   const source = 'learn'
-  const contentCategories = [
-    { content: slice(total), header: 'All', source, ref: useRef('All') },
-    { content: slice(art), header: 'Art', source, ref: useRef('Art') },
-    { content: slice(code), header: 'Coding', source, ref: useRef('Coding') },
-    { content: slice(finance), header: 'Finance', source, ref: useRef('Finance') },
-    { content: slice(food), path: 'food', header: 'Food & Drink', source, ref: useRef('Food & Drink') },
-    { content: slice(free), header: 'Free', source, ref: useRef('Free') },
-    { content: slice(science), header: 'Science', source, ref: useRef('Science') },
-    { content: slice(selfImprovement), path: 'selfImprovement', header: 'Self Improvement', source, ref: useRef('Self Improvement') }
+  const obj = all || {}
+  const quotes = [
+    {
+      header: '"Never let formal education get in the way of your learning."',
+      contents: ['-Mark Twain']
+    },
+    {
+      header: '"If you come to a fork in the road, take it."',
+      contents: ['-Yogi Berra']
+    },
+    {
+      header: '"Any fool can know. The point is to understand."',
+      contents: ['-Albert Einstein', 'What a genius.']
+    }
   ]
-  const codeCallOut = findCallOut(code)
-  const selfImprovementCallOut = findCallOut(selfImprovement)
-  const foodCallOut = findCallOut(food)
-  const categoryOptions = contentCategories.map(displayCategoryOptions)
-  const displayedContent1 = contentCategories.slice(0, 2).map(displayContent)
-  const displayedContent2 = contentCategories.slice(2, 4).map(displayContent)
-  const displayedContent3 = contentCategories.slice(4, 6).map(displayContent)
-  const displayedContent4 = contentCategories.slice(6, 9).map(displayContent)
-  const displayedContent5 = contentCategories.slice(9, 14).map(displayContent)
-  const displayedContent6 = contentCategories.slice(14, 30).map(displayContent)
-  const markTwain = {
-    header: '"Never let formal education get in the way of your learning."',
-    contents: ['-Mark Twain']
-  }
-  const yogiBerra = {
-    header: '"If you come to a fork in the road, take it."',
-    contents: ['-Yogi Berra']
-  }
-  const albertEinstein = {
-    header: '"Any fool can know. The point is to understand."',
-    contents: ['-Albert Einstein', 'What a genius.']
-  }
+
+  const display = (
+    <HandleContent
+      all={obj}
+      source={source}
+      quotes={quotes}
+    />
+  )
+
   return (
     <Layout>
       <Head>
-        <title>What to learn - {siteTitle}</title>
+        <title>What to Learn - {siteTitle}</title>
       </Head>
-      <div className={utilStyles.pageContainer}>
-        {spotlight && Array.isArray(spotlight) && spotlight.length && <SplashContent content={spotlight} banner="Be better than yesterday" source={source} />}
-        <div className={utilStyles.infoContainer}>
-          <div className={utilStyles.infoHeader}>Hand-picked courses worth the watch.</div>
-        </div>
-        <motion.div variants={stagger} className={utilStyles.categoryOptions}>
-          {categoryOptions}
-        </motion.div>
-        {displayedContent1}
-        <ContentCallOut source={source} item={selfImprovementCallOut} />
-        {displayedContent2}
-        <ContentCallOut item={markTwain} />
-        {displayedContent3}
-        <ContentCallOut source={source} item={codeCallOut} />
-        {displayedContent4}
-        {
-          displayedContent5.length
-            ? (
-              <>
-                <ContentCallOut item={albertEinstein} />
-                {displayedContent5}
-              </>
-            )
-            : null
-        }
-        {
-          displayedContent6.length
-            ? (
-              <>
-                <ContentCallOut source={source} item={foodCallOut} />
-                {displayedContent6}
-              </>
-            )
-            : null
-        }
+
+      {spotlight && Array.isArray(spotlight) && spotlight.length && <SplashContent content={spotlight} banner="Be better than yesterday" source={source} />}
+      <div className={utilStyles.infoContainer}>
+        <div className={utilStyles.infoHeader}>Hand-picked courses worth the watch.</div>
       </div>
+      {display}
     </Layout>
   )
 }
@@ -128,13 +82,14 @@ function LearnSection ({ spotlight, all, free }) {
 LearnSection.propTypes = {
   spotlight: PropTypes.array,
   all: PropTypes.object,
-  art: PropTypes.array,
-  code: PropTypes.array,
-  finance: PropTypes.array,
-  food: PropTypes.array,
-  selfImprovement: PropTypes.array,
-  free: PropTypes.array,
-  ideas: PropTypes.array
+  setLearnActivitiesFromProps: PropTypes.func,
+  setInRedux: PropTypes.string
 }
 
-export default LearnSection
+const mapDispatchToProps = (dispatch) => {
+  return {
+    setLearnActivitiesFromProps: bindActionCreators(setLearnActivities, dispatch)
+  }
+}
+
+export default connect((state) => state, mapDispatchToProps)(LearnSection)

@@ -11,26 +11,26 @@ import Loading from '../../components/loading/loading'
 import ContentDisplay from '../../components/ContentDisplay/ContentDisplay'
 
 // HELPERS
-import callAPI from '../../lib/helpers/callAPI'
+import { getActivityFromDB } from '../../lib/helpers/db/requests'
 
 function Content () {
-  const [course, setCourse] = useState(null)
+  const [activity, setActivity] = useState(null)
   const router = useRouter()
   const { id } = router.query
-  const getCourse = async () => {
+  const getActivity = async () => {
     try {
-      const course = await callAPI(`learn?id=${id}`)
-      setCourse(course)
+      const newActivity = await getActivityFromDB('learn', id)
+      setActivity(newActivity)
     } catch (e) {
       console.error(e)
     }
   }
-  if (!course) getCourse()
+  if (!activity && id) getActivity()
   return (
     <Layout>
       {
-        course
-          ? <ContentDisplay content={course} back={router.back} />
+        activity
+          ? <ContentDisplay content={activity} back={router.back} />
           : <Loading />
       }
     </Layout>
@@ -38,7 +38,7 @@ function Content () {
 }
 
 Content.propTypes = {
-  course: PropTypes.object
+  activity: PropTypes.object
 }
 
 export default connect((state) => state)(Content)

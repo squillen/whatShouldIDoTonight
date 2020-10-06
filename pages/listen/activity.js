@@ -11,7 +11,7 @@ import Loading from '../../components/loading/loading'
 
 // HELPERS
 import utilStyles from '../../styles/utils.module.css'
-import callAPI from '../../lib/helpers/callAPI'
+import { getActivityFromDB } from '../../lib/helpers/db/requests'
 import ContentDisplay from '../../components/ContentDisplay/ContentDisplay'
 
 function Content () {
@@ -20,13 +20,13 @@ function Content () {
   const { id } = router.query
   const getActivity = async () => {
     try {
-      const activity = await callAPI(`listen?id=${id}`)
-      setActivity(activity)
+      const newActivity = await getActivityFromDB('listen', id)
+      setActivity(newActivity)
     } catch (e) {
       console.error(e)
     }
   }
-  if (!activity) getActivity()
+  if (!activity && id) getActivity()
   return (
     <Layout>
       {

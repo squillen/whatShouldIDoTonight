@@ -10,11 +10,9 @@ import { connect } from 'react-redux'
 // COMPONENTS
 import Layout from '../../components/layout/layout'
 import Loading from '../../components/loading/loading'
-import { siteTitle } from '../../components/defaultHead'
 
 // HELPERS
-import callAPI from '../../lib/helpers/callAPI'
-import handleMarkdown from '../../lib/helpers/handleMarkdown'
+import { getActivityFromDB } from '../../lib/helpers/db/requests'
 import ContentDisplay from '../../components/ContentDisplay/ContentDisplay'
 
 function Content () {
@@ -23,13 +21,13 @@ function Content () {
   const { id } = router.query
   const getActivity = async () => {
     try {
-      const activity = await callAPI(`read?id=${id}`)
-      setActivity(activity)
+      const newActivity = await getActivityFromDB('read', id)
+      setActivity(newActivity)
     } catch (e) {
       console.error(e)
     }
   }
-  if (!activity) getActivity()
+  if (!activity && id) getActivity()
   return (
     <Layout>
       {

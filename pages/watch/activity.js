@@ -1,6 +1,4 @@
 import React, { useState } from 'react'
-import Head from 'next/head'
-import Link from 'next/link'
 import { useRouter } from 'next/router'
 import PropTypes from 'prop-types'
 
@@ -13,8 +11,7 @@ import Loading from '../../components/loading/loading'
 import ContentDisplay from '../../components/ContentDisplay/ContentDisplay'
 
 // HELPERS
-import callAPI from '../../lib/helpers/callAPI'
-import handleMarkdown from '../../lib/helpers/handleMarkdown'
+import { getActivityFromDB } from '../../lib/helpers/db/requests'
 import handleSeasons from '../../lib/helpers/handleSeasons'
 
 function Content () {
@@ -23,17 +20,13 @@ function Content () {
   const { id } = router.query
   const getActivity = async () => {
     try {
-      const activity = await callAPI(`watch?id=${id}`)
-      const markdownTLDR = await handleMarkdown(activity.TLDR)
-      const markdownBody = await handleMarkdown(activity.body)
-      activity.markdownTLDR = markdownTLDR
-      activity.markdownBody = markdownBody
-      setActivity(activity)
+      const newActivity = await getActivityFromDB('watch', id)
+      setActivity(newActivity)
     } catch (e) {
       console.error(e)
     }
   }
-  if (!activity) getActivity()
+  if (!activity && id) getActivity()
   return (
     <Layout>
       {

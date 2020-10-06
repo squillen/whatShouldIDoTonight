@@ -11,36 +11,35 @@ import Loading from '../../components/loading/loading'
 
 // HELPERS
 import utilStyles from '../../styles/utils.module.css'
-import callAPI from '../../lib/helpers/callAPI'
+import { getActivityFromDB } from '../../lib/helpers/db/requests'
 import ContentDisplay from '../../components/ContentDisplay/ContentDisplay'
 
 function Content () {
-  const [stuff, setStuff] = useState(null)
+  const [activity, setActivity] = useState(null)
   const router = useRouter()
   const { id } = router.query
-  const getStuff = async () => {
+  const getActivity = async () => {
     try {
-      const stuff = await callAPI(`do?id=${id}`)
-      setStuff(stuff)
+      const newActivity = await getActivityFromDB('do', id)
+      setActivity(newActivity)
     } catch (e) {
       console.error(e)
     }
   }
-  if (!stuff) getStuff()
+  if (!activity && id) getActivity()
   return (
     <Layout>
       {
-        stuff
-          ? <ContentDisplay content={stuff} back={router.back} />
+        activity
+          ? <ContentDisplay content={activity} back={router.back} />
           : <Loading loading={true} />
       }
-
     </Layout>
   )
 }
 
 Content.propTypes = {
-  stuff: PropTypes.object
+  Activity: PropTypes.object
 }
 
 export default connect((state) => state)(Content)

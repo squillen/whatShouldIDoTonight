@@ -11,9 +11,14 @@ import GetAllEvents from '../../components/GetAllEvents/GetAllEvents'
 function Content () {
   const router = useRouter()
   const { category } = router.query
+  const cleanedCategory = category && category.toLowerCase() === 'selfimprovement'
+    ? 'Self Improvement'
+    : category === 'total'
+      ? 'All'
+      : category || ''
   return (
     <GetAllEvents
-      header={`${category || ''} things to watch!`}
+      header={`${cleanedCategory || ''} things to watch!`}
       source="watch"
       category={category}
       back={router.back}
@@ -22,7 +27,7 @@ function Content () {
 }
 
 Content.propTypes = {
-  activities: PropTypes.object
+  activities: PropTypes.object,
 }
 
 export default connect((state) => state)(Content)

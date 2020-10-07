@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React from 'react'
 import PropTypes from 'prop-types'
 import Link from 'next/link'
 import { motion } from 'framer-motion'
@@ -6,7 +6,7 @@ import { fadeInFromLeft } from '../../animations/default'
 import styles from './ContentCard.module.css'
 
 export default function ContentCard ({ activity, source }) {
-  const currentURL = process.env.NODE_ENV === 'development' ? 'http://localhost:3000' : 'https://what-should-i-do-tonight-git-siteredesign11.squillen.vercel.app'
+  const currentURL = process.env.NODE_ENV === 'development' ? 'http://localhost:3000' : process.env.SITE_URI
   const getBackground = el => `url(${el.image}) center no-repeat`
   const getContentURL = el => el.pagePath ? new URL(el.pagePath, currentURL) : `/${source}/activity?id=${el._id}`
   return (

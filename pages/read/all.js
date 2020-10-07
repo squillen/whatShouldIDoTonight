@@ -10,7 +10,7 @@ import GetAllEvents from '../../components/GetAllEvents/GetAllEvents'
 
 function Content () {
   const router = useRouter()
-  const { category } = router.query
+  const { category = '' } = router.query
   const cleanedCategory = category && category.toLowerCase() === 'selfimprovement'
     ? 'Self Improvement'
     : category === 'total'

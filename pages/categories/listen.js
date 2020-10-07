@@ -20,8 +20,8 @@ import { getActivitiesFromDB } from '../../lib/helpers/db/requests'
 
 export const getStaticProps = wrapper.getStaticProps(({ store }) => {
   const state = store.getState()
-  const all = state.category.listenActivities.all || {}
-  const spotlight = state.category.listenActivities.spotlight || []
+  const all = state.categories.listenActivities.all || {}
+  const spotlight = state.categories.listenActivities.spotlight || []
   if (spotlight && !spotlight.length) return getActivitiesFromDB('listen')
   else {
     return {

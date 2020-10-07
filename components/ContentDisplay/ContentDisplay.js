@@ -85,7 +85,7 @@ export default function ContentDisplay ({ content, back }) {
                     frameBorder="0"
                     allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
                     allowFullScreen
-                    allowTransparency
+                    allowtransparency="true"
                   />
                 </div>
               )

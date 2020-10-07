@@ -6,9 +6,9 @@ export const sendContactMail = async (data) => {
       method: 'post',
       url: '/api/contact',
       headers: {
-        'Content-Type': 'application/json'
+        'Content-Type': 'application/json',
       },
-      data
+      data,
     })
     return res
   } catch (error) {

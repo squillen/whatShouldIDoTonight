@@ -85,7 +85,7 @@ function Post (props) {
   const pageURL = `${url}${router.pathname}`
 
   return (
-    <Layout>
+    <Layout home>
       <Head>
         <title>{pageTitle} - {siteTitle}</title>
       </Head>
@@ -113,6 +113,7 @@ function Post (props) {
         }}
       />
       <motion.div className={utilStyles.postContainer} exit={{ opacity: 0 }} variants={stagger}>
+        {/* <BackButton onClick={router.back} /> */}
         {/* <header> */}
         <motion.div variants={stagger} className={utilStyles.headerContainer}>
           <motion.div variants={fadeInFromLeft} className={utilStyles.headingXl}>{pageTitle}</motion.div>

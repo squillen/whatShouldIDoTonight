@@ -1,17 +1,20 @@
 .link, .link:hover, .link:visited {
+  font-family: 'Fredoka One', 'sans-serif';
 	text-decoration: none;
-	width: 60%;
+	height: 100%;
 	-webkit-backface-visibility: hidden;
-	color: #EDEDED;
+	color: white;
 }
 
 .headerContainer {
-	line-height: 3.5rem;
-	font-size: 4rem;
+	padding-left: 1rem;
+	display: flex;
+	justify-content: center;
+	height: 100%;
+	line-height: 3rem;
+	font-size: 3rem;
 	display: flex;
 	flex-direction: column;
-	padding-bottom: 3rem;
-	padding-top: 2rem;
 }
 
 .lineContainer,
@@ -21,7 +24,7 @@
 
 .flicker, .flickerFast, .flickerSlow {
 	color: #ffcc00;
-	animation: flicker 3s linear infinite;
+	animation: flicker 3s linear 2;
 }
 
 .flickerSlow {
@@ -50,7 +53,7 @@
 @media only screen and (max-width: 500px) {
 	.headerContainer {
 		margin: 0;
-		padding: 1.8rem 0;
+		padding: 1.8rem;
 		font-size: 3rem;
 	}
 

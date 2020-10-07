@@ -22,7 +22,7 @@ const getContent = () => (
         for more.
       </span>
     </p>
-    <p>Namaste, mother fucker.</p>
+    <p>Namaste, ya sexy, stretchy beast.</p>
   </div>
 )
 

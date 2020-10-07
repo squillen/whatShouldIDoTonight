@@ -14,7 +14,8 @@
   font-size: 1rem;
   border: 3px solid #262626;
   border-radius: 1rem;
-  background: #EDEDED;
+  /* background: #EDEDED; */
+  background: white;
   color: #262626;
   display: flex;
   justify-content: center;
@@ -29,7 +30,7 @@
 
 .large {
   font-size: 1.2rem;
-  border: 2px solid #3D50C1;
+  border: 2px solid rgba(25,110,171,0.9990371148459384);
   width: auto;
   border-radius: 20px;
   height: 3.3rem;
@@ -37,13 +38,13 @@
 
 .button:hover,
 .large:hover {
-  background: #3D50C1;
-  color: #EDEDED;
+  background: rgba(25,110,171,0.9990371148459384);
+  color: white;
 }
 
 .resetButton:hover {
   background: red;
-  color: #EDEDED;
+  color: white;
 }
 
 .admonishOKButton {

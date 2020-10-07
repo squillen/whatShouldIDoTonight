@@ -17,7 +17,7 @@ const getContent = () => (
         die <span className={styles.italicAndBold}>provolone</span>.
       </span>
     </p>
-    <p>Yea, that&apos;s right, fuck you, I changed my mind and doubled down.</p>
+    <p>Yea, that&apos;s right, I changed my mind and doubled down!</p>
     <div className={styles.iframeContainer}>
       <iframe title="How to make mozzarella cheese at home" className={styles.iframe} src="https://www.youtube-nocookie.com/embed/j1dWN5wlYuU" frameBorder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowFullScreen></iframe>
     </div>

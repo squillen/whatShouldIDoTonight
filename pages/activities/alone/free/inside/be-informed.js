@@ -70,7 +70,7 @@ const getContent = () => (
         label="The New York Times"
       />
       {' '}
-      where you get professional, unbiased facts on the important stuff. (Sorry, Uncle Don, you and your crazy facebook articles just don&apos;t know shit.)
+      where you get professional, unbiased facts on the important stuff. (Sorry, Uncle Don, but you and your crazy facebook articles just don&apos;t know shit.)
     </p>
     <p>Yea, it might seem like it&apos;s a little on the pricier side in the age of &quot;free&quot; news, but you definitely get what you pay for.</p>
   </div>

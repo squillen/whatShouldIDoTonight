@@ -1,8 +1,10 @@
 import React, { useState } from 'react'
 import { motion } from 'framer-motion'
 import PropTypes from 'prop-types'
+
+// COMPONENTS
 import DefaultHead from '../defaultHead'
-import Logo from '../logo/logo'
+import NavBar from '../NavBar/NavBar'
 import Modal from '../modal/modal'
 import Footer from '../footer/footer'
 import EmailSignup from '../emailSignup/emailSignup'
@@ -34,9 +36,7 @@ export default function Layout ({ children, home }) {
       animate="animate"
     >
       <DefaultHead />
-      <div className={styles.logoContainer}>
-        <Logo home={home} />
-      </div>
+      <NavBar home={home} />
       <div className={styles.childrenContainer}>
         <main>{children}</main>
       </div>
@@ -52,6 +52,6 @@ export default function Layout ({ children, home }) {
 }
 
 Layout.propTypes = {
-  children: PropTypes.array,
+  children: PropTypes.any,
   home: PropTypes.bool
 }

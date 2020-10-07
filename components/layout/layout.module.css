@@ -1,20 +1,23 @@
 .container {
-  max-width: 44rem;
   height: 100%;
+  width: 100vw;
+  /* overflow-x: hidden; */
   min-height: 100vh;
-  padding: 0 1rem;
   margin: 0 auto;
+  background: rgba(0,0,0,0.05);
 }
 
-.logoContainer {
-  min-height: 30vh;
+.headerContainer {
 }
 
 .childrenContainer {
-  min-height: 70vh;
+  width: 100vw;
+  min-height: 75vh;
 } 
 
 .footerContainer {
+  /* background: rgba(0,0,0,0.05); */
+
   /* height: 15%;
   min-height: 15%; */
 }

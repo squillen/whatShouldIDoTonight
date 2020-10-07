@@ -8,8 +8,11 @@ const getContent = () => (
   <div className={styles.activityContainer}>
     <p>Being an adult comes with a lot of headaches. Taxes. Kids. Ailments. Deadlines. Kids.</p>
     <p>What, then, could possibly make life worth living??</p>
-    <p>The answer, my bored and curious friends, is the ability to have mother fucking breakfast for mother fucking dinner whenever you mother fucking want.</p>
-    <p>And tonight is that mother fucking night.</p>
+    <p>
+      The answer, my bored and curious friends, is the ability to have
+      got-dang breakfast for got-dang dinner whenever you got-dang want.
+    </p>
+    <p>And tonight is that got-dang night.</p>
     <Photo
       src="https://media.giphy.com/media/l4hLA63B2qCQmMMmc/giphy.gif"
       alt="cartoon eggs and bacon raising their hands in excitement"

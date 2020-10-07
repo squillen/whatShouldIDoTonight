@@ -36,7 +36,7 @@ const getContent = () => (
     </p>
     <p>
       <span>
-      Or, if you&apos;re bored as all fuckshit right now, check out
+      Or, if you&apos;re bored as all fish sticks right now, check out
         {' '}
         <LinkTo
           href="https://store.steampowered.com/"

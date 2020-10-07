@@ -30,8 +30,8 @@ const getContent = () => (
         />
       </li>
     </ul>
-    <p>And remember: practice, practicr, [ractice. Shit.</p>
-    <p>Practice, prcatice, practcie. Shit.</p>
+    <p>And remember: practice, practicr, [ractice. Dammit.</p>
+    <p>Practice, prcatice, practcie. Dammit.</p>
     <p>Practice, practice, practice. Aha!</p>
   </div>
 )

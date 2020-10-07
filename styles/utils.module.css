@@ -1,4 +1,89 @@
 @import url('https://fonts.googleapis.com/css2?family=Fjalla+One&family=Yanone+Kaffeesatz&display=swap');
+
+
+.watchContentSection {
+  display: flex;
+  flex-direction: column;
+}
+
+.seasonsToWatch {
+
+}
+
+.iframeContainer {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+}
+
+.iframe {
+  width: 560px;
+  height: 315px;
+  border-radius: 1rem;
+}
+
+.pageActivityTitle {
+  min-height: 30vh;
+  position: relative;
+  text-align: center;
+  font-size: 4rem;
+  width: 80%;
+  margin: 0 auto;
+}
+
+.titleBlob {
+  position: absolute;
+  width: 21rem;
+  left: 5%;
+  top: -30%;
+  z-index: -1;
+}
+
+.sectionContainer {
+  margin: 5rem 0;
+
+}
+
+.dividerContainer {
+  height: 3vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.divider {
+  border-bottom: 1px solid black;
+  padding: 1rem 0;
+  width: 20%;
+}
+
+.sectionHeader {
+  width: 80%;
+  margin: 0 auto;
+  position: relative;
+  font-size: 3rem;
+}
+
+.firstLetter {
+  color: white;
+  font-size: 4.3rem
+}
+
+.blob {
+  position: absolute;
+  width: 10rem;
+  /* opacity: 0.65; */
+  top: -2rem;
+  left: -5rem;
+  z-index: -1;
+}
+
+.bodyContents {
+  width: 70%;
+  margin: 0 auto;
+}
+
 .heading2Xl {
   font-size: 2.5rem;
   line-height: 1.2;
@@ -21,9 +106,19 @@
   margin: 1rem 0;
 }
 
+.sponsorTitle {
+  font-size: 2.2rem;
+  margin-bottom: 1rem;
+}
+
 .headingMd {
+  min-height: 80vh;
+  background: #0d2035;
+  overflow-x: hidden;
   font-size: 1.2rem;
   line-height: 1.5;
+  display: flex;
+  color: white;
 }
 
 .headingSm {
@@ -31,8 +126,41 @@
   line-height: 1.5;
 }
 
+.indexHeaderSectionContainer {
+  width: 50%;
+  height: 100%;
+  min-height: 60vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.headerSectionBackground {
+  /* font-family: 'Fredoka One', 'sans-serif'; */
+  width: 26rem;
+  height: 25rem;
+  margin: 0 auto;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 2.6rem;
+  margin-top: 2rem;
+  text-align: center;
+  color: white;
+  border-radius: 69% 31% 70% 30% / 30% 30% 70% 70%;
+  background: rgb(176,40,100);
+  background: radial-gradient(circle, rgba(176,40,100,1) 36%, rgba(72,122,182) 97%);
+  /* background: rgb(13,32,53);
+background: radial-gradient(circle, rgba(13,32,53,1) 36%, rgba(25,110,171,0.9990371148459384) 97%); */
+}
+
+.headerSectionText {
+  width: 50%;
+}
+
 .headerContainer {
-  background: #EDEDED;
+  background: white;
+  position: -webkit-sticky;
   position: sticky;
   top: 0;
   color: #262626;
@@ -103,6 +231,9 @@
 }
 
 .postContainer {
+  width: 44rem;
+  margin: 0 auto;
+  padding-top: 3rem;
   padding-bottom: 2rem;
 }
 
@@ -139,7 +270,7 @@
 .articleContainer {
   margin-top: 2rem;
   margin-bottom: 4rem;
-  background: #EDEDED;
+  background: white;
   padding: 1.5rem;
   border-radius: 0.4rem;
   color: #262626;
@@ -153,7 +284,8 @@
 }
 
 .content {
-  font-family: 'Fjalla One', sans-serif;
+  /* font-family: 'Fjalla One', sans-serif; */
+  font-family: 'Oswald', sans-serif;
   font-size: 1.3rem;
   padding-bottom: 2rem;
   /* text-transform: lowercase; */
@@ -199,11 +331,11 @@
 .questions {
   min-height: 400px;
   height: 100%;
-  width: 100%;
+  width: 50%;
   display: flex;
   flex-direction: column;
   justify-content: space-evenly;
-  margin-bottom: 2rem;
+  margin: 2rem 0 2rem 3rem;
 }
 
 .question {
@@ -249,10 +381,12 @@
 
 .selectedOption,
 .selectedOfThree {
-  background: #EDEDED;
+  background: rgba(176,40,100,1);
+  background: rgba(72,122,182);
+  background: white;;
+  color: black;
   border: 1px solid #262626;
   border-radius: 1rem;
-  color: #262626;
 }
 
 .tellMeButton {
@@ -260,10 +394,12 @@
   padding: 0.25em;
   cursor: pointer;
   font-size: 1rem;
-  border: 3px solid #EDEDED;
+  border: 3px solid white;
   border-radius: 1rem;
-  color: #EDEDED;
-  background: #3A4DBA;
+  color: white;
+  background:rgba(72,122,182);
+  background: rgba(176,40,100,1);
+
   display: flex;
   justify-content: center;
   align-items: center;
@@ -284,9 +420,345 @@
 .contactContainer {
 }
 
+.breakoutSection {
+  width: 100%;
+  min-height: 50vh;
+  padding: 0 2rem;
+  margin-bottom: 3rem;
+}
+
+.displayContentHeaderContainer {
+  display: flex;
+  align-items: flex-end;
+}
+
+.displayContentHeaderContainer > a {
+  font-size: 4rem;
+  text-decoration: none;
+}
+
+.seeAll {
+  font-size: 0.8rem;
+  margin-left: 1.5rem;
+}
+
+.displayContentHeaderContainer:hover .displayContentHeader {
+  text-decoration: underline;
+}
+
+/* SHARED PAGE STYLE */
+
+.TLDR {
+  width: 60%;
+  /* margin: 0 auto; */
+  background: rgba(0,0,0,0.1);
+  padding: 1rem;
+  border-radius: 1rem;
+}
+
+.pageActivityName {
+  color: white;
+  text-align: center;
+  font-size: 8rem;
+  z-index: 2;
+}
+
+.categories {
+  color:white;
+  z-index: 2;
+}
+
+.pageContainer {
+  /* width: 100vw; */
+  height: 100%;
+  min-height: 100vh;
+}
+
+.infoContainer {
+  margin: 0 auto;
+  margin-top: 2rem;
+  padding: 2rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  width: 60%;
+  min-height: 5rem;
+  border-radius: 14% 86% 17% 93% / 58% 51% 69% 48%;
+  /* border-radius: 2rem; */
+  /* border-radius: 69% 31% 70% 30% / 30% 30% 70% 70% ; */
+  /* background: rgb(176,40,100);
+  background: rgb(13,32,53);*/
+  background: radial-gradient(circle at 10%, rgba(13,32,53,1) 16%, rgba(25,110,171,0.9990371148459384) 87%);
+  /* background: radial-gradient(circle at 10%, rgba(13,32,53,1) 36%, rgba(176,40,100,.997) 97%); */
+  /* background: radial-gradient(circle at 10%, rgba(176,40,100,1) 26%, rgba(13,32,53,1) 17%); */
+  /* background: radial-gradient(ellipse at bottom,  rgba(13,32,53,1) 36%, rgba(176,40,100,1) 97%); */
+  
+}
+
+.infoHeader {
+  font-size: 1.8rem;
+  text-align: center;
+  width: 85%;
+  padding: 1rem;
+  color: white;
+  /* line-height: 3rem; */
+}
+
+.categoryOptions {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  width: 70%;
+  align-items: center;
+  padding: 2rem;
+  margin: 0 auto;
+}
+
+.categoryOption {
+  color: white;
+  font-size: 0.9rem;
+  text-decoration: none;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 0.5rem;
+  text-align: center;
+  width: 5rem;
+  height: 5rem;
+  border-radius: 69% 31% 70% 30% / 30% 30% 70% 70%;
+  border-radius: 50%;
+  box-shadow: 0 2px 20px 0 rgba(0, 0, 0, 0.5);
+  background: rgb(13,32,53);
+  /* background: radial-gradient(circle, rgba(13,32,53,1) 36%, rgba(25,110,171,0.9990371148459384) 97%); */
+}
+
+.categoryOption > a {
+  color: white;
+  font-size: 0.9rem;
+  text-decoration: none;
+}
+
+.categoryOption:hover > a {
+  font-size: 0.95rem
+}
+
+.infoBody {
+  font-size: 1.4rem;
+  text-align: center;
+  width: 80%;
+  color: white;
+}
+
+.pageHeaderContainer {
+
+}
+
+.imageBanner {
+  position: relative;
+  width: 100%;
+  min-height: 75vh;
+  background-size: cover;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.overlay {
+  position: absolute;
+  width: inherit;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.3);
+  z-index: 1;
+}
+
+.pageBodyContainer {
+  padding: 3rem;
+  width: 100%;
+  height: 100%;
+  min-height: 100vh;
+}
+
+.pageHeader {
+  font-size: 2rem;
+  margin-bottom: 2rem;
+}
+
+.pageBodyText {
+  width: 90%;
+  margin: 0 auto;
+  font-size: 1.5rem;
+}
+/* END SHARED PAGE STYLE */
+
+
+/* SHOW PAGE STYLE */
+.showInfoSectionContainer {
+  min-height: 30vh;
+  padding: 3rem;
+  width: 100%;
+  height: 100%;
+}
+
+.showInfoSectionHeader {
+  display: flex;
+  justify-content: center;
+  font-size: 2.2rem;
+  padding-bottom: 1rem;
+}
+
+.showInfoSectionBody {
+  min-height: 30vh;
+  display: flex;
+  justify-content: space-evenly;
+}
+
+.whereToWatch {
+  display: flex;
+  flex-direction: column;
+}
+
+.whereToWatch > a:visited,
+.whereToWatch > a {
+  font-size: 1.3rem;
+  color: purple;
+  text-decoration: none;
+}
+
+
+.seasonsTable {
+  display: flex;
+  flex-direction: column;
+}
+
+.tableHeader {
+  font-size: 1.8rem;
+}
+
+.keysTable {
+  margin-top: 4rem;
+  font-size: 0.7rem;
+}
+
+.keyContainer {
+  display: flex;
+}
+
+.seasonContainer {
+  display: flex;
+  font-size: 1.2rem;
+}
+
+.seasonNumber {
+  margin-right: 1rem;
+}
+
+.watchThis {
+  color: green;
+}
+
+.dontWatchThis {
+  color: red;
+}
+
+.mehWatchThis {
+  color: orange;
+}
+/* END SHOW PAGE STYLE */
+
+
+/* ACTIVITIES PAGE STYLE */
+.activitiesContainer {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+}
+
+.activities {
+  width: 50%;
+}
+
+.activityOptions {
+  width: 100%;
+  height: 5rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  top: 0;
+}
+
+.activityOption, .selectedActivityOption {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 5rem;
+  height: 2rem;
+  border-radius: 1rem;
+  background: gray;
+  color: white;
+  margin-right: 1rem;
+  cursor: pointer;
+}
+
+.selectedActivityOption {
+  justify-content: space-evenly;
+  align-items: center;
+  background: #00aeef;
+  border: 1px solid black;
+}
+
+/* END ACTIVITIES PAGE STYLE */
+@media only screen and (max-width: 1250px) {
+  .infoContainer {
+    width: 60%;
+  }
+
+}
+@media only screen and (max-width: 850px) {
+  .headingMd {
+    flex-direction: column;
+  }
+
+  .indexHeaderSectionContainer {
+    display: none;
+    order: -1;
+    width: 100%;
+    min-height: auto;
+  }
+
+  .headerSectionBackground {
+    width: 10rem;
+    height: 10rem;
+    font-size: 1rem;
+  }
+
+  .questions {
+    width: 100%;
+    margin: 0 0 2rem 3rem;
+  }
+
+  .infoContainer {
+    width: 80%;
+  }
+
+  .categoryOptions {
+    width: 90%;
+  }
+}
+
 @media only screen and (max-width: 600px) {
   .headerInfoSection {
-    flex-wrap: wrap;
+    flex-direction: column;
+    align-items: start;
+    justify-content: start;
+  }
+
+  .postContainer {
+    width: 100vw;
   }
 }
 

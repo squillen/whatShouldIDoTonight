@@ -6,18 +6,24 @@ import { composeWithDevTools } from 'redux-devtools-extension'
 
 // IMPORT REDUCERS
 import activity from './activities/reducer'
+import categories from './categories/reducer'
 
 const initialState = {
-  state: { }
+  state: { },
+  activity: 'init',
+  categories: 'init'
 }
 
 const combinedReducer = combineReducers({
-  activity
+  activity,
+  categories
 })
 
 const reducer = (state = initialState, action) => {
   const actionType = action.type
   if (actionType === HYDRATE) {
+    if (action.payload.activity === 'init') delete action.payload.activity
+    if (action.payload.categories === 'init') delete action.payload.categories
     return {
       ...state,
       server: {

@@ -11,7 +11,7 @@ const getContent = () => (
       alt="Clark Kent turning into Superman"
     />
     <p>
-      Clark Kent goes from a puny nobody to everyone&apos;s hero (without doing anything to his face, fucking stupid, but whatever).
+      Clark Kent goes from a puny nobody to everyone&apos;s hero (without doing anything to his face, uhhh, ok...).
       Why can&apos;t you do the same??
     </p>
     <p>
@@ -27,8 +27,10 @@ const getContent = () => (
       that developing an alter ego can be beneficial to your life. &quot;Your life&quot; as in non-alter ego you.
     </p>
     <p>
-      Whether you want to be more confident / determined / charismatic / etc. in the office / bedroom / gym / wherever, an alter ego could be a tool to help you achieve that.
-      Ask the person/people you&apos;re with what they think would be good in your alter ego (e.g. &quot;I could see yours being someone who doesn&apos;t take any shit from people&quot;).
+      Whether you want to be more confident / determined / charismatic / etc. in the office / bedroom / gym / wherever,
+      an alter ego could be a tool to help you achieve that.
+      Ask the person/people you&apos;re with what they think would be good in your alter ego
+      (e.g. &quot;I could see yours being someone who doesn&apos;t take any shit from people&quot;).
     </p>
     <p>Like, personally, my alter ego is Liam Hottshite. The L is silent 😉</p>
     <p>

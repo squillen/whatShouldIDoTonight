@@ -1,5 +1,4 @@
 import PropTypes from 'prop-types'
-import LinkTo from '../linkTo/linkTo'
 import styles from './loading.module.css'
 
 export default function Loading ({ loading, message = 'loading' }) {
@@ -17,5 +16,6 @@ export default function Loading ({ loading, message = 'loading' }) {
 }
 
 Loading.propTypes = {
-  loading: PropTypes.bool
+  loading: PropTypes.bool,
+  message: PropTypes.string
 }

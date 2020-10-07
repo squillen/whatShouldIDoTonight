@@ -4,15 +4,15 @@ export const activityActionTypes = {
   SET_USER_ACTIVITIES: 'SET_USER_ACTIVITIES',
   GET_NEW_USER_ACTIVITY: 'GET_NEW_USER_ACTIVITY',
   RESET_USER_ACTIVITIES: 'RESET_USER_ACTIVITIES',
-  RESTORE_USER_ACTIVITIES: 'RESTORE_USER_ACTIVITIES',
+  RESTORE_USER_ACTIVITIES: 'RESTORE_USER_ACTIVITIES'
 }
 
 export const resetAll = () => (dispatch) => {
   return dispatch({ type: activityActionTypes.RESET_ALL })
 }
 
-export const setAllActivities = (activities) => (dispatch) => {
-  return dispatch({ type: activityActionTypes.SET_ALL_ACTIVITIES, payload: activities })
+export const setAllActivities = (payload) => (dispatch) => {
+  return dispatch({ type: activityActionTypes.SET_ALL_ACTIVITIES, payload })
 }
 
 export const setUserActivities = (payload) => (dispatch) => {

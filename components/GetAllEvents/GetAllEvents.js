@@ -18,7 +18,6 @@ function GetAllEvents ({ header = 'Things To Do', source, category = '', back })
   const [calledAPI, setCalledAPI] = useState(false)
   const [filters, setFilters] = useState({})
   const [categories, setCategories] = useState([])
-  console.log('category in GETALLEVENTS :>> ', category);
   const destination = (category && category.toLowerCase() === 'total') ? '' : `category=${category}`
   const stub = `${source}?${destination}`
   if (category && !calledAPI && allActivities && !allActivities.length) getAllActivitiesOnLoad()

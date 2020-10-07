@@ -6,11 +6,14 @@ import Logo from '../logo/logo'
 
 const categories = [
   { title: 'Do', href: '/categories/do' },
-  { title: 'Learn', href: '/categories/learn' },
   { title: 'Listen', href: '/categories/listen' },
   { title: 'Watch', href: '/categories/watch' },
-  { title: 'Eat', href: '/categories/eat' },
-  { title: 'Read', href: '/categories/read' }
+  { title: 'Learn (soon)', href: '' },
+  { title: 'Eat (soon)', href: '' },
+  { title: 'Read (soon)', href: '' },
+  // { title: 'Learn', href: '/categories/learn' },
+  // { title: 'Eat', href: '/categories/eat' },
+  // { title: 'Read', href: '/categories/read' },
   // { title: 'Deals', href: '/categories/deals' },
   // { title: 'Sites', href: '/categories/sites' },
   // { title: 'Music', href: '/categories/music' },
@@ -18,7 +21,7 @@ const categories = [
 
 const activities = [
   { title: 'Alone', href: '/categories/activities?status=alone' },
-  { title: 'Not Alone', href: '/categories/activities?status=notAlone' }
+  { title: 'Not Alone', href: '/categories/activities?status=notAlone' },
 ]
 
 function createSubMenu (items) {
@@ -44,7 +47,7 @@ function CategorySubMenu () {
 function ActivitiesSubMenu () {
   const items = [
     { title: 'Alone', href: '/categories/activities?status=alone' },
-    { title: 'Not Alone', href: '/categories/activities?status=notAlone' }
+    { title: 'Not Alone', href: '/categories/activities?status=notAlone' },
   ]
   return createSubMenu(items)
 }

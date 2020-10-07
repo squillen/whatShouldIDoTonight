@@ -1,5 +1,6 @@
 import React, { useState } from 'react'
 import { useRouter } from 'next/router'
+import Link from 'next/link'
 import PropTypes from 'prop-types'
 
 // REDUX
@@ -31,15 +32,48 @@ function Content () {
     <Layout>
       {
         activity
-          ? <ContentDisplay content={activity} back={router.back} />
-          : <Loading />
+          ? (
+            <div className={utilStyles.watchContentSection}>
+              <ContentDisplay content={activity} back={router.back} />
+              <div className={utilStyles.showInfoSectionContainer}>
+                <div className={utilStyles.showInfoSectionHeader}>Show Info:</div>
+                <div className={utilStyles.showInfoSectionBody}>
+                  {
+                    activity && activity.notes.listenSpeed
+                      ? (
+                        <div className={utilStyles.recommendedSpeed}>
+                          <div className={utilStyles.tableHeader}>Listen at:</div>
+                          <div className={utilStyles.showSpeed}>{activity.notes.listenSpeed}x</div>
+                        </div>
+                      )
+                      : null
+                  }
+                  {
+                    activity && activity.notes.notableEpisodes && activity.notes.notableEpisodes.length
+                      ? (
+                        <div className={utilStyles.whereToWatch}>
+                          <div className={utilStyles.tableHeader}>Notable Episodes:</div>
+                          {activity.notes.notableEpisodes.map((obj) => (
+                            <Link key={`${activity.name}-${obj.name}`} href={obj.url}>
+                              <a target="_blank">{obj.name}</a>
+                            </Link>
+                          ))}
+                        </div>
+                      )
+                      : null
+                  }
+                </div>
+              </div>
+            </div>
+          )
+          : <Loading loading={true}/>
       }
     </Layout>
   )
 }
 
 Content.propTypes = {
-  activity: PropTypes.object
+  activity: PropTypes.object,
 }
 
 export default connect((state) => state)(Content)

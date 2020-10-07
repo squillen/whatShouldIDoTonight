@@ -79,8 +79,14 @@ export default function ContentDisplay ({ content, back }) {
             content.iframe
               ? (
                 <div className={utilStyles.iframeContainer}>
-                  <iframe className={utilStyles.iframe} src={content.iframe} frameBorder="0"></iframe>
-                  {/* <div dangerouslySetInnerHTML={{ __html: content.iframe }} /> */}
+                  <iframe
+                    className={utilStyles.iframe}
+                    src={content.iframe}
+                    frameBorder="0"
+                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                    allowFullScreen
+                    allowTransparency
+                  />
                 </div>
               )
               : null
@@ -108,5 +114,5 @@ export default function ContentDisplay ({ content, back }) {
 
 ContentDisplay.propTypes = {
   content: PropTypes.object,
-  back: PropTypes.string
+  back: PropTypes.string,
 }

@@ -15,7 +15,9 @@ function Content () {
     if (category) {
       return category === 'selfImprovement'
         ? 'Self Improvement'
-        : category[0].toUpperCase() + category.slice(1, category.length).toLowerCase()
+        : category === 'total'
+          ? 'All'
+          : category[0].toUpperCase() + category.slice(1, category.length).toLowerCase()
     } else return ''
   }
   return (
@@ -29,7 +31,7 @@ function Content () {
 }
 
 Content.propTypes = {
-  activities: PropTypes.object
+  activities: PropTypes.object,
 }
 
 export default connect((state) => state)(Content)

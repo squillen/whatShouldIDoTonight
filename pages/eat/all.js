@@ -10,8 +10,8 @@ import GetAllEvents from '../../components/GetAllEvents/GetAllEvents'
 
 function Content () {
   const router = useRouter()
-  const { category } = router.query
-  const cleanedCategory = category === 'total' ? 'All' : category[0].toUpperCase() + category.slice(1, category.length).toLowerCase()
+  const { category = '' } = router.query
+  const cleanedCategory = category === 'total' ? 'All' : (category && category[0].toUpperCase() + category.slice(1, category.length).toLowerCase()) || ''
   return (
     <GetAllEvents
       header={category ? `${cleanedCategory || ''} foods` : null}

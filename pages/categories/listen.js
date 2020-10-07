@@ -27,8 +27,8 @@ export const getStaticProps = wrapper.getStaticProps(({ store }) => {
     return {
       props: {
         spotlight,
-        all
-      }
+        all,
+      },
     }
   }
 })
@@ -44,12 +44,12 @@ function ListenSection ({ spotlight = [], all = {}, setInRedux, setListenActivit
   const quotes = [
     {
       header: '"You aren’t learning anything when you’re talking."',
-      contents: ['-Lyndon B. Johnson']
+      contents: ['-Lyndon B. Johnson'],
     },
     {
       header: '"The quieter you become, the more you can hear."',
-      contents: ['-Buddha']
-    }
+      contents: ['-Buddha'],
+    },
   ]
 
   const display = (
@@ -82,12 +82,12 @@ ListenSection.propTypes = {
   spotlight: PropTypes.array,
   all: PropTypes.object,
   setListenActivitiesFromProps: PropTypes.func,
-  setInRedux: PropTypes.string
+  setInRedux: PropTypes.string,
 }
 
 const mapDispatchToProps = (dispatch) => {
   return {
-    setListenActivitiesFromProps: bindActionCreators(setListenActivities, dispatch)
+    setListenActivitiesFromProps: bindActionCreators(setListenActivities, dispatch),
   }
 }
 

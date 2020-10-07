@@ -1,0 +1,53 @@
+.displayAllContainer {
+  width: 100%;
+}
+
+.headerContainer {
+  font-size: 4.4rem;
+  text-align: center;
+  padding: 1rem;
+}
+
+.count {
+  font-size: 0.9rem;
+}
+
+.contentContainer {
+  width: 100%;
+  display: flex;
+  min-height: 50vh;
+}
+
+.activitiesContainer {
+  display: flex;
+  margin: 0 auto;
+  /* justify-content: center; */
+  flex-wrap: wrap;
+  padding: 3rem;
+}
+
+.noActivities {
+  width: 100%;
+  min-height: 20vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.label {
+  font-size: 1.5rem;
+}
+
+.noActivitiesGif {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  max-width: 100%;
+}
+
+@media only screen and (max-width: 700px) {
+  .activitiesContainer {
+    justify-content: center;
+  }
+}

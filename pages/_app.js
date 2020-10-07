@@ -1,6 +1,7 @@
 
 import { useEffect } from 'react'
 import { DefaultSeo } from 'next-seo'
+import PropTypes from 'prop-types'
 import SEO from '../next-seo.config'
 import { AnimatePresence } from 'framer-motion'
 import * as gtag from '../lib/gtag'
@@ -20,9 +21,15 @@ const App = ({ Component, pageProps, router }) => {
   return (
     <AnimatePresence>
       <DefaultSeo {...SEO} />
-      <Component {...pageProps} key={router.route}/>
+      <Component {...pageProps} key={router.route} />
     </AnimatePresence>
   )
+}
+
+App.propTypes = {
+  Component: PropTypes.func,
+  router: PropTypes.object,
+  pageProps: PropTypes.object
 }
 
 export default wrapper.withRedux(App)

@@ -7,7 +7,7 @@ import styles from '../../../../../styles/activity.module.css'
 const getContent = () => (
   <div className={styles.activityContainer}>
     <p>Do you know how many raffles are going on right now? Not that many, actually.</p>
-    <p>No, I&apos;m kidding. They&apos;re fucking everywhere.</p>
+    <p>No, I&apos;m kidding. They&apos;re freaking everywhere.</p>
     <p>I mean, you&apos;re competing with tons of people, so don&apos;t bet your house on anything, but you can&apos;t win if you never play!</p>
     <Photo
       src="https://media.giphy.com/media/ToMjGpKniGqRNLGBrhu/giphy.gif"

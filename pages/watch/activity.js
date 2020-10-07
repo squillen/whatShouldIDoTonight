@@ -1,5 +1,6 @@
 import React, { useState } from 'react'
 import { useRouter } from 'next/router'
+import Link from 'next/link'
 import PropTypes from 'prop-types'
 
 // REDUX
@@ -13,6 +14,7 @@ import ContentDisplay from '../../components/ContentDisplay/ContentDisplay'
 // HELPERS
 import { getActivityFromDB } from '../../lib/helpers/db/requests'
 import handleSeasons from '../../lib/helpers/handleSeasons'
+import utilStyles from '../../styles/utils.module.css'
 
 function Content () {
   const [activity, setActivity] = useState(null)
@@ -31,7 +33,39 @@ function Content () {
     <Layout>
       {
         activity
-          ? <ContentDisplay content={activity} back={router.back} />
+          ? (
+            <div className={utilStyles.watchContentSection}>
+              <ContentDisplay content={activity} back={router.back} />
+              <div className={utilStyles.showInfoSectionContainer}>
+                <div className={utilStyles.showInfoSectionHeader}>Show Info:</div>
+                <div className={utilStyles.showInfoSectionBody}>
+                  {
+                    activity.seasonsToWatch
+                      ? (
+                        <div className={utilStyles.seasonsToWatch}>
+                          {handleSeasons(activity.seasonsToWatch)}
+                        </div>
+                      )
+                      : null
+                  }
+                  {
+                    activity.whereToWatch && activity.whereToWatch.length
+                      ? (
+                        <div className={utilStyles.whereToWatch}>
+                          <div className={utilStyles.tableHeader}>Where to watch:</div>
+                          {activity.whereToWatch.map((obj) => (
+                            <Link key={`${activity.name}-${obj.name}`} href={obj.url}>
+                              <a target="_blank">{obj.name}</a>
+                            </Link>
+                          ))}
+                        </div>
+                      )
+                      : null
+                  }
+                </div>
+              </div>
+            </div>
+          )
           : <Loading />
       }
     </Layout>

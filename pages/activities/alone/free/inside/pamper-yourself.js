@@ -23,7 +23,7 @@ const getContent = () => (
           label="this"
         />
         {' '}
-        shit out.
+        baby out.
       </span>
     </p>
     <p>

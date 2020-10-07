@@ -1,17 +1,14 @@
 @import url('https://fonts.googleapis.com/css2?family=Fredoka+One&family=Permanent+Marker&display=swap');
-
+@import url('https://fonts.googleapis.com/css2?family=Oswald&display=swap');
 html,
 body {
   padding: 0;
   margin: 0;
-  font-family: 'Fredoka One', 'sans-serif';
+  font-family: 'Oswald', sans-serif;
   line-height: 1.6;
   font-size: 18px;
-	color: #EDEDED;
-  background: #021F38;
-  background: -webkit-radial-gradient(top left, #3D50C1, #021F38);
-  background: -moz-radial-gradient(top left, #3D50C1, #021F38);
-  background: radial-gradient(farthest-corner, #3D50C1, #021F38);
+  color: #262626;
+  scroll-behavior: smooth;
 }
 
 * {
@@ -33,10 +30,16 @@ img {
   border-radius: 10px;
 }
 
-@media only screen and (max-width: 500px) {
+@media only screen and (max-width: 800px) {
   html,
   body {
     font-size: 14px;
   }
+}
 
+@media only screen and (max-width: 500px) {
+  html,
+  body {
+    font-size: 10px;
+  }
 }

@@ -6,7 +6,7 @@ import Photo from '../../../../../components/photo/photo'
 
 const getContent = () => (
   <div className={styles.activityContainer}>
-    <p>Have you ever had a popsicle? Stupid fucking question, right? Of course you have, they&apos;re great!</p>
+    <p>Have you ever had a popsicle? Stupid question, right? Of course you have, they&apos;re great!</p>
     <p>Do you know what makes them even better, though?</p>
     <Photo
       src="https://media.giphy.com/media/EjyhOb2HgtX5C/giphy.gif"

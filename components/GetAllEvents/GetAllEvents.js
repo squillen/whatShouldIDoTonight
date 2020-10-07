@@ -18,7 +18,8 @@ function GetAllEvents ({ header = 'Things To Do', source, category = '', back })
   const [calledAPI, setCalledAPI] = useState(false)
   const [filters, setFilters] = useState({})
   const [categories, setCategories] = useState([])
-  const destination = category.toLowerCase() === 'all' ? '' : `category=${category}`
+  console.log('category in GETALLEVENTS :>> ', category);
+  const destination = (category && category.toLowerCase() === 'total') ? '' : `category=${category}`
   const stub = `${source}?${destination}`
   if (category && !calledAPI && allActivities && !allActivities.length) getAllActivitiesOnLoad()
   if (!categories.length && allActivities && allActivities.length) getFiltersAndCategoriesOnLoad()
@@ -68,7 +69,6 @@ function GetAllEvents ({ header = 'Things To Do', source, category = '', back })
   }
 
   function getNewActivities (passedFilters = {}, stop = false) {
-    console.log('stop :>> ', stop)
     const filtersCopy = { ...passedFilters }
     const newActivities = {}
     const doNotWants = []

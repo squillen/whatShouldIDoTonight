@@ -30,8 +30,7 @@
     "remark": "^12.0.1",
     "remark-breaks": "^2.0.0",
     "remark-html": "^13.0.1",
-    "remark-preset-lint-markdown-style-guide": "^3.0.1",
-    "remark-react": "^7.0.1"
+    "remark-preset-lint-markdown-style-guide": "^3.0.1"
   },
   "devDependencies": {
     "eslint": "^7.8.1",

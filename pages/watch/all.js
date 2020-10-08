@@ -21,7 +21,6 @@ function Content () {
       header={`${cleanedCategory || ''} things to watch!`}
       source="watch"
       category={category}
-      back={router.back}
     />
   )
 }

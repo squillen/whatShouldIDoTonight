@@ -40,7 +40,7 @@ function Content () {
 }
 
 Content.propTypes = {
-  activity: PropTypes.object
+  activity: PropTypes.object,
 }
 
 export default connect((state) => state)(Content)

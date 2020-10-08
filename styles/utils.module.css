@@ -440,11 +440,22 @@ background: radial-gradient(circle, rgba(13,32,53,1) 36%, rgba(25,110,171,0.9990
 .displayContentHeaderContainer {
   display: flex;
   align-items: flex-end;
+  justify-content: space-between;
 }
 
-.displayContentHeaderContainer > a {
+.rightHeaderContainer {
+  cursor: pointer;
+}
+
+.rightHeaderContainer > a,
+.leftHeaderContainer > a {
   font-size: 4rem;
   text-decoration: none;
+}
+
+.homeIcon {
+  height: 4rem;
+  font-size: 2rem;
 }
 
 .seeAll {
@@ -452,7 +463,7 @@ background: radial-gradient(circle, rgba(13,32,53,1) 36%, rgba(25,110,171,0.9990
   margin-left: 1.5rem;
 }
 
-.displayContentHeaderContainer:hover .displayContentHeader {
+.leftHeaderContainer:hover .leftHeaderContainer > a {
   text-decoration: underline;
 }
 
@@ -807,4 +818,47 @@ background: radial-gradient(circle, rgba(13,32,53,1) 36%, rgba(25,110,171,0.9990
     width: 10rem;
     margin: 0;
   }
+}
+
+.fa {
+	width: 60px;
+	display: block;
+	text-align: center;
+	line-height:60px;
+	text-rendering: auto;
+	-webkit-font-smoothing: antialiased;
+}
+
+.bounce {
+  height: 4rem;
+  font-size: 2rem;
+  animation-name: bounce;
+  backface-visibility: hidden;
+  animation-duration: 10s;
+  animation-iteration-count: infinite;
+  animation-timing-function: linear;
+}
+ 
+@-webkit-keyframes bounce {
+	0%, 10%, 20%, 100% {-webkit-transform: translateY(0);}	
+	5% {-webkit-transform: translateY(-30);}
+	15% {-webkit-transform: translateY(-15px);}
+}
+ 
+@-moz-keyframes bounce {
+	0%, 10%, 20%, 100% {-moz-transform: translateY(0);}
+	5% {-moz-transform: translateY(-30px);}
+	15% {-moz-transform: translateY(-15px);}
+}
+ 
+@-o-keyframes bounce {
+	0%, 10%, 20%, 100% {-o-transform: translateY(0);}
+	5% {-o-transform: translateY(-30px);}
+	15% {-o-transform: translateY(-15px);}
+}
+
+@keyframes bounce {
+	0%, 10%, 20%, 100% {transform: translateY(0);}
+	5% {transform: translateY(-30px);}
+	15% {transform: translateY(-15px);}
 }

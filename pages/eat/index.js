@@ -72,7 +72,7 @@ function EatSection ({ spotlight = [], all = {}, setInRedux, setEatActivitiesFro
         <title>What Should I Eat Tonight - {siteTitle}</title>
         <meta name="description" content={pageDescription} />
       </Head>
-      {spotlight && Array.isArray(spotlight) && spotlight.length && <SplashContent content={spotlight} banner="Hand-picked dishes" source={source} />}
+      {spotlight && Array.isArray(spotlight) && spotlight.length && <SplashContent content={spotlight} banner="Dishes worth eating" source={source} />}
       <div className={utilStyles.infoContainer} ref={homeRef}>
         <div className={utilStyles.infoHeader}>We found the recipes worth cooking. The diabetes was totally worth it.</div>
       </div>

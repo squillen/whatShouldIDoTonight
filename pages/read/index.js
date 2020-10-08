@@ -77,7 +77,7 @@ function ReadSection ({ spotlight = [], all = {}, setInRedux, setReadActivitiesF
         <meta name="description" content={pageDescription} />
 
       </Head>
-      {spotlight && Array.isArray(spotlight) && spotlight.length && <SplashContent content={spotlight} banner="Read more better" source={source} />}
+      {spotlight && Array.isArray(spotlight) && spotlight.length && <SplashContent content={spotlight} banner="Things worth reading" source={source} />}
       <div className={utilStyles.infoContainer} ref={homeRef}>
         <div className={utilStyles.infoHeader}>We&apos;ve read tons of books for you.</div>
         <div className={utilStyles.infoBody}>

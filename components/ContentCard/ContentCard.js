@@ -17,7 +17,7 @@ export default function ContentCard ({ activity, source }) {
       whileTap={{ scale: 0.9 }}
       variants={fadeInFromLeft}
     >
-      <Link href={getContentURL(activity)}>
+      <Link href={getContentURL(activity)} as={getContentURL(activity)}>
         <a className={styles.cardLink}>
           <div className={styles.topHalf} style={{ background: getBackground(activity), backgroundSize: 'cover' }}>
             <div className={styles.ribbon}>

@@ -4,7 +4,7 @@ import Link from 'next/link'
 
 export default function Layout ({ href, label, target = '_blank' }) {
   return (
-    <Link href={href}>
+    <Link href={href} as={href}>
       {
         target
           ? <a target={target}>{label}</a>

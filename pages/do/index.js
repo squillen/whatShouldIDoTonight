@@ -18,6 +18,17 @@ import { siteTitle } from '../../components/defaultHead'
 import utilStyles from '../../styles/utils.module.css'
 import { getActivitiesFromDB } from '../../lib/helpers/db/requests'
 
+const quotes = [
+  {
+    header: '"Do the Dew"',
+    contents: ['-Mountain Dew', 'Straight wisdom.'],
+  },
+  {
+    header: '"Some people say nothing is impossible, but I do nothing everyday."',
+    contents: ['-A.A. Milne', 'Tonight, you do the possible: something'],
+  },
+]
+
 export const getStaticProps = wrapper.getStaticProps(({ store }) => {
   const state = store.getState()
   const all = state.categories.doActivities.all || {}
@@ -41,16 +52,7 @@ function DoSection ({ spotlight = [], all = {}, setInRedux, setDoActivitiesFromP
   }
   const source = 'do'
   const obj = all || {}
-  const quotes = [
-    {
-      header: '"Do the Dew"',
-      contents: ['-Mountain Dew', 'Straight wisdom.'],
-    },
-    {
-      header: '"Some people say nothing is impossible, but I do nothing everyday."',
-      contents: ['-A.A. Milne', 'Tonight, you do the possible: something'],
-    },
-  ]
+
   const homeRef = useRef('home')
   const display = (
     <HandleContent

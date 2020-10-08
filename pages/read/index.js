@@ -18,6 +18,27 @@ import { siteTitle } from '../../components/defaultHead'
 import utilStyles from '../../styles/utils.module.css'
 import { getActivitiesFromDB } from '../../lib/helpers/db/requests'
 
+const pageDescription = `
+Wondering what should I read tonight? We've read tons of books and articles and more to give you the best suggestions out there.
+Whether you want to read history, fantasy, romance, cookbooks, self help / improvement / betterment, mystery, business and investing, or more,
+we've got good (nay, amazing!) suggestions for you.
+`
+
+const quotes = [
+  {
+    header: '"The cure for boredom is curiosity. There is no cure for curiosity."',
+    contents: ['-Dorothy Parker'],
+  },
+  {
+    header: '"To steal ideas from one person is plagiarism; to steal from many is research."',
+    contents: ['-Steven Wright'],
+  },
+  {
+    header: '"Even the genius asks questions."',
+    contents: ['-Tupac Shakur'],
+  },
+]
+
 export const getStaticProps = wrapper.getStaticProps(({ store }) => {
   const state = store.getState()
   const all = state.categories.readActivities.all || {}
@@ -41,20 +62,6 @@ function ReadSection ({ spotlight = [], all = {}, setInRedux, setReadActivitiesF
   }
   const source = 'read'
   const obj = all || {}
-  const quotes = [
-    {
-      header: '"The cure for boredom is curiosity. There is no cure for curiosity."',
-      contents: ['-Dorothy Parker'],
-    },
-    {
-      header: '"To steal ideas from one person is plagiarism; to steal from many is research."',
-      contents: ['-Steven Wright'],
-    },
-    {
-      header: '"Even the genius asks questions."',
-      contents: ['-Tupac Shakur'],
-    },
-  ]
   const homeRef = useRef('home')
   const display = (
     <HandleContent
@@ -68,7 +75,9 @@ function ReadSection ({ spotlight = [], all = {}, setInRedux, setReadActivitiesF
   return (
     <Layout>
       <Head>
-        <title>What to Read - {siteTitle}</title>
+        <title>What Should I Read Tonight - {siteTitle}</title>
+        <meta name="description" content={pageDescription} />
+
       </Head>
       {spotlight && Array.isArray(spotlight) && spotlight.length && <SplashContent content={spotlight} banner="Read more better" source={source} />}
       <div className={utilStyles.infoContainer} ref={homeRef}>

@@ -18,6 +18,27 @@ import { siteTitle } from '../../components/defaultHead'
 import utilStyles from '../../styles/utils.module.css'
 import { getActivitiesFromDB } from '../../lib/helpers/db/requests'
 
+const pageDescription = `
+Wondering what should I learn tonight? We've taken tons of online courses on Skillshare, edX, Coursera, Udemy, Pluralsight, The Great Courses Plus, and more to give you the best suggestions out there.
+Whether you want to learn about how to code, cook, draw, design, market yourself / company, or about personal development, office productivity, or more,
+we've got good (nay, amazing!) suggestions for you.
+`
+
+const quotes = [
+  {
+    header: '"Never let formal education get in the way of your learning."',
+    contents: ['-Mark Twain'],
+  },
+  {
+    header: '"If you come to a fork in the road, take it."',
+    contents: ['-Yogi Berra'],
+  },
+  {
+    header: '"Any fool can know. The point is to understand."',
+    contents: ['-Albert Einstein', 'What a genius.'],
+  },
+]
+
 export const getStaticProps = wrapper.getStaticProps(({ store }) => {
   const state = store.getState()
   const all = state.categories.learnActivities.all || {}
@@ -41,20 +62,6 @@ function LearnSection ({ spotlight = [], all = {}, setInRedux, setLearnActivitie
   }
   const source = 'learn'
   const obj = all || {}
-  const quotes = [
-    {
-      header: '"Never let formal education get in the way of your learning."',
-      contents: ['-Mark Twain'],
-    },
-    {
-      header: '"If you come to a fork in the road, take it."',
-      contents: ['-Yogi Berra'],
-    },
-    {
-      header: '"Any fool can know. The point is to understand."',
-      contents: ['-Albert Einstein', 'What a genius.'],
-    },
-  ]
   const homeRef = useRef('home')
   const display = (
     <HandleContent
@@ -68,7 +75,8 @@ function LearnSection ({ spotlight = [], all = {}, setInRedux, setLearnActivitie
   return (
     <Layout>
       <Head>
-        <title>What to Learn - {siteTitle}</title>
+        <title>What Should I Learn Tonight - {siteTitle}</title>
+        <meta name="description" content={pageDescription} />
       </Head>
 
       {spotlight && Array.isArray(spotlight) && spotlight.length && <SplashContent content={spotlight} banner="Be better than yesterday" source={source} />}

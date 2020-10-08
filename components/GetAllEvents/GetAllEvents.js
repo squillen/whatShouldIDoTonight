@@ -25,7 +25,7 @@ function GetAllEvents ({ header = 'Things To Do', source, category = '', back })
   }, [category])
   useEffect(() => {
     if (!categories.length && allActivities && allActivities.length) getFiltersAndCategoriesOnLoad()
-  }, [categories])
+  }, [categories, allActivities])
 
   async function getAllActivitiesOnLoad () {
     try {

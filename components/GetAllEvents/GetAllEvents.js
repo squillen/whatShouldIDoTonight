@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React, { useState, useEffect } from 'react'
 import PropTypes from 'prop-types'
 
 // REDUX
@@ -20,8 +20,13 @@ function GetAllEvents ({ header = 'Things To Do', source, category = '', back })
   const [categories, setCategories] = useState([])
   const destination = (category && category.toLowerCase() === 'total') ? '' : `category=${category}`
   const stub = `${source}?${destination}`
-  if (category && !calledAPI && allActivities && !allActivities.length) getAllActivitiesOnLoad()
-  if (!categories.length && allActivities && allActivities.length) getFiltersAndCategoriesOnLoad()
+  useEffect(() => {
+    if (category && !calledAPI && allActivities && !allActivities.length) getAllActivitiesOnLoad()
+  }, [category])
+  useEffect(() => {
+    if (!categories.length && allActivities && allActivities.length) getFiltersAndCategoriesOnLoad()
+  }, [categories])
+
   async function getAllActivitiesOnLoad () {
     try {
       const allActivities = await callAPI(stub)
@@ -164,7 +169,7 @@ GetAllEvents.propTypes = {
   back: PropTypes.func,
   category: PropTypes.string,
   header: PropTypes.string,
-  source: PropTypes.string
+  source: PropTypes.string,
 }
 
 export default connect((state) => state)(GetAllEvents)

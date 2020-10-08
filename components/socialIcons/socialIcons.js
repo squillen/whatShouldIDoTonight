@@ -15,7 +15,7 @@ import {
   TwitterShareButton,
   TwitterIcon,
   WhatsappShareButton,
-  WhatsappIcon
+  WhatsappIcon,
 } from 'react-share'
 import * as gtag from '../../lib/gtag'
 import utilStyles from '../../styles/utils.module.css'
@@ -25,7 +25,7 @@ export default function SocialIcons ({ pageTitle, pageURL, size = 30 }) {
     gtag.event({
       action,
       label: pageTitle,
-      category: 'Social Share'
+      category: 'Social Share',
     })
   }
   return (
@@ -102,5 +102,5 @@ export default function SocialIcons ({ pageTitle, pageURL, size = 30 }) {
 SocialIcons.propTypes = {
   pageURL: PropTypes.string,
   pageTitle: PropTypes.string,
-  size: PropTypes.number
+  size: PropTypes.number,
 }

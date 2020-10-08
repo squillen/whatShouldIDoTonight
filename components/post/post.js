@@ -26,7 +26,7 @@ function Post (props) {
     content,
     timeToComplete,
     noOfPeople = '1+',
-    pageInfo = {}
+    pageInfo = {},
   } = props
   const { tags = '', pageDescription = pageTitle, publishedTime = new Date() } = pageInfo
   const pageTags = [...tags.split('/'), 'what', 'should', 'i', 'do', 'tonight', 'fun', 'activities', 'to']
@@ -81,7 +81,7 @@ function Post (props) {
     </div>
   )
 
-  const url = 'https://www.whatshouldidotonight.com/'
+  const url = 'https://whatshouldidotonight.com'
   const pageURL = `${url}${router.pathname}`
 
   return (
@@ -100,16 +100,16 @@ function Post (props) {
           type: 'article',
           article: {
             publishedTime,
-            tags: [...pageTags]
+            tags: [...pageTags],
           },
           images: [
             {
               url: `${url}/images/seo/logo`,
               width: 850,
               height: 650,
-              alt: 'Photo of text'
-            }
-          ]
+              alt: 'What Should I Do Tonight Logo',
+            },
+          ],
         }}
       />
       <motion.div className={utilStyles.postContainer} exit={{ opacity: 0 }} variants={stagger}>
@@ -140,9 +140,7 @@ function Post (props) {
               {tellMeAnotherButton}
             </motion.div>
           </motion.div>
-          {/* <div className={utilStyles.underline} /> */}
         </motion.div>
-        {/* </header> */}
         <div className={utilStyles.articleContainer}>
           <article>
             <motion.div variants={fadeInUp} className={utilStyles.content}>
@@ -164,7 +162,7 @@ const mapDispatchToProps = (dispatch) => {
   return {
     getNewUserActivity: bindActionCreators(getNewUserActivity, dispatch),
     restoreUserActivities: bindActionCreators(restoreUserActivities, dispatch),
-    resetAll: bindActionCreators(resetAll, dispatch)
+    resetAll: bindActionCreators(resetAll, dispatch),
   }
 }
 
@@ -180,7 +178,7 @@ Post.propTypes = {
   content: PropTypes.object,
   noOfPeople: PropTypes.string,
   timeToComplete: PropTypes.string.isRequired,
-  currentID: PropTypes.string
+  currentID: PropTypes.string,
 }
 
 export default connect((state) => state, mapDispatchToProps)(Post)

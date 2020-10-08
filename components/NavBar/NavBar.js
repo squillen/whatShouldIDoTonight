@@ -5,24 +5,24 @@ import styles from './Navbar.module.css'
 import Logo from '../logo/logo'
 
 const categories = [
-  { title: 'Do', href: '/categories/do' },
-  { title: 'Listen', href: '/categories/listen' },
-  { title: 'Watch', href: '/categories/watch' },
+  { title: 'Do', href: '/do' },
+  { title: 'Watch', href: '/watch' },
+  { title: 'Listen', href: '/listen' },
   { title: 'Learn (soon)', href: '' },
   { title: 'Eat (soon)', href: '' },
   { title: 'Read (soon)', href: '' },
-  // { title: 'Learn', href: '/categories/learn' },
-  // { title: 'Eat', href: '/categories/eat' },
-  // { title: 'Read', href: '/categories/read' },
-  // { title: 'Deals', href: '/categories/deals' },
-  // { title: 'Sites', href: '/categories/sites' },
-  // { title: 'Music', href: '/categories/music' },
+  // { title: 'Learn', href: '/learn' },
+  // { title: 'Eat', href: '/eat' },
+  // { title: 'Read', href: '/read' },
+  // { title: 'Deals', href: '/deals' },
+  // { title: 'Sites', href: '/sites' },
+  // { title: 'Music', href: '/music' },
 ]
 
-const activities = [
-  { title: 'Alone', href: '/categories/activities?status=alone' },
-  { title: 'Not Alone', href: '/categories/activities?status=notAlone' },
-]
+// const activities = [
+//   { title: 'Alone', href: '/activities?status=alone' },
+//   { title: 'Not Alone', href: '/activities?status=notAlone' },
+// ]
 
 function createSubMenu (items) {
   return (
@@ -44,38 +44,38 @@ function CategorySubMenu () {
   return createSubMenu(categories)
 }
 
-function ActivitiesSubMenu () {
-  const items = [
-    { title: 'Alone', href: '/categories/activities?status=alone' },
-    { title: 'Not Alone', href: '/categories/activities?status=notAlone' },
-  ]
-  return createSubMenu(items)
-}
+// function ActivitiesSubMenu () {
+//   const items = [
+//     { title: 'Alone', href: '/categories/activities?status=alone' },
+//     { title: 'Not Alone', href: '/categories/activities?status=notAlone' },
+//   ]
+//   return createSubMenu(items)
+// }
 
 export default function NavBar ({ home }) {
   const [showCategoryMenu, setShowCategoryMenu] = useState(false)
-  const [showActivitiesMenu, setShowActivitiesMenu] = useState(false)
+  // const [showActivitiesMenu, setShowActivitiesMenu] = useState(false)
   const [openMenu, setOpenMenu] = useState(false)
 
-  function ByActivity () {
-    return (
-      <li className={styles['nav__menu-item']} onMouseLeave={() => setShowActivitiesMenu(false)}>
-        <a onMouseEnter={() => setShowActivitiesMenu(true)}>
-          by activity
-        </a>
-        <div className={styles['submenu-container']}>
-          <CSSTransition
-            timeout={500}
-            classNames="menu-primary"
-          >
-            <div className={styles.menu}>
-              { showActivitiesMenu && <ActivitiesSubMenu /> }
-            </div>
-          </CSSTransition>
-        </div>
-      </li>
-    )
-  }
+  // function ByActivity () {
+  //   return (
+  //     <li className={styles['nav__menu-item']} onMouseLeave={() => setShowActivitiesMenu(false)}>
+  //       <a onMouseEnter={() => setShowActivitiesMenu(true)}>
+  //         by activity
+  //       </a>
+  //       <div className={styles['submenu-container']}>
+  //         <CSSTransition
+  //           timeout={500}
+  //           classNames="menu-primary"
+  //         >
+  //           <div className={styles.menu}>
+  //             { showActivitiesMenu && <ActivitiesSubMenu /> }
+  //           </div>
+  //         </CSSTransition>
+  //       </div>
+  //     </li>
+  //   )
+  // }
 
   function ByCategory () {
     return (

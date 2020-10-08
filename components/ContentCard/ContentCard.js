@@ -6,7 +6,7 @@ import { fadeInFromLeft } from '../../animations/default'
 import styles from './ContentCard.module.css'
 
 export default function ContentCard ({ activity, source }) {
-  const currentURL = process.env.NODE_ENV === 'development' ? 'http://localhost:3000' : process.env.SITE_URI
+  const currentURL = process.env.NODE_ENV === 'development' ? 'http://localhost:3000' : process.env.SITE_URI || 'https://whatshouldidotonight.com'
   const getBackground = el => `url(${el.image}) center no-repeat`
   const getContentURL = el => el.pagePath ? `${currentURL}${el.pagePath}` : `/${source}/activity?id=${el._id}`
   return (

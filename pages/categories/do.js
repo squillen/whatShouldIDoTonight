@@ -27,8 +27,8 @@ export const getStaticProps = wrapper.getStaticProps(({ store }) => {
     return {
       props: {
         spotlight,
-        all
-      }
+        all,
+      },
     }
   }
 })
@@ -44,12 +44,12 @@ function DoSection ({ spotlight = [], all = {}, setInRedux, setDoActivitiesFromP
   const quotes = [
     {
       header: '"Do the Dew"',
-      contents: ['-Mountain Dew', 'Straight wisdom.']
+      contents: ['-Mountain Dew', 'Straight wisdom.'],
     },
     {
       header: '"Some people say nothing is impossible, but I do nothing everyday."',
-      contents: ['-A.A. Milne', 'Tonight, you do the possible: something']
-    }
+      contents: ['-A.A. Milne', 'Tonight, you do the possible: something'],
+    },
   ]
 
   const display = (
@@ -78,12 +78,12 @@ DoSection.propTypes = {
   spotlight: PropTypes.array,
   all: PropTypes.object,
   setDoActivitiesFromProps: PropTypes.func,
-  setInRedux: PropTypes.string
+  setInRedux: PropTypes.string,
 }
 
 const mapDispatchToProps = (dispatch) => {
   return {
-    setDoActivitiesFromProps: bindActionCreators(setDoActivities, dispatch)
+    setDoActivitiesFromProps: bindActionCreators(setDoActivities, dispatch),
   }
 }
 

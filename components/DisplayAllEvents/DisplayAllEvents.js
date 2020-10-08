@@ -14,7 +14,7 @@ export default class DisplayAllEvents extends React.Component {
   constructor (props) {
     super(props)
     this.state = {
-      currentActivities: []
+      currentActivities: [],
     }
   }
 
@@ -78,5 +78,5 @@ DisplayAllEvents.propTypes = {
   activities: PropTypes.array,
   source: PropTypes.string,
   header: PropTypes.string,
-  back: PropTypes.func
+  back: PropTypes.func,
 }

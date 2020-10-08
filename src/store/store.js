@@ -11,12 +11,12 @@ import categories from './categories/reducer'
 const initialState = {
   state: { },
   activity: 'init',
-  categories: 'init'
+  categories: 'init',
 }
 
 const combinedReducer = combineReducers({
   activity,
-  categories
+  categories,
 })
 
 const reducer = (state = initialState, action) => {
@@ -28,8 +28,8 @@ const reducer = (state = initialState, action) => {
       ...state,
       server: {
         ...state.server,
-        ...action.payload.server
-      }
+        ...action.payload.server,
+      },
     }
   } else {
     return combinedReducer(state, action)
@@ -40,7 +40,7 @@ const initStore = (preloadedState = initialState) => {
   return createStore(
     reducer,
     preloadedState,
-    composeWithDevTools(applyMiddleware(logger, thunk))
+    composeWithDevTools(applyMiddleware(thunk)),
   )
 }
 const wrapper = createWrapper(initStore, { debug: true })

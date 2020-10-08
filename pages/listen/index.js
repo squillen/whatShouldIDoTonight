@@ -18,11 +18,9 @@ import { siteTitle } from '../../components/defaultHead'
 import utilStyles from '../../styles/utils.module.css'
 import { getActivitiesFromDB } from '../../lib/helpers/db/requests'
 
-const pageDescription = `
-Wondering what should I listen to tonight? We've listened to tons of less-known podcasts on Apple, Spotify, Stitcher, and more to give you the best suggestions out there.
-Whether you're in the mood for comedy, news, political, film / movies, educational, tech, self improvement, culture, food, or more,
-we've got good (nay, amazing!) suggestions for you.
-`
+const pageDescription =
+"We've listened to tons of less-known podcasts on Apple, Spotify, Stitcher, and more to give you suggestions about " +
+'the best comedy, news, political, film / movies, educational, tech, self improvement, cultural, and food podcasts to listen to.'
 
 const quotes = [
   {

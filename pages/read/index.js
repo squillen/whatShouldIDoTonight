@@ -18,11 +18,9 @@ import { siteTitle } from '../../components/defaultHead'
 import utilStyles from '../../styles/utils.module.css'
 import { getActivitiesFromDB } from '../../lib/helpers/db/requests'
 
-const pageDescription = `
-Wondering what should I read tonight? We've read tons of books and articles and more to give you the best suggestions out there.
-Whether you want to read history, fantasy, romance, cookbooks, self help / improvement / betterment, mystery, business and investing, or more,
-we've got good (nay, amazing!) suggestions for you.
-`
+const pageDescription =
+"We've read tons of books and articles to give you suggestions for the best history, fantasy, " +
+'romance, cookbooks, self help, mystery, and business and investing things to read tonight.'
 
 const quotes = [
   {

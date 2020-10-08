@@ -12,7 +12,7 @@ function SplashContent ({ content = [], banner, source }) {
   const getContentDiv = currContent => (
     <div className={styles.background} style={{ background: getBackground(currContent), backgroundSize: 'cover' }}>
       <div className={styles.overlay} />
-      <Link href={getContentURL(currContent)} passHref>
+      <Link href={getContentURL(currContent)} as={getContentURL(currContent)}>
         <a>
           <div className={styles.text}>{currContent.name || ''}</div>
         </a>

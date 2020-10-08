@@ -27,7 +27,7 @@ export default function Button (props) {
   return (
     href
       ? (
-        <Link href={href} as={as}>
+        <Link href={href} as={as || href}>
           <a onClick={onClick} className={styles.link}>
             {button}
           </a>

@@ -30,7 +30,7 @@ function createSubMenu (items) {
       {
         items.map(item => (
           <li className={styles['nav__submenu-item']} key={item.title}>
-            <Link href={item.href}>
+            <Link href={item.href} as={item.href}>
               <a>{item.title}</a>
             </Link>
           </li>
@@ -101,7 +101,7 @@ export default function NavBar ({ home }) {
 
   function getMobileCategories () {
     return categories.map(c => (
-      <Link href={c.href} key={c.title}>
+      <Link href={c.href} as ={c.href} key={c.title}>
         <a className={styles.menuLink}>
           {c.title}
         </a>

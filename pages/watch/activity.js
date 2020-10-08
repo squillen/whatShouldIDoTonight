@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React, { useState, useEffect } from 'react'
 import { useRouter } from 'next/router'
 import Link from 'next/link'
 import PropTypes from 'prop-types'
@@ -29,7 +29,9 @@ function Content () {
       console.error(e)
     }
   }
-  if (!activity && id) getActivity()
+  useEffect(() => {
+    if (!activity && id) getActivity()
+  }, [id])
 
   return (
     <Layout>

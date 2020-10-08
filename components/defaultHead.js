@@ -1,13 +1,12 @@
 import Head from 'next/head'
 export const siteTitle = 'What Should I Do Tonight?'
 export const description = `
-What should I do tonight should never be a question you ask yourself. And luckily you can now say bye to boredom because
-our site has over 200 actually good ideas. suggestions, and reviews of things you can do tonight!
-From shows, podcasts, courses, books, apps, sites, recipes, and many more, we've got tons of suggestions and reviews for you.
+Bored? Lonely? Don't know what to do tonight? What Should I Do Tonight can tell you lots of things to do, either near you or at your house.
+Find less known shows, movies, things to watch, podcasts, legit courses, books, apps, sites, recipes, and many more.
 Regardless of whether you're alone, with friends, your partner / boyfriend / girlfriend /
 husband / wife / whoever, What Should I Do Tonight has you covered with ideas you 
 can do right now that range from free or paid and at home or outside. So stop being bored
-and start doing actually fun stuff tonight!
+and start doing actually fun stuff right now!
 `
 
 const mailChimpScript = `

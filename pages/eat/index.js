@@ -18,6 +18,21 @@ import { siteTitle } from '../../components/defaultHead'
 import utilStyles from '../../styles/utils.module.css'
 import { getActivitiesFromDB } from '../../lib/helpers/db/requests'
 
+const pageDescription = `
+Wondering what should I eat tonight? We've got lots of tested and approved suggestions for authentic recipes and desserts you might not have seen before.
+Whether you want Indian, Mexican, American, Asian, Italian, Moroccan, Columbian, Peruvian, or other adventurous and less-known cuisines, we've got good (nay, amazing!) suggestions for you.
+`
+const quotes = [
+  {
+    header: '"Butter"',
+    contents: ['-How Paula Deen says "basil".'],
+  },
+  {
+    header: '"The more you weigh, the harder you are to kidnap. Stay safe. Eat cake."',
+    contents: ['-someone smart'],
+  },
+]
+
 export const getStaticProps = wrapper.getStaticProps(({ store }) => {
   const state = store.getState()
   const all = state.categories.eatActivities.all || {}
@@ -41,16 +56,6 @@ function EatSection ({ spotlight = [], all = {}, setInRedux, setEatActivitiesFro
   }
   const source = 'eat'
   const obj = all || {}
-  const quotes = [
-    {
-      header: '"Butter"',
-      contents: ['-How Paula Deen says "basil".'],
-    },
-    {
-      header: '"The more you weigh, the harder you are to kidnap. Stay safe. Eat cake."',
-      contents: ['-someone smart'],
-    },
-  ]
   const homeRef = useRef('home')
   const display = (
     <HandleContent
@@ -64,7 +69,8 @@ function EatSection ({ spotlight = [], all = {}, setInRedux, setEatActivitiesFro
   return (
     <Layout>
       <Head>
-        <title>What to Eat - {siteTitle}</title>
+        <title>What Should I Eat Tonight - {siteTitle}</title>
+        <meta name="description" content={pageDescription} />
       </Head>
       {spotlight && Array.isArray(spotlight) && spotlight.length && <SplashContent content={spotlight} banner="Hand-picked dishes" source={source} />}
       <div className={utilStyles.infoContainer} ref={homeRef}>

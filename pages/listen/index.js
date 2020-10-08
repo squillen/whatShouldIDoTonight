@@ -18,6 +18,23 @@ import { siteTitle } from '../../components/defaultHead'
 import utilStyles from '../../styles/utils.module.css'
 import { getActivitiesFromDB } from '../../lib/helpers/db/requests'
 
+const pageDescription = `
+Wondering what should I listen to tonight? We've listened to tons of less-known podcasts on Apple, Spotify, Stitcher, and more to give you the best suggestions out there.
+Whether you're in the mood for comedy, news, political, film / movies, educational, tech, self improvement, culture, food, or more,
+we've got good (nay, amazing!) suggestions for you.
+`
+
+const quotes = [
+  {
+    header: '"You aren’t learning anything when you’re talking."',
+    contents: ['-Lyndon B. Johnson'],
+  },
+  {
+    header: '"The quieter you become, the more you can hear."',
+    contents: ['-Buddha'],
+  },
+]
+
 export const getStaticProps = wrapper.getStaticProps(({ store }) => {
   const state = store.getState()
   const all = state.categories.listenActivities.all || {}
@@ -41,16 +58,6 @@ function ListenSection ({ spotlight = [], all = {}, setInRedux, setListenActivit
   }
   const source = 'listen'
   const obj = all || {}
-  const quotes = [
-    {
-      header: '"You aren’t learning anything when you’re talking."',
-      contents: ['-Lyndon B. Johnson'],
-    },
-    {
-      header: '"The quieter you become, the more you can hear."',
-      contents: ['-Buddha'],
-    },
-  ]
   const homeRef = useRef('home')
   const display = (
     <HandleContent
@@ -64,7 +71,9 @@ function ListenSection ({ spotlight = [], all = {}, setInRedux, setListenActivit
   return (
     <Layout>
       <Head>
-        <title>What to Listen - {siteTitle}</title>
+        <title>What Should I Listen To Tonight - {siteTitle}</title>
+        <meta name="description" content={pageDescription} />
+
       </Head>
       {spotlight && Array.isArray(spotlight) && spotlight.length && <SplashContent content={spotlight} banner="Listen to the less known" source={source} />}
       <div className={utilStyles.infoContainer} ref={homeRef}>

@@ -18,6 +18,27 @@ import { siteTitle } from '../../components/defaultHead'
 import utilStyles from '../../styles/utils.module.css'
 import { getActivitiesFromDB } from '../../lib/helpers/db/requests'
 
+const pageDescription = `
+Wondering what should I watch tonight? We've watched tons of less-known shows, movies, and binge-worthy series.
+Whether you're in the mood for comedy, thrillers, horror, drama, documentary, crime, history, food, action, adventure, romance, rom com, mystery, or more,
+we've got good (nay, amazing!) suggestions for you.
+`
+
+const quotes = [
+  {
+    header: '"Everyone has a purpose in life. Perhaps yours is watching television."',
+    contents: ['-David Letterman', 'Absolutely inspiring.'],
+  },
+  {
+    header: '"I really like watching TV at home."',
+    contents: ['-Fred Armisen'],
+  },
+  {
+    header: '"I live for watching TV and partying with my book club."',
+    contents: ['-Lauren Lapkus', 'Truth.'],
+  },
+]
+
 export const getStaticProps = wrapper.getStaticProps(({ store }) => {
   const state = store.getState()
   const all = state.categories.watchActivities.all || {}
@@ -41,20 +62,6 @@ function WatchSection ({ spotlight = [], all = {}, setInRedux, setWatchActivitie
   }
   const source = 'watch'
   const obj = all || {}
-  const quotes = [
-    {
-      header: '"Everyone has a purpose in life. Perhaps yours is watching television."',
-      contents: ['-David Letterman', 'Absolutely inspiring.'],
-    },
-    {
-      header: '"I really like watching TV at home."',
-      contents: ['-Fred Armisen'],
-    },
-    {
-      header: '"I live for watching TV and partying with my book club."',
-      contents: ['-Lauren Lapkus', 'Truth.'],
-    },
-  ]
 
   const homeRef = useRef('home')
   const display = (
@@ -69,7 +76,8 @@ function WatchSection ({ spotlight = [], all = {}, setInRedux, setWatchActivitie
   return (
     <Layout>
       <Head>
-        <title>What to Watch - {siteTitle}</title>
+        <title>What Should I Watch Tonight - {siteTitle}</title>
+        <meta name="description" content={pageDescription} />
       </Head>
       {spotlight && Array.isArray(spotlight) && spotlight.length && <SplashContent content={spotlight} banner="Watch the less known" source={source} />}
       <div className={utilStyles.infoContainer} ref={homeRef}>

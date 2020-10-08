@@ -28,6 +28,30 @@ const getContent = () => (
         and prepare to spend your night in awe of her beauty and talent.
       </span>
     </p>
+    <p>
+      <span>
+        We recommend starting with
+        {' '}
+        <LinkTo
+          href="https://amzn.to/3lkaHLY"
+          label="X-Men"
+        />
+        , then
+        {' '}
+        <LinkTo
+          href="https://amzn.to/34wJOgQ"
+          label="Monster's Ball"
+        />
+        {' '}
+        and then finally finishing the night off with, in our opinion, the best of the John Wicks,
+        {' '}
+        <LinkTo
+          href="https://amzn.to/2GwAvG5"
+          label="John Wick 3"
+        />
+        .
+      </span>
+    </p>
   </div>
 )
 

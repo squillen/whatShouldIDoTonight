@@ -27,6 +27,30 @@ const getContent = () => (
       </span>
     </p>
     <p><span>Three forced Jim Carrey references: <span className={styles.greenCheck}><i className="fas fa-check"></i></span></span></p>
+    <p>
+      <span>
+        We recommend starting with
+        {' '}
+        <LinkTo
+          href="https://amzn.to/2GLQeAP"
+          label="Dumb and Dumber"
+        />
+        , then moving onto something a little more serious with
+        {' '}
+        <LinkTo
+          href="https://amzn.to/36MBoEQ"
+          label="The Truman Show"
+        />
+        {' '}
+        and then finally finishing the night off with
+        {' '}
+        <LinkTo
+          href="https://amzn.to/36Le0Yt"
+          label="Eternal Sunshine of a Spotless Mind"
+        />
+        .
+      </span>
+    </p>
   </div>
 )
 
@@ -34,7 +58,7 @@ const Content = () => {
   const userContent = getContent()
   const pageInfo = {
     tags: 'jim carrey/cable guy/dumb and dumber/eternal sunshine of a spotless mind/truman show/movie night/movie marathon',
-    pageDescription: 'Figure out which Jim Carrey movies to watch tonight with these helpful hints'
+    pageDescription: 'Figure out which Jim Carrey movies to watch tonight with these helpful hints',
   }
   return (
     <Post

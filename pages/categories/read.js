@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React, { useState, useRef } from 'react'
 import Head from 'next/head'
 import PropTypes from 'prop-types'
 
@@ -27,8 +27,8 @@ export const getStaticProps = wrapper.getStaticProps(({ store }) => {
     return {
       props: {
         spotlight,
-        all
-      }
+        all,
+      },
     }
   }
 })
@@ -44,23 +44,24 @@ function ReadSection ({ spotlight = [], all = {}, setInRedux, setReadActivitiesF
   const quotes = [
     {
       header: '"The cure for boredom is curiosity. There is no cure for curiosity."',
-      contents: ['-Dorothy Parker']
+      contents: ['-Dorothy Parker'],
     },
     {
       header: '"To steal ideas from one person is plagiarism; to steal from many is research."',
-      contents: ['-Steven Wright']
+      contents: ['-Steven Wright'],
     },
     {
       header: '"Even the genius asks questions."',
-      contents: ['-Tupac Shakur']
-    }
+      contents: ['-Tupac Shakur'],
+    },
   ]
-
+  const homeRef = useRef('home')
   const display = (
     <HandleContent
       all={obj}
       source={source}
       quotes={quotes}
+      homeRef={homeRef}
     />
   )
 
@@ -70,7 +71,7 @@ function ReadSection ({ spotlight = [], all = {}, setInRedux, setReadActivitiesF
         <title>What to Read - {siteTitle}</title>
       </Head>
       {spotlight && Array.isArray(spotlight) && spotlight.length && <SplashContent content={spotlight} banner="Read more better" source={source} />}
-      <div className={utilStyles.infoContainer}>
+      <div className={utilStyles.infoContainer} ref={homeRef}>
         <div className={utilStyles.infoHeader}>We&apos;ve read tons of books for you.</div>
         <div className={utilStyles.infoBody}>
           <p>
@@ -87,12 +88,12 @@ ReadSection.propTypes = {
   spotlight: PropTypes.array,
   all: PropTypes.object,
   setReadActivitiesFromProps: PropTypes.func,
-  setInRedux: PropTypes.string
+  setInRedux: PropTypes.bool,
 }
 
 const mapDispatchToProps = (dispatch) => {
   return {
-    setReadActivitiesFromProps: bindActionCreators(setReadActivities, dispatch)
+    setReadActivitiesFromProps: bindActionCreators(setReadActivities, dispatch),
   }
 }
 

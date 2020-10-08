@@ -56,7 +56,7 @@ function Content () {
                           <div className={utilStyles.whereToWatch}>
                             <div className={utilStyles.tableHeader}>Notable Episodes:</div>
                             {activity.notes.notableEpisodes.map((obj) => (
-                              <Link key={`${activity.name}-${obj.name}`} href={obj.url}>
+                              <Link key={`${activity.name}-${obj.name}`} href={obj.url} as={obj.url}>
                                 <a target="_blank">{obj.name}</a>
                               </Link>
                             ))}

@@ -22,6 +22,35 @@ const getContent = () => (
         .
       </span>
     </p>
+    <p>
+      <span>
+        We recommend starting with
+        {' '}
+        <LinkTo
+          href="https://amzn.to/2GvT0dK"
+          label="Jumanji"
+        />
+        , then moving onto his more serious movies like
+        {' '}
+        <LinkTo
+          href="https://amzn.to/36Ilxr7"
+          label="Goodwill Hunting"
+        />
+        {' and '}
+        <LinkTo
+          href="https://amzn.to/34FUqtY"
+          label="Dead Poets Society"
+        />
+        {' '}
+        and then finally finishing the night off with, of course
+        {' '}
+        <LinkTo
+          href="https://amzn.to/33Hgbdw"
+          label="Mrs. Doubtfire"
+        />
+        .
+      </span>
+    </p>
     <p>Thanks, Mrs. D.</p>
   </div>
 )

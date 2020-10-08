@@ -17,7 +17,31 @@ const getContent = () => (
         {' '}
         <LinkTo
           href="https://amzn.to/3klrVrP"
-          label=" Eddie&apos;s got you"
+          label="Eddie&apos;s got you"
+        />
+        .
+      </span>
+    </p>
+    <p>
+      <span>
+        We recommend taking the less obvious route here and start with
+        {' '}
+        <LinkTo
+          href="https://amzn.to/36I7RfH"
+          label="Dream Girls"
+        />
+        , then switching gears to
+        {' '}
+        <LinkTo
+          href="https://amzn.to/30Lne3h"
+          label="Mulan"
+        />
+        {' '}
+        (the original, get that new shit out of here), and then finishing off the night with
+        {' '}
+        <LinkTo
+          href="https://amzn.to/3nxWs7Z"
+          label="Shrek"
         />
         .
       </span>
@@ -29,7 +53,7 @@ const Content = () => {
   const userContent = getContent()
   const pageInfo = {
     tags: 'eddie murphy/movie night/movie marathon/nutty professor/dolemite is my name/beverly hills cop',
-    pageDescription: 'Have an Eddie Murphy movie marathon with these helpful hints'
+    pageDescription: 'Have an Eddie Murphy movie marathon with these helpful hints',
   }
   return (
     <Post

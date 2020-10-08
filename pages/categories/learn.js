@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React, { useState, useRef } from 'react'
 import Head from 'next/head'
 import PropTypes from 'prop-types'
 
@@ -27,8 +27,8 @@ export const getStaticProps = wrapper.getStaticProps(({ store }) => {
     return {
       props: {
         spotlight,
-        all
-      }
+        all,
+      },
     }
   }
 })
@@ -44,23 +44,24 @@ function LearnSection ({ spotlight = [], all = {}, setInRedux, setLearnActivitie
   const quotes = [
     {
       header: '"Never let formal education get in the way of your learning."',
-      contents: ['-Mark Twain']
+      contents: ['-Mark Twain'],
     },
     {
       header: '"If you come to a fork in the road, take it."',
-      contents: ['-Yogi Berra']
+      contents: ['-Yogi Berra'],
     },
     {
       header: '"Any fool can know. The point is to understand."',
-      contents: ['-Albert Einstein', 'What a genius.']
-    }
+      contents: ['-Albert Einstein', 'What a genius.'],
+    },
   ]
-
+  const homeRef = useRef('home')
   const display = (
     <HandleContent
       all={obj}
       source={source}
       quotes={quotes}
+      homeRef={homeRef}
     />
   )
 
@@ -71,7 +72,7 @@ function LearnSection ({ spotlight = [], all = {}, setInRedux, setLearnActivitie
       </Head>
 
       {spotlight && Array.isArray(spotlight) && spotlight.length && <SplashContent content={spotlight} banner="Be better than yesterday" source={source} />}
-      <div className={utilStyles.infoContainer}>
+      <div className={utilStyles.infoContainer} ref={homeRef}>
         <div className={utilStyles.infoHeader}>Hand-picked courses worth the watch.</div>
       </div>
       {display}
@@ -83,12 +84,12 @@ LearnSection.propTypes = {
   spotlight: PropTypes.array,
   all: PropTypes.object,
   setLearnActivitiesFromProps: PropTypes.func,
-  setInRedux: PropTypes.string
+  setInRedux: PropTypes.bool,
 }
 
 const mapDispatchToProps = (dispatch) => {
   return {
-    setLearnActivitiesFromProps: bindActionCreators(setLearnActivities, dispatch)
+    setLearnActivitiesFromProps: bindActionCreators(setLearnActivities, dispatch),
   }
 }
 

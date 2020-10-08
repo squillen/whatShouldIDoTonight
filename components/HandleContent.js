@@ -15,21 +15,22 @@ import utilStyles from '../styles/utils.module.css'
 const specialCase = {
   selfImprovement: { name: 'Self Improvement' },
   food: { name: 'Food & Drink ' },
-  total: { name: 'All' }
+  total: { name: 'All' },
 }
 
-export default function HandleContent ({ all, source, quotes = [] }) {
+export default function HandleContent ({ all, source, quotes = [], homeRef }) {
   const contentCategories = []
   const collections = []
   const handleCategory = (name, contents) => {
     collections.push([contents])
     if (name === '') name = 'free'
     const header = (name[0] && (name[0].toUpperCase() + name.slice(1, name.length))) || name
-    const contentData = { content: slice(contents), header, source, ref: useRef(header) }
+    const contentData = { content: slice(contents), header, source, homeRef, ref: useRef(header) }
     if (specialCase[name]) {
       const newHeader = specialCase[name].name
       contentData.header = newHeader
       contentData.ref = useRef(newHeader)
+      contentData.homeRef = homeRef
       contentData.path = (specialCase[name].path || name).toLowerCase()
     }
     return contentData
@@ -78,6 +79,7 @@ export default function HandleContent ({ all, source, quotes = [] }) {
 
 HandleContent.propTypes = {
   all: PropTypes.object,
+  homeRef: PropTypes.object,
   source: PropTypes.string,
-  quotes: PropTypes.array
+  quotes: PropTypes.array,
 }

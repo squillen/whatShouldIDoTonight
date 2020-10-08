@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React, { useState, useRef } from 'react'
 import Head from 'next/head'
 import PropTypes from 'prop-types'
 
@@ -51,12 +51,13 @@ function ListenSection ({ spotlight = [], all = {}, setInRedux, setListenActivit
       contents: ['-Buddha'],
     },
   ]
-
+  const homeRef = useRef('home')
   const display = (
     <HandleContent
       all={obj}
       source={source}
       quotes={quotes}
+      homeRef={homeRef}
     />
   )
 
@@ -66,7 +67,7 @@ function ListenSection ({ spotlight = [], all = {}, setInRedux, setListenActivit
         <title>What to Listen - {siteTitle}</title>
       </Head>
       {spotlight && Array.isArray(spotlight) && spotlight.length && <SplashContent content={spotlight} banner="Listen to the less known" source={source} />}
-      <div className={utilStyles.infoContainer}>
+      <div className={utilStyles.infoContainer} ref={homeRef}>
         <div className={utilStyles.infoHeader}>Do you know how many bad podcasts are out there?</div>
         <div className={utilStyles.infoBody}>
           <p>We do. And now you don&apos;t have to.</p>
@@ -82,7 +83,7 @@ ListenSection.propTypes = {
   spotlight: PropTypes.array,
   all: PropTypes.object,
   setListenActivitiesFromProps: PropTypes.func,
-  setInRedux: PropTypes.string,
+  setInRedux: PropTypes.bool,
 }
 
 const mapDispatchToProps = (dispatch) => {

@@ -3,7 +3,7 @@ import Link from 'next/link'
 import PropTypes from 'prop-types'
 import styles from './SplashContent.module.css'
 
-function SplashContent ({ content = [], banner, source }) {
+function SplashContent ({ content = [], banner, source, homeRef }) {
   const [content1, content2, content3] = content
   const getBackground = currContent => currContent ? `url(${currContent.image}) center no-repeat` : ''
   const getContentURL = currContent => currContent && currContent.name
@@ -20,7 +20,7 @@ function SplashContent ({ content = [], banner, source }) {
     </div>
   )
   return (
-    <div className={styles.splashContentContainer}>
+    <div className={styles.splashContentContainer} ref={homeRef}>
       {
         banner
           ? (
@@ -59,7 +59,7 @@ function SplashContent ({ content = [], banner, source }) {
 SplashContent.propTypes = {
   content: PropTypes.array,
   banner: PropTypes.string,
-  source: PropTypes.string
+  source: PropTypes.string,
 }
 
 export default connect((state) => state)(SplashContent)

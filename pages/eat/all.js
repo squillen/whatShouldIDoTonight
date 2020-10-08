@@ -17,13 +17,12 @@ function Content () {
       header={category ? `${cleanedCategory || ''} foods` : null}
       source="eat"
       category={category}
-      back={router.back}
     />
   )
 }
 
 Content.propTypes = {
-  activities: PropTypes.object
+  activities: PropTypes.object,
 }
 
 export default connect((state) => state)(Content)

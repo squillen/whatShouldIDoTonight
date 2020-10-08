@@ -21,7 +21,6 @@ function Content () {
       header={cleanedCategory}
       source="learn"
       category={category}
-      back={router.back}
     />
   )
 }

@@ -4,7 +4,7 @@ import styles from './BackButton.module.css'
 
 export default function BackButton ({ back = '', backText = 'back' }) {
   return (
-    <Link href={back} as={back}>
+    <Link href={back} as={back} scroll={false}>
       <a className={styles.backButtonContainer}>
         <span className={styles.backButton}>
           <i className="fas fa-arrow-left"></i>

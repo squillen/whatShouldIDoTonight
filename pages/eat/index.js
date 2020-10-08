@@ -18,10 +18,10 @@ import { siteTitle } from '../../components/defaultHead'
 import utilStyles from '../../styles/utils.module.css'
 import { getActivitiesFromDB } from '../../lib/helpers/db/requests'
 
-const pageDescription = `
-Wondering what should I eat tonight? We've got lots of tested and approved suggestions for authentic recipes and desserts you might not have seen before.
-Whether you want Indian, Mexican, American, Asian, Italian, Moroccan, Columbian, Peruvian, or other adventurous and less-known cuisines, we've got good (nay, amazing!) suggestions for you.
-`
+const pageDescription =
+"What should I eat tonight? We've got suggestions. Authentic recipes and desserts for Indian, Mexican, American, " +
+'Asian, Italian, Moroccan, Columbian, Peruvian, and other adventurous and less-known cuisines.'
+
 const quotes = [
   {
     header: '"Butter"',

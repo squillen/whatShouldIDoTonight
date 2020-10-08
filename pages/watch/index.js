@@ -18,11 +18,9 @@ import { siteTitle } from '../../components/defaultHead'
 import utilStyles from '../../styles/utils.module.css'
 import { getActivitiesFromDB } from '../../lib/helpers/db/requests'
 
-const pageDescription = `
-Wondering what should I watch tonight? We've watched tons of less-known shows, movies, and binge-worthy series.
-Whether you're in the mood for comedy, thrillers, horror, drama, documentary, crime, history, food, action, adventure, romance, rom com, mystery, or more,
-we've got good (nay, amazing!) suggestions for you.
-`
+const pageDescription =
+"What should I watch tonight? We've watched tons of less-known shows, movies, and binge-worthy series involving comedy, " +
+'thrillers, horror, drama, documentary, crime, history, food, action, adventure, romance, rom com, mystery, or more.'
 
 const quotes = [
   {

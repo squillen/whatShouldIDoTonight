@@ -1,14 +1,17 @@
-.backButton {
+.backButtonContainer {
   width: 100%;
   padding-left: 1.5rem;
   display: flex;
   align-items: center;
   font-size: 1.2rem;
-  cursor: pointer;
   height: 3rem;
   color: purple;
   position: sticky;
   top: 0;
+}
+
+.backButton {
+  cursor: pointer;
 }
 
 .backText {

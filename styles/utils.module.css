@@ -24,12 +24,19 @@
 }
 
 .pageActivityTitle {
-  min-height: 30vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 25vh;
   position: relative;
   text-align: center;
   font-size: 4rem;
   width: 80%;
   margin: 0 auto;
+}
+
+.pageActivityTitle > p {
+  margin: 0;
 }
 
 .titleBlob {
@@ -766,6 +773,10 @@ background: radial-gradient(circle, rgba(13,32,53,1) 36%, rgba(25,110,171,0.9990
 }
 
 @media only screen and (max-width: 500px) {
+  .showInfoSectionBody {
+    flex-direction: column;
+  }
+
   .headerContainer {
     padding: 0.6rem;
   }

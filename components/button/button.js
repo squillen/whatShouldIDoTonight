@@ -11,7 +11,7 @@ export default function Button (props) {
     inlineStyle,
     label = 'click',
     onClick = () => {},
-    size
+    size,
   } = props
   const button = (
     <motion.div
@@ -27,7 +27,7 @@ export default function Button (props) {
   return (
     href
       ? (
-        <Link href={href} as={as || href}>
+        <Link href={href} as={`${as || href}`}>
           <a onClick={onClick} className={styles.link}>
             {button}
           </a>
@@ -44,5 +44,5 @@ Button.propTypes = {
   inlineStyle: PropTypes.object,
   label: PropTypes.string,
   onClick: PropTypes.func,
-  size: PropTypes.string
+  size: PropTypes.string,
 }

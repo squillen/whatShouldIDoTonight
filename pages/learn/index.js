@@ -18,11 +18,9 @@ import { siteTitle } from '../../components/defaultHead'
 import utilStyles from '../../styles/utils.module.css'
 import { getActivitiesFromDB } from '../../lib/helpers/db/requests'
 
-const pageDescription = `
-Wondering what should I learn tonight? We've taken tons of online courses on Skillshare, edX, Coursera, Udemy, Pluralsight, The Great Courses Plus, and more to give you the best suggestions out there.
-Whether you want to learn about how to code, cook, draw, design, market yourself / company, or about personal development, office productivity, or more,
-we've got good (nay, amazing!) suggestions for you.
-`
+const pageDescription =
+"We've taken tons of online courses on Skillshare, edX, Coursera, Udemy, Pluralsight, and more to give you the best " +
+'suggestions about what to take to learn about how to cook, code draw, design, and improve yourself or your company.'
 
 const quotes = [
   {

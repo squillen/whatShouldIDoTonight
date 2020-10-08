@@ -21,6 +21,30 @@ const getContent = () => (
         be bad ass, start a company, and so, so much more.
       </span>
     </p>
+    <p>
+      <span>
+        We recommend starting with
+        {' '}
+        <LinkTo
+          href="https://amzn.to/3iIOnKf"
+          label="Silver Linings Playbook"
+        />
+        , then
+        {' '}
+        <LinkTo
+          href="https://amzn.to/33HH6Gf"
+          label="Winter's Bone"
+        />
+        {' '}
+        and then finally finishing the night off with
+        {' '}
+        <LinkTo
+          href="https://amzn.to/3iKOJ2Z"
+          label="American Hustle"
+        />
+        .
+      </span>
+    </p>
     <p>And do JLaw proud and get some pizza tonight, too, will ya??</p>
   </div>
 )

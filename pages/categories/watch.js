@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React, { useState, useRef } from 'react'
 import Head from 'next/head'
 import PropTypes from 'prop-types'
 
@@ -27,8 +27,8 @@ export const getStaticProps = wrapper.getStaticProps(({ store }) => {
     return {
       props: {
         spotlight,
-        all
-      }
+        all,
+      },
     }
   }
 })
@@ -44,23 +44,25 @@ function WatchSection ({ spotlight = [], all = {}, setInRedux, setWatchActivitie
   const quotes = [
     {
       header: '"Everyone has a purpose in life. Perhaps yours is watching television."',
-      contents: ['-David Letterman', 'Absolutely inspiring.']
+      contents: ['-David Letterman', 'Absolutely inspiring.'],
     },
     {
       header: '"I really like watching TV at home."',
-      contents: ['-Fred Armisen']
+      contents: ['-Fred Armisen'],
     },
     {
       header: '"I live for watching TV and partying with my book club."',
-      contents: ['-Lauren Lapkus', 'Truth.']
-    }
+      contents: ['-Lauren Lapkus', 'Truth.'],
+    },
   ]
 
+  const homeRef = useRef('home')
   const display = (
     <HandleContent
       all={obj}
       source={source}
       quotes={quotes}
+      homeRef={homeRef}
     />
   )
 
@@ -70,7 +72,7 @@ function WatchSection ({ spotlight = [], all = {}, setInRedux, setWatchActivitie
         <title>What to Watch - {siteTitle}</title>
       </Head>
       {spotlight && Array.isArray(spotlight) && spotlight.length && <SplashContent content={spotlight} banner="Watch the less known" source={source} />}
-      <div className={utilStyles.infoContainer}>
+      <div className={utilStyles.infoContainer} ref={homeRef}>
         <div className={utilStyles.infoHeader}>We&apos;ve watched thousands of hours of less-known TV for you.</div>
         <div className={utilStyles.infoBody}>
           <p>Totally for research.</p>
@@ -85,12 +87,12 @@ WatchSection.propTypes = {
   spotlight: PropTypes.array,
   all: PropTypes.object,
   setWatchActivitiesFromProps: PropTypes.func,
-  setInRedux: PropTypes.string
+  setInRedux: PropTypes.bool,
 }
 
 const mapDispatchToProps = (dispatch) => {
   return {
-    setWatchActivitiesFromProps: bindActionCreators(setWatchActivities, dispatch)
+    setWatchActivitiesFromProps: bindActionCreators(setWatchActivities, dispatch),
   }
 }
 

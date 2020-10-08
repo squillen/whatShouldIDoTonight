@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React, { useState, useRef } from 'react'
 import Head from 'next/head'
 import PropTypes from 'prop-types'
 
@@ -51,12 +51,13 @@ function DoSection ({ spotlight = [], all = {}, setInRedux, setDoActivitiesFromP
       contents: ['-A.A. Milne', 'Tonight, you do the possible: something'],
     },
   ]
-
+  const homeRef = useRef('home')
   const display = (
     <HandleContent
       all={obj}
       source={source}
       quotes={quotes}
+      homeRef={homeRef}
     />
   )
 
@@ -66,7 +67,7 @@ function DoSection ({ spotlight = [], all = {}, setInRedux, setDoActivitiesFromP
         <title>What to do - {siteTitle}</title>
       </Head>
       {spotlight && Array.isArray(spotlight) && spotlight.length && <SplashContent content={spotlight} banner="Stuff worthy of your time" destination={source} />}
-      <div className={utilStyles.infoContainer}>
+      <div className={utilStyles.infoContainer} ref={homeRef}>
         <div className={utilStyles.infoHeader}>ideas that don&apos;t suck.</div>
       </div>
       {display}
@@ -78,7 +79,7 @@ DoSection.propTypes = {
   spotlight: PropTypes.array,
   all: PropTypes.object,
   setDoActivitiesFromProps: PropTypes.func,
-  setInRedux: PropTypes.string,
+  setInRedux: PropTypes.bool,
 }
 
 const mapDispatchToProps = (dispatch) => {

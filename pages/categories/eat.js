@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React, { useState, useRef } from 'react'
 import Head from 'next/head'
 import PropTypes from 'prop-types'
 
@@ -27,8 +27,8 @@ export const getStaticProps = wrapper.getStaticProps(({ store }) => {
     return {
       props: {
         spotlight,
-        all
-      }
+        all,
+      },
     }
   }
 })
@@ -44,19 +44,20 @@ function EatSection ({ spotlight = [], all = {}, setInRedux, setEatActivitiesFro
   const quotes = [
     {
       header: '"Butter"',
-      contents: ['-How Paula Deen says "basil".']
+      contents: ['-How Paula Deen says "basil".'],
     },
     {
       header: '"The more you weigh, the harder you are to kidnap. Stay safe. Eat cake."',
-      contents: ['-someone smart']
-    }
+      contents: ['-someone smart'],
+    },
   ]
-
+  const homeRef = useRef('home')
   const display = (
     <HandleContent
       all={obj}
       source={source}
       quotes={quotes}
+      homeRef={homeRef}
     />
   )
 
@@ -66,7 +67,7 @@ function EatSection ({ spotlight = [], all = {}, setInRedux, setEatActivitiesFro
         <title>What to Eat - {siteTitle}</title>
       </Head>
       {spotlight && Array.isArray(spotlight) && spotlight.length && <SplashContent content={spotlight} banner="Hand-picked dishes" source={source} />}
-      <div className={utilStyles.infoContainer}>
+      <div className={utilStyles.infoContainer} ref={homeRef}>
         <div className={utilStyles.infoHeader}>We found the recipes worth cooking. The diabetes was totally worth it.</div>
       </div>
       {display}
@@ -78,12 +79,12 @@ EatSection.propTypes = {
   spotlight: PropTypes.array,
   all: PropTypes.object,
   setEatActivitiesFromProps: PropTypes.func,
-  setInRedux: PropTypes.string
+  setInRedux: PropTypes.bool,
 }
 
 const mapDispatchToProps = (dispatch) => {
   return {
-    setEatActivitiesFromProps: bindActionCreators(setEatActivities, dispatch)
+    setEatActivitiesFromProps: bindActionCreators(setEatActivities, dispatch),
   }
 }
 

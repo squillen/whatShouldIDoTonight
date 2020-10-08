@@ -3,13 +3,13 @@ import styles from './BackButton.module.css'
 
 export default function BackButton ({ back = '', backText = 'back' }) {
   return (
-    <a className={styles.backButton} onClick={back}>
-      <span><i className="fas fa-arrow-left"></i><span className={styles.backText}>{backText}</span></span>
+    <a className={styles.backButtonContainer}>
+      <span className={styles.backButton} onClick={back}><i className="fas fa-arrow-left"></i><span className={styles.backText}>{backText}</span></span>
     </a>
   )
 }
 
 BackButton.propTypes = {
   back: PropTypes.func,
-  backText: PropTypes.string
+  backText: PropTypes.string,
 }

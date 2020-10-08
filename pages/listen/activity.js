@@ -39,7 +39,7 @@ function Content () {
             <>
               <ArticleHead activity={activity}/>
               <div className={utilStyles.watchContentSection}>
-                <ContentDisplay content={activity} back={router.back} />
+                <ContentDisplay content={activity} back="/listen" />
                 <div className={utilStyles.showInfoSectionContainer}>
                   <div className={utilStyles.showInfoSectionHeader}>Show Info:</div>
                   <div className={utilStyles.showInfoSectionBody}>

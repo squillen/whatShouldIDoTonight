@@ -25,7 +25,6 @@ function Content () {
       header={`Do ${cleanedCategory()} Stuffs`}
       source="do"
       category={category}
-      back={router.back}
     />
   )
 }

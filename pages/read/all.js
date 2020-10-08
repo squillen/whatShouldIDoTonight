@@ -21,7 +21,6 @@ function Content () {
       header={`${cleanedCategory || ''} reads`}
       source="read"
       category={category}
-      back={router.back}
     />
   )
 }

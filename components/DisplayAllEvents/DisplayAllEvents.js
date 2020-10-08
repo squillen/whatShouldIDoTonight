@@ -32,14 +32,14 @@ export default class DisplayAllEvents extends React.Component {
 
   render () {
     const { currentActivities } = this.state
-    const { header = 'Do all the stuffs!', source, back } = this.props
+    const { header = 'Do all the stuffs!', source } = this.props
     const noActivitiesDiv = this.showNoActivities()
     return (
       <motion.div className={styles.displayAllContainer} variants={stagger}>
         <Head>
           <title>{header} - {siteTitle}</title>
         </Head>
-        <BackButton back={back}/>
+        <BackButton back={`/${source}`} />
         <div className={styles.headerContainer}>
           <div className={styles.header}>{header}</div>
           <div className={styles.count}>{(currentActivities && Array.isArray(currentActivities) && currentActivities.length) || 0} items</div>

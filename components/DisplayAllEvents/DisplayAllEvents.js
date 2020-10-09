@@ -39,7 +39,7 @@ export default class DisplayAllEvents extends React.Component {
         <Head>
           <title>{header} - {siteTitle}</title>
         </Head>
-        <BackButton back={`/${source}`} />
+        <BackButton />
         <div className={styles.headerContainer}>
           <div className={styles.header}>{header}</div>
           <div className={styles.count}>{(currentActivities && Array.isArray(currentActivities) && currentActivities.length) || 0} items</div>

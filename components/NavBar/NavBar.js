@@ -19,11 +19,6 @@ const categories = [
   // { title: 'Music', href: '/music' },
 ]
 
-// const activities = [
-//   { title: 'Alone', href: '/activities?status=alone' },
-//   { title: 'Not Alone', href: '/activities?status=notAlone' },
-// ]
-
 function createSubMenu (items) {
   return (
     <ul id={styles.dropDownList} className={styles.nav__submenu}>
@@ -44,38 +39,9 @@ function CategorySubMenu () {
   return createSubMenu(categories)
 }
 
-// function ActivitiesSubMenu () {
-//   const items = [
-//     { title: 'Alone', href: '/categories/activities?status=alone' },
-//     { title: 'Not Alone', href: '/categories/activities?status=notAlone' },
-//   ]
-//   return createSubMenu(items)
-// }
-
 export default function NavBar ({ home }) {
   const [showCategoryMenu, setShowCategoryMenu] = useState(false)
-  // const [showActivitiesMenu, setShowActivitiesMenu] = useState(false)
   const [openMenu, setOpenMenu] = useState(false)
-
-  // function ByActivity () {
-  //   return (
-  //     <li className={styles['nav__menu-item']} onMouseLeave={() => setShowActivitiesMenu(false)}>
-  //       <a onMouseEnter={() => setShowActivitiesMenu(true)}>
-  //         by activity
-  //       </a>
-  //       <div className={styles['submenu-container']}>
-  //         <CSSTransition
-  //           timeout={500}
-  //           classNames="menu-primary"
-  //         >
-  //           <div className={styles.menu}>
-  //             { showActivitiesMenu && <ActivitiesSubMenu /> }
-  //           </div>
-  //         </CSSTransition>
-  //       </div>
-  //     </li>
-  //   )
-  // }
 
   function ByCategory () {
     return (
@@ -143,7 +109,6 @@ export default function NavBar ({ home }) {
       <nav className={styles.nav}>
         <ul className={styles.nav__menu}>
           <ByCategory />
-          {/* <ByActivity /> */}
           {/* <li className={styles['nav__menu-item']}>
             <Link href="/favorites">
               <a>site favorites</a>

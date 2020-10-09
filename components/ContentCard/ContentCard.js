@@ -36,5 +36,5 @@ export default function ContentCard ({ activity, source }) {
 
 ContentCard.propTypes = {
   activity: PropTypes.object,
-  source: PropTypes.string
+  source: PropTypes.string,
 }

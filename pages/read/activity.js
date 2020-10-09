@@ -34,7 +34,7 @@ function Content () {
     <Layout>
       {
         activity
-          ? <ContentDisplay content={activity} back="/read" />
+          ? <ContentDisplay content={activity} />
           : <Loading />
       }
     </Layout>

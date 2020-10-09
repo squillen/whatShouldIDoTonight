@@ -27,9 +27,9 @@ const App = ({ Component, pageProps, router }) => {
 }
 
 App.propTypes = {
-  Component: PropTypes.func,
+  Component: PropTypes.any,
   router: PropTypes.object,
-  pageProps: PropTypes.object
+  pageProps: PropTypes.object,
 }
 
 export default wrapper.withRedux(App)

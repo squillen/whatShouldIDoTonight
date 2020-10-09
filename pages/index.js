@@ -25,8 +25,8 @@ export const getStaticProps = wrapper.getStaticProps(({ store }) => {
     props: {
       activities,
       aloneActivities,
-      notAloneActivities
-    }
+      notAloneActivities,
+    },
   }
 })
 
@@ -55,7 +55,7 @@ const mapDispatchToProps = (dispatch) => {
   return {
     getNewUserActivity: bindActionCreators(getNewUserActivity, dispatch),
     setUserActivities: bindActionCreators(setUserActivities, dispatch),
-    setAllActivities: bindActionCreators(setAllActivities, dispatch)
+    setAllActivities: bindActionCreators(setAllActivities, dispatch),
   }
 }
 
@@ -64,8 +64,8 @@ Home.propTypes = {
   setAllActivities: PropTypes.func,
   getNewUserActivity: PropTypes.func,
   activities: PropTypes.object,
-  aloneActivities: PropTypes.array,
-  notAloneActivities: PropTypes.array
+  aloneActivities: PropTypes.object,
+  notAloneActivities: PropTypes.object,
 }
 
 export default connect((state) => state, mapDispatchToProps)(Home)

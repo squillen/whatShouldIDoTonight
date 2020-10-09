@@ -44,4 +44,23 @@ handler.get(async (req, res) => {
   }
 })
 
+handler.patch(async (req, res) => {
+  const { body, query = {} } = req
+  const { id = '' } = query
+  const _id = ObjectId(id)
+
+  try {
+    let result
+    const watchCollection = req.db.collection('watch')
+    if (body.update) {
+      result = await watchCollection.updateOne({ _id }, { $set: body.update }, { upsert: true })
+    }
+    res.json(result)
+  } catch (e) {
+    throw new Error('ERROR IN WATCH API :::', e)
+  } finally {
+    req.closeDB()
+  }
+})
+
 export default handler

@@ -23,7 +23,7 @@ function Content () {
   const router = useRouter()
   const { id } = router.query
 
-  const getFreshIMDbResults = async (retrievedActivity) => {
+  const getFreshIMDbResults = async (retrievedActivity = {}) => {
     const imdb = await getIMDbResults(retrievedActivity.imdbID)
     const daysBeforeExpiration = process.env.DAYS_BEFORE_IMDB_EXPIRATION || 7
     const newExpirationDate = new Date(Date.now() + 1000 * 60 * 60 * 24 * daysBeforeExpiration)
@@ -36,7 +36,7 @@ function Content () {
   const getActivity = async () => {
     try {
       const retrievedActivity = await getActivityFromDB('watch', id)
-      if (retrievedActivity.imdb) {
+      if (retrievedActivity && retrievedActivity.imdb) {
         const expirationDate = retrievedActivity.imdb.expirationDate || ''
         const resultsAreFresh = new Date(expirationDate).getTime() > new Date().getTime()
         if (resultsAreFresh) {

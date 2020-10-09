@@ -38,8 +38,8 @@ function handleBody (body = [], activityName) {
   ))
 }
 
-function handleInfo (content) {
-  const imdb = content.imdb
+function handleInfo (content = {}) {
+  const imdb = content && content.imdb
   return (
     <div className={utilStyles.headerInfo}>
       <div className={utilStyles.categories}>({content.categories.join(', ')})</div>

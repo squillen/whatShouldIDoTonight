@@ -38,6 +38,82 @@ function handleBody (body = [], activityName) {
   ))
 }
 
+function handleInfo (content) {
+  const imdb = content.imdb
+  return (
+    <div className={utilStyles.headerInfo}>
+      <div className={utilStyles.categories}>({content.categories.join(', ')})</div>
+      {
+        imdb &&
+          (
+            <div className={utilStyles.showDetails}>
+
+              <div className={utilStyles.showRating}>
+                <div className={utilStyles.labelSection}>
+                  <img className={utilStyles.labelSectionImg} src="https://m.media-amazon.com/images/G/01/IMDb/BG_rectangle._CB1509060989_SY230_SX307_AL_.png"/>
+                </div>
+                <div className={utilStyles.ratingSection}>
+                  <span className={utilStyles.ratingContainer}>
+                    <span className={utilStyles.imdbRating}>{imdb.imdbRating}</span>
+                    <span>/</span>
+                    <span>10</span>
+                  </span>
+                  {/* <span className={utilStyles.imdbStar}><i className="fas fa-star"></i></span> */}
+                  {' '}
+                  <span className={utilStyles.subscript}>{imdb.imdbVotes} votes</span>
+                </div>
+              </div>
+              <div className={utilStyles.showSpecifics}>
+                {
+                  imdb.Runtime && imdb.Runtime !== 'N/A' && (
+                    <div className={utilStyles.runtime}>
+                      <span className={utilStyles.icon}><i className="fas fa-clock"></i></span>
+                      {imdb.Runtime}
+                    </div>
+                  )
+                }
+                {
+                  imdb.Rated && imdb.Rated !== 'N/A' && (
+                    <div className={utilStyles.runtime}>
+                      <span className={utilStyles.icon}><i className="fas fa-tv"></i></span>
+                      {imdb.Rated}
+                    </div>
+                  )
+                }
+                {
+                  imdb.Country && imdb.Country !== 'N/A' && (
+                    <div className={utilStyles.runtime}>
+                      <span className={utilStyles.icon}><i className="fas fa-globe"></i></span>
+                      {imdb.Country}
+                    </div>
+                  )
+                }
+                {
+                  imdb.Year && imdb.Year !== 'N/A' && (
+                    <div className={utilStyles.runtime}>
+                      <span className={utilStyles.icon}><i className="far fa-calendar-alt"></i></span>
+                      {imdb.Year}
+                    </div>
+                  )
+                }
+                {
+                  imdb.totalSeasons && imdb.totalSeasons !== 'N/A' && (
+                    <div className={utilStyles.runtime}>
+                      <span className={utilStyles.icon}><i className="fab fa-canadian-maple-leaf"></i></span>
+                      {imdb.totalSeasons}
+                      {' '}
+                      seasons
+                    </div>
+                  )
+                }
+              </div>
+            </div>
+          )
+      }
+    </div>
+  )
+}
+
 export default function ContentDisplay ({ content, back }) {
   const fills = ['#1C92F5', '#FA4D56', '#FA4D56', '#F51CB3', '#1CF561']
   const fill = fills[Math.floor(Math.random() * fills.length)]
@@ -54,12 +130,12 @@ export default function ContentDisplay ({ content, back }) {
           >
             <div className={utilStyles.overlay} />
             <div className={utilStyles.pageActivityName}>{content.name}</div>
-            <div className={utilStyles.categories}>({content.categories.join(', ')})</div>
+            {handleInfo(content)}
           </div>
         </div>
         <div className={utilStyles.pageBodyContainer}>
           <div className={utilStyles.backButton}>
-            <BackButton back={back} />
+            <BackButton />
           </div>
           {
             content.title

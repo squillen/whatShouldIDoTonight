@@ -64,7 +64,7 @@ function Content () {
             <>
               <ArticleHead activity={activity}/>
               <div className={utilStyles.watchContentSection}>
-                <ContentDisplay content={activity} back="/watch" />
+                <ContentDisplay content={activity} />
                 <div className={utilStyles.showInfoSectionContainer}>
                   <div className={utilStyles.showInfoSectionHeader}>Show Info:</div>
                   <div className={utilStyles.showInfoSectionBody}>
@@ -72,7 +72,7 @@ function Content () {
                       activity.seasonsToWatch
                         ? (
                           <div className={utilStyles.seasonsToWatch}>
-                            {handleSeasons(activity.seasonsToWatch)}
+                            {handleSeasons(activity)}
                           </div>
                         )
                         : null

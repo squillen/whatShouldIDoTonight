@@ -659,6 +659,10 @@ background: radial-gradient(circle, rgba(13,32,53,1) 36%, rgba(25,110,171,0.9990
 }
 
 .keysTable {
+  min-height: 6rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-evenly;
   margin-top: 4rem;
   font-size: 0.7rem;
 }
@@ -730,6 +734,88 @@ background: radial-gradient(circle, rgba(13,32,53,1) 36%, rgba(25,110,171,0.9990
   align-items: center;
   background: #00aeef;
   border: 1px solid black;
+}
+
+.headerInfo {
+  z-index: 2;
+  min-width: 40vw;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.showDetails {
+  padding: 1rem 0;
+  display: flex;
+}
+.showSpecifics {
+  color: white;
+  display: flex;
+  flex-direction: column;
+  /* justify-content: space-around;
+  align-items: center; */
+  padding: 1rem;
+}
+
+.icon {
+  margin-right: 0.5rem;
+}
+
+.runtime {
+  font-size: 0.7rem;
+  display: flex;
+  align-items: center;
+}
+
+.showRating {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  align-items: center;
+  width: 4rem;
+  padding: 1rem 0;
+}
+
+.labelSection {
+  width: 100%;
+}
+
+.labelSectionImg{
+  width: 100%;
+  color: goldenrod;
+}
+
+.ratingSection {
+  color: white;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.ratingContainer {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: space-evenly;
+}
+
+.imdbStar,
+.imdbRating {
+  color: goldenrod;
+}
+
+.imdbRating {
+  font-size: 1.2rem;
+  font-weight: 600;
+}
+
+.subscript {
+  font-size: 0.7rem;
+}
+
+.noOfVotes {
+
 }
 
 /* END ACTIVITIES PAGE STYLE */

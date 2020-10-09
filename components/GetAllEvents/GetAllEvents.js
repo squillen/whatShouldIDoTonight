@@ -12,7 +12,7 @@ import DisplayAllEvents from '../DisplayAllEvents/DisplayAllEvents'
 import { callAPI, getOptions } from '../../lib/helpers/callAPI'
 import styles from './GetAllEvents.module.css'
 
-function GetAllEvents ({ header = 'Things To Do', source, category = '', back }) {
+function GetAllEvents ({ header = 'Things To Do', source, category = '' }) {
   const [allActivities, setAllActivities] = useState([])
   const [currentActivities, setCurrentActivities] = useState(null)
   const [calledAPI, setCalledAPI] = useState(false)
@@ -136,7 +136,6 @@ function GetAllEvents ({ header = 'Things To Do', source, category = '', back })
           activities={currentActivities}
           header={header}
           source={source}
-          back={back}
         />
         {
           categories && categories.length

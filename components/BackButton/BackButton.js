@@ -1,21 +1,19 @@
-import Link from 'next/link'
+import { useRouter } from 'next/router'
 import PropTypes from 'prop-types'
 import styles from './BackButton.module.css'
 
-export default function BackButton ({ back = '', backText = 'back' }) {
+export default function BackButton ({ backText = 'back' }) {
+  const router = useRouter()
   return (
-    <Link href={back} as={back} scroll={false}>
-      <a className={styles.backButtonContainer}>
-        <span className={styles.backButton}>
-          <i className="fas fa-arrow-left"></i>
-          <span className={styles.backText}>{backText}</span>
-        </span>
-      </a>
-    </Link>
+    <a className={styles.backButtonContainer} onClick={router.back}>
+      <span className={styles.backButton}>
+        <i className="fas fa-arrow-left"></i>
+        <span className={styles.backText}>{backText}</span>
+      </span>
+    </a>
   )
 }
 
 BackButton.propTypes = {
-  back: PropTypes.string,
   backText: PropTypes.string,
 }

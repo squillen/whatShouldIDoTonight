@@ -24,13 +24,19 @@ function Content () {
   const { id } = router.query
 
   const getFreshIMDbResults = async (retrievedActivity = {}) => {
-    const imdb = await getIMDbResults(retrievedActivity.imdbID)
-    const daysBeforeExpiration = process.env.DAYS_BEFORE_IMDB_EXPIRATION || 7
-    const newExpirationDate = new Date(Date.now() + 1000 * 60 * 60 * 24 * daysBeforeExpiration)
-    imdb.expirationDate = newExpirationDate
-    updateActivityIMDbInDB(retrievedActivity._id, { imdb })
-    retrievedActivity.imdb = imdb
-    setActivity(retrievedActivity)
+    if (retrievedActivity && retrievedActivity.imdbID) {
+      try {
+        const imdb = await getIMDbResults(retrievedActivity.imdbID)
+        const daysBeforeExpiration = process.env.DAYS_BEFORE_IMDB_EXPIRATION || 7
+        const newExpirationDate = new Date(Date.now() + 1000 * 60 * 60 * 24 * daysBeforeExpiration)
+        imdb.expirationDate = newExpirationDate
+        updateActivityIMDbInDB(retrievedActivity._id, { imdb })
+        retrievedActivity.imdb = imdb
+        setActivity(retrievedActivity)
+      } catch (e) {
+        console.error(e)
+      }
+    }
   }
 
   const getActivity = async () => {
@@ -44,7 +50,7 @@ function Content () {
         } else {
           getFreshIMDbResults(retrievedActivity)
         }
-      } else {
+      } else if (retrievedActivity && retrievedActivity.imdbID) {
         getFreshIMDbResults(retrievedActivity)
       }
     } catch (e) {

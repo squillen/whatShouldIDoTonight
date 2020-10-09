@@ -9,7 +9,7 @@ import Layout from '../layout/layout'
 import DisplayAllEvents from '../DisplayAllEvents/DisplayAllEvents'
 
 // HELPERS
-import callAPI from '../../lib/helpers/callAPI'
+import { callAPI, getOptions } from '../../lib/helpers/callAPI'
 import styles from './GetAllEvents.module.css'
 
 function GetAllEvents ({ header = 'Things To Do', source, category = '', back }) {
@@ -29,7 +29,8 @@ function GetAllEvents ({ header = 'Things To Do', source, category = '', back })
 
   async function getAllActivitiesOnLoad () {
     try {
-      const allActivities = await callAPI(stub)
+      const options = getOptions()
+      const allActivities = await callAPI(stub, options)
       setAllActivities(allActivities)
       setCurrentActivities(allActivities)
     } catch (e) {

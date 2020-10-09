@@ -78,9 +78,9 @@ function WatchSection ({ spotlight = [], all = {}, setInRedux, setWatchActivitie
         <meta name="description" content={pageDescription} />
       </Head>
       {spotlight && Array.isArray(spotlight) && spotlight.length && <SplashContent content={spotlight} banner="Watch the less known" source={source} />}
-      <div className={utilStyles.newsSection}>
+      {/* <div className={utilStyles.newsSection}>
         <div className="newsArticle">asdfasdf</div>
-      </div>
+      </div> */}
       <div className={utilStyles.infoContainer} ref={homeRef}>
         <div className={utilStyles.infoHeader}>We&apos;ve watched thousands of hours of less-known TV for you.</div>
         <div className={utilStyles.infoBody}>

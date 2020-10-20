@@ -2,6 +2,7 @@ import { ObjectId } from 'mongodb'
 import nextConnect from 'next-connect'
 import middleware from '../../middleware/database'
 import { getAllCategories } from '../../lib/helpers/dataHelpers'
+import { findAllActivities } from '../../lib/helpers/db/requests'
 
 const handler = nextConnect()
 
@@ -42,17 +43,46 @@ handler.get(async (req, res) => {
       result = await doCollection.find({
         $and: [
           { categories: { $in: includedArray } },
-          { categories: { $nin: excludedArray } }
-        ]
+          { categories: { $nin: excludedArray } },
+        ],
       }).limit(numberLimit)
       result = await result.toArray()
     } else {
-      result = await doCollection.find().limit(numberLimit)
+      result = await findAllActivities(doCollection, numberLimit)
       result = await result.toArray()
     }
     res.json(result)
   } catch (e) {
     throw new Error('ERROR IN DO API :::', e)
+  } finally {
+    req.closeDB()
+  }
+})
+
+handler.post(async (req, res) => {
+  const { body } = req
+  try {
+    const doCollection = req.db.collection('do')
+    const result = await doCollection.insertOne(body)
+    res.json(result)
+  } catch (e) {
+    throw new Error('ERROR IN DO POST API :::', e)
+  } finally {
+    req.closeDB()
+  }
+})
+
+handler.patch(async (req, res) => {
+  const { body, query = {} } = req
+  const { id = '' } = query
+  const _id = ObjectId(id)
+
+  try {
+    const doCollection = req.db.collection('do')
+    const result = await doCollection.updateOne({ _id }, { $set: body })
+    res.json(result)
+  } catch (e) {
+    throw new Error('ERROR IN DO PATCH API :::', e)
   } finally {
     req.closeDB()
   }

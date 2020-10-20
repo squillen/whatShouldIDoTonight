@@ -68,9 +68,19 @@ function DoSection ({ spotlight = [], all = {}, setInRedux, setDoActivitiesFromP
       <Head>
         <title>What to do - {siteTitle}</title>
       </Head>
-      {spotlight && Array.isArray(spotlight) && spotlight.length && <SplashContent content={spotlight} banner="Do Stuff Worthy of Your Time" destination={source} />}
+      {
+        spotlight && Array.isArray(spotlight) && spotlight.length
+          ? (
+            <SplashContent
+              content={spotlight}
+              banner="Do Stuff Worthy of Your Time"
+              source={source}
+            />
+          )
+          : null
+      }
       <div className={utilStyles.infoContainer} ref={homeRef}>
-        <div className={utilStyles.infoHeader}>ideas that don&apos;t suck.</div>
+        <div className={utilStyles.infoHeader}>Make your night better</div>
       </div>
       {display}
     </Layout>

@@ -2,6 +2,7 @@ import { ObjectId } from 'mongodb'
 import nextConnect from 'next-connect'
 import middleware from '../../middleware/database'
 import { getAllCategories } from '../../lib/helpers/dataHelpers'
+import { findAllActivities } from '../../lib/helpers/db/requests'
 
 const handler = nextConnect()
 
@@ -30,7 +31,7 @@ handler.get(async (req, res) => {
       result = await eatCollection.find({ spotlight: true })
       result = await result.toArray()
     } else {
-      result = await eatCollection.find()
+      result = await findAllActivities(eatCollection)
       result = await result.toArray()
     }
     res.json(result)

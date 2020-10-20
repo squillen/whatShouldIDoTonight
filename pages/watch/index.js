@@ -11,6 +11,7 @@ import { setWatchActivities } from '../../src/store/categories/action'
 // COMPONENTS
 import Layout from '../../components/layout/layout'
 import SplashContent from '../../components/SplashContent/SplashContent'
+import ArticleContent from '../../components/ArticleContent/ArticleContent'
 import HandleContent from '../../components/HandleContent'
 import { siteTitle } from '../../components/defaultHead'
 
@@ -41,18 +42,20 @@ export const getStaticProps = wrapper.getStaticProps(({ store }) => {
   const state = store.getState()
   const all = state.categories.watchActivities.all || {}
   const spotlight = state.categories.watchActivities.spotlight || []
+  const articles = state.categories.watchActivities.articles || []
   if (spotlight && !spotlight.length) return getActivitiesFromDB('watch')
   else {
     return {
       props: {
         spotlight,
         all,
+        articles,
       },
     }
   }
 })
 
-function WatchSection ({ spotlight = [], all = {}, setInRedux, setWatchActivitiesFromProps }) {
+function WatchSection ({ spotlight = [], all = {}, articles = [], setInRedux, setWatchActivitiesFromProps }) {
   const [updatedRedux, setUpdatedRedux] = useState(false)
   if (!updatedRedux && setInRedux) {
     setUpdatedRedux(true)
@@ -77,10 +80,16 @@ function WatchSection ({ spotlight = [], all = {}, setInRedux, setWatchActivitie
         <title>What Should I Watch Tonight - {siteTitle}</title>
         <meta name="description" content={pageDescription} />
       </Head>
-      {spotlight && Array.isArray(spotlight) && spotlight.length && <SplashContent content={spotlight} banner="Watch the less known" source={source} />}
-      {/* <div className={utilStyles.newsSection}>
-        <div className="newsArticle">asdfasdf</div>
-      </div> */}
+      {
+        spotlight && Array.isArray(spotlight) && spotlight.length
+          ? <SplashContent content={spotlight} banner="Watch the less known" source={source} />
+          : null
+      }
+      {
+        articles && Array.isArray(articles) && articles.length
+          ? <ArticleContent articles={articles} banner="THE LATEST" source={source} />
+          : null
+      }
       <div className={utilStyles.infoContainer} ref={homeRef}>
         <div className={utilStyles.infoHeader}>We&apos;ve watched thousands of hours of less-known TV for you.</div>
         <div className={utilStyles.infoBody}>

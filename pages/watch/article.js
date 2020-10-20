@@ -8,43 +8,47 @@ import { connect } from 'react-redux'
 // COMPONENTS
 import Layout from '../../components/layout/layout'
 import Loading from '../../components/loading/loading'
-
-// HELPERS
-import utilStyles from '../../styles/utils.module.css'
-import { getActivityFromDB } from '../../lib/helpers/db/requests'
-import ContentDisplay from '../../components/ContentDisplay/ContentDisplay'
 import ArticleDisplay from '../../components/ArticleDisplay/ArticleDisplay'
 
+// HELPERS
+import { getActivityFromDB } from '../../lib/helpers/db/requests'
+import utilStyles from '../../styles/utils.module.css'
+
 function Content () {
-  const [activity, setActivity] = useState(null)
+  const [article, setArticle] = useState(null)
   const router = useRouter()
   const { id } = router.query
-  const getActivity = async () => {
+
+  const getArticle = async () => {
     try {
-      const newActivity = await getActivityFromDB('do', id)
-      setActivity(newActivity)
+      const retrievedArticle = await getActivityFromDB('watch', id)
+      setArticle(retrievedArticle)
     } catch (e) {
       console.error(e)
     }
   }
+
   useEffect(() => {
-    if (!activity && id) getActivity()
+    if (!article && id) getArticle()
   }, [id])
+
   return (
     <Layout>
       {
-        activity
-          ? activity.article
-            ? <ArticleDisplay article={activity} />
-            : <ContentDisplay content={activity} />
-          : <Loading loading={true} />
+        article
+          ? (
+            <div className={utilStyles.watchContentSection}>
+              <ArticleDisplay article={article} />
+            </div>
+          )
+          : <Loading />
       }
     </Layout>
   )
 }
 
 Content.propTypes = {
-  Activity: PropTypes.object,
+  show: PropTypes.object,
 }
 
 export default connect((state) => state)(Content)

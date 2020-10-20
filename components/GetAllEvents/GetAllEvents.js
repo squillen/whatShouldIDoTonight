@@ -18,8 +18,6 @@ function GetAllEvents ({ header = 'Things To Do', source, category = '' }) {
   const [calledAPI, setCalledAPI] = useState(false)
   const [filters, setFilters] = useState({})
   const [categories, setCategories] = useState([])
-  const destination = (category && category.toLowerCase() === 'total') ? '' : `category=${category}`
-  const stub = `${source}?${destination}`
   useEffect(() => {
     if (category && !calledAPI && allActivities && !allActivities.length) getAllActivitiesOnLoad()
   }, [category])
@@ -30,6 +28,8 @@ function GetAllEvents ({ header = 'Things To Do', source, category = '' }) {
   async function getAllActivitiesOnLoad () {
     try {
       const options = getOptions()
+      const destination = (category && category.toLowerCase() === 'total') ? '' : `category=${category}`
+      const stub = `${source}?${destination}`
       const allActivities = await callAPI(stub, options)
       setAllActivities(allActivities)
       setCurrentActivities(allActivities)

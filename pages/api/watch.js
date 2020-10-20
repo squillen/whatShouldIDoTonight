@@ -2,13 +2,14 @@ import { ObjectId } from 'mongodb'
 import nextConnect from 'next-connect'
 import middleware from '../../middleware/database'
 import { getAllCategories } from '../../lib/helpers/dataHelpers'
+import { findAllActivities } from '../../lib/helpers/db/requests'
 
 const handler = nextConnect()
 
 handler.use(middleware)
 
 handler.get(async (req, res) => {
-  const { all, spotlight, ideas, category, free, id } = req.query
+  const { all, articles, spotlight, ideas, category, free, id } = req.query
   try {
     let result
     const watchCollection = req.db.collection('watch')
@@ -23,6 +24,9 @@ handler.get(async (req, res) => {
     } else if (free) {
       result = await watchCollection.find({ free: true })
       result = await result.toArray()
+    } else if (articles) {
+      result = await watchCollection.find({ article: true })
+      result = await result.toArray()
     } else if (id) {
       const _id = ObjectId(id)
       result = await watchCollection.findOne({ _id })
@@ -33,7 +37,7 @@ handler.get(async (req, res) => {
       result = await watchCollection.find({ pagePath: { $exists: true } })
       result = await result.toArray()
     } else {
-      result = await watchCollection.find()
+      result = await findAllActivities(watchCollection)
       result = await result.toArray()
     }
     res.json(result)

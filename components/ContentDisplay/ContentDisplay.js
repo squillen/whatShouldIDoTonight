@@ -8,6 +8,7 @@ import BackButton from '../BackButton/BackButton'
 // HELPERS
 import utilStyles from '../../styles/utils.module.css'
 import handleMarkdown from '../../lib/helpers/handleMarkdown'
+import SVGGrabber from '../SVGGrabber'
 
 function handleBody (body = [], activityName) {
   return body && body.map((obj, idx) => (
@@ -15,9 +16,10 @@ function handleBody (body = [], activityName) {
       <div key={`${activityName}-${obj.name}`} className={utilStyles.sectionContainer}>
         <div className={utilStyles.sectionHeader}>
           <div className={utilStyles.blob}>
-            <svg viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg">
+            <SVGGrabber type="circle" />
+            {/* <svg viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg">
               <path fill="#FA4D56" d="M56.2,-28.5C66.9,-13.9,65.5,11.5,54.1,34.7C42.7,57.9,21.4,78.9,3.4,76.9C-14.6,75,-29.2,50.1,-38.2,28.3C-47.2,6.5,-50.5,-12.3,-43.2,-24.9C-36,-37.5,-18,-43.9,2.4,-45.3C22.8,-46.7,45.5,-43.1,56.2,-28.5Z" transform="translate(100 100)" />
-            </svg>
+            </svg> */}
           </div>
           <span>
             <span className={utilStyles.firstLetter}>{obj.name[0]}</span>
@@ -27,8 +29,8 @@ function handleBody (body = [], activityName) {
         </div>
         <div className={utilStyles.sectionBody}>
           {
-            obj.contents.map(text => (
-              <div key={text.slice(0, 10)} className={utilStyles.bodyContents}>{handleMarkdown(text)}</div>
+            obj.contents.map((text, idx) => (
+              <div key={typeof text === 'string' ? text.slice(0, 10) : idx } className={utilStyles.bodyContents}>{handleMarkdown(text)}</div>
             ))
           }
         </div>
@@ -115,8 +117,6 @@ function handleInfo (content = {}) {
 }
 
 export default function ContentDisplay ({ content, back }) {
-  const fills = ['#1C92F5', '#FA4D56', '#FA4D56', '#F51CB3', '#1CF561']
-  const fill = fills[Math.floor(Math.random() * fills.length)]
   return (
     <>
       <Head>
@@ -126,11 +126,11 @@ export default function ContentDisplay ({ content, back }) {
         <div className={utilStyles.pageHeaderContainer}>
           <div
             className={utilStyles.imageBanner}
-            style={{ background: `url(${content.image}) center no-repeat` }}
+            style={{ background: `url(${content.image}) center no-repeat`, backgroundSize: 'cover' }}
           >
             <div className={utilStyles.overlay} />
             <div className={utilStyles.pageActivityName}>{content.name}</div>
-            {handleInfo(content)}
+            {content.categories && handleInfo(content)}
           </div>
         </div>
         <div className={utilStyles.pageBodyContainer}>
@@ -142,9 +142,11 @@ export default function ContentDisplay ({ content, back }) {
               ? (
                 <div className={utilStyles.pageActivityTitle}>
                   <div className={utilStyles.titleBlob}>
-                    <svg viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg">
+                    {<SVGGrabber />}
+
+                    {/* <svg viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg">
                       <path fill={fill} d="M45.9,-78.4C59.1,-71.9,69.3,-58.9,74.6,-44.7C79.8,-30.6,80.3,-15.3,79.7,-0.3C79.1,14.6,77.4,29.2,71.4,42C65.4,54.9,55,66.1,42.3,74.9C29.7,83.7,14.9,90.1,0.4,89.4C-14,88.6,-27.9,80.6,-41.8,72.5C-55.8,64.4,-69.6,56.3,-77.8,44.2C-86,32.1,-88.5,16.1,-88.3,0.1C-88.1,-15.8,-85.2,-31.7,-77,-43.8C-68.8,-55.9,-55.4,-64.3,-41.7,-70.5C-28,-76.8,-14,-81,1.2,-83C16.3,-85,32.7,-85,45.9,-78.4Z" transform="translate(100 100)" />
-                    </svg>
+                    </svg> */}
                   </div>
                   {handleMarkdown(content.title)}
                 </div>
@@ -156,6 +158,7 @@ export default function ContentDisplay ({ content, back }) {
               ? (
                 <div className={utilStyles.iframeContainer}>
                   <iframe
+                    title={content.title || ''}
                     className={utilStyles.iframe}
                     src={content.iframe}
                     frameBorder="0"

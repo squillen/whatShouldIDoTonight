@@ -9,7 +9,7 @@ let cachedDb = null
 
 const client = new MongoClient(uri, {
   useNewUrlParser: true,
-  useUnifiedTopology: true
+  useUnifiedTopology: true,
 })
 
 async function database (req, res, next) {

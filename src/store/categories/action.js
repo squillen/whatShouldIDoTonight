@@ -5,7 +5,8 @@ export const categoryActionTypes = {
   SET_LEARN_ACTIVITIES: 'SET_LEARN_ACTIVITIES',
   SET_LISTEN_ACTIVITIES: 'SET_LISTEN_ACTIVITIES',
   SET_READ_ACTIVITIES: 'SET_READ_ACTIVITIES',
-  SET_WATCH_ACTIVITIES: 'SET_WATCH_ACTIVITIES'
+  SET_WATCH_ACTIVITIES: 'SET_WATCH_ACTIVITIES',
+  SET_DRINK_ACTIVITIES: 'SET_DRINK_ACTIVITIES',
 }
 
 export const resetAll = () => (dispatch) => {
@@ -34,4 +35,8 @@ export const setReadActivities = (payload) => (dispatch) => {
 
 export const setWatchActivities = (payload) => (dispatch) => {
   return dispatch({ type: categoryActionTypes.SET_WATCH_ACTIVITIES, payload })
+}
+
+export const setDrinkActivities = (payload) => (dispatch) => {
+  return dispatch({ type: categoryActionTypes.SET_DRINK_ACTIVITIES, payload })
 }

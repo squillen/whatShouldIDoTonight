@@ -51,5 +51,5 @@ export default function ArticleHead ({ activity = {} }) {
 }
 
 ArticleHead.propTypes = {
-  activity: PropTypes.obj,
+  activity: PropTypes.object,
 }

@@ -37,18 +37,20 @@ export const getStaticProps = wrapper.getStaticProps(({ store }) => {
   const state = store.getState()
   const all = state.categories.listenActivities.all || {}
   const spotlight = state.categories.listenActivities.spotlight || []
+  const articles = state.categories.listenActivities.articles || []
   if (spotlight && !spotlight.length) return getActivitiesFromDB('listen')
   else {
     return {
       props: {
         spotlight,
         all,
+        articles,
       },
     }
   }
 })
 
-function ListenSection ({ spotlight = [], all = {}, setInRedux, setListenActivitiesFromProps }) {
+function ListenSection ({ articles = [], spotlight = [], all = {}, setInRedux, setListenActivitiesFromProps }) {
   const [updatedRedux, setUpdatedRedux] = useState(false)
   if (!updatedRedux && setInRedux) {
     setUpdatedRedux(true)
@@ -60,6 +62,7 @@ function ListenSection ({ spotlight = [], all = {}, setInRedux, setListenActivit
   const display = (
     <HandleContent
       all={obj}
+      articles={articles}
       source={source}
       quotes={quotes}
       homeRef={homeRef}
@@ -88,6 +91,7 @@ function ListenSection ({ spotlight = [], all = {}, setInRedux, setListenActivit
 
 ListenSection.propTypes = {
   spotlight: PropTypes.array,
+  articles: PropTypes.array,
   all: PropTypes.object,
   setListenActivitiesFromProps: PropTypes.func,
   setInRedux: PropTypes.bool,

@@ -17,6 +17,7 @@ import { getNewUserActivity, resetAll, restoreUserActivities } from '../../src/s
 import { siteTitle, description } from '../../components/defaultHead'
 import Layout from '../../components/layout/layout'
 import Button from '../../components/button/button'
+import BackButton from '../../components/BackButton/BackButton'
 import SocialIcons from '../../components/socialIcons/socialIcons'
 import utilStyles from '../../styles/utils.module.css'
 
@@ -83,7 +84,6 @@ function Post (props) {
 
   const url = 'https://whatshouldidotonight.com'
   const pageURL = `${url}${router.pathname}`
-
   return (
     <Layout home>
       <Head>
@@ -113,7 +113,7 @@ function Post (props) {
         }}
       />
       <motion.div className={utilStyles.postContainer} exit={{ opacity: 0 }} variants={stagger}>
-        {/* <BackButton onClick={router.back} /> */}
+        {landedFromWeb && <BackButton />}
         {/* <header> */}
         <motion.div variants={stagger} className={utilStyles.headerContainer}>
           <motion.div variants={fadeInFromLeft} className={utilStyles.headingXl}>{pageTitle}</motion.div>

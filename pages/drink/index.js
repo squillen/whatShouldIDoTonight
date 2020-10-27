@@ -6,7 +6,7 @@ import PropTypes from 'prop-types'
 import wrapper from '../../src/store/store'
 import { connect } from 'react-redux'
 import { bindActionCreators } from 'redux'
-import { setWatchActivities } from '../../src/store/categories/action'
+import { setDrinkActivities } from '../../src/store/categories/action'
 
 // COMPONENTS
 import Layout from '../../components/layout/layout'
@@ -43,7 +43,7 @@ export const getStaticProps = wrapper.getStaticProps(({ store }) => {
   const all = state.categories.watchActivities.all || {}
   const spotlight = state.categories.watchActivities.spotlight || []
   const articles = state.categories.watchActivities.articles || []
-  if (spotlight && !spotlight.length) return getActivitiesFromDB('watch')
+  if (spotlight && !spotlight.length) return getActivitiesFromDB('drink')
   else {
     return {
       props: {
@@ -55,13 +55,13 @@ export const getStaticProps = wrapper.getStaticProps(({ store }) => {
   }
 })
 
-function WatchSection ({ spotlight = [], all = {}, articles = [], setInRedux, setWatchActivitiesFromProps }) {
+function DrinkSection ({ spotlight = [], all = {}, articles = [], setInRedux, setDrinkActivitiesFromProps }) {
   const [updatedRedux, setUpdatedRedux] = useState(false)
   if (!updatedRedux && setInRedux) {
     setUpdatedRedux(true)
-    setWatchActivitiesFromProps({ all, spotlight })
+    setDrinkActivitiesFromProps({ all, spotlight })
   }
-  const source = 'watch'
+  const source = 'drink'
   const obj = all || {}
 
   const homeRef = useRef('home')
@@ -78,12 +78,12 @@ function WatchSection ({ spotlight = [], all = {}, articles = [], setInRedux, se
   return (
     <Layout>
       <Head>
-        <title>What Should I Watch Tonight - {siteTitle}</title>
+        <title>What Should I Drink Tonight - {siteTitle}</title>
         <meta name="description" content={pageDescription} />
       </Head>
       {
         spotlight && Array.isArray(spotlight) && spotlight.length
-          ? <SplashContent content={spotlight} banner="Watch the less known" source={source} />
+          ? <SplashContent content={spotlight} banner="Drink better" source={source} />
           : null
       }
       {
@@ -92,9 +92,9 @@ function WatchSection ({ spotlight = [], all = {}, articles = [], setInRedux, se
           : null
       }
       <div className={utilStyles.infoContainer} ref={homeRef}>
-        <div className={utilStyles.infoHeader}>We&apos;ve watched thousands of hours of less-known TV for you.</div>
+        <div className={utilStyles.infoHeader}>We drank so nany driniks fo r you.</div>
         <div className={utilStyles.infoBody}>
-          <p>Totally for research.</p>
+          <p>aLl for resRCH.</p>
         </div>
       </div>
       {display}
@@ -102,18 +102,18 @@ function WatchSection ({ spotlight = [], all = {}, articles = [], setInRedux, se
   )
 }
 
-WatchSection.propTypes = {
+DrinkSection.propTypes = {
   spotlight: PropTypes.array,
   articles: PropTypes.array,
   all: PropTypes.object,
-  setWatchActivitiesFromProps: PropTypes.func,
+  setDrinkActivitiesFromProps: PropTypes.func,
   setInRedux: PropTypes.bool,
 }
 
 const mapDispatchToProps = (dispatch) => {
   return {
-    setWatchActivitiesFromProps: bindActionCreators(setWatchActivities, dispatch),
+    setDrinkActivitiesFromProps: bindActionCreators(setDrinkActivities, dispatch),
   }
 }
 
-export default connect((state) => state, mapDispatchToProps)(WatchSection)
+export default connect((state) => state, mapDispatchToProps)(DrinkSection)

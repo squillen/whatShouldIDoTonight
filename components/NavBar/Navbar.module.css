@@ -68,14 +68,17 @@
   position: relative;
   font-size: 1.3rem;
 }
-.nav__menu-item:hover {
+.nav__menu-item:hover,
+.nav__menu-item:active  {
   background-color: rgba(25, 110, 171, 0.9990371148459384);
 }
-.nav__menu-item:hover .nav__submenu {
+.nav__menu-item:hover .nav__submenu,
+.nav__menu-item:active .nav__submenu {
   display: block;
 }
 
-.nav__menu-item:hover .underline {
+.nav__menu-item:hover .underline,
+.nav__menu-item:active .underline {
   display: none;
 }
 
@@ -88,10 +91,12 @@
   background-color: #00aeef;
   background-color: rgba(25, 110, 171, 0.9990371148459384);
 }
-.nav__menu-item:hover .submenu-container {
+.nav__menu-item:hover .submenu-container,
+.nav__menu-item:active .submenu-container {
   z-index: 4;
 }
-.nav__submenu-item:hover {
+.nav__submenu-item:hover,
+.nav__submenu-item:active {
   background: rgba(0, 0, 0, 0.1);
 }
 

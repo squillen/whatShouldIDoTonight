@@ -41,18 +41,20 @@ export const getStaticProps = wrapper.getStaticProps(({ store }) => {
   const state = store.getState()
   const all = state.categories.learnActivities.all || {}
   const spotlight = state.categories.learnActivities.spotlight || []
+  const articles = state.categories.learnActivities.articles || []
   if (spotlight && !spotlight.length) return getActivitiesFromDB('learn')
   else {
     return {
       props: {
         spotlight,
         all,
+        articles,
       },
     }
   }
 })
 
-function LearnSection ({ spotlight = [], all = {}, setInRedux, setLearnActivitiesFromProps }) {
+function LearnSection ({ articles = [], spotlight = [], all = {}, setInRedux, setLearnActivitiesFromProps }) {
   const [updatedRedux, setUpdatedRedux] = useState(false)
   if (!updatedRedux && setInRedux) {
     setUpdatedRedux(true)
@@ -64,6 +66,7 @@ function LearnSection ({ spotlight = [], all = {}, setInRedux, setLearnActivitie
   const display = (
     <HandleContent
       all={obj}
+      articles={articles}
       source={source}
       quotes={quotes}
       homeRef={homeRef}
@@ -88,6 +91,7 @@ function LearnSection ({ spotlight = [], all = {}, setInRedux, setLearnActivitie
 
 LearnSection.propTypes = {
   spotlight: PropTypes.array,
+  articles: PropTypes.array,
   all: PropTypes.object,
   setLearnActivitiesFromProps: PropTypes.func,
   setInRedux: PropTypes.bool,

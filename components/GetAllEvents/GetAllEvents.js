@@ -28,7 +28,11 @@ function GetAllEvents ({ header = 'Things To Do', source, category = '' }) {
   async function getAllActivitiesOnLoad () {
     try {
       const options = getOptions()
-      const destination = (category && category.toLowerCase() === 'total') ? '' : `category=${category}`
+      const destination = (category && category.toLowerCase() === 'total')
+        ? ''
+        : category && category.toLowerCase() === 'articles'
+          ? 'articles=articles'
+          : `category=${category}`
       const stub = `${source}?${destination}`
       const allActivities = await callAPI(stub, options)
       setAllActivities(allActivities)
@@ -42,18 +46,18 @@ function GetAllEvents ({ header = 'Things To Do', source, category = '' }) {
 
   function getFiltersAndCategoriesOnLoad () {
     const newFilters = allActivities && allActivities.reduce((obj, el) => {
-      const cleanedCategories = el.categories || []
+      const cleanedCategories = el.categories || el.tags || []
       cleanedCategories.forEach(currCategory => {
         if (currCategory === '') obj.free = true
         else obj[currCategory] = true
       })
       return obj
     }, {})
-    const categories = newFilters && Object.keys(newFilters).sort()
-    categories.unshift('all')
+    const newCategories = newFilters && Object.keys(newFilters).sort()
+    newCategories.unshift('all')
     newFilters.all = true
     setFilters(newFilters)
-    setCategories(categories)
+    setCategories(newCategories)
     setCurrentActivities(allActivities)
   }
 
@@ -86,7 +90,7 @@ function GetAllEvents ({ header = 'Things To Do', source, category = '' }) {
       if (filtersCopy[key]) {
         keepList.push(key)
         allActivities.forEach(a => {
-          const safeCategories = a.categories || []
+          const safeCategories = a.categories || a.tags || []
           const categoriesWithDoNotWants = [...safeCategories, ...doNotWants]
           const userDoesNotWantFreeAndIsFree = userDoesNotWantFree && a.free
           let add = false

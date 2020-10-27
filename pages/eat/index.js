@@ -48,7 +48,7 @@ export const getStaticProps = wrapper.getStaticProps(({ store }) => {
   }
 })
 
-function EatSection ({ spotlight = [], all = {}, setInRedux, setEatActivitiesFromProps }) {
+function EatSection ({ articles = [], spotlight = [], all = {}, setInRedux, setEatActivitiesFromProps }) {
   const [updatedRedux, setUpdatedRedux] = useState(false)
   if (!updatedRedux && setInRedux) {
     setUpdatedRedux(true)
@@ -60,6 +60,7 @@ function EatSection ({ spotlight = [], all = {}, setInRedux, setEatActivitiesFro
   const display = (
     <HandleContent
       all={obj}
+      articles={articles}
       source={source}
       quotes={quotes}
       homeRef={homeRef}
@@ -83,6 +84,7 @@ function EatSection ({ spotlight = [], all = {}, setInRedux, setEatActivitiesFro
 
 EatSection.propTypes = {
   spotlight: PropTypes.array,
+  articles: PropTypes.array,
   all: PropTypes.object,
   setEatActivitiesFromProps: PropTypes.func,
   setInRedux: PropTypes.bool,

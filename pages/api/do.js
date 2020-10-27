@@ -9,7 +9,7 @@ const handler = nextConnect()
 handler.use(middleware)
 
 handler.get(async (req, res) => {
-  const { all, spotlight, category, free, limit = 0, id, included, excluded } = req.query
+  const { articles, all, spotlight, category, free, limit = 0, id, included, excluded } = req.query
   const numberLimit = Number(limit)
   try {
     let result
@@ -35,8 +35,11 @@ handler.get(async (req, res) => {
       const _id = ObjectId(id)
       result = await doCollection.findOne({ _id })
     } else if (spotlight) {
-      result = await doCollection.find({ spotlight: true }).limit(numberLimit)
-      result = await result.toArray()
+      const articles = await doCollection.find({ $and: [{ article: true }, { spotlight: true }] }).limit(numberLimit)
+      const spotlight = await doCollection.find({ spotlight: true }).limit(numberLimit)
+      const articlesArray = await articles.toArray()
+      const spotlightArray = await spotlight.toArray()
+      result = [...articlesArray, ...spotlightArray]
     } else if (included && excluded) {
       const includedArray = included.split(',')
       const excludedArray = excluded.split(',')
@@ -46,6 +49,9 @@ handler.get(async (req, res) => {
           { categories: { $nin: excludedArray } },
         ],
       }).limit(numberLimit)
+      result = await result.toArray()
+    } else if (articles) {
+      result = await doCollection.find({ article: true }).limit(numberLimit)
       result = await result.toArray()
     } else {
       result = await findAllActivities(doCollection, numberLimit)

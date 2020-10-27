@@ -18,7 +18,7 @@ const specialCase = {
   total: { name: 'All' },
 }
 
-export default function HandleContent ({ all, source, quotes = [], homeRef }) {
+export default function HandleContent ({ articles, all, source, quotes = [], homeRef }) {
   const contentCategories = []
   const collections = []
   const handleCategory = (name, contents) => {
@@ -40,6 +40,8 @@ export default function HandleContent ({ all, source, quotes = [], homeRef }) {
     contentCategories.push(handleCategory(key, all[key]))
   }
 
+  contentCategories.push(handleCategory('articles', articles))
+
   contentCategories.sort((a, b) => {
     if (a.header > b.header) return 1
     if (a.header < b.header) return -1
@@ -51,13 +53,14 @@ export default function HandleContent ({ all, source, quotes = [], homeRef }) {
   const display = []
   let useQuote = false
   const listOfUsedCallOuts = []
+  const quotesCopy = [...quotes]
   for (let i = 0; i < contentCategories.length; i += 2) {
     const currentDisplay = contentCategories.slice(i, i + 2)
     useQuote = i % 3 === 0
     const currentCallOut = findCallOut(...getRandomCategory(), listOfUsedCallOuts) || {}
     listOfUsedCallOuts.push(currentCallOut.name)
-    const currentContentCallOut = useQuote && quotes.length
-      ? <ContentCallOut item={quotes.pop()} />
+    const currentContentCallOut = useQuote && quotesCopy.length
+      ? <ContentCallOut item={quotesCopy.pop()} />
       : <ContentCallOut source={source} item={currentCallOut} />
     if (useQuote) useQuote = false
     display.push((
@@ -79,6 +82,7 @@ export default function HandleContent ({ all, source, quotes = [], homeRef }) {
 
 HandleContent.propTypes = {
   all: PropTypes.object,
+  articles: PropTypes.object,
   homeRef: PropTypes.object,
   source: PropTypes.string,
   quotes: PropTypes.array,

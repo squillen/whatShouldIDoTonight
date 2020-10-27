@@ -9,7 +9,7 @@ const handler = nextConnect()
 handler.use(middleware)
 
 handler.get(async (req, res) => {
-  const { all, spotlight, category, free, id } = req.query
+  const { articles, all, spotlight, category, free, id } = req.query
   try {
     let result
     const learnCollection = req.db.collection('learn')
@@ -32,6 +32,9 @@ handler.get(async (req, res) => {
       result = await learnCollection.findOne({ _id })
     } else if (spotlight) {
       result = await learnCollection.find({ spotlight: true })
+      result = await result.toArray()
+    } else if (articles) {
+      result = await learnCollection.find({ article: true })
       result = await result.toArray()
     } else {
       result = await findAllActivities(learnCollection)

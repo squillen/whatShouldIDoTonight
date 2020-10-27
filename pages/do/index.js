@@ -1,4 +1,4 @@
-import React, { useState, useRef } from 'react'
+import React, { useEffect, useState, useRef } from 'react'
 import Head from 'next/head'
 import PropTypes from 'prop-types'
 
@@ -33,23 +33,27 @@ export const getStaticProps = wrapper.getStaticProps(({ store }) => {
   const state = store.getState()
   const all = state.categories.doActivities.all || {}
   const spotlight = state.categories.doActivities.spotlight || []
+  const articles = state.categories.doActivities.articles || []
   if (spotlight && !spotlight.length) return getActivitiesFromDB('do')
   else {
     return {
       props: {
         spotlight,
         all,
+        articles,
       },
     }
   }
 })
 
-function DoSection ({ spotlight = [], all = {}, setInRedux, setDoActivitiesFromProps }) {
+function DoSection ({ spotlight = [], all = {}, articles = [], setInRedux, setDoActivitiesFromProps }) {
   const [updatedRedux, setUpdatedRedux] = useState(false)
-  if (!updatedRedux && setInRedux) {
-    setUpdatedRedux(true)
-    setDoActivitiesFromProps({ all, spotlight })
-  }
+  useEffect(() => {
+    if (!updatedRedux && setInRedux) {
+      setUpdatedRedux(true)
+      setDoActivitiesFromProps({ all, spotlight })
+    }
+  }, [updatedRedux, setInRedux])
   const source = 'do'
   const obj = all || {}
 
@@ -57,6 +61,7 @@ function DoSection ({ spotlight = [], all = {}, setInRedux, setDoActivitiesFromP
   const display = (
     <HandleContent
       all={obj}
+      articles={articles}
       source={source}
       quotes={quotes}
       homeRef={homeRef}
@@ -80,7 +85,7 @@ function DoSection ({ spotlight = [], all = {}, setInRedux, setDoActivitiesFromP
           : null
       }
       <div className={utilStyles.infoContainer} ref={homeRef}>
-        <div className={utilStyles.infoHeader}>Make your night better</div>
+        <div className={utilStyles.infoHeader}>Your night just got a whole lot better</div>
       </div>
       {display}
     </Layout>
@@ -90,6 +95,7 @@ function DoSection ({ spotlight = [], all = {}, setInRedux, setDoActivitiesFromP
 DoSection.propTypes = {
   spotlight: PropTypes.array,
   all: PropTypes.object,
+  articles: PropTypes.array,
   setDoActivitiesFromProps: PropTypes.func,
   setInRedux: PropTypes.bool,
 }

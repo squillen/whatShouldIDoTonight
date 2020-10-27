@@ -65,8 +65,18 @@
 
 .content {
   width: 100%;
-  padding: 1rem 0;
+  padding: 0.5rem 2rem;
   font-size: 1.4rem;
+}
+
+.content > p,
+.content > li {
+  padding: 0 2rem;
+  margin: 0.5rem 0;
+}
+
+.content > ul {
+  margin: 0
 }
 
 .bodyContainer {
@@ -88,6 +98,7 @@
 
 .image {
   min-width: 40%;
+  max-width: 50%;
 }
 
 

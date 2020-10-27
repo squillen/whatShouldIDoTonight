@@ -6,7 +6,8 @@ const categoryInitialState = {
   listenActivities: {},
   learnActivities: {},
   readActivities: {},
-  watchActivities: {}
+  watchActivities: {},
+  drinkActivities: {},
 }
 
 export default function reducer (state = categoryInitialState, action) {
@@ -14,37 +15,42 @@ export default function reducer (state = categoryInitialState, action) {
     case categoryActionTypes.SET_DO_ACTIVITIES:
       return {
         ...state,
-        doActivities: action.payload
+        doActivities: action.payload,
       }
     case categoryActionTypes.SET_EAT_ACTIVITIES:
       return {
         ...state,
-        eatActivities: action.payload
+        eatActivities: action.payload,
       }
     case categoryActionTypes.SET_LISTEN_ACTIVITIES:
       return {
         ...state,
-        listenActivities: action.payload
+        listenActivities: action.payload,
       }
     case categoryActionTypes.SET_LEARN_ACTIVITIES:
       return {
         ...state,
-        learnActivities: action.payload
+        learnActivities: action.payload,
       }
     case categoryActionTypes.SET_READ_ACTIVITIES:
       return {
         ...state,
-        readActivities: action.payload
+        readActivities: action.payload,
       }
     case categoryActionTypes.SET_WATCH_ACTIVITIES:
       return {
         ...state,
-        watchActivities: action.payload
+        watchActivities: action.payload,
+      }
+    case categoryActionTypes.SET_DRINK_ACTIVITIES:
+      return {
+        ...state,
+        drinkActivities: action.payload,
       }
     case categoryActionTypes.RESET_ALL:
       return {
         ...state,
-        ...categoryInitialState
+        ...categoryInitialState,
       }
     default:
       return state

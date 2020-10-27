@@ -5,6 +5,7 @@ import IFrame from '../IFrame/IFrame'
 import ArticleHead from '../ArticleHead'
 import SVGGrabber from '../SVGGrabber'
 import BackButton from '../BackButton/BackButton'
+import handleMarkdown from '../../lib/helpers/handleMarkdown'
 
 export default function ArticleDisplay ({ article }) {
   const style = { background: `url(${article.image}) center no-repeat`, backgroundSize: 'cover' }
@@ -21,8 +22,8 @@ export default function ArticleDisplay ({ article }) {
         <BackButton />
         <div className={styles.articleBody}>
           {
-            article.body.map(item => (
-              <div key={item.name} className={styles.bodyContainer}>
+            article.body.map((item, idx) => (
+              <div key={item.name || idx} className={styles.bodyContainer}>
                 {
                   item.name && (
                     <div className={styles.suggestionHeader}>
@@ -42,7 +43,7 @@ export default function ArticleDisplay ({ article }) {
                             ? <div className={styles.iframe}><IFrame src={c.iframe} /></div>
                             : c.image
                               ? <div className={styles.imageContainer}><img className={styles.image} src={c.image[0]} alt={c.image[1]} /></div>
-                              : c
+                              : handleMarkdown(c)
                         }
                       </div>
                     ))

@@ -30,7 +30,7 @@ export default function ArticleDisplay ({ article }) {
                       <div className={styles.blob}>
                         {<SVGGrabber type="circle" />}
                       </div>
-                      {item.name}
+                      {handleMarkdown(item.name)}
                     </div>
                   )
                 }

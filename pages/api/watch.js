@@ -29,7 +29,7 @@ handler.get(async (req, res) => {
       result = await watchCollection.find({ free: true })
       result = await result.toArray()
     } else if (articles) {
-      result = await watchCollection.find({ article: true, $or: expirationCheck })
+      result = await watchCollection.find({ $and: [{ article: true }, { $or: expirationCheck }] })
       result = await result.toArray()
     } else if (id) {
       const _id = ObjectId(id)

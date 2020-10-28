@@ -10,6 +10,7 @@ const categories = [
   { title: 'Listen', href: '/listen' },
   { title: 'Learn (soon)', href: '' },
   { title: 'Eat (soon)', href: '' },
+  { title: 'Drink (soon)', href: '' },
   { title: 'Read (soon)', href: '' },
   // { title: 'Learn', href: '/learn' },
   // { title: 'Eat', href: '/eat' },

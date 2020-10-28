@@ -55,7 +55,7 @@ handler.get(async (req, res) => {
       }).limit(numberLimit)
       result = await result.toArray()
     } else if (articles) {
-      result = await doCollection.find({ article: true, $or: expirationCheck }).limit(numberLimit)
+      result = await doCollection.find({ $and: [{ article: true }, { $or: expirationCheck }] }).limit(numberLimit)
       result = await result.toArray()
     } else {
       result = await findAllActivities(doCollection, numberLimit)

@@ -14,7 +14,7 @@ function SplashContent ({ content = [], banner, source }) {
       <div className={styles.overlay} />
       <Link href={getContentURL(currContent)} as={getContentURL(currContent)}>
         <a>
-          <div className={styles.text}>{currContent.name || ''}</div>
+          <div className={styles.text}>{(currContent && currContent.name) || ''}</div>
         </a>
       </Link>
     </div>
@@ -32,7 +32,7 @@ function SplashContent ({ content = [], banner, source }) {
         <div className={styles.largeImageContainer}>
           <div
             className={styles.largeImage}
-            key={content1.name}
+            key={(content1 && content1.name) || 'content1Key'}
           >
             {getContentDiv(content1)}
           </div>
@@ -40,13 +40,13 @@ function SplashContent ({ content = [], banner, source }) {
         <div className={styles.smallImagesContainer}>
           <div
             className={styles.smallImage}
-            key={content2.name}
+            key={(content2 && content2.name) || 'content2Key'}
           >
             {getContentDiv(content2)}
           </div>
           <div
             className={styles.smallImage}
-            key={content3.name}
+            key={(content3 && content3.name) || 'content3Key'}
           >
             {getContentDiv(content3)}
           </div>

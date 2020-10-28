@@ -2,6 +2,7 @@ import { connect } from 'react-redux'
 import Post from '../../../../../components/post/post'
 import Photo from '../../../../../components/photo/photo'
 import LinkTo from '../../../../../components/linkTo/linkTo'
+import IFrame from '../../../../../components/IFrame/IFrame'
 import styles from '../../../../../styles/activity.module.css'
 
 const getContent = () => (
@@ -12,18 +13,15 @@ const getContent = () => (
     />
     <p>Life&apos;s too short for bad food. So make it better and make it faster.</p>
     <p>Learn:</p>
+
     <ol>
       <li>
-        <LinkTo
-          href="https://www.youtube.com/watch?v=aoqVGdmVlKk"
-          label="how to cut (video)"
-        />
+        How to cut:
+        <div className={styles.iframe}><IFrame src="https://www.youtube.com/embed/aoqVGdmVlKk" /></div>
       </li>
       <li>
-        <LinkTo
-          href="https://www.youtube.com/watch?v=G-Fg7l7G1zw"
-          label="the types of cuts (video)"
-        />
+        The types of cuts:
+        <div className={styles.iframe}><IFrame src="https://www.youtube.com/embed/G-Fg7l7G1zw" /></div>
       </li>
       <li>
         <LinkTo

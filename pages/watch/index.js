@@ -86,11 +86,11 @@ function WatchSection ({ spotlight = [], all = {}, articles = [], setInRedux, se
           ? <SplashContent content={spotlight} banner="Watch the less known" source={source} />
           : null
       }
-      {
+      {/* {
         articles && Array.isArray(articles) && articles.length
           ? <ArticleContent articles={articles} banner="THE LATEST" source={source} />
           : null
-      }
+      } */}
       <div className={utilStyles.infoContainer} ref={homeRef}>
         <div className={utilStyles.infoHeader}>We&apos;ve watched thousands of hours of less-known TV for you.</div>
         <div className={utilStyles.infoBody}>

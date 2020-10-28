@@ -13,6 +13,10 @@ handler.get(async (req, res) => {
   try {
     let result
     const watchCollection = req.db.collection('watch')
+    const expirationCheck = [
+      { expirationDate: { $exists: false } },
+      { expirationDate: { $gte: new Date() } },
+    ]
     if (all) {
       result = await watchCollection.find()
       result = await result.toArray()
@@ -25,13 +29,13 @@ handler.get(async (req, res) => {
       result = await watchCollection.find({ free: true })
       result = await result.toArray()
     } else if (articles) {
-      result = await watchCollection.find({ article: true })
+      result = await watchCollection.find({ article: true, $or: expirationCheck })
       result = await result.toArray()
     } else if (id) {
       const _id = ObjectId(id)
       result = await watchCollection.findOne({ _id })
     } else if (spotlight) {
-      result = await watchCollection.find({ spotlight: true })
+      result = await watchCollection.find({ spotlight: true, $or: expirationCheck })
       result = await result.toArray()
     } else if (ideas) {
       result = await watchCollection.find({ pagePath: { $exists: true } })
@@ -48,20 +52,30 @@ handler.get(async (req, res) => {
   }
 })
 
+handler.post(async (req, res) => {
+  const { body } = req
+  try {
+    const watchCollection = req.db.collection('watch')
+    const result = await watchCollection.insertOne(body)
+    res.json(result)
+  } catch (e) {
+    throw new Error('ERROR IN WATCH POST API :::', e)
+  } finally {
+    req.closeDB()
+  }
+})
+
 handler.patch(async (req, res) => {
   const { body, query = {} } = req
   const { id = '' } = query
   const _id = ObjectId(id)
 
   try {
-    let result
     const watchCollection = req.db.collection('watch')
-    if (body.update) {
-      result = await watchCollection.updateOne({ _id }, { $set: body.update }, { upsert: true })
-    }
+    const result = await watchCollection.updateOne({ _id }, { $set: body.update || body }, { upsert: true })
     res.json(result)
   } catch (e) {
-    throw new Error('ERROR IN WATCH API :::', e)
+    throw new Error('ERROR IN WATCH PATCH API :::', e)
   } finally {
     req.closeDB()
   }

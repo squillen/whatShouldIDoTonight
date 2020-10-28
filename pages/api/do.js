@@ -11,6 +11,10 @@ handler.use(middleware)
 handler.get(async (req, res) => {
   const { articles, all, spotlight, category, free, limit = 0, id, included, excluded } = req.query
   const numberLimit = Number(limit)
+  const expirationCheck = [
+    { expirationDate: { $exists: false } },
+    { expirationDate: { $gte: new Date() } },
+  ]
   try {
     let result
     const doCollection = req.db.collection('do')
@@ -29,14 +33,14 @@ handler.get(async (req, res) => {
       result = await doCollection.find({ categories: { $in: [category] } }).limit(numberLimit)
       result = await result.toArray()
     } else if (free) {
-      result = await doCollection.find({ free: true }).limit(numberLimit)
+      result = await doCollection.find({ $or: [{ free: true }, { free: 'true' }] })
       result = await result.toArray()
     } else if (id) {
       const _id = ObjectId(id)
       result = await doCollection.findOne({ _id })
     } else if (spotlight) {
-      const articles = await doCollection.find({ $and: [{ article: true }, { spotlight: true }] }).limit(numberLimit)
-      const spotlight = await doCollection.find({ spotlight: true }).limit(numberLimit)
+      const articles = await doCollection.find({ $and: [{ article: true }, { spotlight: true }], $or: expirationCheck })
+      const spotlight = await doCollection.find({ spotlight: true, $or: expirationCheck })
       const articlesArray = await articles.toArray()
       const spotlightArray = await spotlight.toArray()
       result = [...articlesArray, ...spotlightArray]
@@ -51,7 +55,7 @@ handler.get(async (req, res) => {
       }).limit(numberLimit)
       result = await result.toArray()
     } else if (articles) {
-      result = await doCollection.find({ article: true }).limit(numberLimit)
+      result = await doCollection.find({ article: true, $or: expirationCheck }).limit(numberLimit)
       result = await result.toArray()
     } else {
       result = await findAllActivities(doCollection, numberLimit)
@@ -69,6 +73,8 @@ handler.post(async (req, res) => {
   const { body } = req
   try {
     const doCollection = req.db.collection('do')
+    const expirationDate = body.expirationDate || ''
+    if (expirationDate) body.expirationDate = new Date(expirationDate)
     const result = await doCollection.insertOne(body)
     res.json(result)
   } catch (e) {
@@ -85,6 +91,8 @@ handler.patch(async (req, res) => {
 
   try {
     const doCollection = req.db.collection('do')
+    const expirationDate = body.expirationDate || ''
+    if (expirationDate) body.expirationDate = new Date(expirationDate)
     const result = await doCollection.updateOne({ _id }, { $set: body })
     res.json(result)
   } catch (e) {

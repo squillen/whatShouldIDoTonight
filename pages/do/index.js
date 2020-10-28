@@ -11,6 +11,7 @@ import { setDoActivities } from '../../src/store/categories/action'
 // COMPONENTS
 import Layout from '../../components/layout/layout'
 import SplashContent from '../../components/SplashContent/SplashContent'
+import ArticleContent from '../../components/ArticleContent/ArticleContent'
 import HandleContent from '../../components/HandleContent'
 import { siteTitle } from '../../components/defaultHead'
 
@@ -82,6 +83,11 @@ function DoSection ({ spotlight = [], all = {}, articles = [], setInRedux, setDo
               source={source}
             />
           )
+          : null
+      }
+      {
+        articles && Array.isArray(articles) && articles.length
+          ? <ArticleContent articles={articles} banner="THE LATEST" source={source} />
           : null
       }
       <div className={utilStyles.infoContainer} ref={homeRef}>

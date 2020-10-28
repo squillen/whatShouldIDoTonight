@@ -1,0 +1,95 @@
+{
+  "image": "https://images.unsplash.com/photo-1534612368275-e4cfd0f21b2d?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1350&q=80",
+  "body": [
+      {
+          "name": "The best 5 paid sites to learn in 2020",
+          "contents": [
+              "As the OG Aristotle said, \"The more you know, the more you know you don't know\".",
+              "Tonight seems like a good night to know you don't know some more stuff. Aaaand now I've gone cross eyed.",
+              "Here are some of the best paid sites to get some quality learning in."
+          ]
+      },
+      {
+        "name": "[1) SkillShare](https://skillshare.eqcm.net/q1vgO)",
+        "contents": [
+            {
+                "image": [
+                    "https://static.skillshare.com/assets/images/opengraph-default.png",
+                    "SkillShare logo"
+                ]
+            },
+            "SkillShare is your creative learning destination. They've got courses ranging from creative writing to making films & videos to web development to photography to music to so much more. And, if you're looking to make some money and turn your (newfound) creativity into a business, SkillShare has got you covered with its business and entrepreneurship courses.",
+            "You can sign up for a two week trial to see if you like it and, after that, it's $99/year or $19/month. But, if you [sign up here](https://skillshare.eqcm.net/c/2482536/677296/4650), you can get 30% off your first year, so you only pay $69. 🤑",
+            "<sub>[go to skillshare.com](https://skillshare.eqcm.net/q1vgO)</sub>"
+        ]
+    },
+    {
+      "name": "[2) Great Courses Plus](https://www.thegreatcoursesplus.com/)",
+      "contents": [
+          {
+              "image": [
+                  "https://sm.pcmag.com/t/pcmag_in/review/t/the-great-/the-great-courses-plus_9r22.1024.jpg",
+                  "The Great Courses Plus logo"
+              ]
+          },
+          "I joined The Great Courses Plus under a promotion they were doing where I basically paid nothing for the first month or so with, I assume, their hope that I would either forget that I was paying for it or that I would actually like what they were offering and sign up. About 8 months later, I can tell you that it was the latter.",
+          "Their courses range so much, from how to appreciate classical music, film, wine, beer, etc. to understanding the new and old testament, Paganism, Buddhism, and the Qur'an, to video tours of American state parks, Venice, France, Africa, and so, so much more.",
+          "They have several sign up options where you can either pay $20/month, $15/month for 3 months (charged once every three months for $45), or pay $150/year. The first two plans also have a two week trial where you can test to see if you like it!",
+          "<sub>[go to thegreatcoursesplus.com](https://www.thegreatcoursesplus.com/)</sub>"
+      ]
+  },
+      {
+        "name": "[3) Coursera](https://www.coursera.org/)",
+        "contents": [
+            {
+                "image": [
+                    "https://about.coursera.org/careers/static/media/coursera.da90eb26.svg",
+                    "coursera logo"
+                ]
+            },
+            "Coursera is a fantastic source of university-created courses that cover nearly every topic out there, from nutrition to cryptography to Buddhism. And each course goes into great detail on each.",
+            "As these courses are created by universities, they are structured like classes, with start dates, syllabuses, and deadlines, which some may or may not like.",
+            "Sign up for $49/month and get access to every course they have.",
+            "<sub>[go to coursera.com](https://www.coursera.org/)</sub>"
+        ]
+    },
+      {
+          "name": "[4) MasterClass](https://www.masterclass.com/)",
+          "contents": [
+              {
+                  "image": [
+                      "https://www.cined.com/content/uploads/2020/04/MasterClass-Buy-One-Share-One-Free-Feature-1300x750.jpg",
+                      "MasterClass logo"
+                  ]
+              },
+              "MasterClass is where people at the top of their professions, usually celebrities, tell you how to do what they do. And they've got the best of the best, like [Stephen Curry](https://www.masterclass.com/classes/stephen-curry-teaches-shooting-ball-handling-and-scoring), [Aaron Franklin](https://www.masterclass.com/classes/aaron-franklin-teaches-texas-style-bbq), [Natalie Portman](https://www.masterclass.com/classes/natalie-portman-teaches-acting), [Annie Leibovitz](https://www.masterclass.com/classes/annie-leibovitz-teaches-photography), [Jane Goodall](https://www.masterclass.com/classes/jane-goodall-teaches-conservation), and so many more. ",
+              "So, if you want to learn how the best do it, this is a great inside look at their process and mindset.",
+              "Sign up for an annual cost of $180 and cancel within the first 30 days for a full refund if you don't like it.",
+              "<sub>[go to masterclass.com](https://www.masterclass.com/)</sub>"
+          ]
+      },
+      {
+        "name": "[5) Udemy](https://www.udemy.com/courses)",
+        "contents": [
+            {
+                "image": [
+                    "https://www.udemy.com/staticx/udemy/images/v6/default-meta-image.png",
+                    "Udemy logo"
+                ]
+            },
+            "You're probably already familiar with Udemy and that's because they have nearly got this market covered. They have so many courses out there on everything from how to dance, code, write, draw, animate, be healthy, travel, and so, so much more.",
+            "The only down side to that many courses and teachers is that not all are worth the price, which means you have to be fairly diligent about reading the reviews and watching the overviews to make sure that you like the instructor/content. And, if you buy it and decide you don't like it within the first 30 days, you can get a refund!",
+            "Also, Udemy makes you buy each course individually, which could be good or bad depending on how much you want to learn. However, the benefit of buying the course means that you have it for life and most instructors continually update their courses, which means that you'll also get all those updates no matter when you bought the course! Bonus!",
+            "<sub>[go to udemy.com](https://www.udemy.com/courses)</sub>"
+        ]
+    }
+  ],
+  "name": "Best paid sites to learn stuff",
+  "tagline": "Best paid sites to learn stuff",
+  "pageDescription": "These are the best paid sites in 2020 to learn",
+  "article": true,
+  "spotlight": false,
+  "tags": [
+      "learn"
+  ]
+}

@@ -41,7 +41,7 @@ handler.get(async (req, res) => {
     } else if (spotlight) {
       const articles = await doCollection.find({ $and: [{ article: true }, { spotlight: true }], $or: expirationCheck })
       const spotlight = await doCollection.find({ spotlight: true, $or: expirationCheck })
-      const articlesArray = await articles.toArray()
+      const articlesArray = (articles && await articles.toArray()) || []
       const spotlightArray = await spotlight.toArray()
       result = [...articlesArray, ...spotlightArray]
     } else if (included && excluded) {

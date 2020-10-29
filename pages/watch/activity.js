@@ -17,6 +17,7 @@ import { getActivityFromDB, updateActivityIMDbInDB } from '../../lib/helpers/db/
 import { getIMDbResults } from '../../lib/helpers/external/requests'
 import handleSeasons from '../../lib/helpers/handleSeasons'
 import utilStyles from '../../styles/utils.module.css'
+import HelpfulCounter from '../../components/HelpfulCounter/HelpfulCounter'
 
 function Content () {
   const [activity, setActivity] = useState(null)
@@ -99,6 +100,7 @@ function Content () {
                     }
                   </div>
                 </div>
+                <HelpfulCounter activity={activity} source="watch" />
               </div>
             </>
           )

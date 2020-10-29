@@ -42,7 +42,6 @@ function Post (props) {
     let activity = {}
     try {
       activity = await findActivityByTitle(pageTitle, 'activity')
-      console.log('activity :>> ', activity)
       activity = (activity.ops && activity.ops[0]) || activity
     } catch (e) {
       console.error(e)

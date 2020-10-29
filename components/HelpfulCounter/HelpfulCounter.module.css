@@ -1,0 +1,28 @@
+.helpfulCounterContainer {
+  display: flex;
+  width: 100%;
+  justify-content: center;
+  align-items: center;
+}
+
+.iconContainers {
+  width: 10%;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+}
+
+.countContainer {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.thumbsUp {
+  color: green;
+}
+
+.thumbsDown {
+  color: red;
+}

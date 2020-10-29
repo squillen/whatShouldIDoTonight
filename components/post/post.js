@@ -5,6 +5,7 @@ import PropTypes from 'prop-types'
 import Head from 'next/head'
 
 // HELPERS
+import { findActivityByTitle } from '../../lib/helpers/db/requests'
 import { motion } from 'framer-motion'
 import { fadeInUp, stagger, fadeInFromLeft, fadeIn } from '../../animations/default'
 
@@ -20,6 +21,7 @@ import Button from '../../components/button/button'
 import BackButton from '../../components/BackButton/BackButton'
 import SocialIcons from '../../components/socialIcons/socialIcons'
 import utilStyles from '../../styles/utils.module.css'
+import HelpfulCounter from '../HelpfulCounter/HelpfulCounter'
 
 function Post (props) {
   const {
@@ -33,15 +35,27 @@ function Post (props) {
   const pageTags = [...tags.split('/'), 'what', 'should', 'i', 'do', 'tonight', 'fun', 'activities', 'to']
   const router = useRouter()
   const state = useSelector(state => state)
+  const [currentActivity, setCurrentActivity] = useState({})
   const [nextActivity, setNextActivity] = useState({})
   const [landedFromWeb, setLandedFromWeb] = useState(false)
-
-  // EFFECTS
-  // get next activity on load
-  useEffect(() => {
-    if (!nextActivity.id) {
-      props.getNewUserActivity()
+  const findActivity = async () => {
+    let activity = {}
+    try {
+      activity = await findActivityByTitle(pageTitle, 'activity')
+      console.log('activity :>> ', activity)
+      activity = (activity.ops && activity.ops[0]) || activity
+    } catch (e) {
+      console.error(e)
+    } finally {
+      setCurrentActivity(activity)
     }
+  }
+  // EFFECTS
+  useEffect(() => {
+    // get next activity on load
+    if (!nextActivity.id) props.getNewUserActivity()
+    // get current activity info on load
+    if (currentActivity && !currentActivity.title) findActivity()
   }, [pageTitle])
 
   // got a new activity, set it as nextActivity
@@ -147,6 +161,10 @@ function Post (props) {
               {content}
             </motion.div>
           </article>
+          {
+            currentActivity && currentActivity.title &&
+           <HelpfulCounter source="activity" activity={currentActivity} />
+          }
         </div>
         <Button
           size="resetButton"

@@ -3,6 +3,7 @@
   width: 100%;
   justify-content: center;
   align-items: center;
+  padding: 3rem 0;
 }
 
 .iconContainers {
@@ -13,7 +14,7 @@
 }
 
 .countContainer {
-  display: flex;
+  display: flex;  
   flex-direction: column;
   justify-content: center;
   align-items: center;

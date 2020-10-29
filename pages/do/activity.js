@@ -35,7 +35,7 @@ function Content () {
       {
         activity
           ? activity.article
-            ? <ArticleDisplay article={activity} />
+            ? <ArticleDisplay article={activity} source={'do'} />
             : <ContentDisplay content={activity} />
           : <Loading loading={true} />
       }

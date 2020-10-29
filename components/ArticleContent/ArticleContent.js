@@ -21,15 +21,15 @@ export default function ArticleContent ({ articles, banner = 'THE LATEST', sourc
                 return (
                   <div key={article.name || article.tagline} style={style} className={styles.articleContainer}>
                     <div className={styles.overlay} />
-                    <div className={styles.articleTitleContainer}>
-                      <div className={styles.articleTitleText}>
-                        <Link href={getContentURL(article)}>
-                          <a>
+                    <Link href={getContentURL(article)}>
+                      <a>
+                        <div className={styles.articleTitleContainer}>
+                          <div className={styles.articleTitleText}>
                             {article.name || article.tagline}
-                          </a>
-                        </Link>
-                      </div>
-                    </div>
+                          </div>
+                        </div>
+                      </a>
+                    </Link>
                   </div>
                 )
               })

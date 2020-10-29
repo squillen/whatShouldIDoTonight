@@ -4,6 +4,7 @@ import Head from 'next/head'
 
 // COMPONENTS
 import BackButton from '../BackButton/BackButton'
+import IFrame from '../IFrame/IFrame'
 
 // HELPERS
 import utilStyles from '../../styles/utils.module.css'
@@ -21,16 +22,30 @@ function handleBody (body = [], activityName) {
               <path fill="#FA4D56" d="M56.2,-28.5C66.9,-13.9,65.5,11.5,54.1,34.7C42.7,57.9,21.4,78.9,3.4,76.9C-14.6,75,-29.2,50.1,-38.2,28.3C-47.2,6.5,-50.5,-12.3,-43.2,-24.9C-36,-37.5,-18,-43.9,2.4,-45.3C22.8,-46.7,45.5,-43.1,56.2,-28.5Z" transform="translate(100 100)" />
             </svg> */}
           </div>
-          <span>
-            <span className={utilStyles.firstLetter}>{obj.name[0]}</span>
-            <span>{obj.name.slice(1, obj.name.length)}</span>
-          </span>
-
+          {
+            obj.name
+              ? (
+                <div className={utilStyles.headerName}>{obj.name}</div>
+                // <span>
+                //   <span className={utilStyles.firstLetter}>{obj.name[0]}</span>
+                //   <span>{obj.name.slice(1, obj.name.length)}</span>
+                // </span>
+              )
+              : null
+          }
         </div>
         <div className={utilStyles.sectionBody}>
           {
-            obj.contents.map((text, idx) => (
-              <div key={typeof text === 'string' ? text.slice(0, 10) : idx } className={utilStyles.bodyContents}>{handleMarkdown(text)}</div>
+            obj.contents && obj.contents.map((text, idx) => (
+              <div key={typeof text === 'string' ? text.slice(0, 10) : idx } className={utilStyles.bodyContents}>
+                {
+                  text.iframe
+                    ? <div className={utilStyles.iframe}><IFrame src={text.iframe} /></div>
+                    : text.image
+                      ? <div className={utilStyles.imageContainer}><img className={utilStyles.image} src={text.image[0]} alt={text.image[1]} /></div>
+                      : handleMarkdown(text)
+                }
+              </div>
             ))
           }
         </div>

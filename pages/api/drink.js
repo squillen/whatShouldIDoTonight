@@ -45,4 +45,37 @@ handler.get(async (req, res) => {
   }
 })
 
+handler.post(async (req, res) => {
+  const { body } = req
+  try {
+    const drinkCollection = req.db.collection('drink')
+    const expirationDate = body.expirationDate || ''
+    if (expirationDate) body.expirationDate = new Date(expirationDate)
+    const result = await drinkCollection.insertOne(body)
+    res.json(result)
+  } catch (e) {
+    throw new Error('ERROR IN DRINK POST API :::', e)
+  } finally {
+    req.closeDB()
+  }
+})
+
+handler.patch(async (req, res) => {
+  const { body, query = {} } = req
+  const { id = '' } = query
+  const _id = ObjectId(id)
+
+  try {
+    const drinkCollection = req.db.collection('drink')
+    const expirationDate = body.expirationDate || ''
+    if (expirationDate) body.expirationDate = new Date(expirationDate)
+    const result = await drinkCollection.updateOne({ _id }, { $set: body })
+    res.json(result)
+  } catch (e) {
+    throw new Error('ERROR IN DRINK PATCH API :::', e)
+  } finally {
+    req.closeDB()
+  }
+})
+
 export default handler

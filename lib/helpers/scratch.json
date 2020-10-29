@@ -1,95 +1,58 @@
 {
-  "image": "https://images.unsplash.com/photo-1534612368275-e4cfd0f21b2d?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1350&q=80",
-  "body": [
-      {
-          "name": "The best 5 paid sites to learn in 2020",
-          "contents": [
-              "As the OG Aristotle said, \"The more you know, the more you know you don't know\".",
-              "Tonight seems like a good night to know you don't know some more stuff. Aaaand now I've gone cross eyed.",
-              "Here are some of the best paid sites to get some quality learning in."
-          ]
-      },
-      {
-        "name": "[1) SkillShare](https://skillshare.eqcm.net/q1vgO)",
-        "contents": [
-            {
-                "image": [
-                    "https://static.skillshare.com/assets/images/opengraph-default.png",
-                    "SkillShare logo"
-                ]
-            },
-            "SkillShare is your creative learning destination. They've got courses ranging from creative writing to making films & videos to web development to photography to music to so much more. And, if you're looking to make some money and turn your (newfound) creativity into a business, SkillShare has got you covered with its business and entrepreneurship courses.",
-            "You can sign up for a two week trial to see if you like it and, after that, it's $99/year or $19/month. But, if you [sign up here](https://skillshare.eqcm.net/c/2482536/677296/4650), you can get 30% off your first year, so you only pay $69. 🤑",
-            "<sub>[go to skillshare.com](https://skillshare.eqcm.net/q1vgO)</sub>"
-        ]
-    },
-    {
-      "name": "[2) Great Courses Plus](https://www.thegreatcoursesplus.com/)",
-      "contents": [
-          {
-              "image": [
-                  "https://sm.pcmag.com/t/pcmag_in/review/t/the-great-/the-great-courses-plus_9r22.1024.jpg",
-                  "The Great Courses Plus logo"
-              ]
-          },
-          "I joined The Great Courses Plus under a promotion they were doing where I basically paid nothing for the first month or so with, I assume, their hope that I would either forget that I was paying for it or that I would actually like what they were offering and sign up. About 8 months later, I can tell you that it was the latter.",
-          "Their courses range so much, from how to appreciate classical music, film, wine, beer, etc. to understanding the new and old testament, Paganism, Buddhism, and the Qur'an, to video tours of American state parks, Venice, France, Africa, and so, so much more.",
-          "They have several sign up options where you can either pay $20/month, $15/month for 3 months (charged once every three months for $45), or pay $150/year. The first two plans also have a two week trial where you can test to see if you like it!",
-          "<sub>[go to thegreatcoursesplus.com](https://www.thegreatcoursesplus.com/)</sub>"
-      ]
-  },
-      {
-        "name": "[3) Coursera](https://www.coursera.org/)",
-        "contents": [
-            {
-                "image": [
-                    "https://about.coursera.org/careers/static/media/coursera.da90eb26.svg",
-                    "coursera logo"
-                ]
-            },
-            "Coursera is a fantastic source of university-created courses that cover nearly every topic out there, from nutrition to cryptography to Buddhism. And each course goes into great detail on each.",
-            "As these courses are created by universities, they are structured like classes, with start dates, syllabuses, and deadlines, which some may or may not like.",
-            "Sign up for $49/month and get access to every course they have.",
-            "<sub>[go to coursera.com](https://www.coursera.org/)</sub>"
-        ]
-    },
-      {
-          "name": "[4) MasterClass](https://www.masterclass.com/)",
-          "contents": [
-              {
-                  "image": [
-                      "https://www.cined.com/content/uploads/2020/04/MasterClass-Buy-One-Share-One-Free-Feature-1300x750.jpg",
-                      "MasterClass logo"
-                  ]
-              },
-              "MasterClass is where people at the top of their professions, usually celebrities, tell you how to do what they do. And they've got the best of the best, like [Stephen Curry](https://www.masterclass.com/classes/stephen-curry-teaches-shooting-ball-handling-and-scoring), [Aaron Franklin](https://www.masterclass.com/classes/aaron-franklin-teaches-texas-style-bbq), [Natalie Portman](https://www.masterclass.com/classes/natalie-portman-teaches-acting), [Annie Leibovitz](https://www.masterclass.com/classes/annie-leibovitz-teaches-photography), [Jane Goodall](https://www.masterclass.com/classes/jane-goodall-teaches-conservation), and so many more. ",
-              "So, if you want to learn how the best do it, this is a great inside look at their process and mindset.",
-              "Sign up for an annual cost of $180 and cancel within the first 30 days for a full refund if you don't like it.",
-              "<sub>[go to masterclass.com](https://www.masterclass.com/)</sub>"
-          ]
-      },
-      {
-        "name": "[5) Udemy](https://www.udemy.com/courses)",
-        "contents": [
-            {
-                "image": [
-                    "https://www.udemy.com/staticx/udemy/images/v6/default-meta-image.png",
-                    "Udemy logo"
-                ]
-            },
-            "You're probably already familiar with Udemy and that's because they have nearly got this market covered. They have so many courses out there on everything from how to dance, code, write, draw, animate, be healthy, travel, and so, so much more.",
-            "The only down side to that many courses and teachers is that not all are worth the price, which means you have to be fairly diligent about reading the reviews and watching the overviews to make sure that you like the instructor/content. And, if you buy it and decide you don't like it within the first 30 days, you can get a refund!",
-            "Also, Udemy makes you buy each course individually, which could be good or bad depending on how much you want to learn. However, the benefit of buying the course means that you have it for life and most instructors continually update their courses, which means that you'll also get all those updates no matter when you bought the course! Bonus!",
-            "<sub>[go to udemy.com](https://www.udemy.com/courses)</sub>"
-        ]
-    }
-  ],
-  "name": "Best paid sites to learn stuff",
-  "tagline": "Best paid sites to learn stuff",
-  "pageDescription": "These are the best paid sites in 2020 to learn",
-  "article": true,
-  "spotlight": false,
-  "tags": [
-      "learn"
-  ]
+    "name": "Bar Essentials Everyone Should Have",
+    "image": "https://images.unsplash.com/photo-1578553981438-cebe08c94b4e?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=634&q=80",
+    "categories": [
+        "bar",
+        "essentials"
+    ],
+    "body": [
+        {
+            "contents": [
+                "A well-stocked bar is the backbone of every household, but rarely does everyone have all these essentials. Not you, though. Don't be the person who has people over, offers them something to drink, and then has a missing corkscrew or mismatching wine glasses."
+            ]
+        },
+        {
+            "name": "Essentials",
+            "contents": [
+                "# [1) A Boston Shaker](https://amzn.to/3mzDFIs)",
+                "There is no way to not feel like a badass when you're rattling the bejesus out of one of these babies. In fact, let's just say that when this things a'shaking, your guests' knees are a'quaking. Have a drink and maybe that line will make sense. 🤷‍♂️",
+                "An actual Boston shaker is actually just the large metal tin  as the top and a standard 16oz mixing glass as the bottom (instead of the smaller metal tin), which admittedly helps with the sound a little, but whatever, command that attention!",
+                "Its genius lies in its simplicity: it's easy to use and easy to clean. It can also act as your strainer if you pinch the sides together.",
+                "Get a good quality one that is thick and stainless steel, like this one:",
+                "<iframe style=\"width:120px;height:240px;\" marginwidth=\"0\" marginheight=\"0\" scrolling=\"no\" frameborder=\"0\" src=\"//ws-na.amazon-adsystem.com/widgets/q?ServiceVersion=20070822&OneJS=1&Operation=GetAdHtml&MarketPlace=US&source=ss&ref=as_ss_li_til&ad_type=product_link&tracking_id=whatshould0bc-20&language=en_US&marketplace=amazon&region=US&placement=B073L557JF&asins=B073L557JF&linkId=0545d9f35d28fcb22d7d6a494dcff432&show_border=true&link_opens_in_new_window=true\"></iframe>",
+                "Or if you have a local restaurant supply store, you can pick one up there, too, lending even more credibility to your inner-bartender. 😉",
+                "# 2) Ice",
+                "This might seem insultingly obvious, but it can't be overlooked! If you have an ice maker you're golden. If you don't get some ",
+                "# 3) High ball glass",
+                "asdfasdf",
+                "# 4) A waiter's corkscrew",
+                "hasdhfkjh",
+                "# 5) Red wine",
+                "hasdhfkjh",
+                "# 6) Red wine glasses",
+                "hasdhfkjh",
+                "# 7) White wine",
+                "hasdhfkjh",
+                "# 8) Champagne",
+                "hasdhfkjh",
+                "# 9) White wine glasses",
+                "hasdhfkjh"
+            ]
+        },
+        {
+            "name": "Non-essentials",
+            "contents": [
+                "# Flute glasses",
+                "hasdhkjfasdf"
+            ]
+        }
+    ],
+    "tagline": "Bar staples you have no reason to not have",
+    "spotlight": true,
+    "pageDescription": "These are the only essential bar items you need to have a great drink tonight"
 }
+
+
+
+
+{"_id":{"$oid":"5f996dc0ae92cd30a10221d0"},"image":"https://upload.wikimedia.org/wikipedia/en/thumb/3/32/Wendy%27s_full_logo_2012.svg/1200px-Wendy%27s_full_logo_2012.svg.png","body":[{"contents":["Bro bros, Wendy's has a new chicken sandwich. And they're giving it away. **For free**. Until **Nov. 8th**. 🤯","Wendy's says that their new chicken cutlet is so much better than their previous, which I actually thought was already pretty good, that they're doing away with it in all their other chicken sandwiches (think the Asiago Chicken Ranch Club, the Pretzel Bacon Pub Chicken Sandwich, and the Bacon Jalapeño Chicken Sandwich) and giving you until the 8th to taste its magnificence for **free**.",{"image":["https://media.giphy.com/media/LZElUsjl1Bu6c/giphy.gif"]},"2020 just got a little better. It is now at -9,999,999,999,999,999. You go, 2020!","No, seriously, go away, 2020.","<sub>[Order online](https://order.wendys.com/location) or on your mobile app!</sub>"]}],"name":"Eat a Wendy's Chicken Sandwich...for free!","tagline":"Free chicken sandwich. Like, do we really have to say anything else?","pageDescription":"Eat the new Wendy's chicken sandwich for free until November 8th 2020!","article":true,"spotlight":false,"tags":["food"],"expirationDate":{"$date":{"$numberLong":"1604793600000"}}}

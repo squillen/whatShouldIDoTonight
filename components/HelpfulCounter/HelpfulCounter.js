@@ -1,41 +1,44 @@
 import React, { useState, useEffect, useRef } from 'react'
 import PropTypes from 'prop-types'
 import styles from './HelpfulCounter.module.css'
-import { updateActivity } from '../../lib/helpers/db/requests'
+import { updateActivityHelpfulCounts } from '../../lib/helpers/db/requests'
 
 export default function HelpfulCounter ({ activity, source }) {
   const { _id, helpfulCounts = {} } = activity
   const { helpful = 0, unhelpful = 0 } = helpfulCounts
   const [helpfulInState, setHelpfulInState] = useState(helpful)
   const [unhelpfulInState, setUnhelpfulInState] = useState(unhelpful)
-  const timeVault = React.useRef({ helpful, unhelpful })
-
+  const timeVault = useRef({ helpful, unhelpful })
+  let votesObj = {}
+  const isWindow = typeof window !== 'undefined'
+  if (isWindow) votesObj = localStorage.getItem('votes') || {}
+  const votesCopy = { votesObj }
   function adjustHelpfulness (positive) {
     return () => {
-      const voted = localStorage.getItem('voted')
+      const voted = votesCopy[activity.name || activity.title]
       let newHelpful = helpful || 0
       let newUnhelpful = unhelpful || 0
       let updateHelpful = false
       let updateUnhelpful = false
-      if (!voted) {
-        if (positive) {
-          if (helpfulInState - helpful === 1) {
-            newHelpful = helpfulInState - 1
-            updateHelpful = true
-          } else if (helpfulInState === helpful) { // haven't voted yet
-            newHelpful = helpfulInState + 1
-            updateHelpful = true
-          }
-        } else {
-          if (unhelpfulInState - unhelpful === -1) {
-            newUnhelpful = unhelpfulInState + 1
-            updateUnhelpful = true
-          } else if (unhelpfulInState === unhelpful) { // haven't voted yet
-            newUnhelpful = unhelpfulInState - 1
-            updateUnhelpful = true
-          }
+      // if (!voted) {
+      if (positive) {
+        if (helpfulInState - helpful === 1) {
+          newHelpful = helpfulInState - 1
+          updateHelpful = true
+        } else if (helpfulInState === helpful) { // haven't voted yet
+          newHelpful = helpfulInState + 1
+          updateHelpful = true
+        }
+      } else {
+        if (unhelpfulInState - unhelpful === -1) {
+          newUnhelpful = unhelpfulInState + 1
+          updateUnhelpful = true
+        } else if (unhelpfulInState === unhelpful) { // haven't voted yet
+          newUnhelpful = unhelpfulInState - 1
+          updateUnhelpful = true
         }
       }
+      // }
       const timeVaultUpdate = { ...timeVault }
       if (updateHelpful) {
         setHelpfulInState(newHelpful)
@@ -55,14 +58,16 @@ export default function HelpfulCounter ({ activity, source }) {
       const newUnhelpful = timeVault.current.unhelpful
       const counts = { helpful, unhelpful }
       if (newHelpful && helpful !== newHelpful) {
-        localStorage.setItem('voted', true)
+        votesCopy[activity.name || activity.title] = true
+        if (isWindow) localStorage.setItem('votes', votesCopy)
         counts.helpful = newHelpful
       }
       if (newUnhelpful && unhelpful !== newUnhelpful) {
-        localStorage.setItem('voted', true)
+        votesCopy[activity.name || activity.title] = true
+        if (isWindow) localStorage.setItem('votes', votesCopy)
         counts.unhelpful = newUnhelpful
       }
-      updateActivity(_id, counts, source)
+      updateActivityHelpfulCounts({ _id, counts, source, title: ((!_id && activity.title) || '') })
     }
   }, [])
 

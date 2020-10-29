@@ -74,8 +74,8 @@
 
 .blob {
   position: absolute;
-  width: 10rem;
-  top: -2.5rem;
+  width: 15rem;
+  top: -4.5rem;
   left: -2rem;
   z-index: -1;
 }

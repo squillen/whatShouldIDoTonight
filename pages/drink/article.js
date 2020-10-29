@@ -38,7 +38,7 @@ function Content () {
         article
           ? (
             <div className={utilStyles.watchContentSection}>
-              <ArticleDisplay article={article} />
+              <ArticleDisplay article={article} source={'drink'} />
             </div>
           )
           : <Loading />

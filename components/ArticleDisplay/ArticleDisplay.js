@@ -2,12 +2,13 @@ import styles from './ArticleDisplay.module.css'
 import PropTypes from 'prop-types'
 
 import IFrame from '../IFrame/IFrame'
+import HelpfulCounter from '../HelpfulCounter/HelpfulCounter'
 import ArticleHead from '../ArticleHead'
 import SVGGrabber from '../SVGGrabber'
 import BackButton from '../BackButton/BackButton'
 import handleMarkdown from '../../lib/helpers/handleMarkdown'
 
-export default function ArticleDisplay ({ article }) {
+export default function ArticleDisplay ({ article, source }) {
   const style = { background: `url(${article.image}) center no-repeat`, backgroundSize: 'cover' }
   return (
     <>
@@ -53,6 +54,7 @@ export default function ArticleDisplay ({ article }) {
             ))
           }
         </div>
+        <HelpfulCounter activity={article} source={source} />
       </div>
     </>
   )
@@ -60,4 +62,5 @@ export default function ArticleDisplay ({ article }) {
 
 ArticleDisplay.propTypes = {
   article: PropTypes.object,
+  source: PropTypes.string,
 }

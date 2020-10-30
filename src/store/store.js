@@ -9,7 +9,7 @@ import activity from './activities/reducer'
 import categories from './categories/reducer'
 
 const initialState = {
-  state: { },
+  state: { server: {} },
   activity: 'init',
   categories: 'init',
 }

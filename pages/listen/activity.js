@@ -10,6 +10,8 @@ import { connect } from 'react-redux'
 import Layout from '../../components/layout/layout'
 import Loading from '../../components/loading/loading'
 import ArticleHead from '../../components/ArticleHead'
+import HelpfulCounter from '../../components/HelpfulCounter/HelpfulCounter'
+
 // HELPERS
 import utilStyles from '../../styles/utils.module.css'
 import { getActivityFromDB } from '../../lib/helpers/db/requests'
@@ -69,6 +71,7 @@ function Content () {
                     }
                   </div>
                 </div>
+                <HelpfulCounter activity={activity} source="listen" />
               </div>
             </>
           )

@@ -10,16 +10,17 @@ import GetAllEvents from '../../components/GetAllEvents/GetAllEvents'
 
 function Content () {
   const router = useRouter()
-  const { category } = router.query
+  let { category } = router.query
   const cleanedCategory = () => {
     if (category) {
-      return category === 'selfImprovement'
+      return category.toLowerCase() === 'selfimprovement'
         ? 'Self Improvement'
         : category === 'total'
           ? 'All'
           : category[0].toUpperCase() + category.slice(1, category.length).toLowerCase()
     } else return ''
   }
+  if (category === 'selfimprovement') category = 'selfImprovement'
   return (
     <GetAllEvents
       header={`Do ${cleanedCategory()} Stuffs`}

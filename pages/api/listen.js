@@ -44,4 +44,22 @@ handler.get(async (req, res) => {
   }
 })
 
+handler.patch(async (req, res) => {
+  const { body, query = {} } = req
+  const { id = '' } = query
+  const _id = ObjectId(id)
+
+  try {
+    const listenCollection = req.db.collection('listen')
+    const expirationDate = body.expirationDate || ''
+    if (expirationDate) body.expirationDate = new Date(expirationDate)
+    const result = await listenCollection.updateOne({ _id }, { $set: body })
+    res.json(result)
+  } catch (e) {
+    throw new Error('ERROR IN LISTEN PATCH API :::', e)
+  } finally {
+    req.closeDB()
+  }
+})
+
 export default handler

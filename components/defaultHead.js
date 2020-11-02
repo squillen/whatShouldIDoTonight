@@ -1,8 +1,8 @@
 import Head from 'next/head'
-export const siteTitle = 'What Should I Do Tonight?'
+export const siteTitle = 'Fun, entertaining things to do, watch, eat, drink, learn, and listen to right now'
 export const description = `
-Bored? Lonely? Want to find things to do tonight? Find things near you, inside, outside, free, or paid.
-Find shows, movies, things to watch, podcasts to listen to, legit online courses, books, recipes, and more.
+Bored at home? Want to find things to do tonight? Find things near you, inside, outside, free, cheap, or paid.
+Find less-known shows, movies, things to watch, podcasts to listen to, legit online courses to learn, books, recipes, and more.
 `
 
 const mailChimpScript = `

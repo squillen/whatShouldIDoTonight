@@ -10,27 +10,31 @@ export default function ContentCard ({ activity, source }) {
   const getBackground = el => `url(${el.image}) center no-repeat`
   const getContentURL = el => el.pagePath ? `${currentURL}${el.pagePath}` : `/${source}/${el.article && source === 'watch' ? 'article' : 'activity'}?id=${el._id}`
   return (
-    <motion.div
-      className={styles.contentCard}
-      key={activity.name}
-      whileHover={{ scale: 1.05 }}
-      whileTap={{ scale: 0.9 }}
-      variants={fadeInFromLeft}
-    >
-      <Link href={getContentURL(activity)} as={getContentURL(activity)}>
-        <a className={styles.cardLink}>
-          <div className={styles.topHalf} style={{ background: getBackground(activity), backgroundSize: 'cover' }}>
-            <div className={styles.ribbon}>
-              <span className={styles.ribbonText}>{activity.free && 'FREE'}</span>
-            </div>
-          </div>
-          <div className={styles.bottomHalf}>
-            <div className={styles.showName}>{activity.name}</div>
-            <div className={styles.tagline}>{activity.tagline}</div>
-          </div>
-        </a>
-      </Link>
-    </motion.div>
+    activity.name
+      ? (
+        <motion.div
+          className={styles.contentCard}
+          key={activity.name}
+          whileHover={{ scale: 1.05 }}
+          whileTap={{ scale: 0.9 }}
+          variants={fadeInFromLeft}
+        >
+          <Link href={getContentURL(activity)} as={getContentURL(activity)}>
+            <a className={styles.cardLink}>
+              <div className={styles.topHalf} style={{ background: getBackground(activity), backgroundSize: 'cover' }}>
+                <div className={styles.ribbon}>
+                  <span className={styles.ribbonText}>{activity.free && 'FREE'}</span>
+                </div>
+              </div>
+              <div className={styles.bottomHalf}>
+                <div className={styles.showName}>{activity.name}</div>
+                <div className={styles.tagline}>{activity.tagline}</div>
+              </div>
+            </a>
+          </Link>
+        </motion.div>
+      )
+      : null
   )
 }
 

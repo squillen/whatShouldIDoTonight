@@ -23,9 +23,13 @@
 }
 
 .headerTextContainer {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
   text-align: center;
-  width: 100%;
+  width: 80%;
   height: 100%;
+  padding: 3rem;
   color: white;
   font-size: 8rem;
   line-height: 9rem;
@@ -53,30 +57,31 @@
   padding: 0 1rem;
 }
 
-.suggestionHeader > p,
+.suggestionHeader > h1,
+.suggestionHeader > h2,
 .suggestionHeader > a {
   padding: 0;
   margin: 0;
+  font-size: 4.3rem;
+  line-height: 4.5rem;
   color: black;
 }
 
-.suggestionHeader > p > a:visited,
-.suggestionHeader > p > a {
+.suggestionHeader > h2 > a:visited,
+.suggestionHeader > h2 > a {
   color: black;
   text-decoration: none;
 }
 
-.suggestionHeader > p > a:hover {
+.suggestionHeader > h2 > a:hover {
   text-decoration: underline;
 }
 
-
-
 .blob {
   position: absolute;
-  width: 15rem;
+  width: 16rem;
   top: -4.5rem;
-  left: -2rem;
+  left: -2.5rem;
   z-index: -1;
 }
 
@@ -119,6 +124,7 @@
 .image {
   min-width: 40%;
   max-width: 80%;
+  margin: 3rem 0;
 }
 
 

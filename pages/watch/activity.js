@@ -10,6 +10,7 @@ import { connect } from 'react-redux'
 import Layout from '../../components/layout/layout'
 import Loading from '../../components/loading/loading'
 import ContentDisplay from '../../components/ContentDisplay/ContentDisplay'
+import ArticleDisplay from '../../components/ArticleDisplay/ArticleDisplay'
 import ArticleHead from '../../components/ArticleHead'
 
 // HELPERS
@@ -53,6 +54,8 @@ function Content () {
         }
       } else if (retrievedActivity && retrievedActivity.imdbID) {
         getFreshIMDbResults(retrievedActivity)
+      } else if (retrievedActivity._id) {
+        setActivity(retrievedActivity)
       }
     } catch (e) {
       console.error(e)
@@ -63,6 +66,8 @@ function Content () {
     if (!activity && id) getActivity()
   }, [id])
 
+  console.log('activity :>> ', activity)
+
   return (
     <Layout>
       {
@@ -71,36 +76,44 @@ function Content () {
             <>
               <ArticleHead activity={activity}/>
               <div className={utilStyles.watchContentSection}>
-                <ContentDisplay content={activity} />
-                <div className={utilStyles.showInfoSectionContainer}>
-                  <div className={utilStyles.showInfoSectionHeader}>Show Info:</div>
-                  <div className={utilStyles.showInfoSectionBody}>
-                    {
-                      activity.seasonsToWatch
-                        ? (
-                          <div className={utilStyles.seasonsToWatch}>
-                            {handleSeasons(activity)}
+                {
+                  activity.article
+                    ? <ArticleDisplay article={activity} source="watch" />
+                    : (
+                      <>
+                        <ContentDisplay content={activity} />
+                        <div className={utilStyles.showInfoSectionContainer}>
+                          <div className={utilStyles.showInfoSectionHeader}>Show Info:</div>
+                          <div className={utilStyles.showInfoSectionBody}>
+                            {
+                              activity.seasonsToWatch
+                                ? (
+                                  <div className={utilStyles.seasonsToWatch}>
+                                    {handleSeasons(activity)}
+                                  </div>
+                                )
+                                : null
+                            }
+                            {
+                              activity.whereToWatch && activity.whereToWatch.length
+                                ? (
+                                  <div className={utilStyles.whereToWatch}>
+                                    <div className={utilStyles.tableHeader}>Where to watch:</div>
+                                    {activity.whereToWatch.map((obj) => (
+                                      <Link key={`${activity.name}-${obj.name}`} href={obj.url} as={obj.url}>
+                                        <a target="_blank">{obj.name}</a>
+                                      </Link>
+                                    ))}
+                                  </div>
+                                )
+                                : null
+                            }
                           </div>
-                        )
-                        : null
-                    }
-                    {
-                      activity.whereToWatch && activity.whereToWatch.length
-                        ? (
-                          <div className={utilStyles.whereToWatch}>
-                            <div className={utilStyles.tableHeader}>Where to watch:</div>
-                            {activity.whereToWatch.map((obj) => (
-                              <Link key={`${activity.name}-${obj.name}`} href={obj.url} as={obj.url}>
-                                <a target="_blank">{obj.name}</a>
-                              </Link>
-                            ))}
-                          </div>
-                        )
-                        : null
-                    }
-                  </div>
-                </div>
-                <HelpfulCounter activity={activity} source="watch" />
+                        </div>
+                        <HelpfulCounter activity={activity} source="watch" />
+                      </>
+                    )
+                }
               </div>
             </>
           )

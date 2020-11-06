@@ -11,8 +11,9 @@ import handleMarkdown from '../../lib/helpers/handleMarkdown'
 export default function ArticleDisplay ({ article, source }) {
   const style = { background: `url(${article.image}) center no-repeat`, backgroundSize: 'cover' }
   return (
+    article &&
     <>
-      <ArticleHead article={article}/>
+      <ArticleHead activity={article}/>
       <div className={styles.articleContainer}>
         <div style={style} className={styles.header}>
           <div className={styles.overlay} />

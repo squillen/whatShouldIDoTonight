@@ -54,7 +54,7 @@ const getContent = () => (
         Check out
         {' '}
         <LinkTo
-          href="/categories/listen"
+          href="/listen"
           label="our listen page"
         />
         {' '}

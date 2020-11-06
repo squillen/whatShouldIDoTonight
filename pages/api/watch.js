@@ -35,8 +35,11 @@ handler.get(async (req, res) => {
       const _id = ObjectId(id)
       result = await watchCollection.findOne({ _id })
     } else if (spotlight) {
-      result = await watchCollection.find({ spotlight: true, $or: expirationCheck })
-      result = await result.toArray()
+      const articles = await watchCollection.find({ $and: [{ article: true }, { spotlight: true }], $or: expirationCheck })
+      const spotlight = await watchCollection.find({ spotlight: true, $or: expirationCheck })
+      const articlesArray = (articles && await articles.toArray()) || []
+      const spotlightArray = await spotlight.toArray()
+      result = [...articlesArray, ...spotlightArray]
     } else if (ideas) {
       result = await watchCollection.find({ pagePath: { $exists: true } })
       result = await result.toArray()

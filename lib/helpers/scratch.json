@@ -1,58 +1,126 @@
+// {
+//     "name": "Bar Essentials Everyone Should Have",
+//     "image": "https://images.unsplash.com/photo-1578553981438-cebe08c94b4e?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=634&q=80",
+//     "categories": [
+//         "bar",
+//         "essentials"
+//     ],
+//     "body": [
+//         {
+//             "contents": [
+//                 "A well-stocked bar is the backbone of every household, but rarely does everyone have all these essentials. Not you, though. Don't be the person who has people over, offers them something to drink, and then has a missing corkscrew or mismatching wine glasses."
+//             ]
+//         },
+//         {
+//             "name": "Essentials",
+//             "contents": [
+//                 "# [1) A Boston Shaker](https://amzn.to/3mzDFIs)",
+//                 "There is no way to not feel like a badass when you're rattling the bejesus out of one of these babies. In fact, let's just say that when this things a'shaking, your guests' knees are a'quaking. Have a drink and maybe that line will make sense. 🤷‍♂️",
+//                 "An actual Boston shaker is actually just the large metal tin  as the top and a standard 16oz mixing glass as the bottom (instead of the smaller metal tin), which admittedly helps with the sound a little, but whatever, command that attention!",
+//                 "Its genius lies in its simplicity: it's easy to use and easy to clean. It can also act as your strainer if you pinch the sides together.",
+//                 "Get a good quality one that is thick and stainless steel, like this one:",
+//                 "<iframe style=\"width:120px;height:240px;\" marginwidth=\"0\" marginheight=\"0\" scrolling=\"no\" frameborder=\"0\" src=\"//ws-na.amazon-adsystem.com/widgets/q?ServiceVersion=20070822&OneJS=1&Operation=GetAdHtml&MarketPlace=US&source=ss&ref=as_ss_li_til&ad_type=product_link&tracking_id=whatshould0bc-20&language=en_US&marketplace=amazon&region=US&placement=B073L557JF&asins=B073L557JF&linkId=0545d9f35d28fcb22d7d6a494dcff432&show_border=true&link_opens_in_new_window=true\"></iframe>",
+//                 "Or if you have a local restaurant supply store, you can pick one up there, too, lending even more credibility to your inner-bartender. 😉",
+//                 "# 2) Ice",
+//                 "This might seem insultingly obvious, but it can't be overlooked! If you have an ice maker you're golden. If you don't get some ",
+//                 "# 3) High ball glass",
+//                 "asdfasdf",
+//                 "# 4) A waiter's corkscrew",
+//                 "hasdhfkjh",
+//                 "# 5) Red wine",
+//                 "hasdhfkjh",
+//                 "# 6) Red wine glasses",
+//                 "hasdhfkjh",
+//                 "# 7) White wine",
+//                 "hasdhfkjh",
+//                 "# 8) Champagne",
+//                 "hasdhfkjh",
+//                 "# 9) White wine glasses",
+//                 "hasdhfkjh"
+//             ]
+//         },
+//         {
+//             "name": "Non-essentials",
+//             "contents": [
+//                 "# Flute glasses",
+//                 "hasdhkjfasdf"
+//             ]
+//         }
+//     ],
+//     "tagline": "Bar staples you have no reason to not have",
+//     "spotlight": true,
+//     "pageDescription": "These are the only essential bar items you need to have a great drink tonight"
+// }
+
+
 {
-    "name": "Bar Essentials Everyone Should Have",
-    "image": "https://images.unsplash.com/photo-1578553981438-cebe08c94b4e?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=634&q=80",
-    "categories": [
-        "bar",
-        "essentials"
+    "_id": {
+        "$oid": "5f81e6b36719d411fc699f79"
+    },
+    "image": "https://tenyearsago.files.wordpress.com/2017/12/orphanagebanner1.png",
+    "whereToWatch": [
+        {
+            "name": "Prime (seasons 2 & 3)",
+            "url": "https://amzn.to/3jGnYxN"
+        }
     ],
     "body": [
         {
             "contents": [
-                "A well-stocked bar is the backbone of every household, but rarely does everyone have all these essentials. Not you, though. Don't be the person who has people over, offers them something to drink, and then has a missing corkscrew or mismatching wine glasses."
+                "How often have you sat down wanting nothing more than to stand right back up and pace the room out of fear, only to find yourself saying \"well, this is dumb\"? Well not tonight, my fellow fear junkie. Here are some of the scariest movies out there."
             ]
         },
         {
-            "name": "Essentials",
+            "name": "The Conjuring (2013)",
             "contents": [
-                "# [1) A Boston Shaker](https://amzn.to/3mzDFIs)",
-                "There is no way to not feel like a badass when you're rattling the bejesus out of one of these babies. In fact, let's just say that when this things a'shaking, your guests' knees are a'quaking. Have a drink and maybe that line will make sense. 🤷‍♂️",
-                "An actual Boston shaker is actually just the large metal tin  as the top and a standard 16oz mixing glass as the bottom (instead of the smaller metal tin), which admittedly helps with the sound a little, but whatever, command that attention!",
-                "Its genius lies in its simplicity: it's easy to use and easy to clean. It can also act as your strainer if you pinch the sides together.",
-                "Get a good quality one that is thick and stainless steel, like this one:",
-                "<iframe style=\"width:120px;height:240px;\" marginwidth=\"0\" marginheight=\"0\" scrolling=\"no\" frameborder=\"0\" src=\"//ws-na.amazon-adsystem.com/widgets/q?ServiceVersion=20070822&OneJS=1&Operation=GetAdHtml&MarketPlace=US&source=ss&ref=as_ss_li_til&ad_type=product_link&tracking_id=whatshould0bc-20&language=en_US&marketplace=amazon&region=US&placement=B073L557JF&asins=B073L557JF&linkId=0545d9f35d28fcb22d7d6a494dcff432&show_border=true&link_opens_in_new_window=true\"></iframe>",
-                "Or if you have a local restaurant supply store, you can pick one up there, too, lending even more credibility to your inner-bartender. 😉",
-                "# 2) Ice",
-                "This might seem insultingly obvious, but it can't be overlooked! If you have an ice maker you're golden. If you don't get some ",
-                "# 3) High ball glass",
-                "asdfasdf",
-                "# 4) A waiter's corkscrew",
-                "hasdhfkjh",
-                "# 5) Red wine",
-                "hasdhfkjh",
-                "# 6) Red wine glasses",
-                "hasdhfkjh",
-                "# 7) White wine",
-                "hasdhfkjh",
-                "# 8) Champagne",
-                "hasdhfkjh",
-                "# 9) White wine glasses",
-                "hasdhfkjh"
+                "Ok, chances are you knew this was gonna be on here, but it's fantastically eerie, creepy, and all-around worth clapping for (watch the movie, or at least the trailer, to get that 😉 👏). If you've already seen it, watch it again. If you haven't, now is the time to get this classic under your belt.",
+                "Directed by [James Wan](https://www.imdb.com/name/nm1490123/?ref_=tt_ov_dr), who also did Saw, Aquaman, and The Conjuring 2, The Conjuring is a supposedly true story of the paranormal escapades of paranormal investigators [Ed and Lorraine Warren](https://en.wikipedia.org/wiki/Ed_and_Lorraine_Warren).",
+                "If you believe in their stories and credibility, this movie will rightly conjure the shit out of your bowels. We're a classy bunch over here.",
+                {
+                    "iframe": "https://www.youtube.com/embed/ejMMn0t58Lc"
+                },
+                "<sub>[Watch The Conjuring on Amazon](https://amzn.to/34vUbTA)</sub>"
             ]
         },
         {
-            "name": "Non-essentials",
+            "name": "[Sleep Tight (2012)](https://amzn.to/3jGE3mD)",
             "contents": [
-                "# Flute glasses",
-                "hasdhkjfasdf"
+                "Sleep is an Italian thriller directed by [Jaume Balagueró](https://en.wikipedia.org/wiki/Jaume_Balaguer%C3%B3) where the antagonist is a bellhop who feels nothing and is subtly (and then not-so-subtly) terrorizes his trusting tenants in hopes that they feel similarly down. I mean, the dude even kills himself in his dreams. Nothing.",
+                "It is, admittedly, more creepy and disturbing than scary, but because it's so well shot and acted, it deserves a spot on this list.",
+                {
+                    "iframe": "https://www.youtube.com/embed/hYAPKHQtdmU"
+                },
+                "<sub>[Watch Sleep Tight on IMDbTV](https://amzn.to/3jGE3mD)</sub>"
+            ]
+        },
+        {
+            "name": "The Orphanage (2007)",
+            "contents": [
+                "The Orphanage, directed by [J.A. Bayona](https://www.imdb.com/name/nm1291105/?ref_=tt_ov_dr), is a Spanish film about grief and heartache disguised (incredibly well) as a horror movie. Whereas The Conjuring uses the same tactic of building suspense and fear through a game of hide and clap, The Orphanage does the same (and did it first) of playing a game of hide and knock, but uses it to a much greater effect.",
+                {
+                    "iframe": "https://www.youtube.com/embed/UkuKtS-N1rM"
+                },
+                "<sub>[Watch The Orphanage on Amazon](https://amzn.to/2TumEmj)</sub>"
+            ]
+        },
+        {
+            "name": "Scream (1996)",
+            "contents": [
+                "Scary Movie parodied this movie so much (and so well) that it's easy to forget that Scream is actually scary and *actually good*.",
+                "Yes, it's a bit old now and we stand by our declaration that David Arquette is never, ever a good choice, but, thanks to the deft hands of [Wes Craven](https://www.imdb.com/name/nm0000127/?ref_=tt_ov_dr), its perfect use of gore, thrills, and self-referential humor keep it current.",
+                {
+                    "iframe": "https://www.youtube.com/embed/tV4PTwciTuQ"
+                },
+                "<sub>[Watch Scream on Amazon](https://amzn.to/31JVg8o)</sub>"
             ]
         }
     ],
-    "tagline": "Bar staples you have no reason to not have",
-    "spotlight": true,
-    "pageDescription": "These are the only essential bar items you need to have a great drink tonight"
+    "name": "Genuinely Scary Movies",
+    "tagline": "Genuinely Scary Movies",
+    "pageDescription": "These movies will genuinely scare you this Halloween: The Conjuring, The Orphanage, Scream, The Witch",
+    "article": true,
+    "tags": [
+        "horror",
+        "suggestions"
+    ]
 }
-
-
-
-
-{"_id":{"$oid":"5f996dc0ae92cd30a10221d0"},"image":"https://upload.wikimedia.org/wikipedia/en/thumb/3/32/Wendy%27s_full_logo_2012.svg/1200px-Wendy%27s_full_logo_2012.svg.png","body":[{"contents":["Bro bros, Wendy's has a new chicken sandwich. And they're giving it away. **For free**. Until **Nov. 8th**. 🤯","Wendy's says that their new chicken cutlet is so much better than their previous, which I actually thought was already pretty good, that they're doing away with it in all their other chicken sandwiches (think the Asiago Chicken Ranch Club, the Pretzel Bacon Pub Chicken Sandwich, and the Bacon Jalapeño Chicken Sandwich) and giving you until the 8th to taste its magnificence for **free**.",{"image":["https://media.giphy.com/media/LZElUsjl1Bu6c/giphy.gif"]},"2020 just got a little better. It is now at -9,999,999,999,999,999. You go, 2020!","No, seriously, go away, 2020.","<sub>[Order online](https://order.wendys.com/location) or on your mobile app!</sub>"]}],"name":"Eat a Wendy's Chicken Sandwich...for free!","tagline":"Free chicken sandwich. Like, do we really have to say anything else?","pageDescription":"Eat the new Wendy's chicken sandwich for free until November 8th 2020!","article":true,"spotlight":false,"tags":["food"],"expirationDate":{"$date":{"$numberLong":"1604793600000"}}}

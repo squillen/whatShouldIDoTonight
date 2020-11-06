@@ -1,8 +1,8 @@
 import styles from './ArticleDisplay.module.css'
 import PropTypes from 'prop-types'
-
 import IFrame from '../IFrame/IFrame'
 import HelpfulCounter from '../HelpfulCounter/HelpfulCounter'
+import AuthorInfo from '../AuthorInfo/AuthorInfo'
 import ArticleHead from '../ArticleHead'
 import SVGGrabber from '../SVGGrabber'
 import BackButton from '../BackButton/BackButton'
@@ -31,7 +31,7 @@ export default function ArticleDisplay ({ article, source }) {
                       <div className={styles.blob}>
                         {<SVGGrabber type="circle" />}
                       </div>
-                      {handleMarkdown(item.name)}
+                      {handleMarkdown(item.name[0] === '#' ? item.name : `# ${item.name}`)}
                     </div>
                   )
                 }
@@ -53,7 +53,9 @@ export default function ArticleDisplay ({ article, source }) {
               </div>
             ))
           }
+          {/* <AuthorInfo article={article} /> */}
         </div>
+
         <HelpfulCounter activity={article} source={source} />
       </div>
     </>

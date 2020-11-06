@@ -1,0 +1,25 @@
+.authorInfoContainer {
+  display: flex;
+  flex-direction: column;
+  min-height: 10vh;
+  width: 30vw;
+  border: 1px solid black;
+  /* flex-direction: column;
+  justify-content: center;
+  align-items: center; */
+  font-size: 0.9rem;
+  line-height: 1rem;
+  padding: 2rem;
+}
+
+.authorImage {
+  width: 3rem;
+  border-radius: 50%;
+}
+
+.authorName {
+}
+
+.publishDate {
+  font-size: 0.6rem;
+}

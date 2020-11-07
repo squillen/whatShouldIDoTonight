@@ -11,8 +11,11 @@ export default function ArticleHead ({ activity = {} }) {
   const pageDescription = activity.pageDescription || description
   const datePublished = (activity._id && new Date(parseInt(activity._id.substring(0, 8), 16) * 1000)) || new Date()
   const dateModified = activity.dateModified || new Date()
-  const title = activity.name || activity.title || activity.tagline
+  const expirationDate = activity.expirationDate || null
+  const title = activity.name || activity.title || activity.tagline || siteTitle
   const categories = activity.categories || []
+  const tags = activity.tags || []
+  const authors = [activity.authorName || 'Sean Quillen']
   return (
     <>
       <Head>
@@ -22,11 +25,13 @@ export default function ArticleHead ({ activity = {} }) {
         url={pageURL}
         title={title}
         images={[activity.image]}
-        authorName={activity.authorName || 'Sean Quillen'}
+        authorName={authors}
         datePublished={datePublished}
         dateModified={dateModified}
         description={pageDescription}
         canonical={url}
+        publisherName="What Should I Do Tonight"
+        publisherLogo='https://what-should-i-do-tonight.s3.us-east-2.amazonaws.com/seo/logo.png'
         openGraph={{
           title: title,
           description: pageDescription,
@@ -34,7 +39,10 @@ export default function ArticleHead ({ activity = {} }) {
           type: 'article',
           article: {
             publishedTime: datePublished,
-            tags: [...categories],
+            modifiedTime: dateModified,
+            expirationTime: expirationDate,
+            authors: authors,
+            tags: [...categories, ...tags],
           },
           images: [
             {

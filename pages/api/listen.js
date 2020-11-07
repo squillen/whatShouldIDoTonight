@@ -9,7 +9,7 @@ const handler = nextConnect()
 handler.use(middleware)
 
 handler.get(async (req, res) => {
-  const { articles, all, spotlight, category, id } = req.query
+  const { articles, name, all, spotlight, category, id } = req.query
   try {
     let result
     const listenCollection = req.db.collection('listen')
@@ -23,6 +23,9 @@ handler.get(async (req, res) => {
       // const searchFor = comedy || code || finance || educational || food || technology || crime
       result = await listenCollection.find({ categories: { $in: [category] } })
       result = await result.toArray()
+    } else if (name) {
+      const search = name.split('_').join(' ')
+      result = await listenCollection.findOne({ name: search })
     } else if (id) {
       const _id = ObjectId(id)
       result = await listenCollection.findOne({ _id })

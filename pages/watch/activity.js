@@ -23,7 +23,7 @@ import HelpfulCounter from '../../components/HelpfulCounter/HelpfulCounter'
 function Content () {
   const [activity, setActivity] = useState(null)
   const router = useRouter()
-  const { id } = router.query
+  const { name } = router.query
 
   const getFreshIMDbResults = async (retrievedActivity = {}) => {
     if (retrievedActivity && retrievedActivity.imdbID) {
@@ -43,7 +43,7 @@ function Content () {
 
   const getActivity = async () => {
     try {
-      const retrievedActivity = await getActivityFromDB('watch', id)
+      const retrievedActivity = await getActivityFromDB('watch', name)
       if (retrievedActivity && retrievedActivity.imdb) {
         const expirationDate = retrievedActivity.imdb.expirationDate || ''
         const resultsAreFresh = new Date(expirationDate).getTime() > new Date().getTime()
@@ -63,8 +63,8 @@ function Content () {
   }
 
   useEffect(() => {
-    if (!activity && id) getActivity()
-  }, [id])
+    if (!activity && name) getActivity()
+  }, [name])
 
   return (
     <Layout>

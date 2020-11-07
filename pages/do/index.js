@@ -68,11 +68,10 @@ function DoSection ({ spotlight = [], all = {}, articles = [], setInRedux, setDo
       homeRef={homeRef}
     />
   )
-
   return (
     <Layout>
       <Head>
-        <title>What to do - {siteTitle}</title>
+        <title>Things to Do Tonight - {siteTitle}</title>
       </Head>
       {
         spotlight && Array.isArray(spotlight) && spotlight.length

@@ -10,7 +10,6 @@ import Layout from '../../components/layout/layout'
 import Loading from '../../components/loading/loading'
 
 // HELPERS
-import utilStyles from '../../styles/utils.module.css'
 import { getActivityFromDB } from '../../lib/helpers/db/requests'
 import ContentDisplay from '../../components/ContentDisplay/ContentDisplay'
 import ArticleDisplay from '../../components/ArticleDisplay/ArticleDisplay'
@@ -18,19 +17,18 @@ import ArticleDisplay from '../../components/ArticleDisplay/ArticleDisplay'
 function Content () {
   const [activity, setActivity] = useState(null)
   const router = useRouter()
-  const { id } = router.query
+  const { name } = router.query
   const getActivity = async () => {
     try {
-      const newActivity = await getActivityFromDB('do', id)
+      const newActivity = await getActivityFromDB('do', name)
       setActivity(newActivity)
     } catch (e) {
       console.error(e)
     }
   }
   useEffect(() => {
-    if (!activity && id) getActivity()
-  }, [id])
-  console.log('activity :>> ', activity)
+    if (!activity && name) getActivity()
+  }, [name])
   return (
     <Layout>
       {

@@ -7,7 +7,7 @@ function SplashContent ({ content = [], banner, source }) {
   const [content1, content2, content3] = content
   const getBackground = currContent => currContent ? `url(${currContent.image}) center no-repeat` : ''
   const getContentURL = currContent => currContent && currContent.name
-    ? currContent.pagePath || `/${source}/activity?id=${currContent._id}`
+    ? currContent.pagePath || `/${source}/activity?name=${currContent.name.split(' ').join('_')}`
     : ''
   const getContentDiv = currContent => (
     <div className={styles.background} style={{ background: getBackground(currContent), backgroundSize: 'cover' }}>

@@ -30,10 +30,11 @@ function Content () {
   useEffect(() => {
     if (!activity && id) getActivity()
   }, [id])
+  console.log('activity :>> ', activity)
   return (
     <Layout>
       {
-        activity
+        activity && activity._id
           ? activity.article
             ? <ArticleDisplay article={activity} source={'do'} />
             : <ContentDisplay content={activity} />

@@ -51,7 +51,7 @@ export default function ContentCallOut ({ source, item = {}, color = 'darkBlue' 
         ? handleBody()
         : null
   )
-  const href = item.pagePath || `/${source}/activity?id=${item._id}` || ''
+  const href = item.pagePath || (item.name && `/${source}/activity?name=${item.name.split(' ').join('_')}`) || ''
   return (
     item.pagePath || source
       ? (

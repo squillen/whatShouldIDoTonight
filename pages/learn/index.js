@@ -76,7 +76,7 @@ function LearnSection ({ articles = [], spotlight = [], all = {}, setInRedux, se
   return (
     <Layout>
       <Head>
-        <title>What Should I Learn Tonight - {siteTitle}</title>
+        <title>Things to Learn Tonight - {siteTitle}</title>
         <meta name="description" content={pageDescription} />
       </Head>
 

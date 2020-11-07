@@ -75,7 +75,9 @@ handler.patch(async (req, res) => {
 
   try {
     const watchCollection = req.db.collection('watch')
-    const result = await watchCollection.updateOne({ _id }, { $set: body.update || body }, { upsert: true })
+    const update = body.update || body
+    update.dateModified = new Date()
+    const result = await watchCollection.updateOne({ _id }, { $set: update }, { upsert: true })
     res.json(result)
   } catch (e) {
     throw new Error('ERROR IN WATCH PATCH API :::', e)

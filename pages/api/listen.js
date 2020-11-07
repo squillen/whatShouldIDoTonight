@@ -53,6 +53,7 @@ handler.patch(async (req, res) => {
     const listenCollection = req.db.collection('listen')
     const expirationDate = body.expirationDate || ''
     if (expirationDate) body.expirationDate = new Date(expirationDate)
+    body.dateModified = new Date()
     const result = await listenCollection.updateOne({ _id }, { $set: body })
     res.json(result)
   } catch (e) {

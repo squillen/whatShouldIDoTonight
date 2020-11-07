@@ -38,10 +38,10 @@ export default function ArticleHead ({ activity = {} }) {
           },
           images: [
             {
-              url: 'https://what-should-i-do-tonight.s3.us-east-2.amazonaws.com/seo/logo.png',
+              url: activity.image || 'https://what-should-i-do-tonight.s3.us-east-2.amazonaws.com/seo/logo.png',
               width: 850,
               height: 650,
-              alt: 'What Should I Do Tonight Logo',
+              alt: `${title}`,
             },
           ],
         }}

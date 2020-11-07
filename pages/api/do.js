@@ -93,6 +93,7 @@ handler.patch(async (req, res) => {
     const doCollection = req.db.collection('do')
     const expirationDate = body.expirationDate || ''
     if (expirationDate) body.expirationDate = new Date(expirationDate)
+    body.dateModified = new Date()
     const result = await doCollection.updateOne({ _id }, { $set: body })
     res.json(result)
   } catch (e) {

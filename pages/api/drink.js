@@ -69,6 +69,7 @@ handler.patch(async (req, res) => {
     const drinkCollection = req.db.collection('drink')
     const expirationDate = body.expirationDate || ''
     if (expirationDate) body.expirationDate = new Date(expirationDate)
+    body.dateModified = new Date()
     const result = await drinkCollection.updateOne({ _id }, { $set: body })
     res.json(result)
   } catch (e) {

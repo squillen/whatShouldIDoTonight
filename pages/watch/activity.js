@@ -66,7 +66,6 @@ function Content () {
     if (!activity && id) getActivity()
   }, [id])
 
-  console.log('activity :>> ', activity)
 
   return (
     <Layout>

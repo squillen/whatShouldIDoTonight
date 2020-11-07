@@ -11,7 +11,6 @@ import { setWatchActivities } from '../../src/store/categories/action'
 // COMPONENTS
 import Layout from '../../components/layout/layout'
 import SplashContent from '../../components/SplashContent/SplashContent'
-import ArticleContent from '../../components/ArticleContent/ArticleContent'
 import HandleContent from '../../components/HandleContent'
 import { siteTitle } from '../../components/defaultHead'
 
@@ -78,7 +77,7 @@ function WatchSection ({ spotlight = [], all = {}, articles = [], setInRedux, se
   return (
     <Layout>
       <Head>
-        <title>What Should I Watch Tonight - {siteTitle}</title>
+        <title>Things To Watch Tonight - {siteTitle}</title>
         <meta name="description" content={pageDescription} />
       </Head>
       {

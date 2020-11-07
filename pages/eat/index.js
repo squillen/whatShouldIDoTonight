@@ -70,7 +70,7 @@ function EatSection ({ articles = [], spotlight = [], all = {}, setInRedux, setE
   return (
     <Layout>
       <Head>
-        <title>What Should I Eat Tonight - {siteTitle}</title>
+        <title>Things To Eat Tonight - {siteTitle}</title>
         <meta name="description" content={pageDescription} />
       </Head>
       {spotlight && Array.isArray(spotlight) && spotlight.length && <SplashContent content={spotlight} banner="Dishes worth eating" source={source} />}

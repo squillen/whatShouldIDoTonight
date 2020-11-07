@@ -20,10 +20,10 @@ import ContentDisplay from '../../components/ContentDisplay/ContentDisplay'
 function Content () {
   const [activity, setActivity] = useState(null)
   const router = useRouter()
-  const { id } = router.query
+  const { name } = router.query
   const getActivity = async () => {
     try {
-      const newActivity = await getActivityFromDB('listen', id)
+      const newActivity = await getActivityFromDB('listen', name)
       setActivity(newActivity)
     } catch (e) {
       console.error(e)
@@ -31,8 +31,8 @@ function Content () {
   }
 
   useEffect(() => {
-    if (!activity && id) getActivity()
-  }, [id])
+    if (!activity && name) getActivity()
+  }, [name])
   return (
     <Layout>
       {

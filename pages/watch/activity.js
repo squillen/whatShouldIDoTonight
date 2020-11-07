@@ -66,7 +66,6 @@ function Content () {
     if (!activity && id) getActivity()
   }, [id])
 
-
   return (
     <Layout>
       {

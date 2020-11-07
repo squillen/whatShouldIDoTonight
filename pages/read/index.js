@@ -76,7 +76,7 @@ function ReadSection ({ articles = [], spotlight = [], all = {}, setInRedux, set
   return (
     <Layout>
       <Head>
-        <title>What Should I Read Tonight - {siteTitle}</title>
+        <title>Things To Read Tonight - {siteTitle}</title>
         <meta name="description" content={pageDescription} />
 
       </Head>

@@ -78,7 +78,7 @@ function DrinkSection ({ spotlight = [], all = {}, articles = [], setInRedux, se
   return (
     <Layout>
       <Head>
-        <title>What Should I Drink Tonight - {siteTitle}</title>
+        <title>Things To Drink Tonight - {siteTitle}</title>
         <meta name="description" content={pageDescription} />
       </Head>
       {

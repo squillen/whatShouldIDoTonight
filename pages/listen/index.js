@@ -72,7 +72,7 @@ function ListenSection ({ articles = [], spotlight = [], all = {}, setInRedux, s
   return (
     <Layout>
       <Head>
-        <title>What Should I Listen To Tonight - {siteTitle}</title>
+        <title>Things to Listen To Tonight - {siteTitle}</title>
         <meta name="description" content={pageDescription} />
 
       </Head>

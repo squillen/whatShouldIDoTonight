@@ -8,7 +8,7 @@ const handler = nextConnect()
 handler.use(middleware)
 
 handler.get(async (req, res) => {
-  const { articles, all, spotlight, free, category, id } = req.query
+  const { articles, name, all, spotlight, free, category, id } = req.query
   try {
     let result
     const readCollection = req.db.collection('read')
@@ -17,6 +17,9 @@ handler.get(async (req, res) => {
       result = await result.toArray()
       const categories = getAllCategories(result)
       return res.json(categories)
+    } else if (name) {
+      const search = name.split('_').join(' ')
+      result = await readCollection.findOne({ name: search })
     } else if (category) {
       result = await readCollection.find({ categories: { $in: [category] } })
       result = await result.toArray()

@@ -4,7 +4,7 @@ import styles from './ArticleContent.module.css'
 
 export default function ArticleContent ({ articles, banner = 'THE LATEST', source }) {
   const getContentURL = currContent => currContent && currContent.name
-    ? currContent.pagePath || `/${source}/${source === 'watch' ? 'article' : 'activity'}?id=${currContent._id}`
+    ? currContent.pagePath || `/${source}/${source === 'watch' ? 'article' : 'activity'}?name=${currContent.name.split(' ').join('_')}`
     : ''
   const start = articles.length > 3 ? articles.length - 4 : articles.length > 2 ? articles.length - 3 : null
   let displayedArticles = start ? articles.slice(start, articles.length) : []

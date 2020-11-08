@@ -6,6 +6,7 @@ import Button from '../components/button/button'
 import Modal from '../components/modal/modal'
 import Photo from '../components/photo/photo'
 import Loading from '../components/loading/loading'
+import Head from 'next/head'
 
 const showSuccessModal = () => {
   return (
@@ -78,9 +79,14 @@ export default function ContactForm () {
   }[modalToOpen] || function () {}
 
   const modalContent = modalFunction()
-
+  const siteTitle = 'Contact Us - What Should I Do Tonight'
   return (
     <Layout>
+      <Head>
+        <title>{siteTitle}</title>
+        <meta name="title" content={siteTitle} />
+        <meta name="description" content="Contact Us What Should I Do Tonight" />
+      </Head>
       <div className={utilStyles.contactContainer}>
         <div className={utilStyles.formContainer}>
           {/* NAME */}

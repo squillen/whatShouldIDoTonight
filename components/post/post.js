@@ -84,13 +84,15 @@ function Post (props) {
       {
         landedFromWeb
           ? null
-          : (
-            <Button
-              size="large"
-              label="tell me another"
-              href={`/activities${nextActivity.category}/${nextActivity.id}`}
-            />
-          )
+          : nextActivity && nextActivity.category
+            ? (
+              <Button
+                size="large"
+                label="tell me another"
+                href={`/activities${nextActivity.category}/${nextActivity.id}`}
+              />
+            )
+            : null
       }
     </div>
   )

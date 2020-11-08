@@ -28,6 +28,9 @@ function RandomGenerator (props) {
   useEffect(() => {
     setCurrentActivity(state.activity.currentActivity)
   }, [state.activity.currentActivity])
+  const activityLink = currentActivity && currentActivity.category
+    ? `/activities${currentActivity.category}/${currentActivity.id}`
+    : ''
   return (
     <section className={utilStyles.headingMd}>
       <div className={utilStyles.questions}>
@@ -101,7 +104,7 @@ function RandomGenerator (props) {
           <Button
             customStyle={utilStyles.tellMeButton}
             inlineStyle={{ border: '3px solid #0F2956', fontSize: '1.5rem' }}
-            href={`/activities${currentActivity.category}/${currentActivity.id}`}
+            href={activityLink}
             label="tell me"
           />
         </div>

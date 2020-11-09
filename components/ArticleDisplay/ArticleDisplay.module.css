@@ -22,18 +22,21 @@
   z-index: 1;
 }
 
-.headerTextContainer {
+.headerText {
   display: flex;
-  flex-direction: column;
-  justify-content: space-around;
-  text-align: center;
-  width: 80%;
-  height: 100%;
-  padding: 3rem;
+  justify-content: center;
+  align-items: center;
+  width: 80vw;
+  min-height: 75vh;
+  overflow: hidden;
   color: white;
   font-size: 8rem;
-  line-height: 9rem;
   z-index: 2;
+  text-align: center;
+}
+
+.hidden {
+  display: none;
 }
 
 .articleBody {

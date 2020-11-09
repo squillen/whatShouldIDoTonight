@@ -1,5 +1,5 @@
 import Head from 'next/head'
-export const siteTitle = 'Fun, entertaining things to do, watch, eat, drink, learn, and listen to right now'
+export const siteTitle = 'What Should I Do Tonight - Fun, entertaining things we can do, watch, eat, drink, learn, and listen to right now'
 export const description = `
 Bored at home? Want to find things to do tonight? Find things near you, inside, outside, free, cheap, or paid.
 Find less-known shows, movies, things to watch, podcasts to listen to, legit online courses to learn, books, recipes, and more.

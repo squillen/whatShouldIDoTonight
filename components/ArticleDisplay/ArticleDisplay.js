@@ -17,9 +17,9 @@ export default function ArticleDisplay ({ article, source }) {
       <div className={styles.articleContainer}>
         <div style={style} className={styles.header}>
           <div className={styles.overlay} />
-          <div className={styles.headerTextContainer}>
-            <div className={styles.headerText}>{article.name || article.tagline}</div>
-          </div>
+          <h1 className={styles.headerText}>{article.name || article.tagline}</h1>
+          <h1 className={styles.hidden}>what should i we do tonight</h1>
+          <h1 className={styles.hidden}>i we are bored</h1>
         </div>
         <BackButton />
         <div className={styles.articleBody}>

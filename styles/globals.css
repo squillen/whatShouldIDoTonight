@@ -30,6 +30,10 @@ img {
   border-radius: 10px;
 }
 
+.hidden {
+  display: none;
+}
+
 @media only screen and (max-width: 800px) {
   html,
   body {

@@ -97,8 +97,8 @@
 }
 
 .content {
-  width: 100%;
-
+  width: 80%;
+  margin: 0 auto;
   padding: 0.5rem 2rem;
   font-size: 1.4rem;
 }
@@ -137,8 +137,30 @@
 }
 
 
+@media only screen and (max-width: 1000px) {
+  .suggestionHeader > .blob {
+    width: 20rem;
+    left: 6rem;
+  }
+
+  .content {
+    width: 100%;
+    padding: 0;
+  }
+
+  .content > p,
+  .content > li {
+    padding: 0;
+    margin: 1rem 0;
+  }
+}
+
 @media only screen and (max-width: 600px) {
   .image {
     min-width: 60%;
+  }
+
+  .suggestionHeader > .blob {
+    left: 3rem;
   }
 }

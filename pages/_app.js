@@ -22,7 +22,7 @@ const App = ({ Component, pageProps, router }) => {
     <AnimatePresence>
       <DefaultSeo {...SEO} />
       <Component {...pageProps} key={router.route} />
-      <div className="hidden">what should i we do tonight i we are bored</div>
+      <h1 className="hidden">what should i we do tonight i we are bored</h1>
     </AnimatePresence>
   )
 }

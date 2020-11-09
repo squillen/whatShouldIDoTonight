@@ -100,10 +100,6 @@
     <changefreq>weekly</changefreq>
   </url>
   <url>
-    <loc>http://localhost:3000/watch/article</loc>
-    <changefreq>weekly</changefreq>
-  </url>
-  <url>
     <loc>http://localhost:3000/watch/index</loc>
     <changefreq>weekly</changefreq>
   </url>
@@ -264,10 +260,6 @@
     <changefreq>weekly</changefreq>
   </url>
   <url>
-    <loc>http://localhost:3000/activities/alone/notFree/outside/try-new-exercises</loc>
-    <changefreq>weekly</changefreq>
-  </url>
-  <url>
     <loc>http://localhost:3000/activities/alone/notFree/inside/buy-all-your-gifts</loc>
     <changefreq>weekly</changefreq>
   </url>
@@ -321,6 +313,10 @@
   </url>
   <url>
     <loc>http://localhost:3000/activities/alone/notFree/inside/take-music-lessons</loc>
+    <changefreq>weekly</changefreq>
+  </url>
+  <url>
+    <loc>http://localhost:3000/activities/alone/notFree/outside/try-new-exercises</loc>
     <changefreq>weekly</changefreq>
   </url>
   <url>

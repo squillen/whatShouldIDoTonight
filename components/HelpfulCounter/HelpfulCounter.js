@@ -71,6 +71,8 @@ export default function HelpfulCounter ({ activity, source }) {
     }
   }, [])
 
+  const totalHelpful = Math.abs(helpfulInState - unhelpfulInState)
+
   return (
     <div className={styles.helpfulCounterContainer}>
       <div className={styles.iconContainers}>
@@ -78,23 +80,23 @@ export default function HelpfulCounter ({ activity, source }) {
           <div className={styles.thumbsUp}>
             <i className="far fa-thumbs-up"></i>
           </div>
-          {
-            helpfulInState && (
-              <div className={styles.count}>{helpfulInState}</div>
-            )
-          }
         </div>
         <div className={styles.countContainer} onClick={adjustHelpfulness(0)}>
           <div className={styles.thumbsDown}>
             <i className="far fa-thumbs-down"></i>
           </div>
-          {
-            unhelpfulInState && (
-              <div className={styles.count}>{unhelpfulInState}</div>
-            )
-          }
+
         </div>
       </div>
+
+      <div className={styles.count}>
+        {
+          unhelpfulInState || helpfulInState
+            ? `${helpfulInState} out of ${totalHelpful} ${totalHelpful === 1 ? 'person' : 'people'} found this helpful`
+            : 'Be the first to vote'
+        }
+      </div>
+
     </div>
   )
 }

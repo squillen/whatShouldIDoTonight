@@ -67,8 +67,6 @@ handler.get(async (req, res) => {
     res.json(result)
   } catch (e) {
     throw new Error('ERROR IN DO API :::', e)
-  } finally {
-    req.closeDB()
   }
 })
 
@@ -82,8 +80,6 @@ handler.post(async (req, res) => {
     res.json(result)
   } catch (e) {
     throw new Error('ERROR IN DO POST API :::', e)
-  } finally {
-    req.closeDB()
   }
 })
 
@@ -101,8 +97,6 @@ handler.patch(async (req, res) => {
     res.json(result)
   } catch (e) {
     throw new Error('ERROR IN DO PATCH API :::', e)
-  } finally {
-    req.closeDB()
   }
 })
 

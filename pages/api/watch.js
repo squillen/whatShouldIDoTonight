@@ -53,8 +53,6 @@ handler.get(async (req, res) => {
     res.json(result)
   } catch (e) {
     throw new Error('ERROR IN WATCH API :::', e)
-  } finally {
-    req.closeDB()
   }
 })
 
@@ -66,8 +64,6 @@ handler.post(async (req, res) => {
     res.json(result)
   } catch (e) {
     throw new Error('ERROR IN WATCH POST API :::', e)
-  } finally {
-    req.closeDB()
   }
 })
 
@@ -84,8 +80,6 @@ handler.patch(async (req, res) => {
     res.json(result)
   } catch (e) {
     throw new Error('ERROR IN WATCH PATCH API :::', e)
-  } finally {
-    req.closeDB()
   }
 })
 

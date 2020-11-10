@@ -43,8 +43,6 @@ handler.get(async (req, res) => {
     res.json(result)
   } catch (e) {
     throw new Error('ERROR IN DRINK API :::', e)
-  } finally {
-    req.closeDB()
   }
 })
 
@@ -58,8 +56,6 @@ handler.post(async (req, res) => {
     res.json(result)
   } catch (e) {
     throw new Error('ERROR IN DRINK POST API :::', e)
-  } finally {
-    req.closeDB()
   }
 })
 
@@ -77,8 +73,6 @@ handler.patch(async (req, res) => {
     res.json(result)
   } catch (e) {
     throw new Error('ERROR IN DRINK PATCH API :::', e)
-  } finally {
-    req.closeDB()
   }
 })
 

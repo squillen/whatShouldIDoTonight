@@ -20,8 +20,6 @@ handler.get(async (req, res) => {
     res.json(result)
   } catch (e) {
     throw new Error('ERROR IN AUTHORS API :::', e)
-  } finally {
-    req.closeDB()
   }
 })
 

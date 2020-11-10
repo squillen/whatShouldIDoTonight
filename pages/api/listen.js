@@ -42,8 +42,6 @@ handler.get(async (req, res) => {
     res.json(result)
   } catch (e) {
     throw new Error('ERROR IN LISTEN API :::', e)
-  } finally {
-    req.closeDB()
   }
 })
 
@@ -61,8 +59,6 @@ handler.patch(async (req, res) => {
     res.json(result)
   } catch (e) {
     throw new Error('ERROR IN LISTEN PATCH API :::', e)
-  } finally {
-    req.closeDB()
   }
 })
 

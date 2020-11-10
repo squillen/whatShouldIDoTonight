@@ -4,32 +4,44 @@ import nextConnect from 'next-connect'
 const uri = process.env.MONGODB_URI
 const dbName = process.env.MONGODB_DB
 
-let cachedClient = null
-let cachedDb = null
-
-const client = new MongoClient(uri, {
-  useNewUrlParser: true,
-  useUnifiedTopology: true,
-})
+let cached = global.mongo
+if (!cached) cached = global.mongo = {}
 
 async function database (req, res, next) {
-  if (cachedClient && cachedDb) {
-    req.dbClient = cachedClient
-    req.db = cachedDb
-    req.closeDB = cachedClient.close
+  if (cached.conn) {
+    req.dbClient = cached.conn.client
+    req.db = cached.conn.db
     return next()
   }
-  try {
-    if (!client.isConnected()) await client.connect()
-    const db = client.db(dbName)
-    cachedClient = client
-    cachedDb = db
-    req.dbClient = client
-    req.db = db
-    req.closeDB = client.close
-  } catch (e) {
-    console.error(e)
+
+  if (!cached.promise) {
+    const conn = {}
+    const opts = {
+      useNewUrlParser: true,
+      useUnifiedTopology: true,
+    }
+    cached.promise = MongoClient.connect(uri, opts)
+      .then((client) => {
+        conn.client = client
+        return client.db(dbName)
+      })
+      .then((db) => {
+        conn.db = db
+        cached.conn = conn
+      })
+      .catch(e => {
+        throw new Error(e)
+      })
   }
+
+  try {
+    await cached.promise
+    req.dbClient = cached.conn.client
+    req.db = cached.conn.db
+  } catch (e) {
+    console.error('ERROR CONNECTING DB:::', e)
+  }
+
   return next()
 }
 

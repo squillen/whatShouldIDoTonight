@@ -8,8 +8,8 @@ function Scrollable ({ content = [], source }) {
   return (
     <div className={styles.scrollableContainer}>
       {
-        content && content.map(el => (
-          <ContentCard key={el.name} activity={el} source={source} />
+        content && content.map((el, idx) => (
+          <ContentCard key={`${el.name}-${idx}`} activity={el} source={source} />
         ))
       }
     </div>
@@ -18,7 +18,7 @@ function Scrollable ({ content = [], source }) {
 
 Scrollable.propTypes = {
   content: PropTypes.array,
-  source: PropTypes.string
+  source: PropTypes.string,
 }
 
 export default connect((state) => state)(Scrollable)

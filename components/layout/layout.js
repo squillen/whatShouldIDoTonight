@@ -14,7 +14,7 @@ function showEmailSignup () {
   return (
     <div className={styles.emailContainer}>
       <div className={styles.title}>
-        Get things to do right in your inbox
+        inbox fun
       </div>
     </div>
   )
@@ -23,7 +23,7 @@ function showEmailSignup () {
 export default function Layout ({ children, home }) {
   const [modalToOpen, setModalToOpen] = useState(false)
   const modalFunction = {
-    showEmailSignup
+    showEmailSignup,
   }[modalToOpen] || null
   const modalContent = modalFunction ? modalFunction() : null
   const handleEmailClick = (str) => setModalToOpen(str === modalToOpen ? false : str)
@@ -34,6 +34,7 @@ export default function Layout ({ children, home }) {
       exit={exit}
       initial="initial"
       animate="animate"
+      key="layout-div"
     >
       <DefaultHead />
       <NavBar home={home} />
@@ -53,5 +54,5 @@ export default function Layout ({ children, home }) {
 
 Layout.propTypes = {
   children: PropTypes.any,
-  home: PropTypes.bool
+  home: PropTypes.bool,
 }

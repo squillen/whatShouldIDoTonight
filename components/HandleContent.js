@@ -60,8 +60,8 @@ export default function HandleContent ({ articles, all, source, quotes = [], hom
     const currentCallOut = findCallOut(...getRandomCategory(), listOfUsedCallOuts) || {}
     listOfUsedCallOuts.push(currentCallOut.name)
     const currentContentCallOut = useQuote && quotesCopy.length
-      ? <ContentCallOut item={quotesCopy.pop()} />
-      : <ContentCallOut source={source} item={currentCallOut} />
+      ? <ContentCallOut key={`quotable-contentCallOut-${i}`} item={quotesCopy.pop()} />
+      : <ContentCallOut key={`contentCallOut-${i}`} source={source} item={currentCallOut} />
     if (useQuote) useQuote = false
     display.push((
       <>
@@ -71,8 +71,8 @@ export default function HandleContent ({ articles, all, source, quotes = [], hom
     ))
   }
   return (
-    <div className={utilStyles.pageContainer}>
-      <motion.div variants={stagger} className={utilStyles.categoryOptions}>
+    <div className={utilStyles.pageContainer} key="Handle-Content-Key">
+      <motion.div key="pageContainer" variants={stagger} className={utilStyles.categoryOptions}>
         {categoryOptions}
       </motion.div>
       {display}
@@ -82,7 +82,7 @@ export default function HandleContent ({ articles, all, source, quotes = [], hom
 
 HandleContent.propTypes = {
   all: PropTypes.object,
-  articles: PropTypes.object,
+  articles: PropTypes.array,
   homeRef: PropTypes.object,
   source: PropTypes.string,
   quotes: PropTypes.array,

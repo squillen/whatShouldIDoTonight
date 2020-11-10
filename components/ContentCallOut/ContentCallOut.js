@@ -17,7 +17,7 @@ export default function ContentCallOut ({ source, item = {}, color = 'darkBlue' 
     const { image, name, tagline } = item
     const style = getStyle(image)
     return (
-      <div className={styles.sponsoredContentContainer} style={style}>
+      <div className={styles.sponsoredContentContainer} style={style} key={Math.random() * 10000}>
         <div className={styles.overlay} />
         <div className={styles.sponsoredContentContainerHeader}>
           <div className={styles.contentTitleContainer}>
@@ -32,7 +32,7 @@ export default function ContentCallOut ({ source, item = {}, color = 'darkBlue' 
 
   const handleBody = () => {
     return (
-      <div className={styles.nonLinkContentContainer} style={getStyle()}>
+      <div className={styles.nonLinkContentContainer} style={getStyle()} key={Math.random() * 10000}>
         <div className={styles.bodyHeader}>{item.header}</div>
         <div className={styles.bodyContainer}>
           {

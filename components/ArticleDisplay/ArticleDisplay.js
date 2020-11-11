@@ -58,19 +58,7 @@ export default function ArticleDisplay ({ article, source }) {
                   )
                 }
                 <div className={styles.itemContents}>
-                  {
-                    item.contents.map((c, idx) => (
-                      <div key={`${c}-${idx}`} className={styles.content}>
-                        {
-                          c.iframe
-                            ? <div className={styles.iframe}><IFrame src={c.iframe} /></div>
-                            : c.image
-                              ? <div className={styles.imageContainer}><img className={styles.image} src={c.image[0]} alt={c.image[1]} /></div>
-                              : handleMarkdown(c)
-                        }
-                      </div>
-                    ))
-                  }
+                  {mapContents(item.contents)}
                 </div>
               </div>
             ))
@@ -81,6 +69,29 @@ export default function ArticleDisplay ({ article, source }) {
         <HelpfulCounter activity={article} source={source} />
       </div>
     </>
+  )
+}
+
+function mapContents (array) {
+  return (
+    array.map((c, idx) => (
+      <div key={`${c}-${idx}`} className={styles.content}>
+        {
+          c.iframe
+            ? <div className={styles.iframe}><IFrame src={c.iframe} /></div>
+            : c.image
+              ? <div className={styles.imageContainer}><img className={styles.image} src={c.image[0]} alt={c.image[1]} /></div>
+              : c.name && c.contents
+                ? (
+                  <div>
+                    <div className={styles.subHeader}>{handleMarkdown(c.name[0] === '#' ? c.name : `### ${c.name}`)}</div>
+                    {mapContents(c.contents)}
+                  </div>
+                )
+                : handleMarkdown(c)
+        }
+      </div>
+    ))
   )
 }
 

@@ -31,7 +31,7 @@ handler.get(async (req, res) => {
       result = await result.toArray()
     } else if (name) {
       const search = name.split('_').join(' ')
-      result = await doCollection.findOne({ name: search })
+      result = await doCollection.findOne({ name: new RegExp(`^${search}$`, 'i') })
     } else if (category) {
       result = await doCollection.find({ categories: { $in: [category] } }).limit(numberLimit)
       result = await result.toArray()

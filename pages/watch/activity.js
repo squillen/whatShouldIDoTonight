@@ -21,7 +21,7 @@ import utilStyles from '../../styles/utils.module.css'
 import HelpfulCounter from '../../components/HelpfulCounter/HelpfulCounter'
 
 function Content () {
-  const [activity, setActivity] = useState(null)
+  const [activity, setActivity] = useState({})
   const router = useRouter()
   const { name } = router.query
 
@@ -63,7 +63,7 @@ function Content () {
   }
 
   useEffect(() => {
-    if (!activity && name) getActivity()
+    if (!activity.name || activity.name !== name) getActivity()
   }, [name])
 
   return (

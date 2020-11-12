@@ -21,7 +21,7 @@ function Content () {
 
   const getArticle = async () => {
     try {
-      const retrievedArticle = await getActivityFromDB('watch', id)
+      const retrievedArticle = await getActivityFromDB('drink', id)
       setArticle(retrievedArticle)
     } catch (e) {
       console.error(e)

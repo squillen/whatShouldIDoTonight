@@ -14,17 +14,16 @@ import ArticleHead from '../../components/ArticleHead'
 
 // HELPERS
 import { getActivityFromDB } from '../../lib/helpers/db/requests'
-import handleSeasons from '../../lib/helpers/handleSeasons'
 import utilStyles from '../../styles/utils.module.css'
 
 function Content () {
-  const [activity, setActivity] = useState(null)
+  const [activity, setActivity] = useState({})
   const router = useRouter()
-  const { id } = router.query
+  const { name } = router.query
 
   const getActivity = async () => {
     try {
-      const retrievedActivity = await getActivityFromDB('drink', id)
+      const retrievedActivity = await getActivityFromDB('drink', name)
       setActivity(retrievedActivity)
     } catch (e) {
       console.error(e)
@@ -32,8 +31,8 @@ function Content () {
   }
 
   useEffect(() => {
-    if (!activity && id) getActivity()
-  }, [id])
+    if (!activity.name || activity.name !== name) getActivity()
+  }, [name])
 
   return (
     <Layout>

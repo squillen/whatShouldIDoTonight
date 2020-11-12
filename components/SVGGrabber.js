@@ -64,7 +64,7 @@ export default function SVGGrabber ({ type }) {
     squiggle: squiggles,
   }[type]
   const svgsToUse = specificSVGs || allSVGs
-  const fills = ['#1C92F5', '#FA4D56', '#FA4D56', '#F51CB3', '#1CF561']
+  const fills = ['#1C92F5', '#FA4D56', '#F51CB3', '#1CF561']
   const fill = fills[Math.floor(Math.random() * fills.length)]
   const svg = svgsToUse[Math.floor(Math.random() * svgsToUse.length)]
   return svg(fill)

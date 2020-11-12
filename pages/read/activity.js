@@ -16,20 +16,20 @@ import { getActivityFromDB } from '../../lib/helpers/db/requests'
 import ContentDisplay from '../../components/ContentDisplay/ContentDisplay'
 
 function Content () {
-  const [activity, setActivity] = useState(null)
+  const [activity, setActivity] = useState({})
   const router = useRouter()
-  const { id } = router.query
+  const { name } = router.query
   const getActivity = async () => {
     try {
-      const newActivity = await getActivityFromDB('read', id)
+      const newActivity = await getActivityFromDB('read', name)
       setActivity(newActivity)
     } catch (e) {
       console.error(e)
     }
   }
   useEffect(() => {
-    if (!activity && id) getActivity()
-  }, [id])
+    if (!activity.name || activity.name !== name) getActivity()
+  }, [name])
   return (
     <Layout>
       {

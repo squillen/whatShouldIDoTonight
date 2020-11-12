@@ -18,7 +18,7 @@ import { getActivityFromDB } from '../../lib/helpers/db/requests'
 import ContentDisplay from '../../components/ContentDisplay/ContentDisplay'
 
 function Content () {
-  const [activity, setActivity] = useState(null)
+  const [activity, setActivity] = useState({})
   const router = useRouter()
   const { name } = router.query
   const getActivity = async () => {
@@ -31,7 +31,7 @@ function Content () {
   }
 
   useEffect(() => {
-    if (!activity && name) getActivity()
+    if (!activity.name || activity.name !== name) getActivity()
   }, [name])
   return (
     <Layout>
@@ -46,7 +46,7 @@ function Content () {
                   <div className={utilStyles.showInfoSectionHeader}>Show Info:</div>
                   <div className={utilStyles.showInfoSectionBody}>
                     {
-                      activity && activity.notes.listenSpeed
+                      activity && activity.notes && activity.notes.listenSpeed
                         ? (
                           <div className={utilStyles.recommendedSpeed}>
                             <div className={utilStyles.tableHeader}>Listen at:</div>
@@ -56,7 +56,7 @@ function Content () {
                         : null
                     }
                     {
-                      activity && activity.notes.notableEpisodes && activity.notes.notableEpisodes.length
+                      activity && activity.notes && activity.notes.notableEpisodes && activity.notes.notableEpisodes.length
                         ? (
                           <div className={utilStyles.whereToWatch}>
                             <div className={utilStyles.tableHeader}>Notable Episodes:</div>

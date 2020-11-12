@@ -1,13 +1,15 @@
-import React, { useRef } from 'react'
+import React, { useState, useRef } from 'react'
 import styles from './ArticleDisplay.module.css'
 import PropTypes from 'prop-types'
 import IFrame from '../IFrame/IFrame'
 import HelpfulCounter from '../HelpfulCounter/HelpfulCounter'
+import RelatedContent from '../RelatedContent/RelatedContent'
 import AuthorInfo from '../AuthorInfo/AuthorInfo'
 import ArticleHead from '../ArticleHead'
 import SVGGrabber from '../SVGGrabber'
 import BackButton from '../BackButton/BackButton'
 import handleMarkdown from '../../lib/helpers/handleMarkdown'
+import Photo from '../photo/photo'
 
 export default function ArticleDisplay ({ article, source }) {
   const style = { background: `url(${article.image}) center no-repeat`, backgroundSize: 'cover' }
@@ -58,7 +60,7 @@ export default function ArticleDisplay ({ article, source }) {
                   )
                 }
                 <div className={styles.itemContents}>
-                  {mapContents(item.contents)}
+                  {mapContents(item.contents, source)}
                 </div>
               </div>
             ))
@@ -72,7 +74,7 @@ export default function ArticleDisplay ({ article, source }) {
   )
 }
 
-function mapContents (array) {
+function mapContents (array, source) {
   return (
     array.map((c, idx) => (
       <div key={`${c}-${idx}`} className={styles.content}>
@@ -80,15 +82,20 @@ function mapContents (array) {
           c.iframe
             ? <div className={styles.iframe}><IFrame src={c.iframe} /></div>
             : c.image
-              ? <div className={styles.imageContainer}><img className={styles.image} src={c.image[0]} alt={c.image[1]} /></div>
-              : c.name && c.contents
-                ? (
-                  <div>
-                    <div className={styles.subHeader}>{handleMarkdown(c.name[0] === '#' ? c.name : `### ${c.name}`)}</div>
-                    {mapContents(c.contents)}
-                  </div>
-                )
-                : handleMarkdown(c)
+              ? <div className={styles.imageContainer}><Photo src={c.image[0]} alt={c.image[1]} /></div>
+              : c.related
+                ? <RelatedContent id={c.related[0]} articleSource={c.related[1]} source={source} />
+                : c.name && c.contents
+                  ? (
+                    <div>
+                      <div className={styles.subHeader}>
+                        {handleMarkdown(c.name[0] === '#' ? c.name : `### ${c.name}`)}
+                        <div className={styles.border} />
+                      </div>
+                      {mapContents(c.contents, source)}
+                    </div>
+                  )
+                  : handleMarkdown(c)
         }
       </div>
     ))

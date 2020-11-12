@@ -1,0 +1,23 @@
+.relatedContentContainer {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  text-align: center;
+  align-items: center;
+  border: 1px solid #10568f;
+  background: #1C92F5;
+  color: white;
+  border-radius: 0.5rem;
+  width: 100%;
+  min-height: 6rem;
+  max-height: 9rem;
+  overflow: hidden;
+  padding: 1rem;
+  margin: 2rem 0;
+}
+
+.articleLink > a,
+.articleLink > a:visited {
+  color: white;
+}
+

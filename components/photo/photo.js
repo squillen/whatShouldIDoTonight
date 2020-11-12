@@ -6,7 +6,6 @@ import styles from './photo.module.css'
 export default function Photo ({ src, alt }) {
   const [enlargePhoto, setEnlargedPhoto] = useState(false)
   return (
-  // <motion.div exit={{ opacity: 0 }} initial="initial" animate="animate">
     <img
       src={src}
       alt={alt}
@@ -18,5 +17,5 @@ export default function Photo ({ src, alt }) {
 
 Photo.propTypes = {
   src: PropTypes.string.isRequired,
-  alt: PropTypes.string.isRequired
+  alt: PropTypes.string.isRequired,
 }

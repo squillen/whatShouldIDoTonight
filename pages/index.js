@@ -1,71 +1,119 @@
-import React, { useState, useEffect } from 'react'
-import PropTypes from 'prop-types'
+import React, { useEffect, useState, useRef } from 'react'
 import Head from 'next/head'
+import PropTypes from 'prop-types'
 
 // REDUX
+import wrapper from '../src/store/store'
 import { connect } from 'react-redux'
 import { bindActionCreators } from 'redux'
-import wrapper from '../src/store/store'
-import { getNewUserActivity, setUserActivities, setAllActivities } from '../src/store/activities/action'
+import { setDoActivities } from '../src/store/categories/action'
 
 // COMPONENTS
 import Layout from '../components/layout/layout'
-import NextSEO from '../components/nextSEO'
+import SplashContent from '../components/SplashContent/SplashContent'
+import ArticleContent from '../components/ArticleContent/ArticleContent'
+import HandleContent from '../components/HandleContent'
 import { siteTitle } from '../components/defaultHead'
-import RandomGenerator from '../components/RandomGenerator/RandomGenerator'
 
 // HELPERS
-import { getAllActivitiesData } from '../lib/posts'
-import { sortActivities } from '../lib/helpers/dataHelpers'
+import utilStyles from '../styles/utils.module.css'
+import { getActivitiesFromDB } from '../lib/helpers/db/requests'
+
+const quotes = [
+  {
+    header: '"Do the Dew"',
+    contents: ['-Mountain Dew', 'Straight wisdom.'],
+  },
+  {
+    header: '"Some people say nothing is impossible, but I do nothing everyday."',
+    contents: ['-A.A. Milne', 'Tonight, you do the possible: something'],
+  },
+]
 
 export const getStaticProps = wrapper.getStaticProps(({ store }) => {
-  const activities = getAllActivitiesData()
-  const { aloneActivities, notAloneActivities } = sortActivities(activities)
-  return {
-    props: {
-      activities,
-      aloneActivities,
-      notAloneActivities,
-    },
+  const state = store.getState()
+  const all = state.categories.doActivities.all || {}
+  const spotlight = state.categories.doActivities.spotlight || []
+  const articles = state.categories.doActivities.articles || []
+  if (spotlight && !spotlight.length) return getActivitiesFromDB('do')
+  else {
+    return {
+      props: {
+        spotlight,
+        all,
+        articles,
+      },
+    }
   }
 })
 
-function Home (props) {
-  const { activities, aloneActivities, notAloneActivities } = props
-  const [firstLoad, setFirstLoad] = useState(true)
+function DoSection ({ spotlight = [], all = {}, articles = [], setInRedux, setDoActivitiesFromProps }) {
+  const [updatedRedux, setUpdatedRedux] = useState(false)
   useEffect(() => {
-    if (firstLoad) {
-      props.setAllActivities({ activities, aloneActivities, notAloneActivities })
-      setFirstLoad(false)
+    if (!updatedRedux && setInRedux) {
+      setUpdatedRedux(true)
+      setDoActivitiesFromProps({ all, spotlight })
     }
-  }, firstLoad)
+  }, [updatedRedux, setInRedux])
+  const source = 'do'
+  const obj = all || {}
 
+  const homeRef = useRef('home')
+  const display = (
+    <HandleContent
+      all={obj}
+      articles={articles}
+      source={source}
+      quotes={quotes}
+      homeRef={homeRef}
+    />
+  )
   return (
-    <Layout home>
+    <Layout>
       <Head>
-        <title>{siteTitle}</title>
+        <title>Things to Do Tonight - {siteTitle}</title>
       </Head>
-      <NextSEO />
-      <RandomGenerator activities={activities} />
+      {
+        spotlight && Array.isArray(spotlight) && spotlight.length
+          ? (
+            <SplashContent
+              content={spotlight}
+              banner="Do Stuff Worthy of Your Time"
+              source={source}
+            />
+          )
+          : null
+      }
+      {
+        articles && Array.isArray(articles) && articles.length
+          ? <ArticleContent articles={articles} banner="THE LATEST" source={source} />
+          : null
+      }
+      <div className={utilStyles.infoContainer} ref={homeRef}>
+        <div className={utilStyles.infoHeader}>Your night just got a whole lot better</div>
+      </div>
+      {display}
     </Layout>
   )
 }
 
+DoSection.propTypes = {
+  spotlight: PropTypes.array,
+  all: PropTypes.object,
+  articles: PropTypes.array,
+  setDoActivitiesFromProps: PropTypes.func,
+  setInRedux: PropTypes.bool,
+}
+
 const mapDispatchToProps = (dispatch) => {
   return {
-    getNewUserActivity: bindActionCreators(getNewUserActivity, dispatch),
-    setUserActivities: bindActionCreators(setUserActivities, dispatch),
-    setAllActivities: bindActionCreators(setAllActivities, dispatch),
+    setDoActivitiesFromProps: bindActionCreators(setDoActivities, dispatch),
   }
 }
 
-Home.propTypes = {
-  setUserActivities: PropTypes.func,
-  setAllActivities: PropTypes.func,
-  getNewUserActivity: PropTypes.func,
-  activities: PropTypes.object,
-  aloneActivities: PropTypes.object,
-  notAloneActivities: PropTypes.object,
-}
+export default connect((state) => state, mapDispatchToProps)(DoSection)
 
-export default connect((state) => state, mapDispatchToProps)(Home)
+
+
+
+

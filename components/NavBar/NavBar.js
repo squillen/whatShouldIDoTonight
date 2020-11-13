@@ -5,7 +5,7 @@ import styles from './Navbar.module.css'
 import Logo from '../logo/logo'
 
 const categories = [
-  { title: 'Do', href: '/do' },
+  { title: 'Do', href: '/' },
   { title: 'Watch', href: '/watch' },
   { title: 'Listen', href: '/listen' },
   { title: 'Learn (soon)', href: '' },
@@ -92,7 +92,7 @@ export default function NavBar ({ home }) {
             <div className={styles.navbarMenu}>
               <div className={styles.mobileCategories}>
                 {mobileCategories}
-                {
+                {/* {
                   home
                     ? null
                     : (
@@ -100,7 +100,7 @@ export default function NavBar ({ home }) {
                         <a className={styles.menuLink}>Idea Generator</a>
                       </Link>
                     )
-                }
+                } */}
               </div>
 
             </div>
@@ -115,7 +115,7 @@ export default function NavBar ({ home }) {
               <a>site favorites</a>
             </Link>
           </li> */}
-          {
+          {/* {
             home
               ? null
               : (
@@ -125,7 +125,7 @@ export default function NavBar ({ home }) {
                   </Link>
                 </li>
               )
-          }
+          } */}
         </ul>
       </nav>
     </div>

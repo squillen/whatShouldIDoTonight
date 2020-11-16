@@ -1,10 +1,26 @@
+import React, { useEffect, useState } from 'react'
 import { connect } from 'react-redux'
 import Link from 'next/link'
 import PropTypes from 'prop-types'
 import styles from './SplashContent.module.css'
 
 function SplashContent ({ content = [], banner, source }) {
-  const [content1, content2, content3] = content
+  const [randomContents, setRandomContents] = useState([])
+  const getRandomContents = () => {
+    let n = 0
+    const tempContents = []
+    const contentCopy = [...content]
+    while (n < 3) {
+      const randomIndex = Math.floor(Math.random() * contentCopy.length - 1)
+      tempContents.push(contentCopy.splice(randomIndex, 1)[0])
+      n++
+    }
+    setRandomContents(tempContents)
+  }
+  useEffect(() => {
+    if (content.length && !randomContents.length) getRandomContents()
+  }, [content])
+
   const getBackground = currContent => currContent ? `url(${currContent.image}) center no-repeat` : ''
   const getContentURL = currContent => currContent && currContent.name
     ? currContent.pagePath || `/${source}/activity?name=${currContent.name.split(' ').join('_')}`
@@ -14,45 +30,52 @@ function SplashContent ({ content = [], banner, source }) {
       <div className={styles.overlay} />
       <Link href={getContentURL(currContent)} as={getContentURL(currContent)}>
         <a>
-          <div className={styles.text}>{(currContent && currContent.name) || ''}</div>
+          <div className={styles.textContainer}>
+            <div className={styles.text}>{(currContent.name) || ''}</div>
+          </div>
         </a>
       </Link>
     </div>
   )
+  const style = banner ? null : { height: '100%' }
   return (
-    <div className={styles.splashContentContainer}>
-      {
-        banner
-          ? (
-            <div className={styles.banner}>{banner}</div>
-          )
-          : null
-      }
-      <div className={styles.imagesContainer}>
-        <div className={styles.largeImageContainer}>
-          <div
-            className={styles.largeImage}
-            key={(content1 && content1.name) || 'content1Key'}
-          >
-            {getContentDiv(content1)}
+    randomContents.length
+      ? (
+        <div className={styles.splashContentContainer}>
+          {
+            banner
+              ? (
+                <div className={styles.banner}>{banner}</div>
+              )
+              : null
+          }
+          <div style={style} className={styles.imagesContainer}>
+            <div className={styles.largeImageContainer}>
+              <div
+                className={styles.largeImage}
+                key={(randomContents[0] && randomContents[0].name) || 'content1Key'}
+              >
+                {getContentDiv(randomContents[0])}
+              </div>
+            </div>
+            <div className={styles.smallImagesContainer}>
+              <div
+                className={styles.smallImage}
+                key={(randomContents[1] && randomContents[1].name) || 'content2Key'}
+              >
+                {getContentDiv(randomContents[1])}
+              </div>
+              <div
+                className={styles.smallImage}
+                key={(randomContents[2] && randomContents[2].name) || 'content3Key'}
+              >
+                {getContentDiv(randomContents[2])}
+              </div>
+            </div>
           </div>
         </div>
-        <div className={styles.smallImagesContainer}>
-          <div
-            className={styles.smallImage}
-            key={(content2 && content2.name) || 'content2Key'}
-          >
-            {getContentDiv(content2)}
-          </div>
-          <div
-            className={styles.smallImage}
-            key={(content3 && content3.name) || 'content3Key'}
-          >
-            {getContentDiv(content3)}
-          </div>
-        </div>
-      </div>
-    </div>
+      )
+      : null
   )
 }
 

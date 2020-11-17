@@ -62,7 +62,7 @@ function DoSection ({ spotlight = [], all = {}, articles = [], setInRedux, setDo
   const display = (
     <HandleContent
       all={obj}
-      articles={articles}
+      // articles={articles}
       source={source}
       quotes={quotes}
       homeRef={homeRef}

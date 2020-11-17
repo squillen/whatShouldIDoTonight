@@ -5,19 +5,14 @@ import ContentCard from '../ContentCard/ContentCard'
 import styles from './CardIsland.module.css'
 
 function CardIsland ({ content = [], source }) {
-  const display = content.length >= 6
-    ? content.slice(0, 6)
-    : content.length >= 3
-      ? content.slice(0, 3)
-      : null
+  let display = content
+  if (display.length > 6) display = display.slice(0, 6)
   return (
     display &&
     <ul className={styles.cardIslandContainer}>
       {
         display.map((el, idx) => (
-          <li className={styles.cardListItem} key={`${el.name}-${idx}`}>
-            <ContentCard activity={el} source={source} />
-          </li>
+          <ContentCard key={`${el.name}-${idx}`} activity={el} source={source} />
         ))
       }
     </ul>

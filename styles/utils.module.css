@@ -426,16 +426,35 @@ background: radial-gradient(circle, rgba(13,32,53,1) 36%, rgba(25,110,171,0.9990
 }
 
 .breakoutSection {
+  display: flex;
+  flex-direction: column;
   width: 100%;
   min-height: 50vh;
   padding: 0 2rem;
-  margin-bottom: 3rem;
+  margin: 2rem auto .875rem;
 }
 
 .displayContentHeaderContainer {
+  width: 70%;
+  margin: 0 auto;
   display: flex;
   align-items: flex-end;
   justify-content: space-between;
+}
+
+.displayContentHeader {
+  margin: 0;
+  font-size: 5rem;
+}
+
+.displayContentHeader:hover {
+  text-decoration: underline;
+}
+
+.leftHeaderContainer > a {
+  display: flex;
+  flex-wrap: nowrap;
+  align-items: center;
 }
 
 .rightHeaderContainer {
@@ -907,7 +926,7 @@ background: radial-gradient(circle, rgba(13,32,53,1) 36%, rgba(25,110,171,0.9990
 }
 
 .fa {
-	width: 60px;
+	/* width: 60px; */
 	display: block;
 	text-align: center;
 	line-height:60px;

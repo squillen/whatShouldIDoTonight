@@ -11,7 +11,7 @@ function SplashContent ({ content = [], banner, source }) {
     const tempContents = []
     const contentCopy = [...content]
     while (n < 3) {
-      const randomIndex = Math.floor(Math.random() * contentCopy.length - 1)
+      const randomIndex = Math.floor(Math.random() * contentCopy.length)
       tempContents.push(contentCopy.splice(randomIndex, 1)[0])
       n++
     }

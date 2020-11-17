@@ -1,5 +1,6 @@
 import React, { useState, useRef } from 'react'
 import styles from './ArticleDisplay.module.css'
+import Link from 'next/link'
 import PropTypes from 'prop-types'
 import IFrame from '../IFrame/IFrame'
 import HelpfulCounter from '../HelpfulCounter/HelpfulCounter'
@@ -10,6 +11,7 @@ import SVGGrabber from '../SVGGrabber'
 import BackButton from '../BackButton/BackButton'
 import handleMarkdown from '../../lib/helpers/handleMarkdown'
 import Photo from '../photo/photo'
+import { makeDatePretty } from '../../lib/helpers/dataHelpers'
 
 export default function ArticleDisplay ({ article, source }) {
   const style = { background: `url(${article.image}) center no-repeat`, backgroundSize: 'cover' }
@@ -35,7 +37,10 @@ export default function ArticleDisplay ({ article, source }) {
       <div className={styles.articleContainer}>
         <div style={style} className={styles.header}>
           <div className={styles.overlay} />
-          <h1 className={styles.headerText}>{article.name || article.tagline}</h1>
+          <div className={styles.headerTextContainer}>
+            <h1 className={styles.headerText}>{article.name || article.tagline}</h1>
+            {article.dateModified && <div className={styles.dateModified}>Updated {makeDatePretty(article.dateModified)}</div>}
+          </div>
           <h1 className={styles.hidden}>what should i we do tonight</h1>
           <h1 className={styles.hidden}>i we are bored</h1>
         </div>
@@ -82,7 +87,13 @@ function mapContents (array, source) {
           c.iframe
             ? <div className={styles.iframe}><IFrame src={c.iframe} /></div>
             : c.image
-              ? <div className={styles.imageContainer}><Photo src={c.image[0]} alt={c.image[1]} /></div>
+              ? <div className={styles.imageContainer}>
+                {
+                  c.image[3]
+                    ? <Link href={c.image[3]}><a><img src={c.image[0]} alt={c.image[1]}/></a></Link>
+                    : <Photo src={c.image[0]} alt={c.image[1]} />
+                }
+              </div>
               : c.related
                 ? <RelatedContent id={c.related[0]} articleSource={c.related[1]} source={source} />
                 : c.name && c.contents

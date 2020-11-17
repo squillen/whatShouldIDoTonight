@@ -78,7 +78,7 @@ function DoSection ({ spotlight = [], all = {}, articles = [], setInRedux, setDo
           ? (
             <SplashContent
               content={spotlight}
-              banner="Do Stuff Worthy of Your Time"
+              banner="Stuff Worthy of Your Time"
               source={source}
             />
           )
@@ -112,8 +112,3 @@ const mapDispatchToProps = (dispatch) => {
 }
 
 export default connect((state) => state, mapDispatchToProps)(DoSection)
-
-
-
-
-

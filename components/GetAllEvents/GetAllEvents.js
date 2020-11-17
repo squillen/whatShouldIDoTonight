@@ -12,7 +12,7 @@ import DisplayAllEvents from '../DisplayAllEvents/DisplayAllEvents'
 import { callAPI, getOptions } from '../../lib/helpers/callAPI'
 import styles from './GetAllEvents.module.css'
 
-function GetAllEvents ({ header = 'Things To Do', source, category = '' }) {
+function GetAllEvents ({ header = 'Things To Do', categoryInfo, source, category = '' }) {
   const [allActivities, setAllActivities] = useState([])
   const [currentActivities, setCurrentActivities] = useState(null)
   const [calledAPI, setCalledAPI] = useState(false)
@@ -138,10 +138,10 @@ function GetAllEvents ({ header = 'Things To Do', source, category = '' }) {
       <div className={styles.contentContainer}>
         <DisplayAllEvents
           activities={currentActivities}
-          header={header}
+          categoryInfo={categoryInfo}
           source={source}
         />
-        {
+        {/* {
           categories && categories.length
             ? (
               <div className={styles.filters}>
@@ -163,7 +163,7 @@ function GetAllEvents ({ header = 'Things To Do', source, category = '' }) {
               </div>
             )
             : null
-        }
+        } */}
       </div>
     </Layout>
   )

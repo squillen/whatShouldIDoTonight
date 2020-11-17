@@ -15,7 +15,7 @@ import utilStyles from '../styles/utils.module.css'
 const specialCase = {
   selfImprovement: { name: 'Self Improvement' },
   food: { name: 'Food & Drink ' },
-  total: { name: 'All' },
+  // total: { name: 'All' },
 }
 
 export default function HandleContent ({ articles, all, source, quotes = [], homeRef }) {

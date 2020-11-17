@@ -40,7 +40,7 @@ export default function HandleContent ({ articles, all, source, quotes = [], hom
     contentCategories.push(handleCategory(key, all[key]))
   }
 
-  contentCategories.push(handleCategory('articles', articles))
+  // contentCategories.push(handleCategory('articles', articles))
 
   contentCategories.sort((a, b) => {
     if (a.header > b.header) return 1

@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useState, useEffect } from 'react'
 import { useRouter } from 'next/router'
 import PropTypes from 'prop-types'
 
@@ -8,25 +8,35 @@ import { connect } from 'react-redux'
 // HELPERS
 import GetAllEvents from '../../components/GetAllEvents/GetAllEvents'
 
+const categoryDescriptions = {
+  selfimprovement: { title: 'Ideas to improve yourself and grow as a person', header: 'Self Improvement', tag: "Whether you believe it or not, you're awesome. And you can become even more awesome! Awesome! How? By checking out all of our articles!" },
+  learn: { title: 'Fun courses and apps to learn from tonight', header: 'Learn', tag: "Nights are the time to hone your skills and learn new ones. Of course, watching TV is fine, we've got a whole page dedicated to it, in fact! But taking time out to learn sets you apart from most. You've got this." },
+  food: { title: 'Tasty food and drink ideas to try tonight', header: 'Food & Drink', tag: 'Batman and Robin, peanut butter and jelly, nights and food. Some pairings just work. Check out all these fun food things you can do. Tonight!' },
+  alone: { title: "Fun ideas for things to do when you're alone", header: 'Alone', tag: "Whether you're happy that you're alone tonight or not, we've got something for you." },
+  games: { header: 'Fun game ideas to try tonight', tag: "Nights are made for fun. Games are fun. It's almost like nights were meant for games?!" },
+}
+
 function Content () {
   const router = useRouter()
   let { category } = router.query
-  const cleanedCategory = () => {
-    if (category) {
-      return category.toLowerCase() === 'selfimprovement'
-        ? 'Self Improvement'
-        : category === 'total'
-          ? 'All'
-          : category[0].toUpperCase() + category.slice(1, category.length).toLowerCase()
-    } else return ''
-  }
+  const [categoryInfo, setCategoryInfo] = useState({})
+
+  useEffect(() => {
+    if (category && !categoryInfo.header) setCategoryInfo(categoryDescriptions[category.toLowerCase()])
+  }, [category])
+
   if (category === 'selfimprovement') category = 'selfImprovement'
   return (
-    <GetAllEvents
-      header={`Do ${cleanedCategory()} Stuffs`}
-      source="do"
-      category={category}
-    />
+    categoryInfo.header
+      ? (
+        <GetAllEvents
+          categoryInfo={categoryInfo}
+          source="do"
+          category={category}
+        />
+      )
+      : null
+
   )
 }
 

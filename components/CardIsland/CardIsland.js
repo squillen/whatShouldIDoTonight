@@ -10,11 +10,7 @@ function CardIsland ({ content = [], source }) {
   return (
     display &&
     <ul className={styles.cardIslandContainer}>
-      {
-        display.map((el, idx) => (
-          <ContentCard key={`${el.name}-${idx}`} activity={el} source={source} />
-        ))
-      }
+      <ContentCard activities={display} source={source} />
     </ul>
   )
 }

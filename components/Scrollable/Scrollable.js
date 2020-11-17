@@ -5,13 +5,11 @@ import ContentCard from '../ContentCard/ContentCard'
 import styles from './Scrollable.module.css'
 
 function Scrollable ({ content = [], source }) {
+  const activities = content && content.slice(0, 3)
   return (
+    activities &&
     <div className={styles.scrollableContainer}>
-      {
-        content && content.map((el, idx) => (
-          <ContentCard key={`${el.name}-${idx}`} activity={el} source={source} />
-        ))
-      }
+      <ContentCard activities={activities} source={source} />
     </div>
   )
 }

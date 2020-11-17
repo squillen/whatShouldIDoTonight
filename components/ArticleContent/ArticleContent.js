@@ -7,8 +7,7 @@ export default function ArticleContent ({ articles, banner = 'THE LATEST', sourc
     ? currContent.pagePath || `/${source}/${source === 'watch' ? 'article' : 'activity'}?name=${currContent.name.split(' ').join('_')}`
     : ''
   const start = articles.length > 3 ? articles.length - 4 : articles.length > 2 ? articles.length - 3 : null
-  let displayedArticles = start ? articles.slice(start, articles.length) : []
-  displayedArticles = displayedArticles.reverse()
+  const displayedArticles = start ? articles.slice(start, articles.length).reverse() : []
   return (
     displayedArticles.length
       ? (

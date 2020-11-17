@@ -19,12 +19,12 @@ handler.get(async (req, res) => {
     let result
     const doCollection = req.db.collection('do')
     if (all) {
-      result = await doCollection.find()
+      result = await doCollection.find({ $or: expirationCheck })
       result = await result.toArray()
       const categories = getAllCategories(result)
       return res.json(categories)
     } else if (category === 'total') {
-      result = await doCollection.find()
+      result = await doCollection.find({ $or: expirationCheck })
       result = await result.toArray()
     } else if (category === 'free') {
       result = await doCollection.find({ free: true }).limit(numberLimit)
@@ -34,7 +34,7 @@ handler.get(async (req, res) => {
       console.log('search :>> ', search)
       result = await doCollection.findOne({ name: search })
     } else if (category) {
-      result = await doCollection.find({ categories: { $in: [category] } }).limit(numberLimit)
+      result = await doCollection.find({ categories: { $in: [category] }, $or: expirationCheck }).limit(numberLimit)
       result = await result.toArray()
     } else if (free) {
       result = await doCollection.find({ $or: [{ free: true }, { free: 'true' }] })
@@ -64,7 +64,7 @@ handler.get(async (req, res) => {
       result = await doCollection.find({ $and: [{ article: true }, { $or: expirationCheck }] }).limit(numberLimit)
       result = await result.toArray()
     } else {
-      result = await findAllActivities(doCollection, numberLimit)
+      result = await findAllActivities(doCollection, numberLimit, { $or: expirationCheck })
       result = await result.toArray()
     }
     res.json(result)

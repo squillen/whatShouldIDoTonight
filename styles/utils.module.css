@@ -548,7 +548,7 @@ background: radial-gradient(circle, rgba(13,32,53,1) 36%, rgba(25,110,171,0.9990
   width: 70%;
   align-items: center;
   padding: 2rem;
-  margin: 0 auto;
+  margin: 3rem auto;
 }
 
 .categoryOption {
@@ -833,12 +833,19 @@ background: radial-gradient(circle, rgba(13,32,53,1) 36%, rgba(25,110,171,0.9990
 
 }
 
+.desktop {
+
+}
+
+.mobile {
+  display: none;
+}
+
 /* END ACTIVITIES PAGE STYLE */
 @media only screen and (max-width: 1250px) {
   .infoContainer {
     width: 60%;
   }
-
 }
 @media only screen and (max-width: 850px) {
   .headingMd {
@@ -878,6 +885,14 @@ background: radial-gradient(circle, rgba(13,32,53,1) 36%, rgba(25,110,171,0.9990
     flex-direction: column;
     align-items: start;
     justify-content: start;
+  }
+
+  .mobile {
+    display: flex;
+  }
+
+  .desktop {
+    display: none;
   }
 
   .postContainer {

@@ -1,21 +1,31 @@
-.cardListItem {
+.cardListItem,
+.span {
   list-style: none;
-  width: calc((100% - 2rem)/ 3);
+  width: calc((100% - 3rem)/ 3);
   margin-bottom: 1rem;
 }
 
-.cardListItem:not(:nth-child(3n)) {
-  margin-right: 1rem;
+.span {
+  width: 100%;
 }
 
-.contentCard {
+/* .cardListItem:not(:nth-child(3n)) {
+  margin-right: 1rem;
+} */
+
+.contentCard, .spanContentCard {
   position: relative;
   flex: 1 0 100%;
   height: 50vh;
   width: 100%;
 }
 
-.topHalf, .bottomHalf {
+.spanContentCard {
+  display: flex;
+  margin-bottom: 7rem;
+}
+
+.topHalf, .bottomHalf, .leftHalf, .rightHalf {
   overflow: hidden;
   transition: all .15s ease;
   width: 100%;
@@ -38,6 +48,23 @@
   /* border-radius: 0 0 0.45rem 0.45rem; */
   height: 40%;
 }
+
+.leftHalf, .rightHalf {
+  width: 60%;
+  height: 100%;
+}
+
+.leftHalf {
+  width: 40%;
+}
+
+.rightHalf {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  padding-left: 5rem;
+}
+
 
 .infoContainer {
   width: 100%;
@@ -113,4 +140,11 @@
   border-right: 3px solid #79A70A;
   border-bottom: 3px solid transparent;
   border-top: 3px solid #79A70A;
+}
+
+@media only screen and (max-width: 500px) {
+  .cardListItem,
+  .span {
+    width: 100%;
+  }
 }

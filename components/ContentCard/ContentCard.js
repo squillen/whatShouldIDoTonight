@@ -18,30 +18,33 @@ export default function ContentCard ({ activity, source }) {
   return (
     activity.name
       ? (
-        <Link href={getContentURL(activity)} as={getContentURL(activity)}>
-          <a className={styles.cardLink}>
-            <motion.div
-              className={styles.contentCard}
-              key={activity.name}
-              whileHover={{ scale: 1.02 }}
-              whileTap={{ scale: 0.97 }}
-              variants={fadeInFromLeft}
-            >
-              <div className={styles.topHalf} style={{ background: getBackground(activity), backgroundSize: 'cover' }}>
-                <div className={styles.ribbon}>
-                  <span className={styles.ribbonText}>{activity.free && 'FREE'}</span>
+        <li className={styles.cardListItem}>
+          <Link href={getContentURL(activity)} as={getContentURL(activity)}>
+            <a className={styles.cardLink}>
+              <motion.div
+                className={styles.contentCard}
+                key={activity.name}
+                whileHover={{ scale: 1.02 }}
+                whileTap={{ scale: 0.97 }}
+                variants={fadeInFromLeft}
+              >
+                <div className={styles.topHalf} style={{ background: getBackground(activity), backgroundSize: 'cover' }}>
+                  <div className={styles.ribbon}>
+                    <span className={styles.ribbonText}>{activity.free && 'FREE'}</span>
+                  </div>
                 </div>
-              </div>
-              <div className={styles.bottomHalf}>
-                <div className={styles.infoContainer}>
-                  <div className={styles.cardName}>{activity.name}</div>
-                  <div className={styles.publishDate}>{handleDate(activity._id)}</div>
+                <div className={styles.bottomHalf}>
+                  <div className={styles.infoContainer}>
+                    <div className={styles.cardName}>{activity.name}</div>
+                    <div className={styles.publishDate}>{handleDate(activity._id)}</div>
+                  </div>
+                  <div className={styles.tagline}>{activity.tagline}</div>
                 </div>
-                <div className={styles.tagline}>{activity.tagline}</div>
-              </div>
-            </motion.div>
-          </a>
-        </Link>
+              </motion.div>
+            </a>
+          </Link>
+        </li>
+
       )
       : null
   )

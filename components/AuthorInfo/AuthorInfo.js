@@ -3,6 +3,7 @@ import PropTypes from 'prop-types'
 import Link from 'next/link'
 import styles from './AuthorInfo.module.css'
 import { getAuthorInfo } from '../../lib/helpers/db/requests'
+import { makeDatePretty } from '../../lib/helpers/dataHelpers'
 export default function AuthorInfo ({ article }) {
   const authorID = article.authorID || ''
   const [author, setAuthor] = useState({})
@@ -30,11 +31,7 @@ export default function AuthorInfo ({ article }) {
         ? `${imageStub}placeholder_woman_icon.png`
         : `${imageStub}placeholder_man_icon.png`
   }
-  function makeDatePretty (date = new Date()) {
-    return new Date(date).toLocaleDateString(undefined, {
-      weekday: 'short', year: 'numeric', month: 'short', day: 'numeric',
-    })
-  }
+
 
   const publishDate = (article._id && makeDatePretty(parseInt(article._id.substring(0, 8), 16) * 1000)) || makeDatePretty(new Date())
   const updateDate = article.updateDate && makeDatePretty(article.updateDate)

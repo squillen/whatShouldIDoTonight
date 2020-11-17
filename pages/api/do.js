@@ -31,7 +31,8 @@ handler.get(async (req, res) => {
       result = await result.toArray()
     } else if (name) {
       const search = name.split('_').join(' ')
-      result = await doCollection.findOne({ name: new RegExp(`^${search}$`, 'i') })
+      console.log('search :>> ', search)
+      result = await doCollection.findOne({ name: search })
     } else if (category) {
       result = await doCollection.find({ categories: { $in: [category] } }).limit(numberLimit)
       result = await result.toArray()
@@ -42,8 +43,10 @@ handler.get(async (req, res) => {
       const _id = ObjectId(id)
       result = await doCollection.findOne({ _id })
     } else if (spotlight) {
-      const articles = await doCollection.find({ $and: [{ article: true }, { spotlight: true }], $or: expirationCheck })
-      const spotlight = await doCollection.find({ spotlight: true, $or: expirationCheck })
+      // don't show the 4 most recent since those will be in "The Latest" section
+      const articles = await doCollection.find({ $and: [{ article: true }, { spotlight: true }], $or: expirationCheck }).sort({ _id: -1 }).skip(4)
+      // don't get if an article since those are gotten in previous query ^^
+      const spotlight = await doCollection.find({ $and: [{ spotlight: true, $or: [{ article: false }, { article: { $exists: false } }] }], $or: expirationCheck })
       const articlesArray = (articles && await articles.toArray()) || []
       const spotlightArray = await spotlight.toArray()
       result = [...articlesArray, ...spotlightArray]

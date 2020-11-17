@@ -19,40 +19,50 @@ export default class DisplayAllEvents extends React.Component {
   }
 
   componentDidMount () {
-    this.setState({ currentActivities: this.props.activities })
+    const { activities = [] } = this.props
+    if (activities) {
+      const currentActivities = [...activities]
+      const randomIndex = Math.floor(Math.random() * currentActivities.length)
+      const highlightActivity = currentActivities.splice(randomIndex, 1)[0]
+      this.setState({ currentActivities, highlightActivity })
+    }
   }
 
   componentDidUpdate (prevProps) {
     const prevPropActivities = prevProps.activities || []
     const activities = this.props.activities || []
     if (prevPropActivities.length !== activities.length) {
-      this.setState({ currentActivities: activities })
+      const currentActivities = [...activities]
+      const randomIndex = Math.floor(Math.random() * currentActivities.length)
+      const highlightActivity = currentActivities.splice(randomIndex, 1)[0]
+      this.setState({ currentActivities, highlightActivity })
     }
   }
 
   render () {
-    const { currentActivities } = this.state
-    const { header = 'Do all the stuffs!', source } = this.props
-    const noActivitiesDiv = this.showNoActivities()
+    const { currentActivities = [], highlightActivity } = this.state
+    const { categoryInfo: { header, tag, title }, source } = this.props
+    // const noActivitiesDiv = this.showNoActivities()
     return (
       <motion.div className={styles.displayAllContainer} variants={stagger}>
         <Head>
-          <title>{header} - {siteTitle}</title>
+          <title>{title} - {siteTitle}</title>
         </Head>
         <BackButton />
         <div className={styles.headerContainer}>
-          <div className={styles.header}>{header}</div>
-          <div className={styles.count}>{(currentActivities && Array.isArray(currentActivities) && currentActivities.length) || 0} items</div>
+          <h2 className={styles.header}>{header}</h2>
+          <p className={styles.tag}>{tag}</p>
         </div>
         <motion.div variants={stagger} className={styles.activitiesContainer}>
+          {highlightActivity && (
+            <div className={styles.highlightActivity}>
+              <ContentCard activities={[highlightActivity]} source={source} span />
+            </div>
+          )}
           {
             currentActivities && currentActivities.length
-              ? currentActivities.map(activity => (
-                <ContentCard key={activity.name} activity={activity} source={source} />
-              ))
-              : currentActivities && currentActivities.length === 0
-                ? noActivitiesDiv
-                : <Loading loading={true} />
+              ? <ContentCard activities={currentActivities} source={source} />
+              : null
           }
         </motion.div>
       </motion.div>
@@ -76,7 +86,7 @@ export default class DisplayAllEvents extends React.Component {
 
 DisplayAllEvents.propTypes = {
   activities: PropTypes.array,
-  source: PropTypes.string,
-  header: PropTypes.string,
+  source: PropTypes.string.isRequired,
+  categoryInfo: PropTypes.object.isRequired,
   back: PropTypes.func,
 }

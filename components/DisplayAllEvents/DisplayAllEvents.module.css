@@ -3,9 +3,27 @@
 }
 
 .headerContainer {
+  /* display: flex; */
+  align-items: center;
+  flex-wrap: wrap;
   font-size: 4.4rem;
-  text-align: center;
-  padding: 1rem;
+  padding-left: 3rem;
+  margin-bottom: 3rem;
+}
+
+.highlightActivity {
+  width: 100%;
+}
+
+.headerContainer > h2 {
+  margin: 0;
+  margin-right: 3rem;
+}
+
+.tag {
+  width: 60%;
+  font-size: 1rem;
+  margin: 0;
 }
 
 .count {
@@ -19,6 +37,7 @@
 }
 
 .activitiesContainer {
+  width: 80%;
   display: flex;
   margin: 0 auto;
   /* justify-content: center; */
@@ -46,8 +65,22 @@
   max-width: 100%;
 }
 
+@media only screen and (max-width: 900px) {
+  .tag {
+    width: 70%;
+  }
+}
+
 @media only screen and (max-width: 700px) {
   .activitiesContainer {
     justify-content: center;
+  }
+
+  .headerContainer {
+    font-size: 3.3rem;
+  }
+
+  .tag {
+    width: 80%;
   }
 }

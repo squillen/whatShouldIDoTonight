@@ -28,18 +28,6 @@
     <changefreq>weekly</changefreq>
   </url>
   <url>
-    <loc>http://localhost:3000/listen/activity</loc>
-    <changefreq>weekly</changefreq>
-  </url>
-  <url>
-    <loc>http://localhost:3000/listen/all</loc>
-    <changefreq>weekly</changefreq>
-  </url>
-  <url>
-    <loc>http://localhost:3000/listen/index</loc>
-    <changefreq>weekly</changefreq>
-  </url>
-  <url>
     <loc>http://localhost:3000/watch/activity</loc>
     <changefreq>weekly</changefreq>
   </url>
@@ -52,7 +40,111 @@
     <changefreq>weekly</changefreq>
   </url>
   <url>
-    <loc>http://localhost:3000/activities/alone/free/outside/walk-for-30-minutes</loc>
+    <loc>http://localhost:3000/listen2dntGoHere/activity</loc>
+    <changefreq>weekly</changefreq>
+  </url>
+  <url>
+    <loc>http://localhost:3000/listen2dntGoHere/all</loc>
+    <changefreq>weekly</changefreq>
+  </url>
+  <url>
+    <loc>http://localhost:3000/listen2dntGoHere/index</loc>
+    <changefreq>weekly</changefreq>
+  </url>
+  <url>
+    <loc>http://localhost:3000/activities/notAlone/free/inside/clean-your-place</loc>
+    <changefreq>weekly</changefreq>
+  </url>
+  <url>
+    <loc>http://localhost:3000/activities/notAlone/free/inside/develop-alter-egos</loc>
+    <changefreq>weekly</changefreq>
+  </url>
+  <url>
+    <loc>http://localhost:3000/activities/notAlone/free/inside/get-your-shit-together</loc>
+    <changefreq>weekly</changefreq>
+  </url>
+  <url>
+    <loc>http://localhost:3000/activities/notAlone/free/inside/have-a-date-night</loc>
+    <changefreq>weekly</changefreq>
+  </url>
+  <url>
+    <loc>http://localhost:3000/activities/notAlone/free/inside/listen-to-each-others-songs</loc>
+    <changefreq>weekly</changefreq>
+  </url>
+  <url>
+    <loc>http://localhost:3000/activities/notAlone/free/inside/play-board-games</loc>
+    <changefreq>weekly</changefreq>
+  </url>
+  <url>
+    <loc>http://localhost:3000/activities/notAlone/free/inside/start-a-podcast</loc>
+    <changefreq>weekly</changefreq>
+  </url>
+  <url>
+    <loc>http://localhost:3000/activities/notAlone/free/inside/write-a-poem</loc>
+    <changefreq>weekly</changefreq>
+  </url>
+  <url>
+    <loc>http://localhost:3000/activities/notAlone/free/inside/yoga-with-adriene</loc>
+    <changefreq>weekly</changefreq>
+  </url>
+  <url>
+    <loc>http://localhost:3000/activities/notAlone/free/outside/go-play-tennis</loc>
+    <changefreq>weekly</changefreq>
+  </url>
+  <url>
+    <loc>http://localhost:3000/activities/notAlone/free/outside/walk-for-30-minutes</loc>
+    <changefreq>weekly</changefreq>
+  </url>
+  <url>
+    <loc>http://localhost:3000/activities/notAlone/notFree/inside/make-some-ice-cream</loc>
+    <changefreq>weekly</changefreq>
+  </url>
+  <url>
+    <loc>http://localhost:3000/activities/notAlone/notFree/outside/get-some-ice-cream</loc>
+    <changefreq>weekly</changefreq>
+  </url>
+  <url>
+    <loc>http://localhost:3000/activities/notAlone/notFree/outside/go-to-a-beer-garden</loc>
+    <changefreq>weekly</changefreq>
+  </url>
+  <url>
+    <loc>http://localhost:3000/activities/notAlone/notFree/outside/go-to-a-games-cafe</loc>
+    <changefreq>weekly</changefreq>
+  </url>
+  <url>
+    <loc>http://localhost:3000/activities/notAlone/notFree/outside/go-to-a-gin-bar</loc>
+    <changefreq>weekly</changefreq>
+  </url>
+  <url>
+    <loc>http://localhost:3000/activities/notAlone/notFree/outside/go-to-a-happy-hour</loc>
+    <changefreq>weekly</changefreq>
+  </url>
+  <url>
+    <loc>http://localhost:3000/activities/notAlone/notFree/outside/go-to-a-new-restaurant</loc>
+    <changefreq>weekly</changefreq>
+  </url>
+  <url>
+    <loc>http://localhost:3000/activities/notAlone/notFree/outside/go-to-a-tequila-bar</loc>
+    <changefreq>weekly</changefreq>
+  </url>
+  <url>
+    <loc>http://localhost:3000/activities/notAlone/notFree/outside/go-to-a-whiskey-bar</loc>
+    <changefreq>weekly</changefreq>
+  </url>
+  <url>
+    <loc>http://localhost:3000/activities/notAlone/notFree/outside/go-to-a-wine-bar</loc>
+    <changefreq>weekly</changefreq>
+  </url>
+  <url>
+    <loc>http://localhost:3000/activities/notAlone/notFree/outside/have-a-date-night</loc>
+    <changefreq>weekly</changefreq>
+  </url>
+  <url>
+    <loc>http://localhost:3000/activities/notAlone/notFree/outside/play-putt-putt</loc>
+    <changefreq>weekly</changefreq>
+  </url>
+  <url>
+    <loc>http://localhost:3000/activities/notAlone/notFree/outside/thrift-store-dinner</loc>
     <changefreq>weekly</changefreq>
   </url>
   <url>
@@ -208,6 +300,10 @@
     <changefreq>weekly</changefreq>
   </url>
   <url>
+    <loc>http://localhost:3000/activities/alone/free/outside/walk-for-30-minutes</loc>
+    <changefreq>weekly</changefreq>
+  </url>
+  <url>
     <loc>http://localhost:3000/activities/alone/notFree/inside/buy-all-your-gifts</loc>
     <changefreq>weekly</changefreq>
   </url>
@@ -265,158 +361,6 @@
   </url>
   <url>
     <loc>http://localhost:3000/activities/alone/notFree/outside/try-new-exercises</loc>
-    <changefreq>weekly</changefreq>
-  </url>
-  <url>
-    <loc>http://localhost:3000/activities/anyone/free/inside/b-for-d</loc>
-    <changefreq>weekly</changefreq>
-  </url>
-  <url>
-    <loc>http://localhost:3000/activities/anyone/free/inside/bake-some-cookies</loc>
-    <changefreq>weekly</changefreq>
-  </url>
-  <url>
-    <loc>http://localhost:3000/activities/anyone/free/inside/become-a-connoisseur</loc>
-    <changefreq>weekly</changefreq>
-  </url>
-  <url>
-    <loc>http://localhost:3000/activities/anyone/free/inside/clean-up-your-queue</loc>
-    <changefreq>weekly</changefreq>
-  </url>
-  <url>
-    <loc>http://localhost:3000/activities/anyone/free/inside/cook-a-meal</loc>
-    <changefreq>weekly</changefreq>
-  </url>
-  <url>
-    <loc>http://localhost:3000/activities/anyone/free/inside/do-a-diet</loc>
-    <changefreq>weekly</changefreq>
-  </url>
-  <url>
-    <loc>http://localhost:3000/activities/anyone/free/inside/doodle</loc>
-    <changefreq>weekly</changefreq>
-  </url>
-  <url>
-    <loc>http://localhost:3000/activities/anyone/free/inside/find-a-free-movie</loc>
-    <changefreq>weekly</changefreq>
-  </url>
-  <url>
-    <loc>http://localhost:3000/activities/anyone/free/inside/get-a-good-nights-sleep</loc>
-    <changefreq>weekly</changefreq>
-  </url>
-  <url>
-    <loc>http://localhost:3000/activities/anyone/free/inside/get-a-hobby</loc>
-    <changefreq>weekly</changefreq>
-  </url>
-  <url>
-    <loc>http://localhost:3000/activities/anyone/free/inside/go-screenless</loc>
-    <changefreq>weekly</changefreq>
-  </url>
-  <url>
-    <loc>http://localhost:3000/activities/anyone/free/inside/have-a-taste-test</loc>
-    <changefreq>weekly</changefreq>
-  </url>
-  <url>
-    <loc>http://localhost:3000/activities/anyone/free/inside/invite-friends-over</loc>
-    <changefreq>weekly</changefreq>
-  </url>
-  <url>
-    <loc>http://localhost:3000/activities/anyone/free/inside/join-a-cult</loc>
-    <changefreq>weekly</changefreq>
-  </url>
-  <url>
-    <loc>http://localhost:3000/activities/anyone/free/inside/learn-some-jokes</loc>
-    <changefreq>weekly</changefreq>
-  </url>
-  <url>
-    <loc>http://localhost:3000/activities/anyone/free/inside/learn-to-cook</loc>
-    <changefreq>weekly</changefreq>
-  </url>
-  <url>
-    <loc>http://localhost:3000/activities/anyone/free/inside/plan-a-trip</loc>
-    <changefreq>weekly</changefreq>
-  </url>
-  <url>
-    <loc>http://localhost:3000/activities/anyone/free/inside/raffles</loc>
-    <changefreq>weekly</changefreq>
-  </url>
-  <url>
-    <loc>http://localhost:3000/activities/anyone/free/inside/refresh-your-decor</loc>
-    <changefreq>weekly</changefreq>
-  </url>
-  <url>
-    <loc>http://localhost:3000/activities/anyone/free/inside/take-some-surveys</loc>
-    <changefreq>weekly</changefreq>
-  </url>
-  <url>
-    <loc>http://localhost:3000/activities/anyone/free/inside/try-a-new-cuisine</loc>
-    <changefreq>weekly</changefreq>
-  </url>
-  <url>
-    <loc>http://localhost:3000/activities/anyone/free/outside/be-a-tourist</loc>
-    <changefreq>weekly</changefreq>
-  </url>
-  <url>
-    <loc>http://localhost:3000/activities/anyone/free/outside/dine-alfresco</loc>
-    <changefreq>weekly</changefreq>
-  </url>
-  <url>
-    <loc>http://localhost:3000/activities/anyone/free/outside/geocache</loc>
-    <changefreq>weekly</changefreq>
-  </url>
-  <url>
-    <loc>http://localhost:3000/activities/anyone/free/outside/get-into-photography</loc>
-    <changefreq>weekly</changefreq>
-  </url>
-  <url>
-    <loc>http://localhost:3000/activities/anyone/free/outside/go-for-a-run</loc>
-    <changefreq>weekly</changefreq>
-  </url>
-  <url>
-    <loc>http://localhost:3000/activities/anyone/free/outside/go-on-a-photo-walk</loc>
-    <changefreq>weekly</changefreq>
-  </url>
-  <url>
-    <loc>http://localhost:3000/activities/anyone/free/outside/go-people-watch</loc>
-    <changefreq>weekly</changefreq>
-  </url>
-  <url>
-    <loc>http://localhost:3000/activities/anyone/free/outside/go-stargazing</loc>
-    <changefreq>weekly</changefreq>
-  </url>
-  <url>
-    <loc>http://localhost:3000/activities/anyone/free/outside/go-to-a-park</loc>
-    <changefreq>weekly</changefreq>
-  </url>
-  <url>
-    <loc>http://localhost:3000/activities/anyone/free/outside/grill-something</loc>
-    <changefreq>weekly</changefreq>
-  </url>
-  <url>
-    <loc>http://localhost:3000/activities/anyone/free/outside/help-the-homeless</loc>
-    <changefreq>weekly</changefreq>
-  </url>
-  <url>
-    <loc>http://localhost:3000/activities/anyone/free/outside/look-at-cars</loc>
-    <changefreq>weekly</changefreq>
-  </url>
-  <url>
-    <loc>http://localhost:3000/activities/anyone/free/outside/pick-up-trash</loc>
-    <changefreq>weekly</changefreq>
-  </url>
-  <url>
-    <loc>http://localhost:3000/activities/anyone/free/outside/plan-a-day-trip</loc>
-    <changefreq>weekly</changefreq>
-  </url>
-  <url>
-    <loc>http://localhost:3000/activities/anyone/free/outside/prepare-for-a-sunrise</loc>
-    <changefreq>weekly</changefreq>
-  </url>
-  <url>
-    <loc>http://localhost:3000/activities/anyone/free/outside/train-your-dog</loc>
-    <changefreq>weekly</changefreq>
-  </url>
-  <url>
-    <loc>http://localhost:3000/activities/anyone/free/outside/watch-a-sunset-and-have-a-picnic</loc>
     <changefreq>weekly</changefreq>
   </url>
   <url>
@@ -580,99 +524,155 @@
     <changefreq>weekly</changefreq>
   </url>
   <url>
-    <loc>http://localhost:3000/activities/notAlone/free/inside/clean-your-place</loc>
+    <loc>http://localhost:3000/activities/anyone/free/inside/b-for-d</loc>
     <changefreq>weekly</changefreq>
   </url>
   <url>
-    <loc>http://localhost:3000/activities/notAlone/free/inside/develop-alter-egos</loc>
+    <loc>http://localhost:3000/activities/anyone/free/inside/bake-some-cookies</loc>
     <changefreq>weekly</changefreq>
   </url>
   <url>
-    <loc>http://localhost:3000/activities/notAlone/free/inside/get-your-shit-together</loc>
+    <loc>http://localhost:3000/activities/anyone/free/inside/become-a-connoisseur</loc>
     <changefreq>weekly</changefreq>
   </url>
   <url>
-    <loc>http://localhost:3000/activities/notAlone/free/inside/have-a-date-night</loc>
+    <loc>http://localhost:3000/activities/anyone/free/inside/clean-up-your-queue</loc>
     <changefreq>weekly</changefreq>
   </url>
   <url>
-    <loc>http://localhost:3000/activities/notAlone/free/inside/listen-to-each-others-songs</loc>
+    <loc>http://localhost:3000/activities/anyone/free/inside/cook-a-meal</loc>
     <changefreq>weekly</changefreq>
   </url>
   <url>
-    <loc>http://localhost:3000/activities/notAlone/free/inside/play-board-games</loc>
+    <loc>http://localhost:3000/activities/anyone/free/inside/do-a-diet</loc>
     <changefreq>weekly</changefreq>
   </url>
   <url>
-    <loc>http://localhost:3000/activities/notAlone/free/inside/start-a-podcast</loc>
+    <loc>http://localhost:3000/activities/anyone/free/inside/doodle</loc>
     <changefreq>weekly</changefreq>
   </url>
   <url>
-    <loc>http://localhost:3000/activities/notAlone/free/inside/write-a-poem</loc>
+    <loc>http://localhost:3000/activities/anyone/free/inside/find-a-free-movie</loc>
     <changefreq>weekly</changefreq>
   </url>
   <url>
-    <loc>http://localhost:3000/activities/notAlone/free/inside/yoga-with-adriene</loc>
+    <loc>http://localhost:3000/activities/anyone/free/inside/get-a-good-nights-sleep</loc>
     <changefreq>weekly</changefreq>
   </url>
   <url>
-    <loc>http://localhost:3000/activities/notAlone/free/outside/go-play-tennis</loc>
+    <loc>http://localhost:3000/activities/anyone/free/inside/get-a-hobby</loc>
     <changefreq>weekly</changefreq>
   </url>
   <url>
-    <loc>http://localhost:3000/activities/notAlone/free/outside/walk-for-30-minutes</loc>
+    <loc>http://localhost:3000/activities/anyone/free/inside/go-screenless</loc>
     <changefreq>weekly</changefreq>
   </url>
   <url>
-    <loc>http://localhost:3000/activities/notAlone/notFree/inside/make-some-ice-cream</loc>
+    <loc>http://localhost:3000/activities/anyone/free/inside/have-a-taste-test</loc>
     <changefreq>weekly</changefreq>
   </url>
   <url>
-    <loc>http://localhost:3000/activities/notAlone/notFree/outside/get-some-ice-cream</loc>
+    <loc>http://localhost:3000/activities/anyone/free/inside/invite-friends-over</loc>
     <changefreq>weekly</changefreq>
   </url>
   <url>
-    <loc>http://localhost:3000/activities/notAlone/notFree/outside/go-to-a-beer-garden</loc>
+    <loc>http://localhost:3000/activities/anyone/free/inside/join-a-cult</loc>
     <changefreq>weekly</changefreq>
   </url>
   <url>
-    <loc>http://localhost:3000/activities/notAlone/notFree/outside/go-to-a-games-cafe</loc>
+    <loc>http://localhost:3000/activities/anyone/free/inside/learn-some-jokes</loc>
     <changefreq>weekly</changefreq>
   </url>
   <url>
-    <loc>http://localhost:3000/activities/notAlone/notFree/outside/go-to-a-gin-bar</loc>
+    <loc>http://localhost:3000/activities/anyone/free/inside/learn-to-cook</loc>
     <changefreq>weekly</changefreq>
   </url>
   <url>
-    <loc>http://localhost:3000/activities/notAlone/notFree/outside/go-to-a-happy-hour</loc>
+    <loc>http://localhost:3000/activities/anyone/free/inside/plan-a-trip</loc>
     <changefreq>weekly</changefreq>
   </url>
   <url>
-    <loc>http://localhost:3000/activities/notAlone/notFree/outside/go-to-a-new-restaurant</loc>
+    <loc>http://localhost:3000/activities/anyone/free/inside/raffles</loc>
     <changefreq>weekly</changefreq>
   </url>
   <url>
-    <loc>http://localhost:3000/activities/notAlone/notFree/outside/go-to-a-tequila-bar</loc>
+    <loc>http://localhost:3000/activities/anyone/free/inside/refresh-your-decor</loc>
     <changefreq>weekly</changefreq>
   </url>
   <url>
-    <loc>http://localhost:3000/activities/notAlone/notFree/outside/go-to-a-whiskey-bar</loc>
+    <loc>http://localhost:3000/activities/anyone/free/inside/take-some-surveys</loc>
     <changefreq>weekly</changefreq>
   </url>
   <url>
-    <loc>http://localhost:3000/activities/notAlone/notFree/outside/go-to-a-wine-bar</loc>
+    <loc>http://localhost:3000/activities/anyone/free/inside/try-a-new-cuisine</loc>
     <changefreq>weekly</changefreq>
   </url>
   <url>
-    <loc>http://localhost:3000/activities/notAlone/notFree/outside/have-a-date-night</loc>
+    <loc>http://localhost:3000/activities/anyone/free/outside/be-a-tourist</loc>
     <changefreq>weekly</changefreq>
   </url>
   <url>
-    <loc>http://localhost:3000/activities/notAlone/notFree/outside/play-putt-putt</loc>
+    <loc>http://localhost:3000/activities/anyone/free/outside/dine-alfresco</loc>
     <changefreq>weekly</changefreq>
   </url>
   <url>
-    <loc>http://localhost:3000/activities/notAlone/notFree/outside/thrift-store-dinner</loc>
+    <loc>http://localhost:3000/activities/anyone/free/outside/geocache</loc>
+    <changefreq>weekly</changefreq>
+  </url>
+  <url>
+    <loc>http://localhost:3000/activities/anyone/free/outside/get-into-photography</loc>
+    <changefreq>weekly</changefreq>
+  </url>
+  <url>
+    <loc>http://localhost:3000/activities/anyone/free/outside/go-for-a-run</loc>
+    <changefreq>weekly</changefreq>
+  </url>
+  <url>
+    <loc>http://localhost:3000/activities/anyone/free/outside/go-on-a-photo-walk</loc>
+    <changefreq>weekly</changefreq>
+  </url>
+  <url>
+    <loc>http://localhost:3000/activities/anyone/free/outside/go-people-watch</loc>
+    <changefreq>weekly</changefreq>
+  </url>
+  <url>
+    <loc>http://localhost:3000/activities/anyone/free/outside/go-stargazing</loc>
+    <changefreq>weekly</changefreq>
+  </url>
+  <url>
+    <loc>http://localhost:3000/activities/anyone/free/outside/go-to-a-park</loc>
+    <changefreq>weekly</changefreq>
+  </url>
+  <url>
+    <loc>http://localhost:3000/activities/anyone/free/outside/grill-something</loc>
+    <changefreq>weekly</changefreq>
+  </url>
+  <url>
+    <loc>http://localhost:3000/activities/anyone/free/outside/help-the-homeless</loc>
+    <changefreq>weekly</changefreq>
+  </url>
+  <url>
+    <loc>http://localhost:3000/activities/anyone/free/outside/look-at-cars</loc>
+    <changefreq>weekly</changefreq>
+  </url>
+  <url>
+    <loc>http://localhost:3000/activities/anyone/free/outside/pick-up-trash</loc>
+    <changefreq>weekly</changefreq>
+  </url>
+  <url>
+    <loc>http://localhost:3000/activities/anyone/free/outside/plan-a-day-trip</loc>
+    <changefreq>weekly</changefreq>
+  </url>
+  <url>
+    <loc>http://localhost:3000/activities/anyone/free/outside/prepare-for-a-sunrise</loc>
+    <changefreq>weekly</changefreq>
+  </url>
+  <url>
+    <loc>http://localhost:3000/activities/anyone/free/outside/train-your-dog</loc>
+    <changefreq>weekly</changefreq>
+  </url>
+  <url>
+    <loc>http://localhost:3000/activities/anyone/free/outside/watch-a-sunset-and-have-a-picnic</loc>
     <changefreq>weekly</changefreq>
   </url>
 </urlset>

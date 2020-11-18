@@ -45,7 +45,6 @@ export default function NavBar ({ home }) {
   const [showCategoryMenu, setShowCategoryMenu] = useState(false)
   const [openMenu, setOpenMenu] = useState(false)
   const router = useRouter()
-  console.log('router :>> ', router);
   const [selectedTab, setSelectedTab] = useState(router.asPath)
 
 

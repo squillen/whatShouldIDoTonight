@@ -31,7 +31,6 @@ handler.get(async (req, res) => {
       result = await result.toArray()
     } else if (name) {
       const search = name.split('_').join(' ')
-      console.log('search :>> ', search)
       result = await doCollection.findOne({ name: search })
     } else if (category) {
       result = await doCollection.find({ categories: { $in: [category] }, $or: expirationCheck }).limit(numberLimit)

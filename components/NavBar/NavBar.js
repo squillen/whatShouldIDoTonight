@@ -3,6 +3,7 @@ import { CSSTransition } from 'react-transition-group'
 import Link from 'next/link'
 import styles from './Navbar.module.css'
 import Logo from '../logo/logo'
+import { useRouter } from 'next/router'
 
 const categories = [
   { title: 'Do', href: '/' },
@@ -43,6 +44,10 @@ function CategorySubMenu () {
 export default function NavBar ({ home }) {
   const [showCategoryMenu, setShowCategoryMenu] = useState(false)
   const [openMenu, setOpenMenu] = useState(false)
+  const router = useRouter()
+  console.log('router :>> ', router);
+  const [selectedTab, setSelectedTab] = useState(router.asPath)
+
 
   function ByCategory () {
     return (
@@ -108,8 +113,20 @@ export default function NavBar ({ home }) {
           : null
       }
       <nav className={styles.nav}>
-        <ul className={styles.nav__menu}>
-          <ByCategory />
+        <ul className={styles.navMenu}>
+          <Link href="/do">
+            <a onClick={() => setSelectedTab('/do')}>
+              <li className={styles.navItem}>do</li>
+              {(selectedTab === '/do' || selectedTab === '/') && <div className={styles.underline} />}
+            </a>
+          </Link>
+          <Link href="/watch">
+            <a onClick={() => setSelectedTab('/watch')}>
+              <li className={styles.navItem}>watch</li>
+              {selectedTab === '/watch' && <div className={styles.underline} />}
+            </a>
+          </Link>
+          {/* <ByCategory /> */}
           {/* <li className={styles['nav__menu-item']}>
             <Link href="/favorites">
               <a>site favorites</a>

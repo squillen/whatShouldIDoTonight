@@ -56,7 +56,7 @@
 }
 
 .bodyContainer {
-  width: 85%;
+  width: 100%;
   margin: 0 auto;
   padding: 3rem 0;
   justify-content: center;
@@ -75,7 +75,7 @@
   padding: 0;
   margin: 0;
   font-size: 4.3rem;
-  line-height: 4.5rem;
+  line-height: 105%;
   color: black;
 }
 
@@ -119,10 +119,6 @@
 
 .content > ul {
   margin: 0
-}
-
-.bodyContainer {
-
 }
 
 .iframe {

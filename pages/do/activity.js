@@ -15,7 +15,7 @@ import ContentDisplay from '../../components/ContentDisplay/ContentDisplay'
 import ArticleDisplay from '../../components/ArticleDisplay/ArticleDisplay'
 
 function Content () {
-  const [activity, setActivity] = useState(null)
+  const [activity, setActivity] = useState({})
   const router = useRouter()
   const { name } = router.query
   const getActivity = async () => {
@@ -27,12 +27,12 @@ function Content () {
     }
   }
   useEffect(() => {
-    if (!activity && name) getActivity()
+    if (!activity._id && name) getActivity()
   }, [name])
   return (
     <Layout>
       {
-        activity && activity._id
+        activity._id
           ? activity.article
             ? <ArticleDisplay article={activity} source={'do'} />
             : <ContentDisplay content={activity} />

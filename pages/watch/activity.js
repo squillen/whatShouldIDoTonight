@@ -69,7 +69,7 @@ function Content () {
   return (
     <Layout>
       {
-        activity
+        activity.name
           ? (
             <>
               <ArticleHead activity={activity}/>

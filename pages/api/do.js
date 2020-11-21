@@ -3,6 +3,7 @@ import nextConnect from 'next-connect'
 import middleware from '../../middleware/database'
 import { getAllCategories } from '../../lib/helpers/dataHelpers'
 import { findAllActivities } from '../../lib/helpers/db/requests'
+import { authorizeRequest } from '../../lib/helpers/auth/authentication'
 
 const handler = nextConnect()
 
@@ -73,32 +74,41 @@ handler.get(async (req, res) => {
 })
 
 handler.post(async (req, res) => {
-  const { body } = req
-  try {
-    const doCollection = req.db.collection('do')
-    const expirationDate = body.expirationDate || ''
-    if (expirationDate) body.expirationDate = new Date(expirationDate)
-    const result = await doCollection.insertOne(body)
-    res.json(result)
-  } catch (e) {
-    throw new Error('ERROR IN DO POST API :::', e)
+  const { body, headers } = req
+  const { authenticated, error } = authorizeRequest(headers)
+  if (authenticated) {
+    try {
+      const doCollection = req.db.collection('do')
+      const expirationDate = body.expirationDate || ''
+      if (expirationDate) body.expirationDate = new Date(expirationDate)
+      const result = await doCollection.insertOne(body)
+      res.json(result)
+    } catch (e) {
+      throw new Error('ERROR IN DO POST API :::', e)
+    }
+  } else if (error) {
+    throw new Error(error)
   }
 })
 
 handler.patch(async (req, res) => {
-  const { body, query = {} } = req
+  const { body, headers, query = {} } = req
   const { id = '' } = query
   const _id = ObjectId(id)
-
-  try {
-    const doCollection = req.db.collection('do')
-    const expirationDate = body.expirationDate || ''
-    if (expirationDate) body.expirationDate = new Date(expirationDate)
-    body.dateModified = new Date()
-    const result = await doCollection.updateOne({ _id }, { $set: body })
-    res.json(result)
-  } catch (e) {
-    throw new Error('ERROR IN DO PATCH API :::', e)
+  const { authenticated, error } = authorizeRequest(headers)
+  if (authenticated) {
+    try {
+      const doCollection = req.db.collection('do')
+      const expirationDate = body.expirationDate || ''
+      if (expirationDate) body.expirationDate = new Date(expirationDate)
+      body.dateModified = new Date()
+      const result = await doCollection.updateOne({ _id }, { $set: body })
+      res.json(result)
+    } catch (e) {
+      throw new Error('ERROR IN DO PATCH API :::', e)
+    }
+  } else if (error) {
+    throw new Error(error)
   }
 })
 

@@ -48,6 +48,7 @@ export const getStaticProps = wrapper.getStaticProps(({ store }) => {
 })
 
 function DoSection ({ spotlight = [], latest, all = {}, setInRedux, setDoActivitiesFromProps }) {
+  console.log('latest :>> ', latest);
   const [updatedRedux, setUpdatedRedux] = useState(false)
   useEffect(() => {
     if (!updatedRedux && setInRedux) {

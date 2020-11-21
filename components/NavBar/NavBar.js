@@ -6,9 +6,9 @@ import Logo from '../logo/logo'
 import { useRouter } from 'next/router'
 
 const categories = [
-  { title: 'Do', href: '/' },
+  { title: 'Do', href: '/do' },
   { title: 'Watch', href: '/watch' },
-  { title: 'Listen', href: '/listen' },
+  // { title: 'Listen', href: '/listen' },
   { title: 'Learn (soon)', href: '' },
   // { title: 'Eat (soon)', href: '' },
   // { title: 'Drink (soon)', href: '' },

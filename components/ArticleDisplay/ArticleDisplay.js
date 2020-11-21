@@ -11,7 +11,7 @@ import SVGGrabber from '../SVGGrabber'
 import BackButton from '../BackButton/BackButton'
 import handleMarkdown from '../../lib/helpers/handleMarkdown'
 import Photo from '../photo/photo'
-import { makeDatePretty } from '../../lib/helpers/dataHelpers'
+import { convertIdToDate, makeDatePretty } from '../../lib/helpers/dataHelpers'
 
 export default function ArticleDisplay ({ article, source }) {
   const style = { background: `url(${article.image}) center no-repeat`, backgroundSize: 'cover' }
@@ -39,7 +39,10 @@ export default function ArticleDisplay ({ article, source }) {
           <div className={styles.overlay} />
           <div className={styles.headerTextContainer}>
             <h1 className={styles.headerText}>{article.name || article.tagline}</h1>
-            {article.dateModified && <div className={styles.dateModified}>Updated {makeDatePretty(article.dateModified)}</div>}
+            {
+              !article.dateModified && <h4 className={styles.dateModified}>Published {makeDatePretty(convertIdToDate(article._id))}</h4>
+            }
+            {article.dateModified && <h4 className={styles.dateModified}>Updated {makeDatePretty(article.dateModified)}</h4>}
           </div>
           <h1 className={styles.hidden}>what should i we do tonight</h1>
           <h1 className={styles.hidden}>i we are bored</h1>

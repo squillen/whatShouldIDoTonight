@@ -16,7 +16,7 @@
     <changefreq>weekly</changefreq>
   </url>
   <url>
-    <loc>http://localhost:3000/do/activity</loc>
+    <loc>http://localhost:3000/do/a</loc>
     <changefreq>weekly</changefreq>
   </url>
   <url>
@@ -28,7 +28,7 @@
     <changefreq>weekly</changefreq>
   </url>
   <url>
-    <loc>http://localhost:3000/watch/activity</loc>
+    <loc>http://localhost:3000/watch/a</loc>
     <changefreq>weekly</changefreq>
   </url>
   <url>

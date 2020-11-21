@@ -6,8 +6,7 @@ export default function ArticleContent ({ articles, banner = 'THE LATEST', sourc
   const getContentURL = currContent => currContent && currContent.name
     ? currContent.pagePath || `/${source}/a?lookup=${currContent.lookup}`
     : ''
-  const start = articles.length > 3 ? articles.length - 4 : articles.length > 2 ? articles.length - 3 : null
-  const displayedArticles = start ? articles.slice(start, articles.length).reverse() : []
+  const displayedArticles = articles && articles.length ? articles.slice(0, articles.length) : []
   return (
     displayedArticles.length
       ? (

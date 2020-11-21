@@ -10,7 +10,7 @@ const handler = nextConnect()
 handler.use(middleware)
 
 handler.get(async (req, res) => {
-  const { articles, name, all, spotlight, category, free, limit = 0, id, included, excluded } = req.query
+  const { articles, lookup, latest, name, all, spotlight, category, free, limit = 0, id, included, excluded } = req.query
   const numberLimit = Number(limit)
   const expirationCheck = [
     { expirationDate: { $exists: false } },
@@ -24,6 +24,11 @@ handler.get(async (req, res) => {
       result = await result.toArray()
       const categories = getAllCategories(result)
       return res.json(categories)
+    } else if (latest) {
+      result = await doCollection.find().sort({ _id: 1 }).limit(5)
+      result = await result.toArray()
+    } else if (lookup) {
+      result = await doCollection.findOne({ lookup })
     } else if (category === 'total') {
       result = await doCollection.find({ $or: expirationCheck })
       result = await result.toArray()

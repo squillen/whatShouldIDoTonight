@@ -34,20 +34,20 @@ export const getStaticProps = wrapper.getStaticProps(({ store }) => {
   const state = store.getState()
   const all = state.categories.doActivities.all || {}
   const spotlight = state.categories.doActivities.spotlight || []
-  const articles = state.categories.doActivities.articles || []
+  const latest = state.categories.doActivities.latest || []
   if (spotlight && !spotlight.length) return getActivitiesFromDB('do')
   else {
     return {
       props: {
         spotlight,
         all,
-        articles,
+        latest,
       },
     }
   }
 })
 
-function DoSection ({ spotlight = [], all = {}, articles = [], setInRedux, setDoActivitiesFromProps }) {
+function DoSection ({ spotlight = [], latest, all = {}, setInRedux, setDoActivitiesFromProps }) {
   const [updatedRedux, setUpdatedRedux] = useState(false)
   useEffect(() => {
     if (!updatedRedux && setInRedux) {
@@ -57,12 +57,10 @@ function DoSection ({ spotlight = [], all = {}, articles = [], setInRedux, setDo
   }, [updatedRedux, setInRedux])
   const source = 'do'
   const obj = all || {}
-
   const homeRef = useRef('home')
   const display = (
     <HandleContent
       all={obj}
-      articles={articles}
       source={source}
       quotes={quotes}
       homeRef={homeRef}
@@ -85,8 +83,8 @@ function DoSection ({ spotlight = [], all = {}, articles = [], setInRedux, setDo
           : null
       }
       {
-        articles && Array.isArray(articles) && articles.length
-          ? <ArticleContent articles={articles} banner="THE LATEST" source={source} />
+        all
+          ? <ArticleContent articles={latest} banner="THE LATEST" source={source} />
           : null
       }
       <div className={utilStyles.infoContainer} ref={homeRef}>

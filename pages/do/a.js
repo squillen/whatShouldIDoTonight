@@ -17,18 +17,18 @@ import ArticleDisplay from '../../components/ArticleDisplay/ArticleDisplay'
 function Content () {
   const [activity, setActivity] = useState({})
   const router = useRouter()
-  const { name } = router.query
+  const { lookup } = router.query
   const getActivity = async () => {
     try {
-      const newActivity = await getActivityFromDB('do', name)
+      const newActivity = await getActivityFromDB('do', lookup)
       setActivity(newActivity)
     } catch (e) {
       console.error(e)
     }
   }
   useEffect(() => {
-    if (!activity._id && name) getActivity()
-  }, [name])
+    if (!activity._id && lookup) getActivity()
+  }, [lookup])
   return (
     <Layout>
       {

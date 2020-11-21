@@ -25,7 +25,7 @@ handler.get(async (req, res) => {
       const categories = getAllCategories(result)
       return res.json(categories)
     } else if (latest) {
-      result = await doCollection.find().sort({ _id: 1 }).limit(5)
+      result = await doCollection.find({ $or: expirationCheck }).sort({ _id: -1 }).limit(4)
       result = await result.toArray()
     } else if (lookup) {
       result = await doCollection.findOne({ lookup })

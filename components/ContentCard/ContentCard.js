@@ -9,7 +9,7 @@ import styles from './ContentCard.module.css'
 export default function ContentCard ({ activities, source, span }) {
   const currentURL = process.env.NODE_ENV === 'development' ? 'http://localhost:3000' : process.env.SITE_URI || 'https://whatshouldidotonight.com'
   const getBackground = el => `url(${el.image}) center no-repeat`
-  const getContentURL = el => el.pagePath ? `${currentURL}${el.pagePath}` : el.name && `/${source}/activity?name=${el.name.split(' ').join('_')}`
+  const getContentURL = el => el.pagePath ? `${currentURL}${el.pagePath}` : el.name && `/${source}/a?lookup=${el.lookup}`
   function handleDate (id) {
     const date = convertIdToDate(id)
     const prettyDate = makeDatePretty(date)

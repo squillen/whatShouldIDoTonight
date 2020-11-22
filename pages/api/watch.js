@@ -18,7 +18,7 @@ handler.get(async (req, res) => {
       { expirationDate: { $gte: new Date() } },
     ]
     if (all) {
-      result = await watchCollection.find()
+      result = await watchCollection.find({ $or: expirationCheck })
       result = await result.toArray()
       const categories = getAllCategories(result)
       return res.json(categories)

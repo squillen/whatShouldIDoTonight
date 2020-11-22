@@ -1,4 +1,4 @@
-import React, { useEffect, useState, useRef } from 'react'
+import React, { useState, useRef } from 'react'
 import Head from 'next/head'
 import PropTypes from 'prop-types'
 
@@ -6,12 +6,11 @@ import PropTypes from 'prop-types'
 import wrapper from '../../src/store/store'
 import { connect } from 'react-redux'
 import { bindActionCreators } from 'redux'
-import { setDoActivities } from '../../src/store/categories/action'
+import { setWatchActivities } from '../../src/store/categories/action'
 
 // COMPONENTS
 import Layout from '../../components/layout/layout'
 import SplashContent from '../../components/SplashContent/SplashContent'
-import ArticleContent from '../../components/ArticleContent/ArticleContent'
 import HandleContent from '../../components/HandleContent'
 import { siteTitle } from '../../components/defaultHead'
 
@@ -19,23 +18,31 @@ import { siteTitle } from '../../components/defaultHead'
 import utilStyles from '../../styles/utils.module.css'
 import { getActivitiesFromDB } from '../../lib/helpers/db/requests'
 
+const pageDescription =
+"What should I watch tonight? We've watched tons of less-known shows, movies, and binge-worthy series involving comedy, " +
+'thrillers, horror, drama, documentary, crime, history, food, action, adventure, romance, rom com, mystery, or more.'
+
 const quotes = [
   {
-    header: '"Do the Dew"',
-    contents: ['-Mountain Dew', 'Straight wisdom.'],
+    header: '"Everyone has a purpose in life. Perhaps yours is watching television."',
+    contents: ['-David Letterman', 'Absolutely inspiring. Dick.'],
   },
   {
-    header: '"Some people say nothing is impossible, but I do nothing everyday."',
-    contents: ['-A.A. Milne', 'Tonight, you do the possible: something'],
+    header: '"I really like watching TV at home."',
+    contents: ['-Fred Armisen', 'We knew that man was a genius.'],
+  },
+  {
+    header: '"I live for watching TV and partying with my book club."',
+    contents: ['-Lauren Lapkus', 'Truth.'],
   },
 ]
 
 export const getStaticProps = wrapper.getStaticProps(({ store }) => {
   const state = store.getState()
-  const all = state.categories.doActivities.all || {}
-  const spotlight = state.categories.doActivities.spotlight || []
-  const latest = state.categories.doActivities.latest || []
-  if (spotlight && !spotlight.length) return getActivitiesFromDB('do')
+  const all = state.categories.watchActivities.all || {}
+  const spotlight = state.categories.watchActivities.spotlight || []
+  const latest = state.categories.watchActivities.latest || []
+  if (spotlight && !spotlight.length) return getActivitiesFromDB('watch')
   else {
     return {
       props: {
@@ -47,68 +54,64 @@ export const getStaticProps = wrapper.getStaticProps(({ store }) => {
   }
 })
 
-function DoSection ({ spotlight = [], all = {}, latest = [], setInRedux, setDoActivitiesFromProps }) {
+function Index ({ spotlight = [], all = {}, latest = [], setInRedux, setWatchActivitiesFromProps }) {
   const [updatedRedux, setUpdatedRedux] = useState(false)
-  useEffect(() => {
-    if (!updatedRedux && setInRedux) {
-      setUpdatedRedux(true)
-      setDoActivitiesFromProps({ all, spotlight })
-    }
-  }, [updatedRedux, setInRedux])
-  const source = 'do'
+  if (!updatedRedux && setInRedux) {
+    setUpdatedRedux(true)
+    setWatchActivitiesFromProps({ all, spotlight })
+  }
+  const source = 'watch'
   const obj = all || {}
 
   const homeRef = useRef('home')
   const display = (
     <HandleContent
       all={obj}
-      // articles={articles}
       source={source}
       quotes={quotes}
       homeRef={homeRef}
     />
   )
+
   return (
     <Layout>
       <Head>
-        <title>Things to Do Tonight - {siteTitle}</title>
+        <title>Things To Watch Tonight - {siteTitle}</title>
+        <meta name="description" content={pageDescription} />
       </Head>
       {
         spotlight && Array.isArray(spotlight) && spotlight.length
-          ? (
-            <SplashContent
-              content={spotlight}
-              banner="Do Stuff Worthy of Your Time"
-              source={source}
-            />
-          )
+          ? <SplashContent content={spotlight} banner="Watch the less known" source={source} />
           : null
       }
-      {
-        latest && Array.isArray(latest) && latest.length
-          ? <ArticleContent articles={latest} banner="THE LATEST" source={source} />
+      {/* {
+        articles && Array.isArray(articles) && articles.length
+          ? <ArticleContent articles={articles} banner="THE LATEST" source={source} />
           : null
-      }
+      } */}
       <div className={utilStyles.infoContainer} ref={homeRef}>
-        <div className={utilStyles.infoHeader}>Your night just got a whole lot better</div>
+        <div className={utilStyles.infoHeader}>We&apos;ve watched thousands of hours of less-known TV for you.</div>
+        <div className={utilStyles.infoBody}>
+          <p>Totally for research.</p>
+        </div>
       </div>
       {display}
     </Layout>
   )
 }
 
-DoSection.propTypes = {
+Index.propTypes = {
   spotlight: PropTypes.array,
-  all: PropTypes.object,
   articles: PropTypes.array,
-  setDoActivitiesFromProps: PropTypes.func,
+  all: PropTypes.object,
+  setWatchActivitiesFromProps: PropTypes.func,
   setInRedux: PropTypes.bool,
 }
 
 const mapDispatchToProps = (dispatch) => {
   return {
-    setDoActivitiesFromProps: bindActionCreators(setDoActivities, dispatch),
+    setWatchActivitiesFromProps: bindActionCreators(setWatchActivities, dispatch),
   }
 }
 
-export default connect((state) => state, mapDispatchToProps)(DoSection)
+export default connect((state) => state, mapDispatchToProps)(Index)

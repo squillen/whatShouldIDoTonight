@@ -144,7 +144,15 @@
   border-top: 3px solid #79A70A;
 }
 
-@media only screen and (max-width: 500px) {
+@media only screen and (max-width: 800px) {
+  
+  .cardListItem,
+  .span {
+    width: 45%;
+  }
+}
+@media only screen and (max-width: 600px) {
+  
   .cardListItem,
   .span {
     width: 100%;

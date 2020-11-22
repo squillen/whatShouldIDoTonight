@@ -76,14 +76,14 @@ function DoSection ({ spotlight = [], latest, all = {}, setInRedux, setDoActivit
           ? (
             <SplashContent
               content={spotlight}
-              banner="Stuff Worthy of Your Time"
+              banner="Do More With Your Night"
               source={source}
             />
           )
           : null
       }
       {
-        all
+        latest
           ? <ArticleContent articles={latest} banner="THE LATEST" source={source} />
           : null
       }

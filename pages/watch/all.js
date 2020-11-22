@@ -18,14 +18,13 @@ const categoryDescriptions = {
 
 function Content () {
   const router = useRouter()
-  let { category } = router.query
+  const { category } = router.query
   const [categoryInfo, setCategoryInfo] = useState({})
 
   useEffect(() => {
     if (category && !categoryInfo.header) setCategoryInfo(categoryDescriptions[category.toLowerCase()])
   }, [category])
 
-  if (category === 'selfimprovement') category = 'selfImprovement'
   return (
     <GetAllEvents
       categoryInfo={categoryInfo}

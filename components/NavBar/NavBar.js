@@ -47,7 +47,6 @@ export default function NavBar ({ home }) {
   const router = useRouter()
   const [selectedTab, setSelectedTab] = useState(router.asPath)
 
-
   function ByCategory () {
     return (
       <li className={styles['nav__menu-item']} onMouseLeave={() => setShowCategoryMenu(false)}>
@@ -116,13 +115,13 @@ export default function NavBar ({ home }) {
           <Link href="/do">
             <a onClick={() => setSelectedTab('/do')}>
               <li className={styles.navItem}>do</li>
-              {(selectedTab === '/do' || selectedTab === '/') && <div className={styles.underline} />}
+              {(selectedTab.includes('/do') || selectedTab === '/') && <div className={styles.underline} />}
             </a>
           </Link>
           <Link href="/watch">
             <a onClick={() => setSelectedTab('/watch')}>
               <li className={styles.navItem}>watch</li>
-              {selectedTab === '/watch' && <div className={styles.underline} />}
+              {selectedTab.includes('/watch') && <div className={styles.underline} />}
             </a>
           </Link>
           {/* <ByCategory /> */}

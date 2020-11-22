@@ -126,7 +126,7 @@ function GetAllEvents ({ header = 'Things To Do', categoryInfo, source, category
   }
 
   const handleCategory = (c) => {
-    if (c === 'selfImprovement') return 'self improvement'
+    if (c === 'self-improvement') return 'self improvement'
     if (c === '') return 'free'
     if (c === 'calm') return 'chill'
     if (c === 'food') return 'food & drink'

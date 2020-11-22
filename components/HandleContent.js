@@ -14,11 +14,12 @@ import utilStyles from '../styles/utils.module.css'
 
 const specialCase = {
   'self-improvement': { name: 'Self Improvement' },
+  tv: { name: 'TV' },
   food: { name: 'Food & Drink ' },
   // total: { name: 'All' },
 }
 
-export default function HandleContent ({ articles, all, source, quotes = [], homeRef }) {
+export default function HandleContent ({ all, source, quotes = [], homeRef }) {
   const contentCategories = []
   const collections = []
   const handleCategory = (name, contents) => {

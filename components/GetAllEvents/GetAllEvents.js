@@ -30,9 +30,7 @@ function GetAllEvents ({ header = 'Things To Do', categoryInfo, source, category
       const options = getOptions()
       const destination = (category && category.toLowerCase() === 'total')
         ? ''
-        : category && category.toLowerCase() === 'articles'
-          ? 'articles=articles'
-          : `category=${category}`
+        : `category=${category}`
       const stub = `${source}?${destination}`
       const allActivities = await callAPI(stub, options)
       setAllActivities(allActivities)
@@ -46,7 +44,7 @@ function GetAllEvents ({ header = 'Things To Do', categoryInfo, source, category
 
   function getFiltersAndCategoriesOnLoad () {
     const newFilters = allActivities && allActivities.reduce((obj, el) => {
-      const cleanedCategories = el.categories || el.tags || []
+      const cleanedCategories = el.tags || []
       cleanedCategories.forEach(currCategory => {
         if (currCategory === '') obj.free = true
         else obj[currCategory] = true
@@ -90,7 +88,7 @@ function GetAllEvents ({ header = 'Things To Do', categoryInfo, source, category
       if (filtersCopy[key]) {
         keepList.push(key)
         allActivities.forEach(a => {
-          const safeCategories = a.categories || a.tags || []
+          const safeCategories = a.tags || []
           const categoriesWithDoNotWants = [...safeCategories, ...doNotWants]
           const userDoesNotWantFreeAndIsFree = userDoesNotWantFree && a.free
           let add = false
@@ -128,9 +126,7 @@ function GetAllEvents ({ header = 'Things To Do', categoryInfo, source, category
   const handleCategory = (c) => {
     if (c === 'self-improvement') return 'self improvement'
     if (c === '') return 'free'
-    if (c === 'calm') return 'chill'
     if (c === 'food') return 'food & drink'
-    if (c === 'read') return 'read & write'
     return c
   }
   return (
@@ -141,7 +137,7 @@ function GetAllEvents ({ header = 'Things To Do', categoryInfo, source, category
           categoryInfo={categoryInfo}
           source={source}
         />
-        {/* {
+        {
           categories && categories.length
             ? (
               <div className={styles.filters}>
@@ -163,7 +159,7 @@ function GetAllEvents ({ header = 'Things To Do', categoryInfo, source, category
               </div>
             )
             : null
-        } */}
+        }
       </div>
     </Layout>
   )

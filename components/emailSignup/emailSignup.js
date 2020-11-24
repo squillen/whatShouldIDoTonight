@@ -1,12 +1,14 @@
 import React, { useState } from 'react'
 import PropTypes from 'prop-types'
 import Button from '../button/button'
+import Loading from '../loading/loading'
 import Modal from '../modal/modal'
 import { signUserUpForEmails } from '../../lib/helpers/db/requests'
 import styles from './emailSignup.module.css'
 
 export default function EmailSignup () {
   const [modalToOpen, setModalToOpen] = useState(false)
+  const [signingUserUp, setSigningUserUp] = useState(false)
   const [error, setError] = useState(false)
   const [showConfirmation, setShowConfirmation] = useState(false)
   const [userEmail, setUserEmail] = useState('')
@@ -107,8 +109,9 @@ export default function EmailSignup () {
 
   async function signUserUp () {
     const isValidEmail = checkIfValidEmail()
-    if (isValidEmail) {
+    if (isValidEmail && !signingUserUp) {
       try {
+        setSigningUserUp(true)
         const { error } = await signUserUpForEmails(userEmail)
         if (error) setError('That email is already signed up!')
         else {
@@ -118,6 +121,8 @@ export default function EmailSignup () {
       } catch (e) {
         console.error(e)
         setError('There was a problem signing you up. Can you try that again?')
+      } finally {
+        setSigningUserUp(false)
       }
     } else {
       console.log('showing error :>> ')
@@ -164,6 +169,7 @@ export default function EmailSignup () {
         modalContent={modalContent}
         onModalClose={handleClose}
       />
+      <Loading loading={signingUserUp} message="signing you up!" />
     </div>
   )
 }

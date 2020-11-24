@@ -4,12 +4,13 @@ import Link from 'next/link'
 import styles from './Navbar.module.css'
 import Logo from '../logo/logo'
 import { useRouter } from 'next/router'
+import EmailSignup from '../emailSignup/emailSignup'
 
 const categories = [
   { title: 'Do', href: '/do' },
   { title: 'Watch', href: '/watch' },
   // { title: 'Listen', href: '/listen' },
-  { title: 'Learn (soon)', href: '' },
+  // { title: 'Learn (soon)', href: '' },
   // { title: 'Eat (soon)', href: '' },
   // { title: 'Drink (soon)', href: '' },
   // { title: 'Read (soon)', href: '' },
@@ -47,27 +48,27 @@ export default function NavBar ({ home }) {
   const router = useRouter()
   const [selectedTab, setSelectedTab] = useState(router.asPath)
 
-  function ByCategory () {
-    return (
-      <li className={styles['nav__menu-item']} onMouseLeave={() => setShowCategoryMenu(false)}>
-        <a onMouseEnter={() => setShowCategoryMenu(true)}>
-          by category
-        </a>
-        <div className={styles.underline} />
+  // function ByCategory () {
+  //   return (
+  //     <li className={styles['nav__menu-item']} onMouseLeave={() => setShowCategoryMenu(false)}>
+  //       <a onMouseEnter={() => setShowCategoryMenu(true)}>
+  //         by category
+  //       </a>
+  //       <div className={styles.underline} />
 
-        <div className={styles['submenu-container']}>
-          <CSSTransition
-            timeout={500}
-            classNames="menu-primary"
-          >
-            <div className={styles.menu}>
-              { showCategoryMenu && <CategorySubMenu /> }
-            </div>
-          </CSSTransition>
-        </div>
-      </li>
-    )
-  }
+  //       <div className={styles['submenu-container']}>
+  //         <CSSTransition
+  //           timeout={500}
+  //           classNames="menu-primary"
+  //         >
+  //           <div className={styles.menu}>
+  //             { showCategoryMenu && <CategorySubMenu /> }
+  //           </div>
+  //         </CSSTransition>
+  //       </div>
+  //     </li>
+  //   )
+  // }
 
   function getMobileCategories () {
     return categories.map(c => (
@@ -84,18 +85,25 @@ export default function NavBar ({ home }) {
   return (
     <div className={styles.navBarContainer}>
       <Logo />
-      <div className={styles[openMenu ? 'mobileNavBlack' : 'mobileNavWhite']} onClick={toggleOpen}>
-        <div className={styles[openMenu ? 'changeBar1' : 'bar1']} />
-        <div className={styles[openMenu ? 'changeBar2' : 'bar2']} />
-        <div className={styles[openMenu ? 'changeBar3' : 'bar3']} />
-      </div>
-      {
-        openMenu
-          ? (
-            <div className={styles.navbarMenu}>
-              <div className={styles.mobileCategories}>
-                {mobileCategories}
-                {/* {
+      <div className={styles.rightHalf}>
+        <div className={styles.top}>
+          <div>
+            <EmailSignup />
+          </div>
+        </div>
+        <div className={styles.bottom}>
+          <div className={styles[openMenu ? 'mobileNavBlack' : 'mobileNavWhite']} onClick={toggleOpen}>
+            <div className={styles[openMenu ? 'changeBar1' : 'bar1']} />
+            <div className={styles[openMenu ? 'changeBar2' : 'bar2']} />
+            <div className={styles[openMenu ? 'changeBar3' : 'bar3']} />
+          </div>
+          {
+            openMenu
+              ? (
+                <div className={styles.navbarMenu}>
+                  <div className={styles.mobileCategories}>
+                    {mobileCategories}
+                    {/* {
                   home
                     ? null
                     : (
@@ -104,33 +112,33 @@ export default function NavBar ({ home }) {
                       </Link>
                     )
                 } */}
-              </div>
+                  </div>
 
-            </div>
-          )
-          : null
-      }
-      <nav className={styles.nav}>
-        <ul className={styles.navMenu}>
-          <Link href="/do">
-            <a onClick={() => setSelectedTab('/do')}>
-              <li className={styles.navItem}>do</li>
-              {(selectedTab.includes('/do') || selectedTab === '/') && <div className={styles.underline} />}
-            </a>
-          </Link>
-          <Link href="/watch">
-            <a onClick={() => setSelectedTab('/watch')}>
-              <li className={styles.navItem}>watch</li>
-              {selectedTab.includes('/watch') && <div className={styles.underline} />}
-            </a>
-          </Link>
-          {/* <ByCategory /> */}
-          {/* <li className={styles['nav__menu-item']}>
+                </div>
+              )
+              : null
+          }
+          <nav className={styles.nav}>
+            <ul className={styles.navMenu}>
+              <Link href="/do">
+                <a onClick={() => setSelectedTab('/do')}>
+                  <li className={styles.navItem}>do</li>
+                  {(selectedTab.includes('/do') || selectedTab === '/') && <div className={styles.underline} />}
+                </a>
+              </Link>
+              <Link href="/watch">
+                <a onClick={() => setSelectedTab('/watch')}>
+                  <li className={styles.navItem}>watch</li>
+                  {selectedTab.includes('/watch') && <div className={styles.underline} />}
+                </a>
+              </Link>
+              {/* <ByCategory /> */}
+              {/* <li className={styles['nav__menu-item']}>
             <Link href="/favorites">
               <a>site favorites</a>
             </Link>
           </li> */}
-          {/* {
+              {/* {
             home
               ? null
               : (
@@ -141,8 +149,10 @@ export default function NavBar ({ home }) {
                 </li>
               )
           } */}
-        </ul>
-      </nav>
+            </ul>
+          </nav>
+        </div>
+      </div>
     </div>
   )
 }

@@ -7,26 +7,12 @@ import DefaultHead from '../defaultHead'
 import NavBar from '../NavBar/NavBar'
 import Modal from '../modal/modal'
 import Footer from '../footer/footer'
-import EmailSignup from '../emailSignup/emailSignup'
 import styles from './layout.module.css'
-
-function showEmailSignup () {
-  return (
-    <div className={styles.emailContainer}>
-      <div className={styles.title}>
-        inbox fun
-      </div>
-    </div>
-  )
-}
 
 export default function Layout ({ children, home }) {
   const [modalToOpen, setModalToOpen] = useState(false)
-  const modalFunction = {
-    showEmailSignup,
-  }[modalToOpen] || null
+  const modalFunction = {}[modalToOpen] || null
   const modalContent = modalFunction ? modalFunction() : null
-  const handleEmailClick = (str) => setModalToOpen(str === modalToOpen ? false : str)
   const exit = { opacity: 0 }
   return (
     <motion.div

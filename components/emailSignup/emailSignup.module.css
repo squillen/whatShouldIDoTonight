@@ -1,3 +1,117 @@
+.emailContainer {
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
+  color: #021F38;
+  font-family: 'Fjalla One', sans-serif;
+}
+
+.headerSection {
+  width: 100%;
+  min-height: 20vh;
+}
+
+.closeButtonContainer {
+  width: 100%;
+  display: flex;
+  justify-content: flex-end;
+  margin-right: 1rem;
+}
+
+.closeButton {
+  cursor: pointer;
+  padding: 1rem;
+  font-size: 1.2rem;
+}
+
+.titleContainer {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.confirmationTitle {
+  color: white; 
+  font-size: 2.8rem;
+}
+
+.title {
+  color: #ffcc00;
+}
+
+.white {
+  color: white;
+}
+
+.emailCTA {
+  width: 60%;
+  text-align: center;
+}
+
+.inputContainer {
+  width: 12rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+}
+
+.emailInput {
+  width: 12rem;
+  height: 2rem;
+}
+
+.emailBody {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  align-items: center;
+}
+
+.errors {
+  font-size: 0.6rem;
+  color: red;
+}
+
+.confirmationContainer {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  border-radius: 1rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.overlay {
+  position: absolute;
+  height: 100%;
+  width: 100%;
+  border-radius: 1rem;
+  background: rgba(0,0,0,0.3);
+}
+
+.confirmationHeader {
+  color: white;
+  text-align: center;
+}
+
+.confirmation {
+  font-size: 2rem;
+  text-align: center;
+  color: black;
+}
+
+.image {
+  width: 60%;
+}
+
 .emailSignupContainer {
   font-family: 'Fjalla One', sans-serif;
   width: 100%;
@@ -16,7 +130,7 @@
 
 .signupButton {
   position: relative;
-  width: 132px;
+  width: 125px;
   height: 36px;
   margin: 0;
   width: 10rem;
@@ -91,15 +205,23 @@
   opacity: 0.5;
 }
 
-@media only screen and (max-width: 700px) {
-  .emailSignupContainer {
-    width: auto;
+.emailSignupContainer > a {
+  margin: 0 auto
+}
+
+@media only screen and (max-width: 1200px) {
+  .emailSignupContainer > a {
+    margin: 0 auto
   }
+}
+
+@media only screen and (max-width: 700px) {
+
 
   .mobileSignup {
     display: flex;
-    padding: 4rem;
-    margin-bottom: 4rem;
+    width: 100%;
+    justify-content: center;
   }
 
   .button {

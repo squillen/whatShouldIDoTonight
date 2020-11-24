@@ -16,7 +16,7 @@ export default function EmailSignup () {
     showEmailSignupModal,
   }[modalToOpen] || null
 
-  function handleClose() {
+  function handleClose () {
     setModalToOpen(false)
     setShowConfirmation(false)
     setError(false)
@@ -42,7 +42,7 @@ export default function EmailSignup () {
             <div
               style={showConfirmation ? { color: 'white' } : { color: '#ffcc00' }}
               className={styles.closeButton}
-              onClick={() => setModalToOpen(false)}
+              onClick={handleClose}
             >
               X
             </div>
@@ -162,7 +162,7 @@ export default function EmailSignup () {
       </a>
       <Modal
         modalContent={modalContent}
-        onModalClose={() => setModalToOpen(false)}
+        onModalClose={handleClose}
       />
     </div>
   )

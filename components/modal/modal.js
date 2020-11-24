@@ -2,15 +2,21 @@ import React from 'react'
 import PropTypes from 'prop-types'
 import styles from './modal.module.css'
 
-export default function Modal ({ modalContent, onModalClose }) {
+export default function Modal ({ modalContent, onModalClose, addClose }) {
   return (
     modalContent
       ? (
         <div className={styles.overlay}>
           <div className={styles.modalContainer}>
-            <div className={styles.topContainer}>
-              <div className={styles.closeButton} onClick={onModalClose}>X</div>
-            </div>
+            {
+              addClose
+                ? (
+                  <div className={styles.topContainer}>
+                    <div className={styles.closeButton} onClick={onModalClose}>X</div>
+                  </div>
+                )
+                : null
+            }
             <styles className={styles.contentContainer}>
               {modalContent}
             </styles>
@@ -23,5 +29,5 @@ export default function Modal ({ modalContent, onModalClose }) {
 
 Modal.propTypes = {
   modalContent: PropTypes.object,
-  onModalClose: PropTypes.func
+  onModalClose: PropTypes.func,
 }

@@ -127,7 +127,7 @@ export default function EmailSignup () {
   }
 
   // HANDLE UI
-  const signupText = 'Email Signup'
+  const signupText = 'get emails!'
   const handleClick = (str) => setModalToOpen(str === modalToOpen ? false : str)
 
   return (

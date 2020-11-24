@@ -14,20 +14,22 @@ import Photo from '../photo/photo'
 import { convertIdToDate, makeDatePretty } from '../../lib/helpers/dataHelpers'
 
 export default function ArticleDisplay ({ article, source }) {
+  window.HTMLElement.prototype.scrollIntoView = function () {}
   const style = { background: `url(${article.image}) center no-repeat`, backgroundSize: 'cover' }
-  let refs
   const articleHeaders = []
   const toc = article.body[0].toc || []
   if (toc) {
-    refs = {}
-    article.body.map(obj => {
-      const name = obj.name || ''
-      articleHeaders.push(name)
-      refs[name] = useRef(name)
+    article.body.map((obj, idx) => {
+      if (idx !== 0) {
+        const name = obj.name || ''
+        articleHeaders.push(name)
+      }
     })
   }
-  const handleRef = name => {
-    return refs ? refs[name] : null
+
+  const makeID = (name) => {
+    const array = name.split(' ')
+    return array.slice(1, array.length).join('-').replace(')', '-').replace(/[/]/g, '-').toLowerCase()
   }
 
   return (
@@ -48,30 +50,44 @@ export default function ArticleDisplay ({ article, source }) {
           <h1 className={styles.hidden}>i we are bored</h1>
         </div>
         <BackButton />
-        {/* {
-          articleHeaders.length && refs && articleHeaders.map(item => (
-            <div key={item} className="tocItem" onClick={() => refs[item].current.scrollIntoView({ behavior: 'smooth' })}>{item.split('## ')[1]}</div>
-          ))
-        } */}
         <div className={styles.articleBody}>
           {
-            article.body.map((item, idx) => (
-              <div key={item.name || idx} className={styles.bodyContainer} ref={() => handleRef(item.name)}>
-                {
-                  item.name && (
-                    <div className={styles.suggestionHeader}>
-                      <div className={styles.blob}>
-                        {<SVGGrabber type="circle" />}
+            article.body.map((item, idx) => {
+              return (
+                <div key={item.name || idx} className={styles.bodyContainer}>
+                  {
+                    item.name && (
+                      <div className={styles.suggestionHeader}>
+                        <div className={styles.blob}>
+                          {<SVGGrabber type="circle" />}
+                        </div>
+                        {handleMarkdown(item.name)}
+                        <a href="#table-of-contents">
+                          <div className={styles.homeIcon}>
+                            <i className="fas fa-chevron-up"></i>
+                          </div>
+                        </a>
                       </div>
-                      {handleMarkdown(item.name[0] === '#' ? item.name : `## ${item.name}`)}
-                    </div>
-                  )
-                }
-                <div className={styles.itemContents}>
-                  {mapContents(item.contents, source)}
+                    )
+                  }
+                  <div className={styles.itemContents}>
+                    {mapContents(item.contents, source)}
+                  </div>
+                  {
+                    idx === 0 && articleHeaders.length &&
+                      <div className={styles.toc} id="table-of-contents">
+                        {
+                          articleHeaders.map(header => {
+                            return (
+                              <a href={`#${makeID(header)}`} key={header} className={styles.tocItem}>{header.split('## ')[1]}</a>
+                            )
+                          })
+                        }
+                      </div>
+                  }
                 </div>
-              </div>
-            ))
+              )
+            })
           }
           {/* <AuthorInfo article={article} /> */}
         </div>

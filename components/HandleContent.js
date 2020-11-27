@@ -19,7 +19,7 @@ const specialCase = {
   // total: { name: 'All' },
 }
 
-export default function HandleContent ({ all, source, quotes = [], homeRef }) {
+export default function HandleContent ({ all, source, quotes = [], homeRef, showCategories = true }) {
   const contentCategories = []
   const collections = []
   const handleCategory = (name, contents) => {
@@ -73,9 +73,15 @@ export default function HandleContent ({ all, source, quotes = [], homeRef }) {
   }
   return (
     <div className={utilStyles.pageContainer} key="Handle-Content-Key">
-      <motion.div key="pageContainer" variants={stagger} className={utilStyles.categoryOptions}>
-        {categoryOptions}
-      </motion.div>
+      {
+        showCategories
+          ? (
+            <motion.div key="pageContainer" variants={stagger} className={utilStyles.categoryOptions}>
+              {categoryOptions}
+            </motion.div>
+          )
+          : null
+      }
       {display}
     </div>
   )

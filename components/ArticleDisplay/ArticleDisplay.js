@@ -75,14 +75,17 @@ export default function ArticleDisplay ({ article, source }) {
                   </div>
                   {
                     idx === 0 && articleHeaders.length &&
-                      <div className={styles.toc} id="table-of-contents">
-                        {
-                          articleHeaders.map(header => {
-                            return (
-                              <a href={`#${makeID(header)}`} key={header} className={styles.tocItem}>{header.split('## ')[1]}</a>
-                            )
-                          })
-                        }
+                      <div className={styles.tocContainer} id="table-of-contents">
+                        <h4 className={styles.tocHeader}>Table Of Contents:</h4>
+                        <div className={styles.toc}>
+                          {
+                            articleHeaders.map(header => {
+                              return (
+                                <a href={`#${makeID(header)}`} key={header} className={styles.tocItem}>{header.split('## ')[1]}</a>
+                              )
+                            })
+                          }
+                        </div>
                       </div>
                   }
                 </div>
@@ -109,8 +112,14 @@ function mapContents (array, source) {
               ? <div className={styles.imageContainer}>
                 {
                   c.image[3]
-                    ? <Link href={c.image[3]}><a><img src={c.image[0]} alt={c.image[1]}/></a></Link>
-                    : <Photo src={c.image[0]} alt={c.image[1]} />
+                    ? (
+                      <Link href={c.image[3]}>
+                        <a>
+                          <Photo src={c.image[0]} alt={c.image[1]} caption={c.image[2]} />
+                        </a>
+                      </Link>
+                    )
+                    : <Photo src={c.image[0]} alt={c.image[1]} caption={c.image[2]} />
                 }
               </div>
               : c.related

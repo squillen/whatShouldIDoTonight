@@ -61,6 +61,7 @@ function DoSection ({ spotlight = [], latest, all = {}, setInRedux, setDoActivit
   const display = (
     <HandleContent
       all={obj}
+      showCategories={false}
       source={source}
       quotes={quotes}
       homeRef={homeRef}

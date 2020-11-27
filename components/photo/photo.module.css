@@ -1,3 +1,16 @@
+.photoContainer {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  width: 100%;
+  margin: 0 auto;
+}
+
+.figcaption {
+  font-size: 0.8rem;
+  margin: 0 auto;
+}
+
 .photo, .enlargedPhoto {
   transition: all 1s ease-in;
   /* cursor: pointer; */

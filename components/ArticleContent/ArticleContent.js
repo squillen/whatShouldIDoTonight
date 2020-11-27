@@ -12,6 +12,9 @@ export default function ArticleContent ({ articles, banner = 'THE LATEST', sourc
       ? (
         <div className={styles.articleContentContainer}>
           <div className={styles.articleContentBanner}>{banner}</div>
+          {/* <div className={styles.infoContainer}>
+            <div className={styles.infoHeader}>{banner}</div>
+          </div> */}
           <div className={styles.articlesContainer}>
             {
               displayedArticles.map(article => {

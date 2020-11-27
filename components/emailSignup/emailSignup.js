@@ -72,7 +72,7 @@ export default function EmailSignup () {
               )
               : (
                 <>
-                  <h4 className={styles.emailCTA}>Get ideas, deals, and suggestions sent straight to your inbox before they make it to the site!</h4>
+                  <h4 className={styles.emailCTA}>Get ideas, deals, and suggestions sent straight to your inbox before they hit the site!</h4>
                   <div className={styles.inputContainer}>
                     <input onChange={handleUserInput} className={styles.emailInput} type="email" autoComplete="on" placeholder="email" />
                     {error && <div className={styles.errors}>{error.toString()}</div>}

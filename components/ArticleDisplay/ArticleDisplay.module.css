@@ -4,7 +4,19 @@
   min-height: 100vh;
 }
 
+.tocContainer {
+  width: 90%;
+  margin-top: 3rem;
+}
+
+.tocHeader {
+  width: 90%;
+  margin: 0.5rem auto;
+}
+
 .toc {
+  width: 80%;
+  margin: 0 auto;
   display: flex;
   flex-direction: column;
 }
@@ -112,7 +124,7 @@
   position: absolute;
   width: 16rem;
   top: -4.5rem;
-  left: -2.5rem;
+  left: -4.5rem;
   z-index: -1;
 }
 

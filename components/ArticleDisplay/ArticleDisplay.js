@@ -17,7 +17,7 @@ export default function ArticleDisplay ({ article, source }) {
   window.HTMLElement.prototype.scrollIntoView = function () {}
   const style = { background: `url(${article.image}) center no-repeat`, backgroundSize: 'cover' }
   const articleHeaders = []
-  const toc = article.body[0].toc || []
+  const toc = article.body[0].toc
   if (toc) {
     article.body.map((obj, idx) => {
       if (idx !== 0) {
@@ -39,7 +39,7 @@ export default function ArticleDisplay ({ article, source }) {
       <div className={styles.articleContainer}>
         <div style={style} className={styles.header}>
           <div className={styles.overlay} />
-          <div className={styles.headerTextContainer}>
+          <div className={styles.headerTextContainer} id="home">
             <h1 className={styles.headerText}>{article.name || article.tagline}</h1>
             {
               !article.dateModified && <h4 className={styles.dateModified}>Published {makeDatePretty(convertIdToDate(article._id))}</h4>
@@ -62,7 +62,7 @@ export default function ArticleDisplay ({ article, source }) {
                           {<SVGGrabber type="circle" />}
                         </div>
                         {handleMarkdown(item.name)}
-                        <a href="#table-of-contents">
+                        <a href="#home">
                           <div className={styles.homeIcon}>
                             <i className="fas fa-chevron-up"></i>
                           </div>
@@ -74,19 +74,22 @@ export default function ArticleDisplay ({ article, source }) {
                     {mapContents(item.contents, source)}
                   </div>
                   {
-                    idx === 0 && articleHeaders.length &&
-                      <div className={styles.tocContainer} id="table-of-contents">
-                        <h4 className={styles.tocHeader}>Table Of Contents:</h4>
-                        <div className={styles.toc}>
-                          {
-                            articleHeaders.map(header => {
-                              return (
-                                <a href={`#${makeID(header)}`} key={header} className={styles.tocItem}>{header.split('## ')[1]}</a>
-                              )
-                            })
-                          }
+                    idx === 0 && articleHeaders.length
+                      ? (
+                        <div className={styles.tocContainer}>
+                          <h4 className={styles.tocHeader}>Table Of Contents:</h4>
+                          <div className={styles.toc}>
+                            {
+                              articleHeaders.map(header => {
+                                return (
+                                  <a href={`#${makeID(header)}`} key={header} className={styles.tocItem}>{header.split('## ')[1]}</a>
+                                )
+                              })
+                            }
+                          </div>
                         </div>
-                      </div>
+                      )
+                      : null
                   }
                 </div>
               )

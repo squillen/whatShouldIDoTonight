@@ -1,10 +1,13 @@
 import React, { useState, useEffect } from 'react'
+import { NextSeo } from 'next-seo'
+import Head from 'next/head'
 import PropTypes from 'prop-types'
 
 // REDUX
 import { connect } from 'react-redux'
 
 // COMPONENTS
+import { siteTitle } from '../../components/defaultHead'
 import Layout from '../layout/layout'
 import DisplayAllEvents from '../DisplayAllEvents/DisplayAllEvents'
 
@@ -129,8 +132,20 @@ function GetAllEvents ({ header = 'Things To Do', categoryInfo, source, category
     if (c === 'food') return 'food & drink'
     return c
   }
+  const { title, description } = categoryInfo
+
   return (
     <Layout>
+      <Head>
+        <title>{title} - {siteTitle}</title>
+        <meta name="description" content={description} />
+      </Head>
+      <NextSeo
+        noindex={true}
+        nofollow={true}
+        title={`${title} - ${siteTitle}`}
+        description={description}
+      />
       <div className={styles.contentContainer}>
         <DisplayAllEvents
           activities={currentActivities}

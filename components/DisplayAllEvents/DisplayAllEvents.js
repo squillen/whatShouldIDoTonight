@@ -1,7 +1,5 @@
 import React from 'react'
 import PropTypes from 'prop-types'
-import Head from 'next/head'
-import { siteTitle } from '../../components/defaultHead'
 import { stagger } from '../../animations/default'
 
 import styles from './DisplayAllEvents.module.css'
@@ -45,9 +43,6 @@ export default class DisplayAllEvents extends React.Component {
     // const noActivitiesDiv = this.showNoActivities()
     return (
       <motion.div className={styles.displayAllContainer} variants={stagger}>
-        <Head>
-          <title>{title} - {siteTitle}</title>
-        </Head>
         <BackButton />
         <div className={styles.headerContainer}>
           <h2 className={styles.header}>{header}</h2>

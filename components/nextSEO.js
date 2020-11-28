@@ -18,9 +18,9 @@ export default function NextSEO () {
             url: 'https://what-should-i-do-tonight.s3.us-east-2.amazonaws.com/seo/logo.png',
             width: 500,
             height: 500,
-            alt: 'What Should I Do Tonight Default Logo'
-          }
-        ]
+            alt: 'What Should I Do Tonight Default Logo',
+          },
+        ],
       }}
     />
   )

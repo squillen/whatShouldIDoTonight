@@ -131,11 +131,12 @@ function handleInfo (content = {}) {
   )
 }
 
-export default function ContentDisplay ({ content, back }) {
+export default function ContentDisplay ({ content }) {
   return (
     <>
       <Head>
         <title>{content.name} - {siteTitle}</title>
+        <meta name="description" content={content.pageDescription} />
       </Head>
       <div className={utilStyles.pageContainer}>
         <div className={utilStyles.pageHeaderContainer}>
@@ -208,5 +209,4 @@ export default function ContentDisplay ({ content, back }) {
 
 ContentDisplay.propTypes = {
   content: PropTypes.object,
-  back: PropTypes.string,
 }

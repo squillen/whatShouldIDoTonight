@@ -13,7 +13,7 @@ import Layout from '../components/layout/layout'
 import SplashContent from '../components/SplashContent/SplashContent'
 import ArticleContent from '../components/ArticleContent/ArticleContent'
 import HandleContent from '../components/HandleContent'
-import { siteTitle } from '../components/defaultHead'
+import DefaultHead, { baseDescription, siteTitle } from '../components/defaultHead'
 
 // HELPERS
 import utilStyles from '../styles/utils.module.css'
@@ -29,6 +29,8 @@ const quotes = [
     contents: ['-A.A. Milne', 'Tonight, you do the possible: something'],
   },
 ]
+
+const description = 'drink recipes, board games, free games, self improvement, be a better you, recipes to try.'
 
 export const getStaticProps = wrapper.getStaticProps(({ store }) => {
   const state = store.getState()
@@ -69,9 +71,7 @@ function DoSection ({ spotlight = [], latest, all = {}, setInRedux, setDoActivit
   )
   return (
     <Layout>
-      <Head>
-        <title>Things to Do Tonight - {siteTitle}</title>
-      </Head>
+      <DefaultHead title={`Things to Do Tonight - ${siteTitle}`} description={description} />
       {
         spotlight && Array.isArray(spotlight) && spotlight.length
           ? (

@@ -12,7 +12,7 @@ import { setWatchActivities } from '../../src/store/categories/action'
 import Layout from '../../components/layout/layout'
 import SplashContent from '../../components/SplashContent/SplashContent'
 import HandleContent from '../../components/HandleContent'
-import { baseDescription, siteTitle } from '../../components/defaultHead'
+import DefaultHead, { siteTitle } from '../../components/defaultHead'
 
 // HELPERS
 import utilStyles from '../../styles/utils.module.css'
@@ -76,10 +76,7 @@ function WatchSection ({ spotlight = [], all = {}, articles = [], setInRedux, se
 
   return (
     <Layout>
-      <Head>
-        <title>Things To Watch Tonight - {siteTitle}</title>
-        <meta name="description" content={baseDescription + pageDescription} />
-      </Head>
+      <DefaultHead title={`Things To Watch Tonight - ${siteTitle}`} description={pageDescription} />
       {
         spotlight && Array.isArray(spotlight) && spotlight.length
           ? <SplashContent content={spotlight} banner="Watch the less known" source={source} />

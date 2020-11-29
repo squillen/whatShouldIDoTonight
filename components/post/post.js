@@ -15,7 +15,7 @@ import { bindActionCreators } from 'redux'
 import { getNewUserActivity, resetAll, restoreUserActivities } from '../../src/store/activities/action'
 
 // COMPONENTS
-import { siteTitle, description } from '../../components/defaultHead'
+import { siteTitle, baseDescription } from '../../components/defaultHead'
 import Layout from '../../components/layout/layout'
 import Button from '../../components/button/button'
 import BackButton from '../../components/BackButton/BackButton'
@@ -106,11 +106,11 @@ function Post (props) {
       </Head>
       <ArticleJsonLd
         title={siteTitle}
-        description={description}
+        description={baseDescription + pageDescription}
         canonical={url}
         openGraph={{
           title: pageTitle,
-          description: pageDescription,
+          description: baseDescription + pageDescription,
           url: pageURL,
           type: 'article',
           article: {

@@ -1,14 +1,14 @@
 import { NextSeo } from 'next-seo'
-import { siteTitle, description } from './defaultHead'
+import { siteTitle, baseDescription } from './defaultHead'
 export default function NextSEO () {
   const additionalMetaTags = 'things to do/bored/help/fun/activities/free/paid/do stuff/tonight/what should i do tonight/what should i do'.split('/')
   return (
     <NextSeo
       title={siteTitle}
-      description={description}
+      description={baseDescription}
       openGraph={{
         additionalMetaTags,
-        description,
+        description: baseDescription,
         title: siteTitle,
         url: 'https://www.whatshouldidotonight.com',
         type: 'video.movie',

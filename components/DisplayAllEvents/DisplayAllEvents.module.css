@@ -1,4 +1,5 @@
 .displayAllContainer {
+  min-height: 100vh;
   width: 100%;
 }
 
@@ -47,7 +48,7 @@
 
 .noActivities {
   width: 100%;
-  min-height: 20vh;
+  min-height: 40vh;
   display: flex;
   flex-direction: column;
   justify-content: center;

@@ -79,51 +79,55 @@ function GetAllEvents ({ header = 'Things To Do', categoryInfo, source, category
   }
 
   function getNewActivities (passedFilters = {}, stop = false) {
-    const filtersCopy = { ...passedFilters }
-    const newActivities = {}
-    const doNotWants = []
-    const keepList = []
-    for (const key in filtersCopy) {
-      if (!filtersCopy[key]) doNotWants.push(key)
-    }
-    const userDoesNotWantFree = doNotWants.includes('free')
-    for (const key in filtersCopy) {
-      if (filtersCopy[key]) {
-        keepList.push(key)
-        allActivities.forEach(a => {
-          const safeCategories = a.tags || []
-          const categoriesWithDoNotWants = [...safeCategories, ...doNotWants]
-          const userDoesNotWantFreeAndIsFree = userDoesNotWantFree && a.free
-          let add = false
-          if (userDoesNotWantFreeAndIsFree) {
-            // do nothing
-          } else if (categoriesWithDoNotWants.length === Array.from(new Set(categoriesWithDoNotWants)).length) {
-            add = true
-          } else if (safeCategories.includes(key)) {
-            add = true
-          }
-          if (add) {
-            newActivities[a.name] = a
-            keepList.push(...safeCategories)
-          }
-        })
-      }
-    }
-    categories.forEach(c => {
-      if (!keepList.includes(c)) filtersCopy[c] = false
-      else if (!doNotWants.includes(c)) filtersCopy[c] = true
-      else filtersCopy[c] = false
-    })
-    if (!stop) {
-      const newDoNotWants = []
-      for (const key in filtersCopy) {
-        if (!filtersCopy[key]) newDoNotWants.push(key)
-      }
-      return getNewActivities(filtersCopy, newDoNotWants.length === doNotWants.length) // go back through with updated filters
-    }
-    const newCurrentActivities = Object.values(newActivities)
-    setCurrentActivities(newCurrentActivities)
-    setFilters(filtersCopy)
+    const newActivities = allActivities.reduce((arr, el) => {
+      const arrCopy = [...arr]
+      if (passedFilters[el.tags[0]]) arrCopy.push(el)
+      return arrCopy
+    }, [])
+    // const filtersCopy = { ...passedFilters }
+    // const newActivities = {}
+    // const doNotWants = []
+    // const keepList = []
+    // for (const key in filtersCopy) {
+    //   if (!filtersCopy[key]) doNotWants.push(key)
+    // }
+    // const userDoesNotWantFree = doNotWants.includes('free')
+    // for (const key in filtersCopy) {
+    //   if (filtersCopy[key]) {
+    //     keepList.push(key)
+    //     allActivities.forEach(a => {
+    //       const safeCategories = a.tags || []
+    //       const categoriesWithDoNotWants = [...safeCategories, ...doNotWants]
+    //       const userDoesNotWantFreeAndIsFree = userDoesNotWantFree && a.free
+    //       let add = false
+    //       if (userDoesNotWantFreeAndIsFree) {
+    //         // do nothing
+    //       } else if (categoriesWithDoNotWants.length === Array.from(new Set(categoriesWithDoNotWants)).length) {
+    //         add = true
+    //       } else if (safeCategories.includes(key)) {
+    //         add = true
+    //       }
+    //       if (add) {
+    //         newActivities[a.name] = a
+    //         keepList.push(...safeCategories)
+    //       }
+    //     })
+    //   }
+    // }
+    // categories.forEach(c => {
+    //   if (!keepList.includes(c)) filtersCopy[c] = false
+    //   else if (!doNotWants.includes(c)) filtersCopy[c] = true
+    //   else filtersCopy[c] = false
+    // })
+    // if (!stop) {
+    //   const newDoNotWants = []
+    //   for (const key in filtersCopy) {
+    //     if (!filtersCopy[key]) newDoNotWants.push(key)
+    //   }
+    //   return getNewActivities(filtersCopy, newDoNotWants.length === doNotWants.length) // go back through with updated filters
+    // }
+    setCurrentActivities(newActivities)
+    setFilters(passedFilters)
   }
 
   const handleCategory = (c) => {
@@ -148,6 +152,7 @@ function GetAllEvents ({ header = 'Things To Do', categoryInfo, source, category
       />
       <div className={styles.contentContainer}>
         <DisplayAllEvents
+          allActivities={allActivities}
           activities={currentActivities}
           categoryInfo={categoryInfo}
           source={source}

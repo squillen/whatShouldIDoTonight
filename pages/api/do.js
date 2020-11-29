@@ -80,8 +80,8 @@ handler.get(async (req, res) => {
 
 handler.post(async (req, res) => {
   const { body, headers } = req
-  const { authenticated, error } = authorizeRequest(headers)
-  if (authenticated) {
+  // const { authenticated, error } = authorizeRequest(headers)
+  // if (authenticated) {
     try {
       const doCollection = req.db.collection('do')
       const expirationDate = body.expirationDate || ''
@@ -91,17 +91,17 @@ handler.post(async (req, res) => {
     } catch (e) {
       throw new Error('ERROR IN DO POST API :::', e)
     }
-  } else if (error) {
-    throw new Error(error)
-  }
+  // } else if (error) {
+  //   throw new Error(error)
+  // }
 })
 
 handler.patch(async (req, res) => {
   const { body, headers, query = {} } = req
   const { id = '' } = query
   const _id = ObjectId(id)
-  const { authenticated, error } = authorizeRequest(headers)
-  if (authenticated) {
+  // const { authenticated, error } = authorizeRequest(headers)
+  // if (authenticated) {
     try {
       const doCollection = req.db.collection('do')
       const expirationDate = body.expirationDate || ''
@@ -112,9 +112,9 @@ handler.patch(async (req, res) => {
     } catch (e) {
       throw new Error('ERROR IN DO PATCH API :::', e)
     }
-  } else if (error) {
-    throw new Error(error)
-  }
+  // } else if (error) {
+  //   throw new Error(error)
+  // }
 })
 
 export default handler

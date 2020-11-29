@@ -22,7 +22,6 @@ export default function Layout ({ children, home }) {
       animate="animate"
       key="layout-div"
     >
-      <DefaultHead />
       <NavBar home={home} />
       <div className={styles.childrenContainer}>
         <main>{children}</main>

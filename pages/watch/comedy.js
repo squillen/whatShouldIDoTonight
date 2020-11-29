@@ -9,6 +9,7 @@ import GetAllEvents from '../../components/GetAllEvents/GetAllEvents'
 
 const categoryInfo = {
   title: 'Less-watched comedies to laugh to tonight',
+  description: 'Hidden gem comedies movies, absurd humor, sketch, british on Netflix, Hulu, and Prime',
   header: 'Comedy',
   tag: "Is laughing ever not a good thing? Ok, maybe not funerals. Or when you see your partner naked. Ok, fine, there are lots of times you shouldn't laugh. But tonight isn't one of those times.",
 }

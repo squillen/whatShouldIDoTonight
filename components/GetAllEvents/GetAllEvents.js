@@ -7,7 +7,7 @@ import PropTypes from 'prop-types'
 import { connect } from 'react-redux'
 
 // COMPONENTS
-import { baseDescription, siteTitle } from '../../components/defaultHead'
+import DefaultHead, { baseDescription, siteTitle } from '../../components/defaultHead'
 import Layout from '../layout/layout'
 import DisplayAllEvents from '../DisplayAllEvents/DisplayAllEvents'
 
@@ -139,15 +139,12 @@ function GetAllEvents ({ header = 'Things To Do', categoryInfo, source, category
   const { title, description } = categoryInfo
   return (
     <Layout>
-      <Head>
-        <title>{title} - {siteTitle}</title>
-        <meta name="description" content={baseDescription + description} />
-      </Head>
+      <DefaultHead title={`${title} - ${siteTitle}`} description={description} />
       <NextSeo
         noindex={true}
         nofollow={true}
         title={`${title} - ${siteTitle}`}
-        description={description}
+        description={`${description} ${baseDescription}`}
       />
       <div className={styles.contentContainer}>
         <DisplayAllEvents

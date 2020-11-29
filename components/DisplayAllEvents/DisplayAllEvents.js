@@ -13,11 +13,15 @@ export default class DisplayAllEvents extends React.Component {
     super(props)
     this.state = {
       currentActivities: [],
+      allActivities: [],
     }
   }
 
   componentDidMount () {
-    const { activities = [] } = this.props
+    const { activities = [], allActivities = [] } = this.props
+    if (allActivities.length && !this.state.allActivities.length) {
+      this.setState({ allActivities })
+    }
     if (activities) {
       const currentActivities = [...activities]
       const randomIndex = Math.floor(Math.random() * currentActivities.length)
@@ -27,8 +31,13 @@ export default class DisplayAllEvents extends React.Component {
   }
 
   componentDidUpdate (prevProps) {
+    const prevAllActivities = prevProps.allActivities || []
+    const allActivities = this.props.allActivities || []
     const prevPropActivities = prevProps.activities || []
     const activities = this.props.activities || []
+    if (allActivities.length && !prevAllActivities.length) {
+      this.setState({ allActivities })
+    }
     if (prevPropActivities.length !== activities.length) {
       const currentActivities = [...activities]
       const randomIndex = Math.floor(Math.random() * currentActivities.length)
@@ -38,9 +47,9 @@ export default class DisplayAllEvents extends React.Component {
   }
 
   render () {
-    const { currentActivities = [], highlightActivity } = this.state
+    const { allActivities, currentActivities, highlightActivity } = this.state
     const { categoryInfo: { header, tag, title }, source } = this.props
-    // const noActivitiesDiv = this.showNoActivities()
+    const noActivitiesDiv = this.showNoActivities()
     return (
       <motion.div className={styles.displayAllContainer} variants={stagger}>
         <BackButton />
@@ -48,18 +57,26 @@ export default class DisplayAllEvents extends React.Component {
           <h2 className={styles.header}>{header}</h2>
           <p className={styles.tag}>{tag}</p>
         </div>
-        <motion.div variants={stagger} className={styles.activitiesContainer}>
-          {highlightActivity && (
-            <div className={styles.highlightActivity}>
-              <ContentCard activities={[highlightActivity]} source={source} span />
-            </div>
-          )}
-          {
-            currentActivities && currentActivities.length
-              ? <ContentCard activities={currentActivities} source={source} />
-              : null
-          }
-        </motion.div>
+        {
+          highlightActivity
+            ? (
+              <>
+                <motion.div variants={stagger} className={styles.activitiesContainer}>
+                  {highlightActivity && (
+                    <div className={styles.highlightActivity}>
+                      <ContentCard activities={[highlightActivity]} source={source} span />
+                    </div>
+                  )}
+                  {
+                    currentActivities && currentActivities.length
+                      ? <ContentCard activities={currentActivities} source={source} />
+                      : null
+                  }
+                </motion.div>
+              </>
+            )
+            : allActivities.length && !currentActivities.length ? noActivitiesDiv : <Loading loading={true} />
+        }
       </motion.div>
     )
   }
@@ -67,13 +84,13 @@ export default class DisplayAllEvents extends React.Component {
   showNoActivities () {
     return (
       <div className={styles.noActivities}>
-        <div className={styles.label}>Try adjusting your filters.</div>
-        <div className={styles.noActivitiesGif}>
+        <div className={styles.label}>No results! Toggle some tags.</div>
+        {/* <div className={styles.noActivitiesGif}>
           <img
             src="https://media.giphy.com/media/10h8CdMQUWoZ8Y/giphy.gif"
             alt="Willy Wonka saying 'You get nothing! You lose! Good day, sir!'"
           />
-        </div>
+        </div> */}
       </div>
     )
   }

@@ -1,4 +1,6 @@
 import React, { useState } from 'react'
+import Head from 'next/head'
+import { NextSeo } from 'next-seo'
 import Layout from '../components/layout/layout'
 import utilStyles from '../styles/utils.module.css'
 import { sendContactMail } from '../components/networking/mail-api'
@@ -6,7 +8,6 @@ import Button from '../components/button/button'
 import Modal from '../components/modal/modal'
 import Photo from '../components/photo/photo'
 import Loading from '../components/loading/loading'
-import Head from 'next/head'
 
 const showSuccessModal = () => {
   return (
@@ -75,7 +76,7 @@ export default function ContactForm () {
 
   const modalFunction = {
     showSuccessModal,
-    showErrorModal
+    showErrorModal,
   }[modalToOpen] || function () {}
 
   const modalContent = modalFunction()
@@ -87,6 +88,7 @@ export default function ContactForm () {
         <meta name="title" content={siteTitle} />
         <meta name="description" content="Contact Us What Should I Do Tonight" />
       </Head>
+      <NextSeo nofollow={true} noindex={true} />
       <div className={utilStyles.contactContainer}>
         <div className={utilStyles.formContainer}>
           {/* NAME */}

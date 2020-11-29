@@ -2,13 +2,14 @@ import Head from 'next/head'
 import { useRouter } from 'next/router'
 import { ArticleJsonLd } from 'next-seo'
 import PropTypes from 'prop-types'
-import { siteTitle, baseDescription } from './defaultHead'
+import DefaultHead, { siteTitle, baseDescription } from './defaultHead'
 
 export default function ArticleHead ({ activity = {} }) {
   const router = useRouter()
   const url = 'https://whatshouldidotonight.com'
   const pageURL = `${url}${router.pathname}`
-  const pageDescription = baseDescription + activity.pageDescription
+  const pageDescription = activity.pageDescription + baseDescription
+  console.log('pageDescription :>> ', pageDescription)
   const datePublished = (activity._id && new Date(parseInt(activity._id.substring(0, 8), 16) * 1000)) || new Date()
   const dateModified = activity.dateModified || new Date()
   const expirationDate = activity.expirationDate || null
@@ -18,9 +19,7 @@ export default function ArticleHead ({ activity = {} }) {
   const authors = [activity.authorName || 'Sean Quillen']
   return (
     <>
-      <Head>
-        <title>{title} - {siteTitle}</title>
-      </Head>
+      <DefaultHead title={`${title} - ${siteTitle}`} description={pageDescription}/>
       <ArticleJsonLd
         url={pageURL}
         title={title}

@@ -2,13 +2,13 @@ import Head from 'next/head'
 import { useRouter } from 'next/router'
 import { ArticleJsonLd } from 'next-seo'
 import PropTypes from 'prop-types'
-import { siteTitle, description } from './defaultHead'
+import { siteTitle, baseDescription } from './defaultHead'
 
 export default function ArticleHead ({ activity = {} }) {
   const router = useRouter()
   const url = 'https://whatshouldidotonight.com'
   const pageURL = `${url}${router.pathname}`
-  const pageDescription = activity.pageDescription || description
+  const pageDescription = baseDescription + activity.pageDescription
   const datePublished = (activity._id && new Date(parseInt(activity._id.substring(0, 8), 16) * 1000)) || new Date()
   const dateModified = activity.dateModified || new Date()
   const expirationDate = activity.expirationDate || null

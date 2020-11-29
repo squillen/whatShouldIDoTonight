@@ -48,6 +48,10 @@ export default function ArticleDisplay ({ article, source }) {
           </div>
           <h1 className={styles.hidden}>what should i we do tonight</h1>
           <h1 className={styles.hidden}>i we are bored</h1>
+          <h1 className={styles.hidden}>bored</h1>
+          <h1 className={styles.hidden}>things to do tonight</h1>
+          <h1 className={styles.hidden}>what should i we watch tonight</h1>
+          <h1 className={styles.hidden}>what to do when you&apos;re bored</h1>
         </div>
         <BackButton />
         <div className={styles.articleBody}>

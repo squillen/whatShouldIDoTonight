@@ -1,5 +1,5 @@
 import PropTypes from 'prop-types'
-import { siteTitle } from '../../components/defaultHead'
+import { baseDescription, siteTitle } from '../../components/defaultHead'
 import Head from 'next/head'
 
 // COMPONENTS
@@ -136,7 +136,7 @@ export default function ContentDisplay ({ content }) {
     <>
       <Head>
         <title>{content.name} - {siteTitle}</title>
-        <meta name="description" content={content.pageDescription} />
+        <meta name="description" content={baseDescription + content.pageDescription} />
       </Head>
       <div className={utilStyles.pageContainer}>
         <div className={utilStyles.pageHeaderContainer}>

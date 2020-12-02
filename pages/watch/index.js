@@ -19,7 +19,7 @@ import utilStyles from '../../styles/utils.module.css'
 import { getActivitiesFromDB } from '../../lib/helpers/db/requests'
 
 const pageDescription =
-"What should I watch tonight? We've watched tons of less-known, hidden gem shows, movies, and binge-worthy series on Netflix, Hulu, Prime" +
+"What should I watch tonight? We've watched tons of less-known, hidden gem shows, movies, and binge-worthy series on Netflix, Hulu, Prime. " +
 'Comedy, thrillers, horror, drama, documentary, crime, history, food, action, adventure, romance, rom com, mystery, or more.'
 
 const quotes = [

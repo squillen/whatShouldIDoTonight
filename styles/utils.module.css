@@ -31,7 +31,7 @@
   position: relative;
   text-align: center;
   font-size: 4rem;
-  width: 80%;
+  width: 70%;
   margin: 0 auto;
 }
 
@@ -48,7 +48,7 @@
 }
 
 .sectionContainer {
-  margin: 5rem 0;
+  margin: 2.5rem 0;
 
 }
 
@@ -82,7 +82,7 @@
 }
 
 .bodyContents {
-  width: 85%;
+  width: 65%;
   margin: 0 auto;
 }
 
@@ -879,6 +879,9 @@ background: radial-gradient(circle, rgba(13,32,53,1) 36%, rgba(25,110,171,0.9990
 }
 
 @media only screen and (max-width: 600px) {
+  .bodyContents {
+    width: 85%;
+  }
   .headerInfoSection {
     flex-direction: column;
     align-items: start;

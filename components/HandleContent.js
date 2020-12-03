@@ -55,13 +55,17 @@ export default function HandleContent ({ all, source, quotes = [], homeRef, show
   let useQuote = false
   const listOfUsedCallOuts = []
   const quotesCopy = [...quotes]
-  for (let i = 0; i < contentCategories.length; i += 2) {
-    const currentDisplay = contentCategories.slice(i, i + 2)
-    useQuote = i % 3 === 0
+  for (let i = 0; i < contentCategories.length; i++) {
+    const currentDisplay = contentCategories.slice(i, i + 1)
+    useQuote = i % 2 === 0
     const currentCallOut = findCallOut(...getRandomCategory(), listOfUsedCallOuts) || {}
     listOfUsedCallOuts.push(currentCallOut.name)
-    const currentContentCallOut = useQuote && quotesCopy.length
-      ? <ContentCallOut key={`quotable-contentCallOut-${i}`} item={quotesCopy.pop()} />
+    let currentQuote = null
+    if (useQuote && quotesCopy.length) {
+      currentQuote = quotesCopy.splice(Math.floor(Math.random() * quotesCopy.length), 1)[0]
+    }
+    const currentContentCallOut = currentQuote
+      ? <ContentCallOut key={`quotable-contentCallOut-${i}`} item={currentQuote} />
       : <ContentCallOut key={`contentCallOut-${i}`} source={source} item={currentCallOut} />
     if (useQuote) useQuote = false
     display.push((

@@ -4,36 +4,54 @@ import Link from 'next/link'
 import styles from './RelatedContent.module.css'
 import { getArticleByID } from '../../lib/helpers/db/requests'
 
-export default function RelatedContent ({ id, articleSource = 'do', source = 'do' }) {
-  const [articleInfo, setArticleInfo] = useState({})
+export default function RelatedContent ({ articles, source = 'do' }) {
+  const [articlesFromDB, setArticlesFromDB] = useState([])
   async function getArticleInfo () {
-    let article
     try {
-      article = await getArticleByID(id, source)
-      const { image, name, tagline } = article || {}
-      const link = `/${articleSource}/activity?name=${name.split(' ').join('_')}`
-      const newArticleInfo = { image, name, tagline, link }
-      setArticleInfo(newArticleInfo)
+      const promises = []
+      const handleCall = (id, articleSource) => getArticleByID(id, articleSource).catch(console.error)
+      articles && articles.length && articles.forEach(article => {
+        if (article[0]) {
+          const [id, articleSource] = article
+          promises.push(handleCall(id, articleSource))
+        }
+      })
+
+      const result = await Promise.all(promises)
+      const newArticles = []
+      result.forEach(article => {
+        if (article.name) {
+          const { image, name, title, tagline } = article || {}
+          const link = `/${source}/activity?name=${(name || title || '').split(' ').join('_')}`
+          newArticles.push({ image, name, tagline, link })
+        }
+      })
+
+      setArticlesFromDB(newArticles)
     } catch (e) {
       console.error(e)
     }
   }
   useEffect(() => {
-    if (id && !articleInfo.link) getArticleInfo()
-  }, [id])
+    if (articles.length && !articlesFromDB.length) getArticleInfo()
+  }, [articles])
 
   return (
-    articleInfo.link
+    articlesFromDB.length
       ? (
         <div className={styles.relatedContentContainer}>
           <span>
             <span className={styles.relatedText}>Related:</span>
             {' '}
-            <span className={styles.articleLink}>
-              <Link href={articleInfo.link}>
-                <a target="_blank">{articleInfo.name}</a>
-              </Link>
-            </span>
+            {
+              articlesFromDB.map(article => (
+                <span key={article.name} className={styles.articleLink}>
+                  <Link href={article.link}>
+                    <a target="_blank">{article.name || article.title}</a>
+                  </Link>
+                </span>
+              ))
+            }
           </span>
 
         </div>
@@ -43,7 +61,6 @@ export default function RelatedContent ({ id, articleSource = 'do', source = 'do
 }
 
 RelatedContent.propTypes = {
-  id: PropTypes.string.isRequired,
+  articles: PropTypes.array.isRequired,
   source: PropTypes.string.isRequired,
-  articleSource: PropTypes.string.isRequired,
 }

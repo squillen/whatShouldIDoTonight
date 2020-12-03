@@ -130,7 +130,7 @@ function mapContents (array, source) {
                 }
               </div>
               : c.related
-                ? <RelatedContent id={c.related[0]} articleSource={c.related[1]} source={source} />
+                ? <RelatedContent articles={c.related} source={source} />
                 : c.name && c.contents
                   ? (
                     <div>

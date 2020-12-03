@@ -35,7 +35,7 @@ export default function DefaultHead ({ title, description }) {
       <title>{usedTitle}</title>
       <meta name="description" content={usedDescription} />
       {/* <script id="mcjs" dangerouslySetInnerHTML={{ __html: mailChimpScript }} /> */}
-      {/* <script data-ad-client="ca-pub-9045195637006996" async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script> */}
+      <script data-ad-client="ca-pub-9045195637006996" async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
       <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.14.0/css/all.css" integrity="sha384-HzLeBuhoNPvSl5KYnjx0BT+WB0QEEqLprO+NBkkk5gbc67FTaL7XIGa2w1L0Xbgc" crossOrigin="anonymous" />
     </Head>
   )

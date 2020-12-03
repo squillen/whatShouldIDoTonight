@@ -286,8 +286,6 @@ background: radial-gradient(circle, rgba(13,32,53,1) 36%, rgba(25,110,171,0.9990
 }
 
 .content {
-  /* font-family: 'Fjalla One', sans-serif; */
-  font-family: 'Oswald', sans-serif;
   font-size: 1.3rem;
   padding-bottom: 2rem;
   /* text-transform: lowercase; */

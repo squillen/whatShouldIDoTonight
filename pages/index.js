@@ -13,7 +13,7 @@ import Layout from '../components/layout/layout'
 import SplashContent from '../components/SplashContent/SplashContent'
 import ArticleContent from '../components/ArticleContent/ArticleContent'
 import HandleContent from '../components/HandleContent'
-import DefaultHead, { baseDescription, siteTitle } from '../components/defaultHead'
+import DefaultHead, { siteTitle } from '../components/defaultHead'
 
 // HELPERS
 import utilStyles from '../styles/utils.module.css'
@@ -30,7 +30,7 @@ const quotes = [
   },
 ]
 
-const description = 'drink recipes, board games, free games, self improvement, be a better you, recipes to try.'
+const description = 'Drink recipes, board games, free games, self improvement, be a better you, recipes to try.'
 
 export const getStaticProps = wrapper.getStaticProps(({ store }) => {
   const state = store.getState()
@@ -63,7 +63,7 @@ function DoSection ({ spotlight = [], latest, all = {}, setInRedux, setDoActivit
   const display = (
     <HandleContent
       all={obj}
-      showCategories={false}
+      // showCategories={false}
       source={source}
       quotes={quotes}
       homeRef={homeRef}
@@ -100,6 +100,7 @@ DoSection.propTypes = {
   spotlight: PropTypes.array,
   all: PropTypes.object,
   articles: PropTypes.array,
+  latest: PropTypes.array,
   setDoActivitiesFromProps: PropTypes.func,
   setInRedux: PropTypes.bool,
 }

@@ -64,7 +64,7 @@
 .headerText {
   font-family: 'Oswald', sans-serif;
   font-size: 8rem;
-  line-height: 100%;
+  line-height: 110%;
   margin: 0;
 }
 
@@ -150,10 +150,19 @@
 .content > h3,
 .content > h4,
 .content > h5 {
-  text-decoration: underline;
+  /* text-decoration: underline; */
+  margin: 1rem 0;
 }
+.content > h3 {
+  margin-top: 8rem;
+}
+
 .content > ul {
   margin: 0
+}
+
+.content > ul > li > h5 {
+  margin: 0;
 }
 
 .iframe {

@@ -62,6 +62,7 @@
 }
 
 .headerText {
+  font-family: 'Oswald', sans-serif;
   font-size: 8rem;
   line-height: 100%;
   margin: 0;
@@ -132,6 +133,7 @@
 }
 
 .content {
+  font-family: 'Quicksand', sans-serif;
   width: 80%;
   margin: 0 auto;
   padding: 0.5rem 0;
@@ -144,6 +146,11 @@
   margin: 0.5rem 0;
 }
 
+.content > h3,
+.content > h4,
+.content > h5 {
+  text-decoration: underline;
+}
 .content > ul {
   margin: 0
 }

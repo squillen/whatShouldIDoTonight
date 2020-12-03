@@ -20,7 +20,7 @@ import {
 import * as gtag from '../../lib/gtag'
 import utilStyles from '../../styles/utils.module.css'
 
-export default function SocialIcons ({ pageTitle, pageURL, size = 30 }) {
+export default function SocialIcons ({ horizontal, image, description, pageTitle, pageURL, size = 30 }) {
   const handleShare = (action) => {
     gtag.event({
       action,
@@ -28,10 +28,11 @@ export default function SocialIcons ({ pageTitle, pageURL, size = 30 }) {
       category: 'Social Share',
     })
   }
+  const media = image || 'https://what-should-i-do-tonight.s3.us-east-2.amazonaws.com/seo/logo.png'
   return (
-    <motion.div variants={stagger} className={utilStyles.shareIconsContainer}>
+    <motion.ul variants={stagger} style={horizontal ? { flexDirection: 'row', padding: 0, justifyContent: 'space-between', width: '10rem' } : {}} className={utilStyles.shareIconsContainer}>
       {/* EMAIL */}
-      <motion.div variants={fadeInUp}>
+      <motion.li variants={fadeInUp}>
         <EmailShareButton
           size={size}
           round={true}
@@ -41,15 +42,15 @@ export default function SocialIcons ({ pageTitle, pageURL, size = 30 }) {
         >
           <EmailIcon size={size} round={true} />
         </EmailShareButton>
-      </motion.div>
+      </motion.li>
       {/* TWITTER */}
-      <motion.div variants={fadeInUp}>
+      <motion.li variants={fadeInUp}>
         <TwitterShareButton size={size} round={true} url={pageURL} beforeOnClick={() => handleShare('twitter')}>
           <TwitterIcon size={size} round={true} />
         </TwitterShareButton>
-      </motion.div>
+      </motion.li>
       {/* FACEBOOK */}
-      <motion.div variants={fadeInUp}>
+      <motion.li variants={fadeInUp}>
         <FacebookShareButton
           size={size}
           round={true}
@@ -58,9 +59,9 @@ export default function SocialIcons ({ pageTitle, pageURL, size = 30 }) {
         >
           <FacebookIcon size={size} round={true} />
         </FacebookShareButton>
-      </motion.div>
+      </motion.li>
       {/* LINE */}
-      <motion.div variants={fadeInUp}>
+      {/* <motion.li variants={fadeInUp}>
         <LineShareButton
           size={size}
           round={true}
@@ -70,11 +71,12 @@ export default function SocialIcons ({ pageTitle, pageURL, size = 30 }) {
         >
           <LineIcon size={size} round={true} />
         </LineShareButton>
-      </motion.div>
+      </motion.li> */}
       {/* PINTEREST */}
-      <motion.div variants={fadeInUp}>
+      <motion.li variants={fadeInUp}>
         <PinterestShareButton
-          media="https://what-should-i-do-tonight.s3.us-east-2.amazonaws.com/seo/logo.png"
+          media={media}
+          description={description}
           size={size}
           round={true}
           url={pageURL}
@@ -82,25 +84,28 @@ export default function SocialIcons ({ pageTitle, pageURL, size = 30 }) {
         >
           <PinterestIcon size={size} round={true} />
         </PinterestShareButton>
-      </motion.div>
+      </motion.li>
       {/* REDDIT */}
-      <motion.div variants={fadeInUp}>
+      {/* <motion.li variants={fadeInUp}>
         <RedditShareButton size={size} round={true} url={pageURL} beforeOnClick={() => handleShare('reddit')} title={pageTitle}>
           <RedditIcon size={size} round={true} />
         </RedditShareButton>
-      </motion.div>
+      </motion.li> */}
       {/* WHATSAPP */}
-      <motion.div variants={fadeInUp}>
+      {/* <motion.li variants={fadeInUp}>
         <WhatsappShareButton size={size} round={true} url={pageURL} beforeOnClick={() => handleShare('whatsapp')} title={pageTitle}>
           <WhatsappIcon size={size} round={true} />
         </WhatsappShareButton>
-      </motion.div>
-    </motion.div>
+      </motion.li> */}
+    </motion.ul>
   )
 }
 
 SocialIcons.propTypes = {
   pageURL: PropTypes.string,
+  horizontal: PropTypes.bool,
+  description: PropTypes.string,
+  image: PropTypes.string,
   pageTitle: PropTypes.string,
   size: PropTypes.number,
 }

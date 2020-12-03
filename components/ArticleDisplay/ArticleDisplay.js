@@ -1,10 +1,11 @@
-import React, { useState, useRef } from 'react'
+import React from 'react'
 import styles from './ArticleDisplay.module.css'
 import Link from 'next/link'
 import PropTypes from 'prop-types'
 import IFrame from '../IFrame/IFrame'
 import HelpfulCounter from '../HelpfulCounter/HelpfulCounter'
 import RelatedContent from '../RelatedContent/RelatedContent'
+import SocialIcons from '../socialIcons/socialIcons'
 import AuthorInfo from '../AuthorInfo/AuthorInfo'
 import ArticleHead from '../ArticleHead'
 import SVGGrabber from '../SVGGrabber'
@@ -14,6 +15,7 @@ import Photo from '../photo/photo'
 import { convertIdToDate, makeDatePretty } from '../../lib/helpers/dataHelpers'
 
 export default function ArticleDisplay ({ article, source }) {
+  const pageURL = window.location.href
   window.HTMLElement.prototype.scrollIntoView = function () {}
   const style = { background: `url(${article.image}) center no-repeat`, backgroundSize: 'cover' }
   const articleHeaders = []
@@ -35,7 +37,7 @@ export default function ArticleDisplay ({ article, source }) {
   return (
     article &&
     <>
-      <ArticleHead activity={article}/>
+      <ArticleHead activity={article} />
       <div className={styles.articleContainer}>
         <div style={style} className={styles.header}>
           <div className={styles.overlay} />
@@ -45,6 +47,9 @@ export default function ArticleDisplay ({ article, source }) {
               !article.dateModified && <h4 className={styles.dateModified}>Published {makeDatePretty(convertIdToDate(article._id))}</h4>
             }
             {article.dateModified && <h4 className={styles.dateModified}>Updated {makeDatePretty(article.dateModified)}</h4>}
+            <div className={styles.socialIconsMobile}>
+              <SocialIcons pageURL={pageURL} pageTitle={article.name} image={article.image} description={article.pageDescription} horizontal/>
+            </div>
           </div>
           <h1 className={styles.hidden}>what should i we do tonight</h1>
           <h1 className={styles.hidden}>i we are bored</h1>
@@ -54,6 +59,9 @@ export default function ArticleDisplay ({ article, source }) {
           <h1 className={styles.hidden}>what to do when you&apos;re bored</h1>
         </div>
         <BackButton />
+        <div className={styles.socialIconsDesktop}>
+          <SocialIcons pageURL={pageURL} pageTitle={article.name} image={article.image} description={article.pageDescription} />
+        </div>
         <div className={styles.articleBody}>
           {
             article.body.map((item, idx) => {

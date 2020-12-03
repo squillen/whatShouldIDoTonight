@@ -72,6 +72,21 @@
   display: none;
 }
 
+.socialIconsDesktop,
+.socialIconsMobile {
+  display: flex;
+  flex-direction: column;
+  height: auto;
+  position: sticky;
+  top: 7rem;
+  margin-top: 3rem;
+  left: 1rem;
+}
+
+.socialIconsMobile {
+  display: none;
+}
+
 .articleBody {
   display: flex;
   flex-direction: column;
@@ -222,6 +237,14 @@
 }
 
 @media only screen and (max-width: 600px) {
+  .socialIconsDesktop {
+    display: none;
+  }
+
+  .socialIconsMobile{
+    display: flex;
+    flex-direction: column;
+  }
   .articleBody {
     width: 80%;
   }

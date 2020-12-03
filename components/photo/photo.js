@@ -5,7 +5,6 @@ import handleMarkdown from '../../lib/helpers/handleMarkdown'
 import styles from './photo.module.css'
 
 export default function Photo ({ src, alt, caption }) {
-  console.log('caption :>> ', caption);
   const [enlargePhoto, setEnlargedPhoto] = useState(false)
   return (
     <figure className={styles.photoContainer}>

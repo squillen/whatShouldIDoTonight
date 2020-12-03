@@ -16,7 +16,7 @@ async function generateSitemap () {
   const pages = await globby([
     'pages/**/*{.js,.mdx}',
     '!pages/_*.js',
-    '!pages/api'
+    '!pages/api',
   ])
   const sitemap = `<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
 ${pages.map(addPage).join('\n')}

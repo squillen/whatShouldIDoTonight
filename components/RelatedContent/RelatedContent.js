@@ -40,19 +40,20 @@ export default function RelatedContent ({ articles, source = 'do' }) {
     articlesFromDB.length
       ? (
         <div className={styles.relatedContentContainer}>
-          <span>
-            <span className={styles.relatedText}>Related:</span>
+          <div>
+            <div className={styles.relatedText}>Related:</div>
             {' '}
+
             {
               articlesFromDB.map(article => (
-                <span key={article.name} className={styles.articleLink}>
+                <li key={article.name} className={styles.articleLink}>
                   <Link href={article.link}>
                     <a target="_blank">{article.name || article.title}</a>
                   </Link>
-                </span>
+                </li>
               ))
             }
-          </span>
+          </div>
 
         </div>
       )

@@ -125,7 +125,6 @@ export default function EmailSignup () {
         setSigningUserUp(false)
       }
     } else {
-      console.log('showing error :>> ')
       setError("Oooh you're so close but there seems to be a problem with your email! Check it and try again!")
       // show error
     }

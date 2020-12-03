@@ -9,7 +9,6 @@ export default function ArticleHead ({ activity = {} }) {
   const url = 'https://whatshouldidotonight.com'
   const pageURL = `${url}${router.pathname}`
   const pageDescription = activity.pageDescription + baseDescription
-  console.log('pageDescription :>> ', pageDescription)
   const datePublished = (activity._id && new Date(parseInt(activity._id.substring(0, 8), 16) * 1000)) || new Date()
   const dateModified = activity.dateModified || new Date()
   const expirationDate = activity.expirationDate || null

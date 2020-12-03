@@ -9,22 +9,20 @@ export default function RelatedContent ({ articles, source = 'do' }) {
   async function getArticleInfo () {
     try {
       const promises = []
+      const sources = []
       const handleCall = (id, articleSource) => getArticleByID(id, articleSource).catch(console.error)
       articles && articles.length && articles.forEach(article => {
-        if (article[0]) {
-          const [id, articleSource] = article
-          promises.push(handleCall(id, articleSource))
-        }
+        const [id, articleSource] = article
+        sources.push(articleSource)
+        promises.push(handleCall(id, articleSource))
       })
 
       const result = await Promise.all(promises)
       const newArticles = []
-      result.forEach(article => {
-        if (article.name) {
-          const { image, name, lookup, title, tagline } = article || {}
-          const link = `/${source}/a?lookup=${lookup}`
-          newArticles.push({ image, name, tagline, link })
-        }
+      result.forEach((article, idx) => {
+        const { image, name, lookup, tagline } = article || {}
+        const link = `/${sources[idx]}/a?lookup=${lookup}`
+        newArticles.push({ image, name, tagline, link })
       })
 
       setArticlesFromDB(newArticles)
@@ -41,7 +39,7 @@ export default function RelatedContent ({ articles, source = 'do' }) {
       ? (
         <div className={styles.relatedContentContainer}>
           <div>
-            <div className={styles.relatedText}>Related:</div>
+            <div className={styles.relatedText}>RELATED:</div>
             {' '}
 
             {

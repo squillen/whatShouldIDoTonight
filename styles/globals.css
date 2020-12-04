@@ -36,6 +36,16 @@ img {
   display: none;
 }
 
+h2 {
+  counter-increment: heading-counter;
+}
+
+h2::before {
+  content: counter(heading-counter) ". ";
+  color: #fff;
+  font-weight: bold;
+}
+
 @media only screen and (max-width: 800px) {
   html,
   body {

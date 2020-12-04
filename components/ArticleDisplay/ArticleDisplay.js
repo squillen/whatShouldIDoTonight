@@ -143,13 +143,30 @@ function mapContents (array, source) {
                   ? (
                     <div>
                       <div className={styles.subHeader}>
-                        {handleMarkdown(c.name[0] === '#' ? c.name : `### ${c.name}`)}
+                        {handleMarkdown(c.name)}
                         <div className={styles.border} />
                       </div>
                       {mapContents(c.contents, source)}
                     </div>
                   )
-                  : handleMarkdown(c)
+                  : (
+
+                    c.slice(0, 3) === '## '
+                      ? (
+                        <div className={styles.subSuggestionHeader}>
+                          <div className={styles.subBlob}>
+                            {<SVGGrabber type="circle" />}
+                          </div>
+                          {handleMarkdown(c)}
+                          <a href="#home">
+                            <div className={styles.homeIcon}>
+                              <i className="fas fa-chevron-up"></i>
+                            </div>
+                          </a>
+                        </div>
+                      )
+                      : handleMarkdown(c)
+                  )
         }
       </div>
     ))

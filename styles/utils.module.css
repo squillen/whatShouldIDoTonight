@@ -35,8 +35,13 @@
   margin: 0 auto;
 }
 
-.pageActivityTitle > p {
+.pageActivityTitle > p,
+.pageActivityTitle > h1 {
   margin: 0;
+}
+
+.pageActivityTitle > h1 {
+  font-size: 4.3rem;
 }
 
 .titleBlob {

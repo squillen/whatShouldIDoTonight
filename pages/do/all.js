@@ -9,9 +9,9 @@ import { connect } from 'react-redux'
 import GetAllEvents from '../../components/GetAllEvents/GetAllEvents'
 
 const categoryDescriptions = {
-  'self-improvement': {
+  improve: {
     title: 'Ideas to improve yourself and grow as a person',
-    header: 'Self Improvement',
+    header: 'Improve',
     description: 'Bored at home and want to improve yourself? Become an even better person tonight by checking out these articles on self-improvement.',
     tag: "Whether you believe it or not, you're awesome. And you can become even more awesome! Awesome! How? By checking out all of our articles!",
   },

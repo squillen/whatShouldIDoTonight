@@ -209,20 +209,7 @@
   margin: 0 auto
 }
 
-@media only screen and (max-width: 700px) {
-  .mobileSignup {
-    display: flex;
-    width: 100%;
-    justify-content: center;
-  }
-
-  .button {
-    display: none;
-  }
-}
-
-
-@media only screen and (max-width: 700px) {
+@media only screen and (max-width: 600px) {
   .emailCTA {
     font-size: 2rem;
   }
@@ -243,5 +230,15 @@
 
   .closeButton {
     font-size: 2rem;
+  }
+
+  .mobileSignup {
+    display: flex;
+    width: 100%;
+    justify-content: center;
+  }
+
+  .button {
+    display: none;
   }
 }

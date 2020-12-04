@@ -6,6 +6,7 @@ import { connect } from 'react-redux'
 
 // HELPERS
 import GetAllEvents from '../../components/GetAllEvents/GetAllEvents'
+import { getAllCollectionActivitiesWithCategories } from '../../lib/helpers/db/requests'
 
 const categoryInfo = {
   title: 'Tasty food and drink ideas to try tonight',
@@ -13,14 +14,22 @@ const categoryInfo = {
   header: 'Food & Drink',
   tag: 'Batman and Robin, peanut butter and jelly, nights and food. Some pairings just work. Check out all these fun food things you can do. Tonight!',
 }
-
-function Content () {
+export async function getStaticProps () {
+  const activities = await getAllCollectionActivitiesWithCategories('do')
+  return {
+    props: {
+      activities,
+    },
+  }
+}
+function Content ({ activities }) {
   return (
     categoryInfo.header
       ? (
         <GetAllEvents
           categoryInfo={categoryInfo}
           source="do"
+          activities={activities}
           category="food"
         />
       )
@@ -29,7 +38,7 @@ function Content () {
 }
 
 Content.propTypes = {
-  activities: PropTypes.object,
+  activities: PropTypes.array,
 }
 
 export default connect((state) => state)(Content)

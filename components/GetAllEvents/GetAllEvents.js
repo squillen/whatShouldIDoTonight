@@ -12,10 +12,10 @@ import Layout from '../layout/layout'
 import DisplayAllEvents from '../DisplayAllEvents/DisplayAllEvents'
 
 // HELPERS
-import { callAPI, getOptions } from '../../lib/helpers/callAPI'
 import styles from './GetAllEvents.module.css'
 
-function GetAllEvents ({ header = 'Things To Do', categoryInfo, source, category = '' }) {
+
+function GetAllEvents ({ activities, categoryInfo, source, category = '' }) {
   const [allActivities, setAllActivities] = useState([])
   const [currentActivities, setCurrentActivities] = useState(null)
   const [calledAPI, setCalledAPI] = useState(false)
@@ -30,14 +30,8 @@ function GetAllEvents ({ header = 'Things To Do', categoryInfo, source, category
 
   async function getAllActivitiesOnLoad () {
     try {
-      const options = getOptions()
-      const destination = (category && category.toLowerCase() === 'total')
-        ? ''
-        : `category=${category}`
-      const stub = `${source}?${destination}`
-      const allActivities = await callAPI(stub, options)
-      setAllActivities(allActivities)
-      setCurrentActivities(allActivities)
+      setAllActivities(activities[category])
+      setCurrentActivities(activities[category])
     } catch (e) {
       console.error(e)
     } finally {
@@ -184,6 +178,8 @@ function GetAllEvents ({ header = 'Things To Do', categoryInfo, source, category
 
 GetAllEvents.propTypes = {
   back: PropTypes.func,
+  activities: PropTypes.array,
+  categoryInfo: PropTypes.object,
   category: PropTypes.string,
   header: PropTypes.string,
   source: PropTypes.string,

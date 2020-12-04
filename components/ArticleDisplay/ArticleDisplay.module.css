@@ -73,8 +73,7 @@
   display: none;
 }
 
-.socialIconsDesktop,
-.socialIconsMobile {
+.socialIconsDesktop {
   display: flex;
   flex-direction: column;
   position: fixed;
@@ -84,6 +83,10 @@
 
 .socialIconsMobile {
   display: none;
+  flex-direction: row;
+  width: 100vw;
+  justify-content: center;
+  align-items: center;
 }
 
 .articleBody {
@@ -263,7 +266,6 @@
 
   .socialIconsMobile{
     display: flex;
-    flex-direction: column;
   }
   .articleBody {
     width: 80%;

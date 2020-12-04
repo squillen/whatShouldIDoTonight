@@ -14,13 +14,22 @@ import ArticleDisplay from '../../components/ArticleDisplay/ArticleDisplay'
 import ArticleHead from '../../components/ArticleHead'
 
 // HELPERS
-import { getActivityFromDB, updateActivityIMDbInDB } from '../../lib/helpers/db/requests'
+import { getAllCollectionActivities, updateActivityIMDbInDB } from '../../lib/helpers/db/requests'
 import { getIMDbResults } from '../../lib/helpers/external/requests'
 import handleSeasons from '../../lib/helpers/handleSeasons'
 import utilStyles from '../../styles/utils.module.css'
 import HelpfulCounter from '../../components/HelpfulCounter/HelpfulCounter'
 
-function Content () {
+export async function getStaticProps () {
+  const allCollectionActivities = await getAllCollectionActivities('watch')
+  return {
+    props: {
+      allCollectionActivities,
+    },
+  }
+}
+
+function Content ({ allCollectionActivities }) {
   const [activity, setActivity] = useState({})
   const router = useRouter()
   const { lookup } = router.query
@@ -43,7 +52,7 @@ function Content () {
 
   const getActivity = async () => {
     try {
-      const retrievedActivity = await getActivityFromDB('watch', lookup)
+      const retrievedActivity = allCollectionActivities.find(p => p.lookup === lookup)
       if (retrievedActivity && retrievedActivity.imdb) {
         const expirationDate = retrievedActivity.imdb.expirationDate || ''
         const resultsAreFresh = new Date(expirationDate).getTime() > new Date().getTime()
@@ -123,6 +132,7 @@ function Content () {
 
 Content.propTypes = {
   show: PropTypes.object,
+  allCollectionActivities: PropTypes.array,
 }
 
 export default connect((state) => state)(Content)

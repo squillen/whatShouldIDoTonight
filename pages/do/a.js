@@ -10,17 +10,26 @@ import Layout from '../../components/layout/layout'
 import Loading from '../../components/loading/loading'
 
 // HELPERS
-import { getActivityFromDB } from '../../lib/helpers/db/requests'
+import { getAllCollectionActivities } from '../../lib/helpers/db/requests'
 import ContentDisplay from '../../components/ContentDisplay/ContentDisplay'
 import ArticleDisplay from '../../components/ArticleDisplay/ArticleDisplay'
 
-function Content () {
+export async function getStaticProps () {
+  const allCollectionActivities = await getAllCollectionActivities('do')
+  return {
+    props: {
+      allCollectionActivities,
+    },
+  }
+}
+
+function Content ({ allCollectionActivities }) {
   const [activity, setActivity] = useState({})
   const router = useRouter()
   const { lookup } = router.query
   const getActivity = async () => {
     try {
-      const newActivity = await getActivityFromDB('do', lookup)
+      const newActivity = allCollectionActivities.find(p => p.lookup === lookup)
       setActivity(newActivity)
     } catch (e) {
       console.error(e)
@@ -43,7 +52,7 @@ function Content () {
 }
 
 Content.propTypes = {
-  Activity: PropTypes.object,
+  allCollectionActivities: PropTypes.array,
 }
 
 export default connect((state) => state)(Content)

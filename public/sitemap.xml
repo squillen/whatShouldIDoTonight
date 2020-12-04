@@ -16,38 +16,6 @@
     <changefreq>weekly</changefreq>
   </url>
   <url>
-    <loc>http://localhost:3000/do/a</loc>
-    <changefreq>weekly</changefreq>
-  </url>
-  <url>
-    <loc>http://localhost:3000/do/all</loc>
-    <changefreq>weekly</changefreq>
-  </url>
-  <url>
-    <loc>http://localhost:3000/do/alone</loc>
-    <changefreq>weekly</changefreq>
-  </url>
-  <url>
-    <loc>http://localhost:3000/do/food</loc>
-    <changefreq>weekly</changefreq>
-  </url>
-  <url>
-    <loc>http://localhost:3000/do/fun</loc>
-    <changefreq>weekly</changefreq>
-  </url>
-  <url>
-    <loc>http://localhost:3000/do/index</loc>
-    <changefreq>weekly</changefreq>
-  </url>
-  <url>
-    <loc>http://localhost:3000/do/learn</loc>
-    <changefreq>weekly</changefreq>
-  </url>
-  <url>
-    <loc>http://localhost:3000/do/self-improvement</loc>
-    <changefreq>weekly</changefreq>
-  </url>
-  <url>
     <loc>http://localhost:3000/watch/a</loc>
     <changefreq>weekly</changefreq>
   </url>
@@ -81,6 +49,38 @@
   </url>
   <url>
     <loc>http://localhost:3000/watch/index</loc>
+    <changefreq>weekly</changefreq>
+  </url>
+  <url>
+    <loc>http://localhost:3000/do/a</loc>
+    <changefreq>weekly</changefreq>
+  </url>
+  <url>
+    <loc>http://localhost:3000/do/all</loc>
+    <changefreq>weekly</changefreq>
+  </url>
+  <url>
+    <loc>http://localhost:3000/do/alone</loc>
+    <changefreq>weekly</changefreq>
+  </url>
+  <url>
+    <loc>http://localhost:3000/do/food</loc>
+    <changefreq>weekly</changefreq>
+  </url>
+  <url>
+    <loc>http://localhost:3000/do/fun</loc>
+    <changefreq>weekly</changefreq>
+  </url>
+  <url>
+    <loc>http://localhost:3000/do/index</loc>
+    <changefreq>weekly</changefreq>
+  </url>
+  <url>
+    <loc>http://localhost:3000/do/learn</loc>
+    <changefreq>weekly</changefreq>
+  </url>
+  <url>
+    <loc>http://localhost:3000/do/self-improvement</loc>
     <changefreq>weekly</changefreq>
   </url>
 </urlset>

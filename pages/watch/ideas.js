@@ -7,6 +7,8 @@ import { connect } from 'react-redux'
 // HELPERS
 import GetAllEvents from '../../components/GetAllEvents/GetAllEvents'
 
+import { getAllCollectionActivitiesWithCategories } from '../../lib/helpers/db/requests'
+
 const categoryInfo = {
   title: 'The hidden gems on Netflix, Hulu, Prime, and more to watch tonight',
   description: 'Our curated hidden gem suggestions on what to watch tonight',
@@ -14,18 +16,28 @@ const categoryInfo = {
   tag: "What're you in the mood for? Don't know? We got you. Here are a smattering of ideas we have for things to watch right now to fit any mood you have. Happy watching, nighty.",
 }
 
-function Content () {
+export async function getStaticProps () {
+  const activities = await getAllCollectionActivitiesWithCategories('watch')
+  return {
+    props: {
+      activities,
+    },
+  }
+}
+
+function Content ({ activities }) {
   return (
     <GetAllEvents
       categoryInfo={categoryInfo}
       source="watch"
+      activities={activities}
       category="ideas"
     />
   )
 }
 
 Content.propTypes = {
-  activities: PropTypes.object,
+  activities: PropTypes.array,
 }
 
 export default connect((state) => state)(Content)

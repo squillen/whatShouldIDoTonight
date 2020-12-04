@@ -41,10 +41,10 @@ export default function ContentCard ({ activities, source, span }) {
                   </div>
                   <div className={styles[span ? 'rightHalf' : 'bottomHalf']}>
                     <div className={styles.infoContainer}>
-                      <div style={source === 'watch' ? { height: 'auto' } : {}} className={styles.cardName}>{activity.name}</div>
                       {source !== 'watch' && <div className={styles.publishDate}>{handleDate(activity)}</div>}
+                      <div style={source === 'watch' ? { height: 'auto' } : {}} className={styles.cardName}>{activity.name}</div>
                     </div>
-                    <div className={styles.tagline}>{activity.tagline}</div>
+                    {/* <div className={styles.tagline}>{activity.tagline}</div> */}
                   </div>
                 </motion.div>
               </a>

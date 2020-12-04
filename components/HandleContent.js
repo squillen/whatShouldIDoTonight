@@ -13,7 +13,6 @@ import { stagger } from '../animations/default'
 import utilStyles from '../styles/utils.module.css'
 
 const specialCase = {
-  'self-improvement': { name: 'Self Improvement' },
   tv: { name: 'TV' },
   food: { name: 'Food & Drink ' },
   // total: { name: 'All' },

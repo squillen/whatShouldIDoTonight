@@ -54,7 +54,7 @@ export default class DisplayAllEvents extends React.Component {
       <motion.div className={styles.displayAllContainer} variants={stagger}>
         <BackButton />
         <div className={styles.headerContainer}>
-          <h2 className={styles.header}>{header}</h2>
+          <h1 className={styles.header}>{header}</h1>
           <p className={styles.tag}>{tag}</p>
         </div>
         {

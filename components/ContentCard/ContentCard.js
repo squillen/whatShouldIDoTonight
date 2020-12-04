@@ -10,10 +10,11 @@ export default function ContentCard ({ activities, source, span }) {
   const currentURL = process.env.NODE_ENV === 'development' ? 'http://localhost:3000' : process.env.SITE_URI || 'https://whatshouldidotonight.com'
   const getBackground = el => `url(${el.image}) center no-repeat`
   const getContentURL = el => el.pagePath ? `${currentURL}${el.pagePath}` : el.name && `/${source}/a?lookup=${el.lookup}`
-  function handleDate (id) {
-    const date = convertIdToDate(id)
-    const prettyDate = makeDatePretty(date)
-    return prettyDate
+  function handleDate (activity) {
+    const { dateModified } = activity
+    if (dateModified) return makeDatePretty(dateModified)
+    const date = convertIdToDate(activity._id)
+    return makeDatePretty(date)
   }
   return (
     activities && activities.length
@@ -41,7 +42,7 @@ export default function ContentCard ({ activities, source, span }) {
                   <div className={styles[span ? 'rightHalf' : 'bottomHalf']}>
                     <div className={styles.infoContainer}>
                       <div style={source === 'watch' ? { height: 'auto' } : {}} className={styles.cardName}>{activity.name}</div>
-                      {source !== 'watch' && <div className={styles.publishDate}>{handleDate(activity._id)}</div>}
+                      {source !== 'watch' && <div className={styles.publishDate}>{handleDate(activity)}</div>}
                     </div>
                     <div className={styles.tagline}>{activity.tagline}</div>
                   </div>

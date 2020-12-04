@@ -6,6 +6,7 @@ import { connect } from 'react-redux'
 
 // HELPERS
 import GetAllEvents from '../../components/GetAllEvents/GetAllEvents'
+import { getAllCollectionActivitiesWithCategories } from '../../lib/helpers/db/requests'
 
 const categoryInfo = {
   title: "Fun ideas for things to do when you're alone",
@@ -14,13 +15,23 @@ const categoryInfo = {
   tag: "Whether you're happy that you're alone tonight or not, we've got something for you.",
 }
 
-function Content () {
+export async function getStaticProps () {
+  const activities = await getAllCollectionActivitiesWithCategories('do')
+  return {
+    props: {
+      activities,
+    },
+  }
+}
+
+function Content ({ activities }) {
   return (
     categoryInfo.header
       ? (
         <GetAllEvents
           categoryInfo={categoryInfo}
           source="do"
+          activities={activities}
           category="alone"
         />
       )
@@ -29,7 +40,7 @@ function Content () {
 }
 
 Content.propTypes = {
-  activities: PropTypes.object,
+  activities: PropTypes.array,
 }
 
 export default connect((state) => state)(Content)

@@ -75,6 +75,7 @@
 .socialIconsDesktop,
 .socialIconsMobile {
   display: flex;
+  z-index: -1;
   flex-direction: column;
   height: auto;
   position: sticky;

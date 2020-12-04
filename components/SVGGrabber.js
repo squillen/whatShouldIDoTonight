@@ -10,11 +10,11 @@ const blob2 = (fill) => (
   </svg>
 )
 
-const blob3 = (fill) => (
-  <svg viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg">
-    <path fill={fill} d="M56.2,-28.5C66.9,-13.9,65.5,11.5,54.1,34.7C42.7,57.9,21.4,78.9,3.4,76.9C-14.6,75,-29.2,50.1,-38.2,28.3C-47.2,6.5,-50.5,-12.3,-43.2,-24.9C-36,-37.5,-18,-43.9,2.4,-45.3C22.8,-46.7,45.5,-43.1,56.2,-28.5Z" transform="translate(100 100)" />
-  </svg>
-)
+// const blob3 = (fill) => (
+//   <svg viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg">
+//     <path fill={fill} d="M56.2,-28.5C66.9,-13.9,65.5,11.5,54.1,34.7C42.7,57.9,21.4,78.9,3.4,76.9C-14.6,75,-29.2,50.1,-38.2,28.3C-47.2,6.5,-50.5,-12.3,-43.2,-24.9C-36,-37.5,-18,-43.9,2.4,-45.3C22.8,-46.7,45.5,-43.1,56.2,-28.5Z" transform="translate(100 100)" />
+//   </svg>
+// )
 
 const blob4 = (fill) => (
   <svg viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg">
@@ -42,7 +42,7 @@ const blob7 = (fill) => (
 
 const circles = [
   blob1,
-  blob3,
+  // blob3,
   blob4,
   blob5,
   blob7,

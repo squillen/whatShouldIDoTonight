@@ -10,15 +10,15 @@
   font-size: 4.4rem;
   padding-left: 3rem;
   margin-bottom: 3rem;
+  margin-left: 2rem;
+}
+
+.headerContainer > h1 {
+  margin: 0;
 }
 
 .highlightActivity {
   width: 100%;
-}
-
-.headerContainer > h2 {
-  margin: 0;
-  margin-right: 3rem;
 }
 
 .tag {

@@ -1,5 +1,4 @@
-<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
-  <url>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">  <url>
     <loc>http://localhost:3000/404</loc>
     <changefreq>weekly</changefreq>
   </url>
@@ -82,5 +81,4 @@
   <url>
     <loc>http://localhost:3000/watch/index</loc>
     <changefreq>weekly</changefreq>
-  </url>
-</urlset>
+  </url></urlset>

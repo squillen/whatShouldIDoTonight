@@ -2,9 +2,6 @@ import React, { useState, useEffect } from 'react'
 import { useRouter } from 'next/router'
 import PropTypes from 'prop-types'
 
-// REDUX
-import { connect } from 'react-redux'
-
 // COMPONENTS
 import Layout from '../../components/layout/layout'
 import Loading from '../../components/loading/loading'
@@ -55,4 +52,4 @@ Content.propTypes = {
   allCollectionActivities: PropTypes.array,
 }
 
-export default connect((state) => state)(Content)
+export default Content

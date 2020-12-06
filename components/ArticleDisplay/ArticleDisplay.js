@@ -89,7 +89,7 @@ export default function ArticleDisplay ({ article, source }) {
                     idx === 0 && articleHeaders.length
                       ? (
                         <div className={styles.tocContainer}>
-                          <h4 className={styles.tocHeader}>Table Of Contents:</h4>
+                          <h4 className={styles.tocHeader}>{typeof toc === 'string' ? `${toc}:` : 'Table of Contents:'}</h4>
                           <div className={styles.toc}>
                             {
                               articleHeaders.map(header => {

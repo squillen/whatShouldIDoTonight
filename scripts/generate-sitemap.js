@@ -18,9 +18,7 @@ async function generateSitemap () {
     '!pages/_*.js',
     '!pages/api',
   ])
-  const sitemap = `<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
-${pages.map(addPage).join('\n')}
-</urlset>`
+  const sitemap = `<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">${pages.map(addPage).join('\n')}</urlset>`
 
   fs.writeFileSync('public/sitemap.xml', sitemap)
 }

@@ -9,7 +9,7 @@ export default function Custom404 () {
         <p>What you should do tonight is check your url.</p>
         <p>&apos;Cause that shit ain&apos;t right.</p>
         <Button
-          label="start over"
+          label="home"
           href="/"
         />
       </div>

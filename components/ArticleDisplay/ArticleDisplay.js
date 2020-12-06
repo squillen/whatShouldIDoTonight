@@ -13,6 +13,7 @@ import BackButton from '../BackButton/BackButton'
 import handleMarkdown from '../../lib/helpers/handleMarkdown'
 import Photo from '../photo/photo'
 import { convertIdToDate, makeDatePretty } from '../../lib/helpers/dataHelpers'
+import HorizontalGoogleAd from '../HorizontalGoogleAd/HorizontalGoogleAd'
 
 export default function ArticleDisplay ({ article, source }) {
   const pageURL = window.location.href
@@ -85,6 +86,7 @@ export default function ArticleDisplay ({ article, source }) {
                   <div className={styles.itemContents}>
                     {mapContents(item.contents, source)}
                   </div>
+                  {idx % 3 === 0 && idx !== 0 ? <HorizontalGoogleAd /> : null}
                   {
                     idx === 0 && articleHeaders.length
                       ? (

@@ -1,6 +1,6 @@
 import React, { useEffect } from 'react'
 
-export default function HorizontalGoogleAd () {
+export default function InArticleAd () {
   useEffect(() => {
     const googleSyndicationScript = document.createElement('script')
     const googleSyndicationSrc = '//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js'
@@ -12,7 +12,7 @@ export default function HorizontalGoogleAd () {
     adsByGoogleScript.type = 'text/javascript'
     const adsByGoogleText = '(adsbygoogle = window.adsbygoogle || []).push({})'
     adsByGoogleScript.text = adsByGoogleText
-    document.head.appendChild(adsByGoogleScript)
+    document.body.appendChild(adsByGoogleScript)
 
     return () => {
       const scripts = document.getElementsByTagName('script')
@@ -27,10 +27,10 @@ export default function HorizontalGoogleAd () {
 
   return (
     <ins className="adsbygoogle"
-      style={{ display: 'block' }}
+      style={{ display: 'block', textAlign: 'center' }}
+      data-ad-layout="in-article"
+      data-ad-format="fluid"
       data-ad-client="ca-pub-9045195637006996"
-      data-ad-slot="3553119086"
-      data-ad-format="auto"
-      data-full-width-responsive="true"></ins>
+      data-ad-slot="1484524798"></ins>
   )
 }

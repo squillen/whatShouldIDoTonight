@@ -14,6 +14,7 @@ import handleMarkdown from '../../lib/helpers/handleMarkdown'
 import Photo from '../photo/photo'
 import { convertIdToDate, makeDatePretty } from '../../lib/helpers/dataHelpers'
 import HorizontalGoogleAd from '../HorizontalGoogleAd/HorizontalGoogleAd'
+import InArticleAd from '../InArticleAd/InArticleAd'
 
 export default function ArticleDisplay ({ article, source }) {
   const pageURL = window.location.href
@@ -33,6 +34,13 @@ export default function ArticleDisplay ({ article, source }) {
   const makeID = (name) => {
     const array = name.split(' ')
     return array.slice(1, array.length).join('-').replace(')', '-').replace(/[/]/g, '-').toLowerCase()
+  }
+
+  function showAdIf (idx) {
+    const bodyLength = article.body.length || 0
+    const showEveryX = Math.ceil(bodyLength / 3)
+    const showAd = idx !== 0 && idx % showEveryX === 0
+    return showAd && <HorizontalGoogleAd />
   }
 
   return (
@@ -86,7 +94,9 @@ export default function ArticleDisplay ({ article, source }) {
                   <div className={styles.itemContents}>
                     {mapContents(item.contents, source)}
                   </div>
-                  {idx % 3 === 0 && idx !== 0 ? <HorizontalGoogleAd /> : null}
+                  {
+                    showAdIf(idx)
+                  }
                   {
                     idx === 0 && articleHeaders.length
                       ? (
@@ -111,7 +121,6 @@ export default function ArticleDisplay ({ article, source }) {
           }
           {/* <AuthorInfo article={article} /> */}
         </div>
-
         <HelpfulCounter activity={article} source={source} />
       </div>
     </>
@@ -151,24 +160,26 @@ function mapContents (array, source) {
                       {mapContents(c.contents, source)}
                     </div>
                   )
-                  : (
+                  : c.ad
+                    ? <InArticleAd />
+                    : (
 
-                    c.slice(0, 3) === '## '
-                      ? (
-                        <div className={styles.subSuggestionHeader}>
-                          <div className={styles.subBlob}>
-                            {<SVGGrabber type="circle" />}
-                          </div>
-                          {handleMarkdown(c)}
-                          <a href="#home">
-                            <div className={styles.homeIcon}>
-                              <i className="fas fa-chevron-up"></i>
+                      c.slice(0, 3) === '## '
+                        ? (
+                          <div className={styles.subSuggestionHeader}>
+                            <div className={styles.subBlob}>
+                              {<SVGGrabber type="circle" />}
                             </div>
-                          </a>
-                        </div>
-                      )
-                      : handleMarkdown(c)
-                  )
+                            {handleMarkdown(c)}
+                            <a href="#home">
+                              <div className={styles.homeIcon}>
+                                <i className="fas fa-chevron-up"></i>
+                              </div>
+                            </a>
+                          </div>
+                        )
+                        : handleMarkdown(c)
+                    )
         }
       </div>
     ))

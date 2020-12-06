@@ -2,9 +2,6 @@ import React, { useState, useEffect } from 'react'
 import { useRouter } from 'next/router'
 import PropTypes from 'prop-types'
 
-// REDUX
-import { connect } from 'react-redux'
-
 // HELPERS
 import GetAllEvents from '../../components/GetAllEvents/GetAllEvents'
 
@@ -38,4 +35,4 @@ Content.propTypes = {
   activities: PropTypes.object,
 }
 
-export default connect((state) => state)(Content)
+export default Content

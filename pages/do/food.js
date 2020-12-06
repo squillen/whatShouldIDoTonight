@@ -1,9 +1,6 @@
 import React from 'react'
 import PropTypes from 'prop-types'
 
-// REDUX
-import { connect } from 'react-redux'
-
 // HELPERS
 import GetAllEvents from '../../components/GetAllEvents/GetAllEvents'
 import { getAllCollectionActivitiesWithCategories } from '../../lib/helpers/db/requests'
@@ -41,4 +38,4 @@ Content.propTypes = {
   activities: PropTypes.array,
 }
 
-export default connect((state) => state)(Content)
+export default Content

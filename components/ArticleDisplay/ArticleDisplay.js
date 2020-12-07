@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useEffect } from 'react'
 import styles from './ArticleDisplay.module.css'
 import Link from 'next/link'
 import PropTypes from 'prop-types'
@@ -13,6 +13,7 @@ import BackButton from '../BackButton/BackButton'
 import handleMarkdown from '../../lib/helpers/handleMarkdown'
 import Photo from '../photo/photo'
 import { convertIdToDate, makeDatePretty } from '../../lib/helpers/dataHelpers'
+import checkForAdBlocker from '../../lib/helpers/hooks/checkForAdBlocker'
 import GoogleAd from '../GoogleAd/GoogleAd'
 
 export default function ArticleDisplay ({ article, source }) {
@@ -28,6 +29,10 @@ export default function ArticleDisplay ({ article, source }) {
       }
     })
   }
+
+  useEffect(() => {
+    checkForAdBlocker()
+  }, [source])
 
   const makeID = (name) => {
     const array = name.split(' ')
@@ -81,11 +86,15 @@ export default function ArticleDisplay ({ article, source }) {
                           {<SVGGrabber type="circle" />}
                         </div>
                         {handleMarkdown(item.name)}
-                        <a href="#home">
-                          <div className={styles.homeIcon}>
-                            <i className="fas fa-chevron-up"></i>
-                          </div>
-                        </a>
+                        {
+                          idx !== 0 && (
+                            <a href="#home">
+                              <div className={styles.homeIcon}>
+                                <i className="fas fa-chevron-up"></i>
+                              </div>
+                            </a>
+                          )
+                        }
                       </div>
                     )
                   }
@@ -104,7 +113,7 @@ export default function ArticleDisplay ({ article, source }) {
                             {
                               articleHeaders.map(header => {
                                 return (
-                                  <a href={`#${makeID(header)}`} key={header} className={styles.tocItem}>{header.split('## ')[1]}</a>
+                                  <a href={`#${makeID(header)}`} key={header} className={styles.tocItem}>{header.split('# ')[1] || header.split('## ')[1]}</a>
                                 )
                               })
                             }
@@ -176,7 +185,16 @@ function mapContents (array, source) {
                             </a>
                           </div>
                         )
-                        : handleMarkdown(c)
+                        : c.slice(0, 4) === '### '
+                          ? (
+                            <div className={styles.subSuggestionHeader}>
+                              <div className={styles.h3Blob}>
+                                {<SVGGrabber type="square" />}
+                              </div>
+                              {handleMarkdown(c)}
+                            </div>
+                          )
+                          : handleMarkdown(c)
                     )
         }
       </div>

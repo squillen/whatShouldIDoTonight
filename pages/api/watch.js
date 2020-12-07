@@ -44,8 +44,9 @@ handler.get(async (req, res) => {
       const _id = ObjectId(id)
       result = await watchCollection.findOne({ _id })
     } else if (spotlight) {
-      const articles = await watchCollection.find({ $and: [{ article: true }, { spotlight: true }], $or: expirationCheck })
-      const spotlight = await watchCollection.find({ spotlight: true, $or: expirationCheck })
+      const articles = await watchCollection.find({ $and: [{ article: true }, { spotlight: true }], $or: expirationCheck }).sort({ _id: -1 })
+      // don't get if an article since those are gotten in previous query ^^
+      const spotlight = await watchCollection.find({ $and: [{ spotlight: true, $or: [{ article: false }, { article: { $exists: false } }] }], $or: expirationCheck })
       const articlesArray = (articles && await articles.toArray()) || []
       const spotlightArray = await spotlight.toArray()
       result = [...articlesArray, ...spotlightArray]

@@ -13,12 +13,10 @@ import BackButton from '../BackButton/BackButton'
 import handleMarkdown from '../../lib/helpers/handleMarkdown'
 import Photo from '../photo/photo'
 import { convertIdToDate, makeDatePretty } from '../../lib/helpers/dataHelpers'
-import HorizontalGoogleAd from '../HorizontalGoogleAd/HorizontalGoogleAd'
-import InArticleAd from '../InArticleAd/InArticleAd'
+import GoogleAd from '../GoogleAd/GoogleAd'
 
 export default function ArticleDisplay ({ article, source }) {
   const pageURL = window.location.href
-  window.HTMLElement.prototype.scrollIntoView = function () {}
   const style = { background: `url(${article.image}) center no-repeat`, backgroundSize: 'cover' }
   const articleHeaders = []
   const toc = article.body[0].toc
@@ -38,9 +36,9 @@ export default function ArticleDisplay ({ article, source }) {
 
   function showAdIf (idx) {
     const bodyLength = article.body.length || 0
-    const showEveryX = Math.ceil(bodyLength / 3)
+    const showEveryX = Math.ceil(bodyLength / 4)
     const showAd = idx !== 0 && idx % showEveryX === 0
-    return showAd && <HorizontalGoogleAd />
+    return showAd && <GoogleAd type="square" />
   }
 
   return (
@@ -161,7 +159,7 @@ function mapContents (array, source) {
                     </div>
                   )
                   : c.ad
-                    ? <InArticleAd />
+                    ? <GoogleAd type="inArticle" />
                     : (
 
                       c.slice(0, 3) === '## '

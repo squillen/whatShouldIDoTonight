@@ -1,12 +1,11 @@
 import React, { useEffect } from 'react'
 
-export default function InArticleAd () {
+export default function GoogleAd ({ type = 'square' }) {
   useEffect(() => {
     const googleSyndicationScript = document.createElement('script')
     const googleSyndicationSrc = '//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js'
     googleSyndicationScript.src = googleSyndicationSrc
     googleSyndicationScript.async = true
-    googleSyndicationScript.defer = true
 
     const adsByGoogleScript = document.createElement('script')
     adsByGoogleScript.type = 'text/javascript'
@@ -23,9 +22,18 @@ export default function InArticleAd () {
         }
       }
     }
-  }, [])
+  }, [type])
 
-  return (
+  const square = (
+    <ins className="adsbygoogle"
+      style={{ display: 'block' }}
+      data-ad-client="ca-pub-9045195637006996"
+      data-ad-slot="3423420280"
+      data-ad-format="auto"
+      data-full-width-responsive="true"></ins>
+  )
+
+  const inArticle = (
     <ins className="adsbygoogle"
       style={{ display: 'block', textAlign: 'center' }}
       data-ad-layout="in-article"
@@ -33,4 +41,17 @@ export default function InArticleAd () {
       data-ad-client="ca-pub-9045195637006996"
       data-ad-slot="1484524798"></ins>
   )
+
+  const horizontal = (
+    <ins className="adsbygoogle"
+      style={{ display: 'block' }}
+      data-ad-client="ca-pub-9045195637006996"
+      data-ad-slot="3553119086"
+      data-ad-format="auto"
+      data-full-width-responsive="true"></ins>
+  )
+  const adTypes = { inArticle, square, horizontal }
+  console.log('type :>> ', type)
+  console.log('adTypes[type] :>> ', adTypes[type])
+  return adTypes[type]
 }

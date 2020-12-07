@@ -1,6 +1,6 @@
 import React, { useEffect, useState, useRef } from 'react'
-import Head from 'next/head'
 import PropTypes from 'prop-types'
+import checkForAdBlocker from '../lib/helpers/hooks/checkForAdBlocker'
 
 // REDUX
 import wrapper from '../src/store/store'
@@ -57,6 +57,10 @@ function DoSection ({ spotlight = [], latest, all = {}, setInRedux, setDoActivit
       setDoActivitiesFromProps({ all, spotlight, latest })
     }
   }, [updatedRedux, setInRedux])
+
+  useEffect(() => {
+    checkForAdBlocker()
+  }, [])
   const source = 'do'
   const obj = all || {}
   const homeRef = useRef('home')

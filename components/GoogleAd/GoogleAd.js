@@ -51,7 +51,5 @@ export default function GoogleAd ({ type = 'square' }) {
       data-full-width-responsive="true"></ins>
   )
   const adTypes = { inArticle, square, horizontal }
-  console.log('type :>> ', type)
-  console.log('adTypes[type] :>> ', adTypes[type])
   return adTypes[type]
 }

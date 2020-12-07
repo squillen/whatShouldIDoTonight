@@ -1,12 +1,13 @@
 import { ObjectId } from 'mongodb'
 import nextConnect from 'next-connect'
-import middleware from '../../middleware/database'
+import database from '../../middleware/database'
 import { getAllCategories } from '../../lib/helpers/dataHelpers'
 import { findAllActivities } from '../../lib/helpers/db/requests'
+import { authorizeRequest } from '../../lib/helpers/auth/authentication'
 
 const handler = nextConnect()
 
-handler.use(middleware)
+handler.use(database)
 
 handler.get(async (req, res) => {
   const { all, allWithoutCategories, lookup, name, articles, spotlight, ideas, category, free, id } = req.query
@@ -64,29 +65,38 @@ handler.get(async (req, res) => {
 })
 
 handler.post(async (req, res) => {
-  const { body } = req
-  try {
-    const watchCollection = req.db.collection('watch')
-    const result = await watchCollection.insertOne(body)
-    res.json(result)
-  } catch (e) {
-    throw new Error('ERROR IN WATCH POST API :::', e)
+  const { body, headers } = req
+  const { authorized, error } = authorizeRequest(headers)
+  if (authorized) {
+    try {
+      const watchCollection = req.db.collection('watch')
+      const result = await watchCollection.insertOne(body)
+      res.json(result)
+    } catch (e) {
+      throw new Error('ERROR IN WATCH POST API :::', e)
+    }
+  } else if (error) {
+    throw new Error(error)
   }
 })
 
 handler.patch(async (req, res) => {
-  const { body, query = {} } = req
+  const { body, headers, query = {} } = req
   const { id = '' } = query
   const _id = ObjectId(id)
-
-  try {
-    const watchCollection = req.db.collection('watch')
-    const update = body.update || body
-    update.dateModified = new Date()
-    const result = await watchCollection.updateOne({ _id }, { $set: update }, { upsert: true })
-    res.json(result)
-  } catch (e) {
-    throw new Error('ERROR IN WATCH PATCH API :::', e)
+  const { authorized, error } = authorizeRequest(headers)
+  if (authorized) {
+    try {
+      const watchCollection = req.db.collection('watch')
+      const update = body.update || body
+      update.dateModified = new Date()
+      const result = await watchCollection.updateOne({ _id }, { $set: update }, { upsert: true })
+      res.json(result)
+    } catch (e) {
+      throw new Error('ERROR IN WATCH PATCH API :::', e)
+    }
+  } else if (error) {
+    throw new Error(error)
   }
 })
 

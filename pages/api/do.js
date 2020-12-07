@@ -1,13 +1,13 @@
 import { ObjectId } from 'mongodb'
 import nextConnect from 'next-connect'
-import middleware from '../../middleware/database'
+import database from '../../middleware/database'
 import { getAllCategories } from '../../lib/helpers/dataHelpers'
 import { findAllActivities } from '../../lib/helpers/db/requests'
 import { authorizeRequest } from '../../lib/helpers/auth/authentication'
 
 const handler = nextConnect()
 
-handler.use(middleware)
+handler.use(database)
 
 handler.get(async (req, res) => {
   const { articles, allWithoutCategories, lookup, latest, name, all, spotlight, category, free, limit = 0, id, included, excluded } = req.query

@@ -117,8 +117,12 @@
 }
 
 .subSuggestionHeader {
+  display: flex;
+  align-items: center;
   min-height: auto;
-  margin-top: 8rem;
+  margin: 0;
+  line-height: 55%;
+  margin-top: 1rem;
 }
 
 .suggestionHeader > h1,
@@ -140,6 +144,10 @@
   font-size: 2rem;
 }
 
+.subSuggestionHeader > h2 {
+  margin-top: 5rem;
+}
+
 .content > ul >  li {
   margin-left: 3rem;
 }
@@ -154,7 +162,7 @@
   text-decoration: underline;
 }
 
-.blob, .subBlob {
+.blob, .subBlob, .h3Blob {
   position: absolute;
   width: 20rem;
   top: -7rem;
@@ -164,8 +172,22 @@
 
 .subBlob {
   width: 7rem;
-  top: -2rem;
-  left: -3rem;
+  top: 3rem;
+  left: -3.5rem;
+}
+
+.subSuggestionHeader > h1,
+.subSuggestionHeader > h2,
+.subSuggestionHeader > h3,
+
+.subSuggestionHeader > a  {
+  font-size: 2rem;
+}
+
+.h3Blob {
+  width: 4rem;
+  top: 1rem;
+  left: -1rem;
 }
 
 .itemContents {
@@ -192,7 +214,8 @@
   margin: 1rem 0;
 }
 .content > h3 {
-  margin-top: 8rem;
+  margin-top: 7rem;
+  font-size: 1.8rem;
 }
 
 .content > ul {

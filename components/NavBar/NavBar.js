@@ -22,6 +22,22 @@ const categories = [
   // { title: 'Music', href: '/music' },
 ]
 
+const doCategories = [
+  { title: 'Food & Drink', href: '/do/food' },
+  { title: 'Fun', href: '/do/fun' },
+  { title: 'Learn', href: '/do/learn' },
+  { title: 'Improve', href: '/do/improve' },
+]
+
+const watchCategories = [
+  { title: 'Action', href: '/watch/action' },
+  { title: 'Comedy', href: '/watch/comedy' },
+  { title: 'Documentary', href: '/watch/documentary' },
+  { title: 'Drama', href: '/watch/drama' },
+  { title: 'Horror', href: '/watch/horror' },
+  { title: 'Ideas', href: '/watch/ideas' },
+]
+
 function createSubMenu (items) {
   return (
     <ul id={styles.dropDownList} className={styles.nav__submenu}>
@@ -38,37 +54,34 @@ function createSubMenu (items) {
   )
 }
 
-function CategorySubMenu () {
-  return createSubMenu(categories)
-}
-
 export default function NavBar ({ home }) {
   const [showCategoryMenu, setShowCategoryMenu] = useState(false)
   const [openMenu, setOpenMenu] = useState(false)
   const router = useRouter()
   const [selectedTab, setSelectedTab] = useState(router.asPath)
 
-  // function ByCategory () {
-  //   return (
-  //     <li className={styles['nav__menu-item']} onMouseLeave={() => setShowCategoryMenu(false)}>
-  //       <a onMouseEnter={() => setShowCategoryMenu(true)}>
-  //         by category
-  //       </a>
-  //       <div className={styles.underline} />
-
-  //       <div className={styles['submenu-container']}>
-  //         <CSSTransition
-  //           timeout={500}
-  //           classNames="menu-primary"
-  //         >
-  //           <div className={styles.menu}>
-  //             { showCategoryMenu && <CategorySubMenu /> }
-  //           </div>
-  //         </CSSTransition>
-  //       </div>
-  //     </li>
-  //   )
-  // }
+  function ByCategory ({ label, href, categories }) {
+    return (
+      <Link href={href}>
+        <li className={styles['nav__menu-item']} onMouseLeave={() => setShowCategoryMenu(false)} >
+          <a onMouseEnter={() => setShowCategoryMenu(true)} onClick={() => setSelectedTab(href)}>
+            {label}
+          </a>
+          {(selectedTab.includes(href) || (selectedTab === '/' && href === '/do')) && <div className={styles.underline} />}
+          <div className={styles['submenu-container']}>
+            <CSSTransition
+              timeout={500}
+              classNames="menu-primary"
+            >
+              <div className={styles.menu}>
+                { showCategoryMenu && createSubMenu(categories) }
+              </div>
+            </CSSTransition>
+          </div>
+        </li>
+      </Link>
+    )
+  }
 
   function getMobileCategories () {
     return categories.map(c => (
@@ -82,6 +95,7 @@ export default function NavBar ({ home }) {
 
   const toggleOpen = () => setOpenMenu(!openMenu)
   const mobileCategories = getMobileCategories(categories)
+  console.log('selectedTab :>> ', selectedTab)
   return (
     <div className={styles.navBarContainer}>
       <Logo />
@@ -120,18 +134,20 @@ export default function NavBar ({ home }) {
           }
           <nav className={styles.nav}>
             <ul className={styles.navMenu}>
-              <Link href="/do">
+              {/* <Link href="/do">
                 <a onClick={() => setSelectedTab('/do')}>
                   <li className={styles.navItem}>do</li>
                   {(selectedTab.includes('/do') || selectedTab === '/') && <div className={styles.underline} />}
                 </a>
-              </Link>
-              <Link href="/watch">
+              </Link> */}
+              <ByCategory label="Do" href="/do" categories={doCategories} />
+              <ByCategory label="Watch" href="/watch" categories={watchCategories} />
+              {/* <Link href="/watch">
                 <a onClick={() => setSelectedTab('/watch')}>
                   <li className={styles.navItem}>watch</li>
                   {selectedTab.includes('/watch') && <div className={styles.underline} />}
                 </a>
-              </Link>
+              </Link> */}
               {/* <ByCategory /> */}
               {/* <li className={styles['nav__menu-item']}>
             <Link href="/favorites">

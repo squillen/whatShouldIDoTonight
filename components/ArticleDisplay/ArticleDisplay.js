@@ -134,6 +134,78 @@ export default function ArticleDisplay ({ article, source }) {
   )
 }
 
+function handleList ({ header, contents }) {
+  return (
+    <div className={styles.listContainer}>
+      {header && <div className={styles.listHeader}>{header}</div>}
+      <ul className={styles.list}>
+        {
+          contents.map(item => (
+            item.contents
+              ? handleList(item)
+              : <li key={item}>{item}</li>
+          ))
+        }
+      </ul>
+    </div>
+  )
+}
+
+function handleRecipe ({ ingredients, info, directions }) {
+  return (
+    <div className={styles.recipeContainer}>
+      {
+        info && (
+          <div className={styles.recipeInfo}>
+            {
+              info.map(el => (
+                <div key={el.header} className={styles.level}>
+                  <span className={styles.infoLabel}>{`${el.header}: `}</span>
+                  {' '}
+                  <span className={styles.info}>{el.content}</span>
+                </div>
+              ))
+            }
+
+          </div>
+        )
+      }
+      <div className={styles.recipeContainer}>
+        <div className={styles.recipeHeader}>
+          {ingredients.header || 'Ingredients'}:
+          <div className={styles.underline} />
+        </div>
+        <div className={styles.recipeIngredients}>
+          {
+            ingredients.contents.map(item => (
+              item.ingredients
+                ? handleRecipe(item)
+                : handleMarkdown(item)
+            ))
+          }
+        </div>
+      </div>
+      {
+        directions && (
+          <div className={styles.subContainer}>
+            <div className={styles.recipeHeader}>
+              {directions.header || 'Directions'}:
+              <div className={styles.underline} />
+            </div>
+            <ol className={styles.recipeDirectionsList}>
+              {directions.contents.map(el => (
+                <li className={styles.recipeStep} key={el}>
+                  {el}
+                </li>
+              ))}
+            </ol>
+          </div>
+        )
+      }
+    </div>
+  )
+}
+
 function mapContents (array, source) {
   return (
     array.map((c, idx) => (
@@ -169,33 +241,36 @@ function mapContents (array, source) {
                   )
                   : c.ad
                     ? <GoogleAd type="inArticle" />
-                    : (
-
-                      c.slice(0, 3) === '## '
-                        ? (
-                          <div className={styles.subSuggestionHeader}>
-                            <div className={styles.subBlob}>
-                              {<SVGGrabber type="circle" />}
-                            </div>
-                            {handleMarkdown(c)}
-                            <a href="#home">
-                              <div className={styles.homeIcon}>
-                                <i className="fas fa-chevron-up"></i>
+                    : c.list
+                      ? handleList(c.list)
+                      : c.recipe
+                        ? handleRecipe(c.recipe)
+                        : (
+                          c.slice(0, 3) === '## '
+                            ? (
+                              <div className={styles.subSuggestionHeader}>
+                                <div className={styles.subBlob}>
+                                  {<SVGGrabber type="circle" />}
+                                </div>
+                                {handleMarkdown(c)}
+                                <a href="#home">
+                                  <div className={styles.homeIcon}>
+                                    <i className="fas fa-chevron-up"></i>
+                                  </div>
+                                </a>
                               </div>
-                            </a>
-                          </div>
+                            )
+                            : c.slice(0, 4) === '### '
+                              ? (
+                                <div className={styles.subSuggestionHeader}>
+                                  <div className={styles.h3Blob}>
+                                    {<SVGGrabber type="square" />}
+                                  </div>
+                                  {handleMarkdown(c)}
+                                </div>
+                              )
+                              : handleMarkdown(c)
                         )
-                        : c.slice(0, 4) === '### '
-                          ? (
-                            <div className={styles.subSuggestionHeader}>
-                              <div className={styles.h3Blob}>
-                                {<SVGGrabber type="square" />}
-                              </div>
-                              {handleMarkdown(c)}
-                            </div>
-                          )
-                          : handleMarkdown(c)
-                    )
         }
       </div>
     ))

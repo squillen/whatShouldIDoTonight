@@ -9,17 +9,6 @@ import EmailSignup from '../emailSignup/emailSignup'
 const categories = [
   { title: 'Do', href: '/do' },
   { title: 'Watch', href: '/watch' },
-  // { title: 'Listen', href: '/listen' },
-  // { title: 'Learn (soon)', href: '' },
-  // { title: 'Eat (soon)', href: '' },
-  // { title: 'Drink (soon)', href: '' },
-  // { title: 'Read (soon)', href: '' },
-  // { title: 'Learn', href: '/learn' },
-  // { title: 'Eat', href: '/eat' },
-  // { title: 'Read', href: '/read' },
-  // { title: 'Deals', href: '/deals' },
-  // { title: 'Sites', href: '/sites' },
-  // { title: 'Music', href: '/music' },
 ]
 
 const doCategories = [
@@ -95,7 +84,6 @@ export default function NavBar ({ home }) {
 
   const toggleOpen = () => setOpenMenu(!openMenu)
   const mobileCategories = getMobileCategories(categories)
-  console.log('selectedTab :>> ', selectedTab)
   return (
     <div className={styles.navBarContainer}>
       <Logo />
@@ -134,37 +122,8 @@ export default function NavBar ({ home }) {
           }
           <nav className={styles.nav}>
             <ul className={styles.navMenu}>
-              {/* <Link href="/do">
-                <a onClick={() => setSelectedTab('/do')}>
-                  <li className={styles.navItem}>do</li>
-                  {(selectedTab.includes('/do') || selectedTab === '/') && <div className={styles.underline} />}
-                </a>
-              </Link> */}
               <ByCategory label="Do" href="/do" categories={doCategories} />
               <ByCategory label="Watch" href="/watch" categories={watchCategories} />
-              {/* <Link href="/watch">
-                <a onClick={() => setSelectedTab('/watch')}>
-                  <li className={styles.navItem}>watch</li>
-                  {selectedTab.includes('/watch') && <div className={styles.underline} />}
-                </a>
-              </Link> */}
-              {/* <ByCategory /> */}
-              {/* <li className={styles['nav__menu-item']}>
-            <Link href="/favorites">
-              <a>site favorites</a>
-            </Link>
-          </li> */}
-              {/* {
-            home
-              ? null
-              : (
-                <li className={styles['nav__menu-item']}>
-                  <Link href="/">
-                    <a>idea generator</a>
-                  </Link>
-                </li>
-              )
-          } */}
             </ul>
           </nav>
         </div>

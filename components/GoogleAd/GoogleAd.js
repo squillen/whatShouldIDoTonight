@@ -1,4 +1,5 @@
 import React, { useEffect } from 'react'
+import styles from './GoogleAd.module.css'
 
 export default function GoogleAd ({ type = 'square' }) {
   useEffect(() => {
@@ -51,5 +52,9 @@ export default function GoogleAd ({ type = 'square' }) {
       data-full-width-responsive="true"></ins>
   )
   const adTypes = { inArticle, square, horizontal }
-  return adTypes[type]
+  return (
+    <div className={styles.adContainer}>
+      {adTypes[type]}
+    </div>
+  )
 }

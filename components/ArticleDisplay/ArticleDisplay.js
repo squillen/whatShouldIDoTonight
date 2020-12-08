@@ -138,15 +138,15 @@ function handleList ({ header, contents }) {
   return (
     <div className={styles.listContainer}>
       {header && <div className={styles.listHeader}>{header}</div>}
-      <ul className={styles.list}>
+      <div className={styles.list}>
         {
           contents.map(item => (
             item.contents
               ? handleList(item)
-              : <li key={item}>{item}</li>
+              : handleMarkdown(item)
           ))
         }
-      </ul>
+      </div>
     </div>
   )
 }

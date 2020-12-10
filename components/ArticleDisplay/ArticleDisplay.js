@@ -5,6 +5,7 @@ import PropTypes from 'prop-types'
 import IFrame from '../IFrame/IFrame'
 import HelpfulCounter from '../HelpfulCounter/HelpfulCounter'
 import RelatedContent from '../RelatedContent/RelatedContent'
+import Disqus from '../Disqus/Disqus'
 import SocialIcons from '../socialIcons/socialIcons'
 import AuthorInfo from '../AuthorInfo/AuthorInfo'
 import ArticleHead from '../ArticleHead'
@@ -129,6 +130,7 @@ export default function ArticleDisplay ({ article, source }) {
           {/* <AuthorInfo article={article} /> */}
         </div>
         <HelpfulCounter activity={article} source={source} />
+        <Disqus article={article} url={pageURL} />
       </div>
     </>
   )

@@ -136,19 +136,31 @@ export default function ArticleDisplay ({ article, source }) {
   )
 }
 
-function handleList ({ header, contents }) {
+function handleList (item, depth = 0) {
+  const { header, contents } = item
   return (
     <div className={styles.listContainer}>
-      {header && <div className={styles.listHeader}>{header}</div>}
-      <div className={styles.list}>
+      {header && (
+        <div className={styles.listHeader}>
+          {handleMarkdown(header)}
+          {
+            depth === 0 && (
+              <div className={styles.listHeaderBlob}>
+                {<SVGGrabber type="square" />}
+              </div>
+            )
+          }
+        </div>
+      )}
+      <ul className={styles.list}>
         {
           contents.map(item => (
             item.contents
-              ? handleList(item)
+              ? handleList(item, depth + 1)
               : handleMarkdown(item)
           ))
         }
-      </div>
+      </ul>
     </div>
   )
 }

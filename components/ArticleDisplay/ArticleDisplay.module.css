@@ -156,6 +156,11 @@
   list-style: none;
 }
 
+.list > ul {
+  padding: 0;
+  margin: 0;
+}
+
 
 .content > ul >  li::before,
 .recipeIngredients > ul > li::before,
@@ -181,7 +186,7 @@
   text-decoration: underline;
 }
 
-.blob, .subBlob, .h3Blob {
+.blob, .subBlob, .h3Blob, .listHeaderBlob {
   position: absolute;
   width: 20rem;
   top: -7rem;
@@ -290,8 +295,22 @@
 
 .recipeHeader,
 .listHeader {
+  position: relative;
   font-size: 1.6rem;
   font-weight: 600;
+}
+
+.listHeaderBlob {
+  width: 7rem;
+  top: -2rem;
+  left: -2rem;
+}
+
+.listHeader > h4,
+.listHeader > h3,
+.list > ul > li {
+  padding: 0;
+  margin: 0;
 }
 
 .underline {
@@ -306,6 +325,7 @@
 .recipeIngredients,
 .listContainer {
   list-style: none;
+  margin: 2rem 0;
 }
 
 .recipeInfo {

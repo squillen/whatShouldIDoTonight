@@ -1,7 +1,7 @@
 
-import styles from './Disqus.module.css'
-
 import { DiscussionEmbed } from 'disqus-react'
+import PropTypes from 'prop-types'
+import styles from './Disqus.module.css'
 
 const Disqus = ({ article, url }) => {
   const disqusShortname = 'whatshouldidotonight'
@@ -19,6 +19,11 @@ const Disqus = ({ article, url }) => {
       />
     </div>
   )
+}
+
+Disqus.propTypes = {
+  article: PropTypes.object,
+  url: PropTypes.string,
 }
 
 export default Disqus

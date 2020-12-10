@@ -4,7 +4,7 @@ import styles from './Disqus.module.css'
 import { DiscussionEmbed } from 'disqus-react'
 
 const Disqus = ({ article, url }) => {
-  const disqusShortname = 'https://whatshouldidotonight.disqus.com/embed.js'
+  const disqusShortname = 'whatshouldidotonight'
   const env = url.includes('localhost') ? 'dev' : 'prod'
   const disqusConfig = {
     url,

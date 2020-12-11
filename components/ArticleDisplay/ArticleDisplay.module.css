@@ -249,6 +249,10 @@
   margin: 0
 }
 
+.content > ul > li {
+  margin: 1.5rem 0;
+}
+
 .content > ul > li > h5 {
   margin: 0;
 }

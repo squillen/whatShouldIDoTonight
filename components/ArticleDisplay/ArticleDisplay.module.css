@@ -230,6 +230,10 @@
   margin: 0.5rem 0;
 }
 
+.content > p {
+  margin: 1.3rem 0;
+}
+
 .content > h3,
 .content > h4,
 .content > h5 {

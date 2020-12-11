@@ -214,6 +214,12 @@ background: radial-gradient(circle, rgba(13,32,53,1) 36%, rgba(25,110,171,0.9990
 
 .modalMessage {
   min-height: 30%;
+  width: 80%;
+  display: flex;
+  margin: 0 auto;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-around;
   font-size: 1.2rem;
   font-family: 'Fjalla One', sans-serif;
 }

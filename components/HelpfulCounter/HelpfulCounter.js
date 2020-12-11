@@ -67,7 +67,7 @@ export default function HelpfulCounter ({ activity, source }) {
         if (isWindow) localStorage.setItem('votes', votesCopy)
         counts.unhelpful = newUnhelpful
       }
-      updateActivityHelpfulCounts({ _id, counts, source, title: ((!_id && activity.title) || '') })
+      updateActivityHelpfulCounts({ _id, counts, source })
     }
   }, [])
 

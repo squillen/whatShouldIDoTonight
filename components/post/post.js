@@ -162,10 +162,10 @@ function Post (props) {
               {content}
             </motion.div>
           </article>
-          {
+          {/* {
             currentActivity && currentActivity.title &&
            <HelpfulCounter source="activity" activity={currentActivity} />
-          }
+          } */}
         </div>
         <Button
           size="resetButton"

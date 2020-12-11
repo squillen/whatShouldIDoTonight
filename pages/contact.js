@@ -9,7 +9,7 @@ import Modal from '../components/modal/modal'
 import Photo from '../components/photo/photo'
 import Loading from '../components/loading/loading'
 
-const showSuccessModal = () => {
+const showSuccessModal = (onClick) => {
   return (
     <div className={utilStyles.modal}>
       <div className={utilStyles.modalTitle}>
@@ -21,13 +21,16 @@ const showSuccessModal = () => {
       </div>
       <div className={utilStyles.modalMessage}>
         <div>Your message was successfully delivered with great care and enthusiasm. Thank you for your thoughts.</div>
-        <div>Seriously, though, thanks.</div>
+        <Button
+          label="Close"
+          onClick={onClick}
+        />
       </div>
     </div>
   )
 }
 
-const showErrorModal = () => {
+const showErrorModal = (onClick) => {
   return (
     <div className={utilStyles.modal}>
       <div className={utilStyles.modalTitle}>
@@ -41,6 +44,10 @@ const showErrorModal = () => {
         <div>We weren&apos;t able to send your message.</div>
         <div>Please try again later 😢</div>
       </div>
+      <Button
+        label="Close"
+        onClick={onClick}
+      />
     </div>
   )
 }
@@ -53,7 +60,7 @@ export default function ContactForm () {
   const [messageType, setMessageType] = useState('question')
   const [formError, setFormError] = useState(false)
   const [loading, setLoading] = useState(false)
-  const [modalToOpen, setModalToOpen] = useState(null)
+  const [modalToOpen, setModalToOpen] = useState('showSuccessModal')
   const submitContactForm = async (event) => {
     event.preventDefault()
     if (!message.length) return setFormError(true)
@@ -79,7 +86,7 @@ export default function ContactForm () {
     showErrorModal,
   }[modalToOpen] || function () {}
 
-  const modalContent = modalFunction()
+  const modalContent = modalFunction(() => setModalToOpen(false))
   const siteTitle = 'Contact Us - What Should I Do Tonight'
   return (
     <Layout>
@@ -157,7 +164,7 @@ export default function ContactForm () {
         modalContent={modalContent}
         onModalClose={() => setModalToOpen(null)}
       />
-      <Loading loading={loading} message="sending" />
+      <Loading loading={loading} message="sending, one sec..." />
     </Layout>
   )
 }

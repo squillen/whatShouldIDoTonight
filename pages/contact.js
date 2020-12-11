@@ -34,15 +34,14 @@ const showErrorModal = (onClick) => {
   return (
     <div className={utilStyles.modal}>
       <div className={utilStyles.modalTitle}>
-        OH NO!!
         <Photo
           src="https://media.giphy.com/media/sS8YbjrTzu4KI/giphy.gif"
           alt="Michael Caine in The Dark Knight saying 'You trusted me. And I failed you."
         />
       </div>
       <div className={utilStyles.modalMessage}>
-        <div>We weren&apos;t able to send your message.</div>
-        <div>Please try again later 😢</div>
+        <div>There was a problem and we weren&apos;t able to send your message 😢</div>
+        <div>Please try again later.</div>
       </div>
       <Button
         label="Close"
@@ -60,7 +59,7 @@ export default function ContactForm () {
   const [messageType, setMessageType] = useState('question')
   const [formError, setFormError] = useState(false)
   const [loading, setLoading] = useState(false)
-  const [modalToOpen, setModalToOpen] = useState('showSuccessModal')
+  const [modalToOpen, setModalToOpen] = useState(null)
   const submitContactForm = async (event) => {
     event.preventDefault()
     if (!message.length) return setFormError(true)

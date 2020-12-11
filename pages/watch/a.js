@@ -114,7 +114,7 @@ function Content ({ allCollectionActivities }) {
                             }
                           </div>
                         </div>
-                        <HelpfulCounter activity={activity} source="watch" />
+                        {/* <HelpfulCounter activity={activity} source="watch" /> */}
                       </>
                     )
                 }

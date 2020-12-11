@@ -129,7 +129,7 @@ export default function ArticleDisplay ({ article, source }) {
           }
           {/* <AuthorInfo article={article} /> */}
         </div>
-        <HelpfulCounter activity={article} source={source} />
+        {/* <HelpfulCounter activity={article} source={source} /> */}
         <Disqus article={article} url={pageURL} />
       </div>
     </>

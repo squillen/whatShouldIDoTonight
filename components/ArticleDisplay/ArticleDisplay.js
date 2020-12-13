@@ -55,7 +55,7 @@ export default function ArticleDisplay ({ article, source }) {
       <div className={styles.blob}>
         {<SVGGrabber type="circle" />}
       </div>
-      <h2 id={idx === 0 ? 'intro' : null}>{name.replace(/[#]/g, '')}</h2>
+      <div id={idx === 0 ? 'intro' : null}>{handleMarkdown(name)}</div>
       {
         idx !== 0 && (
           <a href="#home">

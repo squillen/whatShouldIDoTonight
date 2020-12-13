@@ -109,6 +109,7 @@
 .subSuggestionHeader {
   display: flex;
   justify-content: space-between;
+  align-items: center;
   position: relative;
   width: 100%;
   min-height: 8rem;
@@ -189,7 +190,7 @@
 .blob, .subBlob, .h3Blob, .listHeaderBlob {
   position: absolute;
   width: 20rem;
-  top: -7rem;
+  top: -2rem;
   left: -7rem;
   z-index: -1;
 }

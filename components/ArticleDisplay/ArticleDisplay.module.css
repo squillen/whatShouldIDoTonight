@@ -126,8 +126,17 @@
   margin-top: 1rem;
 }
 
+.subHeaderText {
+  font-size: 2.6rem;
+}
+
+.subHeaderText > h3 > a:visited {
+  color: black;
+}
+
 .suggestionHeader > h1,
 .suggestionHeader > h2,
+.suggestionHeader > h3,
 .suggestionHeader > a,
 .subSuggestionHeader > h1,
 .subSuggestionHeader > h2,
@@ -187,10 +196,14 @@
   text-decoration: underline;
 }
 
+.introHeader {
+  font-size: 4.2rem;
+}
+
 .blob, .subBlob, .h3Blob, .listHeaderBlob {
   position: absolute;
   width: 20rem;
-  top: -2rem;
+  top: -7rem;
   left: -7rem;
   z-index: -1;
 }
@@ -209,9 +222,9 @@
 }
 
 .h3Blob {
-  width: 5.6rem;
-  top: 0rem;
-  left: -1rem;
+  width: 7rem;
+  top: 1rem;
+  left: -2rem;
 }
 
 .itemContents {

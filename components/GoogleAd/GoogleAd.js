@@ -3,16 +3,33 @@ import styles from './GoogleAd.module.css'
 
 export default function GoogleAd ({ type = 'square' }) {
   useEffect(() => {
-    const googleSyndicationScript = document.createElement('script')
     const googleSyndicationSrc = '//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js'
-    googleSyndicationScript.src = googleSyndicationSrc
-    googleSyndicationScript.async = true
-
-    const adsByGoogleScript = document.createElement('script')
-    adsByGoogleScript.type = 'text/javascript'
     const adsByGoogleText = '(adsbygoogle = window.adsbygoogle || []).push({})'
-    adsByGoogleScript.text = adsByGoogleText
-    document.body.appendChild(adsByGoogleScript)
+    let addSyndication = true
+    let addAdsByGoogle = true
+    const originalScripts = document.getElementsByTagName('script')
+    for (let i = 0; i < originalScripts.length; i++) {
+      const currentScript = originalScripts[i]
+      if (currentScript.text === adsByGoogleText) {
+        addAdsByGoogle = false
+      }
+      if (currentScript.src === googleSyndicationSrc) {
+        addSyndication = false
+      }
+    }
+    if (addAdsByGoogle) {
+      const adsByGoogleScript = document.createElement('script')
+      adsByGoogleScript.type = 'text/javascript'
+      adsByGoogleScript.text = adsByGoogleText
+      document.body.appendChild(adsByGoogleScript)
+    }
+
+    if (addSyndication) {
+      const googleSyndicationScript = document.createElement('script')
+      googleSyndicationScript.src = googleSyndicationSrc
+      googleSyndicationScript.async = true
+      document.body.appendChild(googleSyndicationScript)
+    }
 
     return () => {
       const scripts = document.getElementsByTagName('script')

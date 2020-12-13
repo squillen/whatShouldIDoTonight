@@ -36,11 +36,11 @@ img {
   display: none;
 }
 
-h2 {
+h2:not(#intro) {
   counter-increment: heading-counter;
 }
 
-h2::before {
+h2:not(#intro):before {
   content: counter(heading-counter) ". ";
   color: #fff;
   font-weight: bold;

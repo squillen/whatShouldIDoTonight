@@ -23,7 +23,7 @@ const App = ({ Component, pageProps, router }) => {
     <AnimatePresence>
       <DefaultSeo {...SEO} />
       <Component {...pageProps} key={router.route} />
-      <h1 key="app_h1_seo" className="hidden">what to do when you're bored. what should i we do tonight? i we are bored.</h1>
+      {/* <h1 key="app_h1_seo" className="hidden">what to do when you're bored. what should i we do tonight? i we are bored.</h1> */}
     </AnimatePresence>
   )
 }

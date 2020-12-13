@@ -22,7 +22,8 @@ function handleBody (body = [], activityName) {
               <path fill="#FA4D56" d="M56.2,-28.5C66.9,-13.9,65.5,11.5,54.1,34.7C42.7,57.9,21.4,78.9,3.4,76.9C-14.6,75,-29.2,50.1,-38.2,28.3C-47.2,6.5,-50.5,-12.3,-43.2,-24.9C-36,-37.5,-18,-43.9,2.4,-45.3C22.8,-46.7,45.5,-43.1,56.2,-28.5Z" transform="translate(100 100)" />
             </svg> */}
           </div>
-          {
+          {obj.name}
+          {/* {
             obj.name
               ? (
                 <div className={utilStyles.headerName}>{obj.name}</div>
@@ -32,7 +33,7 @@ function handleBody (body = [], activityName) {
                 // </span>
               )
               : null
-          }
+          } */}
         </div>
         <div className={utilStyles.sectionBody}>
           {
@@ -164,7 +165,8 @@ export default function ContentDisplay ({ content }) {
                       <path fill={fill} d="M45.9,-78.4C59.1,-71.9,69.3,-58.9,74.6,-44.7C79.8,-30.6,80.3,-15.3,79.7,-0.3C79.1,14.6,77.4,29.2,71.4,42C65.4,54.9,55,66.1,42.3,74.9C29.7,83.7,14.9,90.1,0.4,89.4C-14,88.6,-27.9,80.6,-41.8,72.5C-55.8,64.4,-69.6,56.3,-77.8,44.2C-86,32.1,-88.5,16.1,-88.3,0.1C-88.1,-15.8,-85.2,-31.7,-77,-43.8C-68.8,-55.9,-55.4,-64.3,-41.7,-70.5C-28,-76.8,-14,-81,1.2,-83C16.3,-85,32.7,-85,45.9,-78.4Z" transform="translate(100 100)" />
                     </svg> */}
                   </div>
-                  {handleMarkdown(content.title)}
+                  <h3>{content.title}</h3>
+                  {/* {handleMarkdown(content.title)} */}
                 </div>
               )
               : null

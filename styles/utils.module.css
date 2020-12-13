@@ -36,7 +36,8 @@
 }
 
 .pageActivityTitle > p,
-.pageActivityTitle > h1 {
+.pageActivityTitle > h1,
+.pageActivityTitle > h3 {
   margin: 0;
 }
 

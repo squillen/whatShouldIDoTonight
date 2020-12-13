@@ -22,13 +22,12 @@ export default function ArticleDisplay ({ article, source }) {
   const style = { background: `url(${article.image}) center no-repeat`, backgroundSize: 'cover' }
   const articleHeaders = []
   const firstBodySection = article.body && article.body.shift()
+  const remainingBody = article.body
   const toc = firstBodySection.toc
   if (toc) {
-    article.body.map((obj, idx) => {
-      if (idx !== 0) {
-        const name = obj.name || ''
-        articleHeaders.push(name)
-      }
+    remainingBody.map((obj, idx) => {
+      const name = obj.name || ''
+      articleHeaders.push(name)
     })
   }
 
@@ -48,14 +47,12 @@ export default function ArticleDisplay ({ article, source }) {
     return showAd && <GoogleAd type="square" />
   }
 
-  const remainingBody = article.body
-
   const handleHeading = (name, idx) => (
     <div className={styles.suggestionHeader}>
       <div className={styles.blob}>
         {<SVGGrabber type="circle" />}
       </div>
-      <div id={idx === 0 ? 'intro' : null}>{handleMarkdown(name)}</div>
+      {handleMarkdown(name)}
       {
         idx !== 0 && (
           <a href="#home">
@@ -282,7 +279,9 @@ function mapContents (array, source) {
                               <div className={styles.h3Blob}>
                                 {<SVGGrabber type="square" />}
                               </div>
-                              {handleMarkdown(c)}
+                              <div className={styles.subHeaderText}>
+                                {handleMarkdown(c)}
+                              </div>
                             </div>
                           )
                           : handleMarkdown(c)

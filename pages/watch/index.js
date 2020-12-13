@@ -17,6 +17,7 @@ import DefaultHead, { siteTitle } from '../../components/defaultHead'
 // HELPERS
 import utilStyles from '../../styles/utils.module.css'
 import { getActivitiesFromDB } from '../../lib/helpers/db/requests'
+import NextSEO from '../../components/nextSEO'
 
 const pageDescription =
 "What should I watch tonight? We've watched tons of less-known, hidden gem shows, movies, and binge-worthy series on Netflix, Hulu, Prime. " +
@@ -76,7 +77,8 @@ function WatchSection ({ spotlight = [], all = {}, articles = [], setInRedux, se
 
   return (
     <Layout>
-      <DefaultHead title={`Things To Watch Tonight - ${siteTitle}`} description={pageDescription} />
+      <NextSEO url="https://whatshouldidotonight.com/watch" title={`Things To Watch Tonight - ${siteTitle}`} description={pageDescription} />
+      {/* <DefaultHead title={`Things To Watch Tonight - ${siteTitle}`} description={pageDescription} /> */}
       {
         spotlight && Array.isArray(spotlight) && spotlight.length
           ? <SplashContent content={spotlight} banner="Watch the less known" source={source} />

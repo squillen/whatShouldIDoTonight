@@ -21,7 +21,8 @@ export default function ArticleDisplay ({ article, source }) {
   const pageURL = window.location.href
   const style = { background: `url(${article.image}) center no-repeat`, backgroundSize: 'cover' }
   const articleHeaders = []
-  const toc = article.body[0].toc
+  const firstBodySection = article.body && article.body.shift()
+  const toc = firstBodySection.toc
   if (toc) {
     article.body.map((obj, idx) => {
       if (idx !== 0) {
@@ -47,6 +48,58 @@ export default function ArticleDisplay ({ article, source }) {
     return showAd && <GoogleAd type="square" />
   }
 
+  const remainingBody = article.body
+
+  const handleHeading = (name, idx) => (
+    <div className={styles.suggestionHeader}>
+      <div className={styles.blob}>
+        {<SVGGrabber type="circle" />}
+      </div>
+      <h2 id={idx === 0 ? 'intro' : null}>{name.replace(/[#]/g, '')}</h2>
+      {
+        idx !== 0 && (
+          <a href="#home">
+            <div className={styles.homeIcon}>
+              <i className="fas fa-chevron-up"></i>
+            </div>
+          </a>
+        )
+      }
+    </div>
+  )
+
+  const handleBody = (item, idx) => (
+    <div key={item.name || idx} className={styles.bodyContainer}>
+      {
+        item.name && handleHeading(item.name, idx)
+      }
+      <div className={styles.itemContents}>
+        {mapContents(item.contents, source)}
+      </div>
+      {
+        showAdIf(idx)
+      }
+      {
+        idx === 0 && articleHeaders.length
+          ? (
+            <div className={styles.tocContainer}>
+              <h4 className={styles.tocHeader}>{typeof toc === 'string' ? `${toc}:` : 'Table of Contents:'}</h4>
+              <div className={styles.toc}>
+                {
+                  articleHeaders.map(header => {
+                    return (
+                      <a href={`#${makeID(header)}`} key={header} className={styles.tocItem}>{header.split('# ')[1] || header.split('## ')[1]}</a>
+                    )
+                  })
+                }
+              </div>
+            </div>
+          )
+          : null
+      }
+    </div>
+  )
+
   return (
     article &&
     <>
@@ -64,66 +117,19 @@ export default function ArticleDisplay ({ article, source }) {
               <SocialIcons pageURL={pageURL} pageTitle={article.name} image={article.image} description={article.pageDescription} horizontal/>
             </div>
           </div>
-          <h1 className={styles.hidden}>what should i we do tonight</h1>
-          <h1 className={styles.hidden}>i we are bored</h1>
-          <h1 className={styles.hidden}>bored</h1>
-          <h1 className={styles.hidden}>things to do tonight</h1>
-          <h1 className={styles.hidden}>what should i we watch tonight</h1>
-          <h1 className={styles.hidden}>what to do when you&apos;re bored</h1>
         </div>
         <BackButton />
         <div className={styles.socialIconsDesktop}>
           <SocialIcons pageURL={pageURL} pageTitle={article.name} image={article.image} description={article.pageDescription} />
         </div>
         <div className={styles.articleBody}>
+          <div className={styles.articleIntro}>
+            {handleBody(firstBodySection, 0)}
+          </div>
           {
-            article.body.map((item, idx) => {
+            remainingBody.map((item, idx) => {
               return (
-                <div key={item.name || idx} className={styles.bodyContainer}>
-                  {
-                    item.name && (
-                      <div className={styles.suggestionHeader}>
-                        <div className={styles.blob}>
-                          {<SVGGrabber type="circle" />}
-                        </div>
-                        {handleMarkdown(item.name)}
-                        {
-                          idx !== 0 && (
-                            <a href="#home">
-                              <div className={styles.homeIcon}>
-                                <i className="fas fa-chevron-up"></i>
-                              </div>
-                            </a>
-                          )
-                        }
-                      </div>
-                    )
-                  }
-                  <div className={styles.itemContents}>
-                    {mapContents(item.contents, source)}
-                  </div>
-                  {
-                    showAdIf(idx)
-                  }
-                  {
-                    idx === 0 && articleHeaders.length
-                      ? (
-                        <div className={styles.tocContainer}>
-                          <h4 className={styles.tocHeader}>{typeof toc === 'string' ? `${toc}:` : 'Table of Contents:'}</h4>
-                          <div className={styles.toc}>
-                            {
-                              articleHeaders.map(header => {
-                                return (
-                                  <a href={`#${makeID(header)}`} key={header} className={styles.tocItem}>{header.split('# ')[1] || header.split('## ')[1]}</a>
-                                )
-                              })
-                            }
-                          </div>
-                        </div>
-                      )
-                      : null
-                  }
-                </div>
+                handleBody(item, idx + 1)
               )
             })
           }
@@ -223,70 +229,66 @@ function handleRecipe ({ ingredients, info, directions }) {
 function mapContents (array, source) {
   return (
     array.map((c, idx) => (
-      <div key={`${c}-${idx}`} className={styles.content}>
-        {
-          c.iframe
-            ? <div className={styles.iframe}><IFrame src={c.iframe} /></div>
-            : c.image
-              ? <div className={styles.imageContainer}>
-                {
-                  c.image[3]
-                    ? (
-                      <Link href={c.image[3]}>
-                        <a>
-                          <Photo src={c.image[0]} alt={c.image[1]} caption={c.image[2]} />
-                        </a>
-                      </Link>
-                    )
-                    : <Photo src={c.image[0]} alt={c.image[1]} caption={c.image[2]} />
-                }
-              </div>
-              : c.related
-                ? <RelatedContent articles={c.related} source={source} />
-                : c.name && c.contents
-                  ? (
-                    <div>
-                      <div className={styles.subHeader}>
-                        {handleMarkdown(c.name)}
-                        <div className={styles.border} />
-                      </div>
-                      {mapContents(c.contents, source)}
-                    </div>
-                  )
-                  : c.ad
-                    ? <GoogleAd type="inArticle" />
-                    : c.list
-                      ? handleList(c.list)
-                      : c.recipe
-                        ? handleRecipe(c.recipe)
-                        : (
-                          c.slice(0, 3) === '## '
-                            ? (
-                              <div className={styles.subSuggestionHeader}>
-                                <div className={styles.subBlob}>
-                                  {<SVGGrabber type="circle" />}
-                                </div>
-                                {handleMarkdown(c)}
-                                <a href="#home">
-                                  <div className={styles.homeIcon}>
-                                    <i className="fas fa-chevron-up"></i>
-                                  </div>
-                                </a>
+      // <div key={`${c}-${idx}`} className={styles.content}>
+      // {
+      c.iframe
+        ? <div className={styles.iframe}><IFrame src={c.iframe} /></div>
+        : c.image
+          ? c.image[3]
+            ? (
+              <Link href={c.image[3]}>
+                <a>
+                  <Photo src={c.image[0]} alt={c.image[1]} caption={c.image[2]} />
+                </a>
+              </Link>
+            )
+            : <Photo src={c.image[0]} alt={c.image[1]} caption={c.image[2]} />
+          : c.related
+            ? <RelatedContent articles={c.related} source={source} />
+            : c.name && c.contents
+              ? (
+                <div>
+                  <div className={styles.subHeader}>
+                    {handleMarkdown(c.name)}
+                    <div className={styles.border} />
+                  </div>
+                  {mapContents(c.contents, source)}
+                </div>
+              )
+              : c.ad
+                ? <GoogleAd type="inArticle" />
+                : c.list
+                  ? handleList(c.list)
+                  : c.recipe
+                    ? handleRecipe(c.recipe)
+                    : (
+                      c.slice(0, 3) === '## '
+                        ? (
+                          <div className={styles.subSuggestionHeader}>
+                            <div className={styles.subBlob}>
+                              {<SVGGrabber type="circle" />}
+                            </div>
+                            {handleMarkdown(c)}
+                            <a href="#home">
+                              <div className={styles.homeIcon}>
+                                <i className="fas fa-chevron-up"></i>
                               </div>
-                            )
-                            : c.slice(0, 4) === '### '
-                              ? (
-                                <div className={styles.subSuggestionHeader}>
-                                  <div className={styles.h3Blob}>
-                                    {<SVGGrabber type="square" />}
-                                  </div>
-                                  {handleMarkdown(c)}
-                                </div>
-                              )
-                              : handleMarkdown(c)
+                            </a>
+                          </div>
                         )
-        }
-      </div>
+                        : c.slice(0, 4) === '### '
+                          ? (
+                            <div className={styles.subSuggestionHeader}>
+                              <div className={styles.h3Blob}>
+                                {<SVGGrabber type="square" />}
+                              </div>
+                              {handleMarkdown(c)}
+                            </div>
+                          )
+                          : handleMarkdown(c)
+                    )
+      // }
+      // </div>
     ))
   )
 }

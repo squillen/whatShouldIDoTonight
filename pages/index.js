@@ -18,6 +18,7 @@ import DefaultHead, { siteTitle } from '../components/defaultHead'
 // HELPERS
 import utilStyles from '../styles/utils.module.css'
 import { getActivitiesFromDB } from '../lib/helpers/db/requests'
+import NextSEO from '../components/nextSEO'
 
 const quotes = [
   {
@@ -75,7 +76,8 @@ function DoSection ({ spotlight = [], latest, all = {}, setInRedux, setDoActivit
   )
   return (
     <Layout>
-      <DefaultHead title={`Things to Do Tonight - ${siteTitle}`} description={description} />
+      {/* <DefaultHead title={`Things to Do Tonight - ${siteTitle}`} description={description} /> */}
+      <NextSEO title={`Things to Do Tonight - ${siteTitle}`} description={description} url="https://whatshouldidotonight.com" />
       {
         spotlight && Array.isArray(spotlight) && spotlight.length
           ? (

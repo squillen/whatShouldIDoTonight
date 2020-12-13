@@ -14,7 +14,6 @@ import DisplayAllEvents from '../DisplayAllEvents/DisplayAllEvents'
 // HELPERS
 import styles from './GetAllEvents.module.css'
 
-
 function GetAllEvents ({ activities, categoryInfo, source, category = '' }) {
   const [allActivities, setAllActivities] = useState([])
   const [currentActivities, setCurrentActivities] = useState(null)

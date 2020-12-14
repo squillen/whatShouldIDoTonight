@@ -1,12 +1,12 @@
-import { NextSeo } from 'next-seo'
 import Button from '../components/button/button'
 import Layout from '../components/layout/layout'
+import NextSEO from '../components/nextSEO'
 import utilStyles from '../styles/utils.module.css'
 
 export default function Custom404 () {
   return (
     <Layout>
-      <NextSeo
+      <NextSEO
         nofollow={true}
         noindex={true}
       />

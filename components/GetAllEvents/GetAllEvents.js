@@ -1,6 +1,4 @@
 import React, { useState, useEffect } from 'react'
-import { NextSeo } from 'next-seo'
-import Head from 'next/head'
 import PropTypes from 'prop-types'
 
 // REDUX
@@ -10,6 +8,7 @@ import { connect } from 'react-redux'
 import DefaultHead, { baseDescription, siteTitle } from '../../components/defaultHead'
 import Layout from '../layout/layout'
 import DisplayAllEvents from '../DisplayAllEvents/DisplayAllEvents'
+import NextSEO from '../nextSEO'
 
 // HELPERS
 import styles from './GetAllEvents.module.css'
@@ -133,7 +132,7 @@ function GetAllEvents ({ activities, categoryInfo, source, category = '' }) {
   return (
     <Layout>
       <DefaultHead title={`${title} - ${siteTitle}`} description={description} />
-      <NextSeo
+      <NextSEO
         noindex={true}
         nofollow={true}
         title={`${title} - ${siteTitle}`}

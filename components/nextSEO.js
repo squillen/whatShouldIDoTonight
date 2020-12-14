@@ -1,7 +1,6 @@
 import { NextSeo } from 'next-seo'
 import { siteTitle, baseDescription } from './defaultHead'
 export default function NextSEO ({ url, title, description }) {
-  console.log('description :>> ', description)
   const additionalMetaTags = "things to do/bored/what to do when you're bored/help/fun/activities/free/paid/do stuff/tonight/what should i do tonight/what should i do".split('/')
   return (
     <NextSeo

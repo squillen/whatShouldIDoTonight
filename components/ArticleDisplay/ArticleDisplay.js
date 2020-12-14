@@ -97,8 +97,8 @@ export default function ArticleDisplay ({ article, source }) {
     </div>
   )
 
-  let title = article.name || article.tagline
-  title = title.split(': ')[1] ? title.split(': ').join(': <br>') : title
+  const title = article.name || article.tagline
+  // title = title.split(': ')[1] ? title.split(': ').join(': <br>') : title
 
   return (
     article &&

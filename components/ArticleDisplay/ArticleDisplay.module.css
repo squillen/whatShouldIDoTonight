@@ -62,10 +62,10 @@
   text-align: center;
 }
 
-.headerText {
+.headerTextContainer > h1 {
   font-family: 'Oswald', sans-serif;
-  font-size: 8rem;
-  line-height: 110%;
+  font-size: 7rem;
+  line-height: 105%;
   margin: 0;
 }
 

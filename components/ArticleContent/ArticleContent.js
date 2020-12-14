@@ -1,5 +1,6 @@
 import Link from 'next/link'
 import PropTypes from 'prop-types'
+import { handleName } from '../../lib/helpers/dataHelpers'
 import styles from './ArticleContent.module.css'
 
 export default function ArticleContent ({ articles, banner = 'THE LATEST', source }) {
@@ -26,7 +27,7 @@ export default function ArticleContent ({ articles, banner = 'THE LATEST', sourc
                       <a>
                         <div className={styles.articleTitleContainer}>
                           <div className={styles.articleTitleText}>
-                            {article.name || article.tagline}
+                            {handleName(article.name || article.tagline)}
                           </div>
                         </div>
                       </a>

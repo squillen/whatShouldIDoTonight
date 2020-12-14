@@ -17,7 +17,7 @@ export default function DefaultHead ({ title, description }) {
     <Head>
       <link rel="icon" href="/favicon.ico" />
       {/* PRIMARY META TAGS */}
-      {/* <title>{usedTitle}</title> */}
+      <title>{usedTitle}</title>
       <meta name="title" content={usedTitle} />
       <meta name="description" content={usedDescription} />
       {/* FACEBOOK / OPEN GRAPH */}

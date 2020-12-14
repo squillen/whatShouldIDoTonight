@@ -1,7 +1,7 @@
 import PropTypes from 'prop-types'
 import Head from 'next/head'
 import { handleName } from '../lib/helpers/dataHelpers'
-export const siteTitle = 'Watch, Do, Learn, Live'
+export const siteTitle = 'Find what to watch, do, learn, and improve tonight'
 export const baseDescription = ' Need to know what to do when you&apos;re bored? Find free things to do tonight at home or outside and things to do near me tonight. '
 const mailChimpScript = `
   !function(c,h,i,m,p){m=c.createElement(h),p=c.getElementsByTagName(h)[0],m.async=1,m.src=i,p.parentNode.insertBefore(m,p)}(document,"script","https://chimpstatic.com/mcjs-connected/js/users/42fd643d25e61b586e6992d41/c722f51a5614f406bcfbd1aa9.js")

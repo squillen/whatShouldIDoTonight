@@ -52,7 +52,7 @@ export default class DisplayAllEvents extends React.Component {
     const noActivitiesDiv = this.showNoActivities()
     return (
       <motion.div className={styles.displayAllContainer} variants={stagger}>
-        <BackButton />
+        {/* <BackButton /> */}
         <div className={styles.headerContainer}>
           <h1 className={styles.header}>{header}</h1>
           <p className={styles.tag}>{tag}</p>

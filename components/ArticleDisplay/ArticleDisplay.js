@@ -118,7 +118,7 @@ export default function ArticleDisplay ({ article, source }) {
             </div>
           </div>
         </div>
-        <BackButton />
+        {/* <BackButton /> */}
         <div className={styles.socialIconsDesktop}>
           <SocialIcons pageURL={pageURL} pageTitle={article.name} image={article.image} description={article.pageDescription} />
         </div>

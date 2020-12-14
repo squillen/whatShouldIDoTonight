@@ -7,7 +7,7 @@ const Disqus = ({ article, url }) => {
   const disqusShortname = 'whatshouldidotonight'
   const env = url.includes('localhost') ? 'dev' : 'prod'
   const disqusConfig = {
-    url: 'https://whatshouldidotonight.com',
+    url,
     identifier: `${article._id}_${env}`,
     title: article.name,
   }

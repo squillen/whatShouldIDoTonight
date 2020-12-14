@@ -151,9 +151,9 @@ export default function ContentDisplay ({ content }) {
           </div>
         </div>
         <div className={utilStyles.pageBodyContainer}>
-          <div className={utilStyles.backButton}>
+          {/* <div className={utilStyles.backButton}>
             <BackButton />
-          </div>
+          </div> */}
           {
             content.title
               ? (

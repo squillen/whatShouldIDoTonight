@@ -8,7 +8,7 @@ const Disqus = ({ article, url }) => {
   const env = url.includes('localhost') ? 'dev' : 'prod'
   const disqusConfig = {
     url,
-    identifier: `${article._id}_${env}`,
+    identifier: `${article._id}_${env}_0`, // hacky bug fix
     title: article.name,
   }
   return (

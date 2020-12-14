@@ -97,6 +97,9 @@ export default function ArticleDisplay ({ article, source }) {
     </div>
   )
 
+  let title = article.name || article.tagline
+  title = title.split(': ')[1] ? title.split(': ').join(': <br>') : title
+
   return (
     article &&
     <>
@@ -105,7 +108,7 @@ export default function ArticleDisplay ({ article, source }) {
         <div style={style} className={styles.header}>
           <div className={styles.overlay} />
           <div className={styles.headerTextContainer} id="home">
-            <h1 className={styles.headerText}>{article.name || article.tagline}</h1>
+            {handleMarkdown((title).startsWith('# ') ? title : `# ${title}`)}
             {
               !article.dateModified && <h4 className={styles.dateModified}>Published {makeDatePretty(convertIdToDate(article._id))}</h4>
             }
@@ -234,7 +237,7 @@ function mapContents (array, source) {
           ? c.image[3]
             ? (
               <Link href={c.image[3]}>
-                <a>
+                <a target="_blank">
                   <Photo src={c.image[0]} alt={c.image[1]} caption={c.image[2]} />
                 </a>
               </Link>

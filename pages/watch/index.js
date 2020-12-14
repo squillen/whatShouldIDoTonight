@@ -77,7 +77,11 @@ function WatchSection ({ spotlight = [], all = {}, articles = [], setInRedux, se
 
   return (
     <Layout>
-      <NextSEO url="https://whatshouldidotonight.com/watch" title={`Things To Watch Tonight - ${siteTitle}`} description={pageDescription} />
+      <NextSEO
+        url="https://whatshouldidotonight.com/watch"
+        title={`Things To Watch Tonight - ${siteTitle}`}
+        description={pageDescription}
+      />
       {/* <DefaultHead title={`Things To Watch Tonight - ${siteTitle}`} description={pageDescription} /> */}
       {
         spotlight && Array.isArray(spotlight) && spotlight.length

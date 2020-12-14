@@ -7,7 +7,6 @@ export default function ArticleHead ({ activity = {} }) {
   const router = useRouter()
   const url = 'https://whatshouldidotonight.com'
   const pageURL = `${url}${router.pathname}`
-  console.log('pageURL :>> ', pageURL);
   const pageDescription = activity.pageDescription + baseDescription
   const datePublished = (activity._id && new Date(parseInt(activity._id.substring(0, 8), 16) * 1000)) || new Date()
   const dateModified = activity.dateModified || new Date()
@@ -27,7 +26,7 @@ export default function ArticleHead ({ activity = {} }) {
         datePublished={datePublished}
         dateModified={dateModified}
         description={pageDescription}
-        canonical={url}
+        canonical={pageURL}
         publisherName="What Should I Do Tonight"
         publisherLogo='https://what-should-i-do-tonight.s3.us-east-2.amazonaws.com/seo/logo.png'
         openGraph={{

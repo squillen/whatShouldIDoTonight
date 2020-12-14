@@ -72,7 +72,12 @@ function DoSection ({ spotlight = [], latest, all = {}, setInRedux, setDoActivit
   )
   return (
     <Layout>
-      <NextSEO title={`Things to Do Tonight - ${siteTitle}`} description={description} url="https://whatshouldidotonight.com/do" />
+      <NextSEO
+        title={`Things to Do Tonight - ${siteTitle}`}
+        description={description}
+        url="https://whatshouldidotonight.com/do"
+        canonical="https://whatshouldidotonight.com"
+      />
       {/* <DefaultHead title={`Things to Do Tonight - ${siteTitle}`} description={description} /> */}
       {
         spotlight && Array.isArray(spotlight) && spotlight.length

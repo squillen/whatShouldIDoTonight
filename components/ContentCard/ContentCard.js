@@ -3,7 +3,7 @@ import PropTypes from 'prop-types'
 import Link from 'next/link'
 import { motion } from 'framer-motion'
 import { fadeInFromLeft } from '../../animations/default'
-import { makeDatePretty, convertIdToDate } from '../../lib/helpers/dataHelpers'
+import { handleName, makeDatePretty, convertIdToDate } from '../../lib/helpers/dataHelpers'
 import styles from './ContentCard.module.css'
 
 export default function ContentCard ({ activities, source, span }) {
@@ -42,7 +42,7 @@ export default function ContentCard ({ activities, source, span }) {
                   <div className={styles[span ? 'rightHalf' : 'bottomHalf']}>
                     <div className={styles.infoContainer}>
                       {source !== 'watch' && <div className={styles.publishDate}>{handleDate(activity)}</div>}
-                      <div style={source === 'watch' ? { height: 'auto' } : {}} className={styles.cardName}>{activity.name}</div>
+                      <div style={source === 'watch' ? { height: 'auto' } : {}} className={styles.cardName}>{handleName(activity.name)}</div>
                     </div>
                     {source === 'watch' && <div className={styles.tagline}>{activity.tagline}</div>}
                   </div>

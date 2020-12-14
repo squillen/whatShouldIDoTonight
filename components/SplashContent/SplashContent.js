@@ -3,6 +3,7 @@ import { connect } from 'react-redux'
 import Link from 'next/link'
 import PropTypes from 'prop-types'
 import styles from './SplashContent.module.css'
+import { handleName } from '../../lib/helpers/dataHelpers'
 
 function SplashContent ({ content = [], banner, source }) {
   const [randomContents, setRandomContents] = useState([])
@@ -31,7 +32,7 @@ function SplashContent ({ content = [], banner, source }) {
       <Link href={getContentURL(currContent)} as={getContentURL(currContent)}>
         <a>
           <div className={styles.textContainer}>
-            <div className={styles.text}>{(currContent.name) || ''}</div>
+            <div className={styles.text}>{handleName(currContent.name) || ''}</div>
           </div>
         </a>
       </Link>

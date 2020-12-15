@@ -437,4 +437,9 @@
   .image {
     min-width: 60%;
   }
+
+  .itemContents {
+    width: 100%;
+    font-size: 1.4rem;
+  }
 }

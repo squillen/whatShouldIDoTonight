@@ -7,7 +7,8 @@ export default function NextSEO ({ url, title, description, canonical, noindex =
       noindex={noindex}
       nofollow={nofollow}
       title={title || siteTitle}
-      description={`${description} ${baseDescription}`}
+      description={description}
+      canonical={canonical || url}
       openGraph={{
         url,
         additionalMetaTags,

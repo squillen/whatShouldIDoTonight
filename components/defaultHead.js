@@ -11,7 +11,6 @@ const image = '/logos/logo.png'
 
 export default function DefaultHead ({ title, description }) {
   const currentDescription = description || 'Find what to watch on Netflix, Hulu, Prime, shows, movies, podcasts to listen to, online courses to learn, books, recipes, and more.'
-  const usedDescription = `${currentDescription} ${baseDescription}`
   const usedTitle = handleName(title) || siteTitle
   return (
     <Head>
@@ -19,7 +18,7 @@ export default function DefaultHead ({ title, description }) {
       {/* PRIMARY META TAGS */}
       <title>{usedTitle}</title>
       <meta name="title" content={usedTitle} />
-      <meta name="description" content={usedDescription} />
+      <meta name="description" content={currentDescription} />
       {/* FACEBOOK / OPEN GRAPH */}
       {/* <meta property="og:type" content="website" />
       <meta property="og:url" content="https://whatshouldidotonight.com/" />

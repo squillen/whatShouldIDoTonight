@@ -21,6 +21,7 @@ export default function ArticleHead ({ activity = {} }) {
       <ArticleJsonLd
         url={pageURL}
         title={title}
+        keywords={activity.keywords}
         images={[activity.image]}
         authorName={authors}
         datePublished={datePublished}

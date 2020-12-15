@@ -17,6 +17,7 @@ import { convertIdToDate, makeDatePretty } from '../../lib/helpers/dataHelpers'
 import checkForAdBlocker from '../../lib/helpers/hooks/checkForAdBlocker'
 import GoogleAd from '../GoogleAd/GoogleAd'
 import NextSEO from '../nextSEO'
+import DefaultHead from '../defaultHead'
 
 export default function ArticleDisplay ({ article, source }) {
   const pageURL = window.location.href
@@ -104,6 +105,7 @@ export default function ArticleDisplay ({ article, source }) {
   return (
     article &&
     <>
+      <DefaultHead title={article.name} description={article.pageDescription} />
       <ArticleHead activity={article} />
       <NextSEO url={pageURL} title={article.name} description={article.pageDescription} />
       <div className={styles.articleContainer}>

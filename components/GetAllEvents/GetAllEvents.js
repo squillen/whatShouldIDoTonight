@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from 'react'
+import { useRouter } from 'next/router'
 import PropTypes from 'prop-types'
 
 // REDUX
@@ -14,6 +15,7 @@ import NextSEO from '../nextSEO'
 import styles from './GetAllEvents.module.css'
 
 function GetAllEvents ({ activities, categoryInfo, source, category = '' }) {
+  const router = useRouter()
   const [allActivities, setAllActivities] = useState([])
   const [currentActivities, setCurrentActivities] = useState(null)
   const [calledAPI, setCalledAPI] = useState(false)
@@ -25,6 +27,7 @@ function GetAllEvents ({ activities, categoryInfo, source, category = '' }) {
   useEffect(() => {
     if (!categories.length && allActivities && allActivities.length) getFiltersAndCategoriesOnLoad()
   }, [categories, allActivities])
+  
 
   async function getAllActivitiesOnLoad () {
     try {
@@ -136,7 +139,7 @@ function GetAllEvents ({ activities, categoryInfo, source, category = '' }) {
         noindex={true}
         nofollow={true}
         title={title}
-        url={window.location.href}
+        url={`https://whatshouldidotonight.com${router.asPath}`}
         description={description}
       />
       <div className={styles.contentContainer}>

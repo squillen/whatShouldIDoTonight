@@ -5,7 +5,7 @@ import styles from './ArticleContent.module.css'
 
 export default function ArticleContent ({ articles, banner = 'THE LATEST', source }) {
   const getContentURL = currContent => currContent && currContent.name
-    ? currContent.pagePath || `/${source}/a?lookup=${currContent.lookup}`
+    ? currContent.pagePath || `/${source}/activity/${currContent.lookup}`
     : ''
   const displayedArticles = articles && articles.length ? articles.slice(0, articles.length) : []
   return (

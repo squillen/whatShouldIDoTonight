@@ -1,19 +1,21 @@
 import { NextSeo } from 'next-seo'
+import { handleName } from '../lib/helpers/dataHelpers'
 import { siteTitle, baseDescription } from './defaultHead'
 export default function NextSEO ({ url, title, description, canonical, noindex = false, nofollow = false }) {
   const additionalMetaTags = "things to do/bored/what to do when you're bored/help/fun/activities/free/paid/do stuff/tonight/what should i do tonight/what should i do".split('/')
+  const usedTitle = handleName(title) || siteTitle
   return (
     <NextSeo
       noindex={noindex}
       nofollow={nofollow}
-      title={title || siteTitle}
+      title={usedTitle}
       description={description}
       canonical={canonical || url}
       openGraph={{
         url,
         additionalMetaTags,
         description: description || baseDescription,
-        title: title || siteTitle,
+        title: usedTitle,
         canonical: canonical || url,
         site_name: 'What Should I Do Tonight',
         images: [

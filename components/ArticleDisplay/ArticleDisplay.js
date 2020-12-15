@@ -16,6 +16,7 @@ import Photo from '../photo/photo'
 import { convertIdToDate, makeDatePretty } from '../../lib/helpers/dataHelpers'
 import checkForAdBlocker from '../../lib/helpers/hooks/checkForAdBlocker'
 import GoogleAd from '../GoogleAd/GoogleAd'
+import NextSEO from '../nextSEO'
 
 export default function ArticleDisplay ({ article, source }) {
   const pageURL = window.location.href
@@ -104,6 +105,7 @@ export default function ArticleDisplay ({ article, source }) {
     article &&
     <>
       <ArticleHead activity={article} />
+      <NextSEO url={pageURL} title={article.name} description={article.pageDescription} />
       <div className={styles.articleContainer}>
         <div style={style} className={styles.header}>
           <div className={styles.overlay} />

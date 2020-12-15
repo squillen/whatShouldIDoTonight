@@ -136,6 +136,7 @@ function GetAllEvents ({ activities, categoryInfo, source, category = '' }) {
         noindex={true}
         nofollow={true}
         title={title}
+        url={window.location.href}
         description={description}
       />
       <div className={styles.contentContainer}>

@@ -25,8 +25,8 @@ export default function ArticleDisplay ({ article, source }) {
   const pageURL = `https://whatshouldidotonight.com${router.asPath}`
   const style = { background: `url(${article.image}) center no-repeat`, backgroundSize: 'cover' }
   const articleHeaders = []
-  const firstBodySection = article.body && article.body.shift()
-  const remainingBody = article.body
+  const firstBodySection = article.body && article.body[0]
+  const remainingBody = article.body.slice(1, article.body.length)
   const toc = firstBodySection.toc
   if (toc) {
     remainingBody.map((obj, idx) => {

@@ -31,7 +31,7 @@ const quotes = [
   },
 ]
 
-const description = 'Drink recipes, board games, free games, self improvement, be a better you, recipes to try.'
+const description = "Get ideas of things to do when you're bored, like drink recipes, board games, free games, self improvement, be a better you, recipes to try."
 
 export const getStaticProps = wrapper.getStaticProps(({ store }) => {
   const state = store.getState()
@@ -73,12 +73,12 @@ function DoSection ({ spotlight = [], latest, all = {}, setInRedux, setDoActivit
   return (
     <Layout>
       <NextSEO
-        title={`Things to Do Tonight - ${siteTitle}`}
+        title="Things to Do Tonight"
         description={description}
         url="https://whatshouldidotonight.com/do"
         canonical="https://whatshouldidotonight.com"
       />
-      {/* <DefaultHead title={`Things to Do Tonight - ${siteTitle}`} description={description} /> */}
+      {/* <DefaultHead title="Things to Do Tonight" description={description} /> */}
       {
         spotlight && Array.isArray(spotlight) && spotlight.length
           ? (

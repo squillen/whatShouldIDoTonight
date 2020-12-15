@@ -17,7 +17,7 @@ export default function ArticleHead ({ activity = {} }) {
   const authors = [activity.authorName || 'Sean Quillen']
   return (
     <>
-      <DefaultHead title={`${title} - What Should I Do Tonight`} description={pageDescription}/>
+      <DefaultHead title={title} description={pageDescription}/>
       <ArticleJsonLd
         url={pageURL}
         title={title}

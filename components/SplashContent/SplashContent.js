@@ -43,7 +43,7 @@ function SplashContent ({ content = [], banner, source }) {
     randomContents.length
       ? (
         <div className={styles.splashContentContainer}>
-          {banner && <div className={styles.banner}>{banner}</div>}
+          {banner && <h1 className={styles.banner}>{banner}</h1>}
           <div style={style} className={styles.imagesContainer}>
             <div className={styles.largeImageContainer}>
               <div

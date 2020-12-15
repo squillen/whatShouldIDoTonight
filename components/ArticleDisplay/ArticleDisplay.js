@@ -46,7 +46,7 @@ export default function ArticleDisplay ({ article, source }) {
 
   function showAdIf (idx) {
     const bodyLength = article.body.length || 0
-    const showEveryX = Math.ceil(bodyLength / 4)
+    const showEveryX = Math.ceil(bodyLength / 6)
     const showAd = idx !== 0 && idx % showEveryX === 0
     return showAd && <GoogleAd type="square" />
   }

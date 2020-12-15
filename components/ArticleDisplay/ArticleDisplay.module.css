@@ -127,7 +127,7 @@
 }
 
 .subHeaderText {
-  font-size: 2.6rem;
+  font-size: 1.6rem;
 }
 
 .subHeaderText > h3 > a:visited {
@@ -140,12 +140,13 @@
 .suggestionHeader > a,
 .subSuggestionHeader > h1,
 .subSuggestionHeader > h2,
+.subSuggestionHeader > h3,
 .subSuggestionHeader > a {
   padding: 0;
   margin: 0;
   font-size: 4.3rem;
   line-height: 105%;
-  margin-bottom: 3rem;
+  margin-bottom: 1rem;
   color: black;
 }
 
@@ -223,12 +224,12 @@
 
 .h3Blob {
   width: 7rem;
-  top: 1rem;
+  top: 0;
   left: -2rem;
 }
 
 .itemContents {
-  width: 80%;
+  width: 70%;
   margin: 0 auto;
   font-size: 1.15rem;
 }
@@ -440,6 +441,6 @@
 
   .itemContents {
     width: 100%;
-    font-size: 1.4rem;
+    font-size: 1.;
   }
 }

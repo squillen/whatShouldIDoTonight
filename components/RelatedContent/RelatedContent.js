@@ -21,7 +21,7 @@ export default function RelatedContent ({ articles, source = 'do' }) {
       const newArticles = []
       result.forEach((article, idx) => {
         const { image, name, lookup, tagline } = article || {}
-        const link = `/${sources[idx]}/a?lookup=${lookup}`
+        const link = `/${sources[idx]}/activity/${lookup}`
         newArticles.push({ image, name, tagline, link })
       })
 

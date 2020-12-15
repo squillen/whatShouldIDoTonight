@@ -18,9 +18,11 @@ import checkForAdBlocker from '../../lib/helpers/hooks/checkForAdBlocker'
 import GoogleAd from '../GoogleAd/GoogleAd'
 import NextSEO from '../nextSEO'
 import DefaultHead from '../defaultHead'
+import { useRouter } from 'next/router'
 
 export default function ArticleDisplay ({ article, source }) {
-  const pageURL = window.location.href
+  const router = useRouter()
+  const pageURL = `https://whatshouldidotonight.com${router.asPath}`
   const style = { background: `url(${article.image}) center no-repeat`, backgroundSize: 'cover' }
   const articleHeaders = []
   const firstBodySection = article.body && article.body.shift()

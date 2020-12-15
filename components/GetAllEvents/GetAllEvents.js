@@ -131,12 +131,12 @@ function GetAllEvents ({ activities, categoryInfo, source, category = '' }) {
   const { title, description } = categoryInfo
   return (
     <Layout>
-      <DefaultHead title={`${title} - ${siteTitle}`} description={description} />
+      <DefaultHead title={title} description={description} />
       <NextSEO
         noindex={true}
         nofollow={true}
-        title={`${title} - ${siteTitle}`}
-        description={`${description} ${baseDescription}`}
+        title={title}
+        description={description}
       />
       <div className={styles.contentContainer}>
         <DisplayAllEvents

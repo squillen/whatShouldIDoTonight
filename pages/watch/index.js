@@ -20,8 +20,8 @@ import { getActivitiesFromDB } from '../../lib/helpers/db/requests'
 import NextSEO from '../../components/nextSEO'
 
 const pageDescription =
-"What should I watch tonight? We've watched tons of less-known, hidden gem shows, movies, and binge-worthy series on Netflix, Hulu, Prime. " +
-'Comedy, thrillers, horror, drama, documentary, crime, history, food, action, adventure, romance, rom com, mystery, or more.'
+"Get ideas of things to do when you're bored. We've watched tons of less-known, hidden gem shows, movies, and binge-worthy series on Netflix, Hulu, Prime. " +
+'Comedy, thrillers, horror, drama, documentary, crime, history, food, action, adventure, romance, rom com, mystery, and more.'
 
 const quotes = [
   {
@@ -79,10 +79,10 @@ function WatchSection ({ spotlight = [], all = {}, articles = [], setInRedux, se
     <Layout>
       <NextSEO
         url="https://whatshouldidotonight.com/watch"
-        title={`Things To Watch Tonight - ${siteTitle}`}
+        title="Things To Watch Tonight"
         description={pageDescription}
       />
-      {/* <DefaultHead title={`Things To Watch Tonight - ${siteTitle}`} description={pageDescription} /> */}
+      {/* <DefaultHead title="Things To Watch Tonight" description={pageDescription} /> */}
       {
         spotlight && Array.isArray(spotlight) && spotlight.length
           ? <SplashContent content={spotlight} banner="Watch the less known" source={source} />

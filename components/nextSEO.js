@@ -12,8 +12,8 @@ export default function NextSEO ({ url, title, description, canonical, noindex =
       openGraph={{
         url,
         additionalMetaTags,
-        description: baseDescription,
-        title: siteTitle,
+        description: description || baseDescription,
+        title: title || siteTitle,
         canonical: canonical || url,
         site_name: 'What Should I Do Tonight',
         images: [
@@ -24,6 +24,11 @@ export default function NextSEO ({ url, title, description, canonical, noindex =
             alt: 'What Should I Do Tonight Logo',
           },
         ],
+      }}
+      twitter={{
+        handle: '@doTonightdotcom',
+        site: 'https://twitter.com/doTonightdotcom',
+        cardType: 'summary_large_image',
       }}
     />
   )

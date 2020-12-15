@@ -1,36 +1,42 @@
 import React, { useState, useEffect } from 'react'
-import { useRouter } from 'next/router'
 import Link from 'next/link'
 import PropTypes from 'prop-types'
 
 // COMPONENTS
-import Layout from '../../components/layout/layout'
-import Loading from '../../components/loading/loading'
-import ContentDisplay from '../../components/ContentDisplay/ContentDisplay'
-import ArticleDisplay from '../../components/ArticleDisplay/ArticleDisplay'
-import ArticleHead from '../../components/ArticleHead'
+import Layout from '../../../../components/layout/layout'
+import Loading from '../../../../components/loading/loading'
+import ContentDisplay from '../../../../components/ContentDisplay/ContentDisplay'
+import ArticleDisplay from '../../../../components/ArticleDisplay/ArticleDisplay'
+import ArticleHead from '../../../../components/ArticleHead'
 
 // HELPERS
-import { getAllCollectionActivities, updateActivityIMDbInDB } from '../../lib/helpers/db/requests'
-import { getIMDbResults } from '../../lib/helpers/external/requests'
-import handleSeasons from '../../lib/helpers/handleSeasons'
-import utilStyles from '../../styles/utils.module.css'
-import HelpfulCounter from '../../components/HelpfulCounter/HelpfulCounter'
+import { getActivityFromDB, updateActivityIMDbInDB } from '../../../../lib/helpers/db/requests'
+import { getIMDbResults } from '../../../../lib/helpers/external/requests'
+import handleSeasons from '../../../../lib/helpers/handleSeasons'
+import utilStyles from '../../../../styles/utils.module.css'
+import HelpfulCounter from '../../../../components/HelpfulCounter/HelpfulCounter'
 
-export async function getStaticProps () {
-  const allCollectionActivities = await getAllCollectionActivities('watch')
+export async function getStaticPaths () {
+  return {
+    paths: [
+      { params: { lookup: '*' } },
+    ],
+    fallback: true,
+  }
+}
+
+export async function getStaticProps (context) {
+  const lookup = context.params.lookup
+  const originalActivity = await getActivityFromDB('watch', lookup)
   return {
     props: {
-      allCollectionActivities,
+      originalActivity,
     },
   }
 }
 
-function Content ({ allCollectionActivities }) {
-  const [activity, setActivity] = useState({})
-  const router = useRouter()
-  const { lookup } = router.query
-
+function Content ({ originalActivity }) {
+  const [activity, setActivity] = useState(null)
   const getFreshIMDbResults = async (retrievedActivity = {}) => {
     if (retrievedActivity && retrievedActivity.imdbID) {
       try {
@@ -47,9 +53,9 @@ function Content ({ allCollectionActivities }) {
     }
   }
 
-  const getActivity = async () => {
+  const getActivityDeets = async () => {
+    const retrievedActivity = originalActivity
     try {
-      const retrievedActivity = allCollectionActivities.find(p => p.lookup === lookup)
       if (retrievedActivity && retrievedActivity.imdb) {
         const expirationDate = retrievedActivity.imdb.expirationDate || ''
         const resultsAreFresh = new Date(expirationDate).getTime() > new Date().getTime()
@@ -69,13 +75,13 @@ function Content ({ allCollectionActivities }) {
   }
 
   useEffect(() => {
-    if (!activity.lookup || activity.lookup !== lookup) getActivity()
-  }, [lookup])
+    if (originalActivity && !activity) getActivityDeets()
+  }, [originalActivity])
 
   return (
     <Layout>
       {
-        activity.name
+        activity && activity.name
           ? (
             <>
               <ArticleHead activity={activity}/>
@@ -129,7 +135,7 @@ function Content ({ allCollectionActivities }) {
 
 Content.propTypes = {
   show: PropTypes.object,
-  allCollectionActivities: PropTypes.array,
+  originalActivity: PropTypes.object,
 }
 
 export default Content

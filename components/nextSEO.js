@@ -30,6 +30,8 @@ export default function NextSEO ({ url, title, description, canonical, noindex =
       twitter={{
         handle: '@doTonightdotcom',
         site: 'https://twitter.com/doTonightdotcom',
+        description: description || baseDescription,
+        title: usedTitle,
         cardType: 'summary_large_image',
       }}
     />

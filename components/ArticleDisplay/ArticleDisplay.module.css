@@ -11,15 +11,15 @@
 }
 
 .tocHeader {
-  width: 90%;
+  /* width: 90%; */
   margin: 0.5rem auto;
 }
 
 .toc {
-  width: 80%;
-  margin: 0 auto;
-  display: flex;
-  flex-direction: column;
+  /* width: 80%;
+  margin: 0 auto; */
+  /* display: flex;
+  flex-direction: column; */
 }
 
 .tocItem {
@@ -75,9 +75,10 @@
 
 .socialIconsDesktop {
   display: flex;
+  z-index: 2;
   flex-direction: column;
   position: fixed;
-  top: 50vh;
+  top: 40vh;
   left: 1rem;
 }
 

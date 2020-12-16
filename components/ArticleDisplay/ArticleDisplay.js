@@ -31,7 +31,7 @@ export default function ArticleDisplay ({ article, source }) {
   if (toc) {
     remainingBody.map((obj, idx) => {
       const name = obj.name || ''
-      articleHeaders.push(name)
+      name && articleHeaders.push(name)
     })
   }
 
@@ -85,15 +85,19 @@ export default function ArticleDisplay ({ article, source }) {
           ? (
             <div className={styles.tocContainer}>
               <h4 className={styles.tocHeader}>{typeof toc === 'string' ? `${toc}:` : 'Table of Contents:'}</h4>
-              <div className={styles.toc}>
+              <ol className={styles.toc}>
                 {
                   articleHeaders.map(header => {
                     return (
-                      <a href={`#${makeID(header)}`} key={header} className={styles.tocItem}>{header.split('# ')[1] || header.split('## ')[1]}</a>
+                      <li key={header}>
+                        <a href={`#${makeID(header)}`} className={styles.tocItem}>
+                          {header.split('# ')[1] || header.split('## ')[1]}
+                        </a>
+                      </li>
                     )
                   })
                 }
-              </div>
+              </ol>
             </div>
           )
           : null

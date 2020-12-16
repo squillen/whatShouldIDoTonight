@@ -14,7 +14,7 @@ export default function NextSEO ({ url, title, description, canonical, noindex =
         url,
         description: description || baseDescription,
         title: usedTitle,
-        canonical: canonical || url,
+        canonical: canonical || url || 'https://whatshouldidotonight.com',
         site_name: 'What Should I Do Tonight',
         images: [
           {

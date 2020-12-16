@@ -136,7 +136,7 @@ function GetAllEvents ({ activities, categoryInfo, source, category = '' }) {
     <Layout>
       <DefaultHead title={title} description={description} />
       <NextSEO
-        noindex={true}
+        noindex={false}
         nofollow={true}
         title={title}
         url={`https://whatshouldidotonight.com${router.asPath}`}

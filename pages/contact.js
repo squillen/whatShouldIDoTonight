@@ -95,7 +95,7 @@ export default function ContactForm () {
         <meta name="title" content={siteTitle} />
         <meta name="description" content={description} />
       </Head>
-      <NextSEO nofollow={true} noindex={true} title={siteTitle} description={description} url="https://whatshouldidotonight.com/contact" />
+      <NextSEO nofollow={true} noindex={false} title={siteTitle} description={description} url="https://whatshouldidotonight.com/contact" />
       <div className={utilStyles.contactContainer}>
         <div className={utilStyles.formContainer}>
           {/* NAME */}

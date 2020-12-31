@@ -76,7 +76,6 @@ function DoSection ({ spotlight = [], latest, all = {}, setInRedux, setDoActivit
   )
   return (
     <Layout>
-      {/* <DefaultHead title="Things to Do Tonight" description={description} /> */}
       <NextSEO
         title={siteTitle}
         description={description}

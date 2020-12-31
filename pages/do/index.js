@@ -78,7 +78,6 @@ function DoSection ({ spotlight = [], latest, all = {}, setInRedux, setDoActivit
         url="https://whatshouldidotonight.com/do"
         canonical="https://whatshouldidotonight.com"
       />
-      {/* <DefaultHead title="Things to Do Tonight" description={description} /> */}
       {
         spotlight && Array.isArray(spotlight) && spotlight.length
           ? (

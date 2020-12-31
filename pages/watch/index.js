@@ -82,7 +82,6 @@ function WatchSection ({ spotlight = [], all = {}, articles = [], setInRedux, se
         title="Things To Watch Tonight"
         description={pageDescription}
       />
-      {/* <DefaultHead title="Things To Watch Tonight" description={pageDescription} /> */}
       {
         spotlight && Array.isArray(spotlight) && spotlight.length
           ? <SplashContent content={spotlight} banner="Watch the less known" source={source} />

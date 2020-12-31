@@ -230,7 +230,6 @@
 }
 
 .itemContents {
-  width: 70%;
   margin: 0 auto;
   font-size: 1.15rem;
 }
@@ -438,10 +437,5 @@
 
   .image {
     min-width: 60%;
-  }
-
-  .itemContents {
-    width: 100%;
-    font-size: 1.;
   }
 }

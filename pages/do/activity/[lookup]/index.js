@@ -10,26 +10,16 @@ import { getActivityFromDB } from '../../../../lib/helpers/db/requests'
 import ContentDisplay from '../../../../components/ContentDisplay/ContentDisplay'
 import ArticleDisplay from '../../../../components/ArticleDisplay/ArticleDisplay'
 
-// export async function getStaticPaths () {
-//   return {
-//     paths: [
-//       { params: { lookup: '*' } },
-//     ],
-//     fallback: true,
-//   }
-// }
+export async function getStaticPaths () {
+  return {
+    paths: [
+      { params: { lookup: '*' } },
+    ],
+    fallback: true,
+  }
+}
 
-// export async function getStaticProps (context) {
-//   const lookup = context.params.lookup
-//   const activity = await getActivityFromDB('do', lookup)
-//   return {
-//     props: {
-//       activity,
-//     },
-//   }
-// }
-
-export async function getServerSideProps (context) {
+export async function getStaticProps (context) {
   const lookup = context.params.lookup
   const activity = await getActivityFromDB('do', lookup)
   return {
